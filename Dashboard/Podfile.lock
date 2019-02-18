@@ -1,0 +1,16 @@
+PODS:
+  - PinkyPromise (0.6.1)
+
+DEPENDENCIES:
+  - PinkyPromise
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PinkyPromise
+
+SPEC CHECKSUMS:
+  PinkyPromise: 472e6281b0745bdd29554d4f8976e9501a085114
+
+PODFILE CHECKSUM: 8187b521c41c6d4a73b0bae5665f86b00186267d
+
+COCOAPODS: 1.5.3

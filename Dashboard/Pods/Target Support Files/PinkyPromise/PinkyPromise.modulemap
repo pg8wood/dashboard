@@ -1,0 +1,6 @@
+framework module PinkyPromise {
+  umbrella header "PinkyPromise-umbrella.h"
+
+  export *
+  module * { export * }
+}
