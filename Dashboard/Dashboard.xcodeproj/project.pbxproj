@@ -17,9 +17,9 @@
 		B88D557D221B07FB007817A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88D557B221B07FB007817A3 /* LaunchScreen.storyboard */; };
 		B88D5588221B07FB007817A3 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5587221B07FB007817A3 /* DashboardTests.swift */; };
 		B88D5593221B07FB007817A3 /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5592221B07FB007817A3 /* DashboardUITests.swift */; };
-		B88D55A3221B1838007817A3 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B88D55A2221B1838007817A3 /* ServiceTableViewCell.xib */; };
-		B88D55A5221B1E68007817A3 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D55A4221B1E68007817A3 /* ServiceTableViewCell.swift */; };
 		B88D55A8221B3589007817A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D55A7221B3589007817A3 /* NetworkService.swift */; };
+		B88D55AF221B4B80007817A3 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */; };
+		B88D55B0221B4B80007817A3 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +60,9 @@
 		B88D558E221B07FB007817A3 /* DashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5592221B07FB007817A3 /* DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUITests.swift; sourceTree = "<group>"; };
 		B88D5594221B07FB007817A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B88D55A2221B1838007817A3 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
-		B88D55A4221B1E68007817A3 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B88D55A7221B3589007817A3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		F9EA98C8A5BD8343AEEFC858 /* Pods-Dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +137,8 @@
 				B88D5579221B07FB007817A3 /* Assets.xcassets */,
 				B88D557B221B07FB007817A3 /* LaunchScreen.storyboard */,
 				B88D557E221B07FB007817A3 /* Info.plist */,
-				B88D55A2221B1838007817A3 /* ServiceTableViewCell.xib */,
-				B88D55A4221B1E68007817A3 /* ServiceTableViewCell.swift */,
+				B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */,
+				B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B88D557D221B07FB007817A3 /* LaunchScreen.storyboard in Resources */,
-				B88D55A3221B1838007817A3 /* ServiceTableViewCell.xib in Resources */,
 				B88D557A221B07FB007817A3 /* Assets.xcassets in Resources */,
 				B88D5578221B07FA007817A3 /* Main.storyboard in Resources */,
+				B88D55B0221B4B80007817A3 /* ServiceCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,8 +393,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D55AF221B4B80007817A3 /* ServiceCollectionViewCell.swift in Sources */,
 				B88D5575221B07FA007817A3 /* ViewController.swift in Sources */,
-				B88D55A5221B1E68007817A3 /* ServiceTableViewCell.swift in Sources */,
 				B88D55A8221B3589007817A3 /* NetworkService.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 			);

@@ -9,7 +9,7 @@
 import UIKit
 import PinkyPromise
 
-class ViewController: UITableViewController {
+class ViewController: UICollectionViewController {
     
     // TODO: just for MVP. Future: let user add these, persist them
     let serviceNames = ["My website", "Google", "Always-off server"]
@@ -17,12 +17,12 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
+        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        for cell in tableView.visibleCells {
-            guard let indexPath = tableView.indexPath(for: cell), let cell = cell as? ServiceTableViewCell else {
+        for cell in collectionView.visibleCells {
+            guard let indexPath = collectionView.indexPath(for: cell), let cell = cell as? ServiceCollectionViewCell else {
                 return
             }
             
@@ -34,34 +34,36 @@ class ViewController: UITableViewController {
         }
     }
 
-    // MARK: - TableView data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    // MARK: - CollectionView data source
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return serviceURLs.count
     }
     
-    // MARK: - UITableViewDelegate
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell", for: indexPath) as! ServiceTableViewCell
-        cell.serviceImageView.image = UIImage(named: "ghost")
-        cell.serviceNameLabel.text = serviceNames[indexPath.row]
+    // MARK: - UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
+        cell.logoImageView.image = UIImage(named: "ghost")
+        cell.nameLabel.text = serviceNames[indexPath.row]
         cell.statusImageView.image = UIImage(named: "server-error")
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NetworkService.fetchServerStatus(url: serviceURLs[indexPath.row]).call { [weak self] result in
             DispatchQueue.main.async {
-                let cell = self?.tableView.cellForRow(at: indexPath) as! ServiceTableViewCell
+                let cell = self?.collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
                 self?.onServiceStatusResult(result, for: cell)
             }
         }
     }
     
-    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceTableViewCell) {
+    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
         do {
             let _ = try result.value()
             cell.statusImageView.image = UIImage(named: "check")
@@ -70,3 +72,9 @@ class ViewController: UITableViewController {
         }
     }
 }
+
+//extension ViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//    }
+//}
