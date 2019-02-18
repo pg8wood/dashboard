@@ -375,10 +375,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FavIcon/FavIcon.framework",
 				"${BUILT_PRODUCTS_DIR}/PinkyPromise/PinkyPromise.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FavIcon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinkyPromise.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,19 @@ class ViewController: UICollectionViewController {
                 return
             }
             
-            NetworkService.fetchServerStatus(url: serviceURLs[indexPath.row]).call { [weak self] result in
+            let url = serviceURLs[indexPath.row]
+            
+            // TODO: do this only when the user adds the service for the first time. Also let them change this image.
+            NetworkService.fetchFavicon(for: url).call { result in
+                do {
+                    let favicon = try result.value()
+                    cell.logoImageView.image = favicon
+                } catch {
+                    cell.logoImageView.image = UIImage(named: "ghost")
+                }
+            }
+            
+            NetworkService.fetchServerStatus(url: url).call { [weak self] result in
                 DispatchQueue.main.async {
                     self?.onServiceStatusResult(result, for: cell)
                 }

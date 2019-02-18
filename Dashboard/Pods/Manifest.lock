@@ -1,16 +1,20 @@
 PODS:
+  - FavIcon (3.0.6)
   - PinkyPromise (0.6.1)
 
 DEPENDENCIES:
+  - FavIcon
   - PinkyPromise
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FavIcon
     - PinkyPromise
 
 SPEC CHECKSUMS:
+  FavIcon: a8a24a1e13361352098b8be915dd2a6af4429752
   PinkyPromise: 472e6281b0745bdd29554d4f8976e9501a085114
 
-PODFILE CHECKSUM: 8187b521c41c6d4a73b0bae5665f86b00186267d
+PODFILE CHECKSUM: 610bb63ab7b8946a4dc60a71e1df533c53aa77ea
 
 COCOAPODS: 1.5.3

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FavIcon
 import PinkyPromise
 
 public enum NetworkError: Error {
@@ -40,6 +41,27 @@ public class NetworkService {
             }
             
             task.resume()
+        }
+    }
+    
+    public static func fetchFavicon(for url: String) -> Promise<UIImage> {
+        return Promise { fulfill in
+            do {
+                try FavIcon.downloadPreferred(url) { result in
+                    // Hmmm... mixing 2 promimse/result libraries here?
+                    // TODO: Investigate. This looks kinda code smelly
+                    if case let .success(image) = result {
+                        fulfill(.success(image))
+                        return
+                    } else if case let .failure(error) = result {
+                        print("failed to download preferred favicon for \(url): \(error)")
+                        fulfill(.failure(error))
+                    }
+                }
+            } catch let error {
+                print("failed to download preferred favicon for \(url): \(error)")
+                fulfill(.failure(error))
+            }
         }
     }
 }

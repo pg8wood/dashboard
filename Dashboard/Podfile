@@ -5,9 +5,10 @@ target 'Dashboard' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'PinkyPromise'
-
   # Pods for Dashboard
+  pod 'PinkyPromise'
+  pod 'FavIcon'
+
 
   target 'DashboardTests' do
     inherit! :search_paths

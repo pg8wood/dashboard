@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
@@ -15,7 +16,5 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
