@@ -16,7 +16,7 @@ public enum NetworkError: Error {
 
 public class NetworkService {
     
-    public static func isServerUp(url: String) -> Promise<Int> {
+    public static func fetchServerStatus(url: String) -> Promise<Int> {
         guard let url = URL(string: url) else {
             return Promise(error: NetworkError.InvalidUrl)
         }
@@ -27,15 +27,19 @@ public class NetworkService {
         return Promise { fulfill in
             let task = URLSession.shared.dataTask(with: request) { (_ data, response, error) in
                 if let error = error {
+                    print("bad url")
                     fulfill(.failure(error))
+                    return
                 }
                 
                 // TODO: is this possible?
                 guard let response = response as? HTTPURLResponse else {
+                    print("no response")
                     fulfill(.failure(NetworkError.NoResponse))
                     return
                 }
                 
+                print("up")
                 fulfill(.success(response.statusCode))
             }
             
