@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="111"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-DE-agA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-DE-agA">
                         <rect key="frame" x="10" y="10" width="100" height="91"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="ogX-4d-qrq"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
-                        <rect key="frame" x="237" y="45" width="143" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
+                        <rect key="frame" x="237" y="45.5" width="143" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,6 +42,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Aj-t8-to7"/>
+                <constraint firstItem="9mm-Qf-BgE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIt-pS-KJu" secondAttribute="trailing" constant="5" id="EdQ-bB-EQS"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MUc-te-VxN"/>
                 <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="tTM-DE-agA" secondAttribute="trailing" constant="5" id="OqH-Ma-V7j"/>
                 <constraint firstAttribute="bottom" secondItem="FIt-pS-KJu" secondAttribute="bottom" constant="10" id="VWi-3r-Ytb"/>

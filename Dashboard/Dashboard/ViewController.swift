@@ -12,8 +12,8 @@ import PinkyPromise
 class ViewController: UICollectionViewController {
     
     // TODO: just for MVP. Future: let user add these, persist them
-    let serviceNames = ["My website", "Google", "Always-off server"]
-    let serviceURLs = ["https://patrickgatewood.com", "https://google.com", "https://fafhsdkfhdauiwhiufaehrg.com"]
+    let serviceNames = ["My website", "Apple", "Always-off server", "Discord Assistant Bot"]
+    let serviceURLs = ["https://patrickgatewood.com", "https://apple.com", "https://fafhsdkfhdauiwhiufaehrg.com", "https://assistant.google.com"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,10 @@ class ViewController: UICollectionViewController {
                     let favicon = try result.value()
                     cell.logoImageView.image = favicon
                     
-                    // TODO: if the imageView is made smaller, this won't be necessary
-                    let frameSize = cell.logoImageView.frame.size
-                    let shouldCenterImage = frameSize.width > favicon.size.width && frameSize.height > favicon.size.width
-                    cell.logoImageView.contentMode = shouldCenterImage ? .center : .scaleAspectFit
-        
+                    // If an image is more than twice as wide as it is tall, ensure it doesn't get
+                    // clipped to oblivion
+                    let shouldScaleImage = favicon.size.width / favicon.size.height > 2
+                    cell.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFit : .scaleAspectFill
                 } catch {
                     cell.logoImageView.image = UIImage(named: "missing-image")
                 }
@@ -71,16 +70,12 @@ class ViewController: UICollectionViewController {
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = true
-        
-//        cell.layer.borderWidth = 1.0
-//        cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.shadowColor = UIColor.lightGray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cell.layer.shadowRadius = 6.0
         cell.layer.shadowOpacity = 0.25
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.layer.cornerRadius).cgPath
-//        cell.layer.backgroundColor = UIColor.clear.cgColor
         return cell
     }
     
@@ -102,9 +97,3 @@ class ViewController: UICollectionViewController {
         }
     }
 }
-
-//extension ViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//    }
-//}

@@ -47,9 +47,7 @@ public class NetworkService {
     public static func fetchFavicon(for url: String) -> Promise<UIImage> {
         return Promise { fulfill in
             do {
-                try FavIcon.downloadPreferred(url) { result in
-                    // Hmmm... mixing 2 promimse/result libraries here?
-                    // TODO: Investigate. This looks kinda code smelly
+                try FavIcon.downloadPreferred(url, width: 500, height: 500) { result in
                     if case let .success(image) = result {
                         fulfill(.success(image))
                         return
