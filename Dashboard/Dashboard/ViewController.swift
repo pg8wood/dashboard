@@ -40,7 +40,7 @@ class ViewController: UICollectionViewController {
                     cell.logoImageView.contentMode = shouldCenterImage ? .center : .scaleAspectFit
         
                 } catch {
-                    cell.logoImageView.image = UIImage(named: "ghost")
+                    cell.logoImageView.image = UIImage(named: "missing-image")
                 }
             }
             
@@ -66,7 +66,7 @@ class ViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
-        cell.logoImageView.image = UIImage(named: "ghost")
+        cell.logoImageView.image = UIImage(named: "missing-image")
         cell.nameLabel.text = serviceNames[indexPath.row]
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20

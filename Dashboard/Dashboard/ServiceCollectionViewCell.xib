@@ -19,40 +19,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="111"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-DE-agA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-DE-agA">
                         <rect key="frame" x="10" y="10" width="100" height="91"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="ogX-4d-qrq"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="p4Y-5h-GUT"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
-                        <rect key="frame" x="290" y="11" width="100" height="89.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="GCa-kD-vry"/>
-                            <constraint firstAttribute="height" constant="89.5" id="YSH-Np-HrA"/>
-                            <constraint firstAttribute="width" constant="100" id="nPM-Td-DBY"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="tHM-go-Y57"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="ogX-4d-qrq"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
-                        <rect key="frame" x="118" y="45" width="164" height="21"/>
+                        <rect key="frame" x="237" y="45" width="143" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
+                        <rect key="frame" x="115" y="10" width="40" height="91"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="nPM-Td-DBY"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="9mm-Qf-BgE" secondAttribute="trailing" constant="8" id="43S-nc-ZAH"/>
-                <constraint firstItem="9mm-Qf-BgE" firstAttribute="leading" secondItem="tTM-DE-agA" secondAttribute="trailing" constant="8" id="6bo-oE-5f5"/>
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Aj-t8-to7"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MUc-te-VxN"/>
+                <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="tTM-DE-agA" secondAttribute="trailing" constant="5" id="OqH-Ma-V7j"/>
+                <constraint firstAttribute="bottom" secondItem="FIt-pS-KJu" secondAttribute="bottom" constant="10" id="VWi-3r-Ytb"/>
                 <constraint firstAttribute="bottom" secondItem="tTM-DE-agA" secondAttribute="bottom" constant="10" id="bAb-Qp-VqD"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="czP-fM-vkg"/>
+                <constraint firstItem="FIt-pS-KJu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="fsK-jg-EL4"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="hqk-JD-XP1"/>
-                <constraint firstAttribute="trailing" secondItem="FIt-pS-KJu" secondAttribute="trailing" constant="10" id="qxi-od-LHC"/>
+                <constraint firstAttribute="trailing" secondItem="9mm-Qf-BgE" secondAttribute="trailing" constant="20" id="ptD-Iq-zbV"/>
                 <constraint firstItem="FIt-pS-KJu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="tJG-lF-98h"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -66,7 +63,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ghost" width="128" height="128"/>
+        <image name="missing-image" width="128" height="128"/>
         <image name="server-error" width="512" height="512"/>
     </resources>
 </document>
