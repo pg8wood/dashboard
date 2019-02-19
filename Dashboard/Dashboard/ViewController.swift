@@ -33,6 +33,12 @@ class ViewController: UICollectionViewController {
                 do {
                     let favicon = try result.value()
                     cell.logoImageView.image = favicon
+                    
+                    // TODO: if the imageView is made smaller, this won't be necessary
+                    let frameSize = cell.logoImageView.frame.size
+                    let shouldCenterImage = frameSize.width > favicon.size.width && frameSize.height > favicon.size.width
+                    cell.logoImageView.contentMode = shouldCenterImage ? .center : .scaleAspectFit
+        
                 } catch {
                     cell.logoImageView.image = UIImage(named: "ghost")
                 }
@@ -63,6 +69,18 @@ class ViewController: UICollectionViewController {
         cell.logoImageView.image = UIImage(named: "ghost")
         cell.nameLabel.text = serviceNames[indexPath.row]
         cell.statusImageView.image = UIImage(named: "server-error")
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
+        
+//        cell.layer.borderWidth = 1.0
+//        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.layer.shadowRadius = 6.0
+        cell.layer.shadowOpacity = 0.25
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.layer.cornerRadius).cgPath
+//        cell.layer.backgroundColor = UIColor.clear.cgColor
         return cell
     }
     

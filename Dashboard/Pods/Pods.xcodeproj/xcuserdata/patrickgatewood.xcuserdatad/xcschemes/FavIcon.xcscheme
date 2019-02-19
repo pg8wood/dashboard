@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51AF4F841DC49E5F44EB9CCCD8659EC8"
+               BlueprintIdentifier = "A474267539502A349319CAA48B485E1A"
                BlueprintName = "FavIcon"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "FavIcon.framework">

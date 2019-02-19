@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6C5FA75F618AF790D32E324A8A57E"
+               BlueprintIdentifier = "CC79A9C684ABDD316035DEF46BF644B5"
                BlueprintName = "PinkyPromise"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "PinkyPromise.framework">
