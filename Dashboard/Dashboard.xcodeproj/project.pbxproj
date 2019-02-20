@@ -10,6 +10,7 @@
 		181635E1DEA410B89E2C66D7 /* Pods_Dashboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */; };
 		609D2A4B16370895BE203CD7 /* Pods_DashboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
+		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
 		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
 		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
@@ -50,6 +51,7 @@
 		44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DashboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3C17976C2C6C5F1DE8BD15 /* Pods-DashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardUITests/Pods-DashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 				237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B87F22F2221E1344005BD677 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B87F22F3221E135D005BD677 /* StringUtils.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B881D23D221DC94E0038BF81 /* Features */ = {
@@ -186,6 +196,7 @@
 			children = (
 				B881D23D221DC94E0038BF81 /* Features */,
 				B881D249221DC94F0038BF81 /* Network */,
+				B87F22F2221E1344005BD677 /* Utilities */,
 				B881D245221DC94E0038BF81 /* Supporting Files */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
 			);
@@ -438,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
@@ -608,7 +620,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -627,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
