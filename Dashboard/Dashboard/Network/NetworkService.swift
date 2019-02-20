@@ -52,12 +52,10 @@ public class NetworkService {
                         fulfill(.success(image))
                         return
                     } else if case let .failure(error) = result {
-                        print("failed to download preferred favicon for \(url): \(error)")
                         fulfill(.failure(error))
                     }
                 }
             } catch let error {
-                print("failed to download preferred favicon for \(url): \(error)")
                 fulfill(.failure(error))
             }
         }
