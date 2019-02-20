@@ -9,7 +9,9 @@
 import UIKit
 import PinkyPromise
 
-class ViewController: UICollectionViewController {
+class ViewController: UIViewController {
+    
+    @IBOutlet var collectionView: UICollectionView!
     
     // TODO: just for MVP. Future: let user add these, persist them
     let serviceNames = ["My website", "Apple", "Always-off server", "Discord Assistant Bot"]
@@ -18,6 +20,11 @@ class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Hides the navigationBar's separator
+        navigationController?.navigationBar.clipsToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,20 +57,41 @@ class ViewController: UICollectionViewController {
             }
         }
     }
+    
+    // MARK: - IBActions
 
-    // MARK: - CollectionView data source
+    @IBAction func addService(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func editServices(_ sender: UIBarButtonItem) {
+    }
+    
+    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
+        do {
+            let _ = try result.value()
+            cell.statusImageView.image = UIImage(named: "check")
+        } catch {
+            cell.statusImageView.image = UIImage(named: "server-error")
+        }
+    }
+}
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+// MARK: - UICollectionViewDataSource
+extension ViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return serviceURLs.count
     }
+}
+
+// MARK: - UICollectionViewDelegate
+extension ViewController: UICollectionViewDelegate {
     
-    // MARK: - UICollectionViewDelegate
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
         cell.logoImageView.image = UIImage(named: "missing-image")
         cell.nameLabel.text = serviceNames[indexPath.row]
@@ -79,21 +107,12 @@ class ViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NetworkService.fetchServerStatus(url: serviceURLs[indexPath.row]).call { [weak self] result in
             DispatchQueue.main.async {
-                let cell = self?.collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
+                let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
                 self?.onServiceStatusResult(result, for: cell)
             }
-        }
-    }
-    
-    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
-        do {
-            let _ = try result.value()
-            cell.statusImageView.image = UIImage(named: "check")
-        } catch {
-            cell.statusImageView.image = UIImage(named: "server-error")
         }
     }
 }
