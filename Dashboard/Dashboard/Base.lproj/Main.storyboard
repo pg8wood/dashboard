@@ -62,7 +62,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="edU-Dx-HQl">
                             <connections>
                                 <action selector="addService:" destination="kvi-1f-j9m" id="vf7-MJ-bx2"/>
-                                <segue destination="j7Y-iU-rHl" kind="presentation" id="h1N-Y3-oDx"/>
+                                <segue destination="j7Y-iU-rHl" kind="presentation" id="3QX-Bh-HTe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -89,7 +89,13 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <navigationItem title="New Service" id="xNE-tm-qVH"/>
+                                    <navigationItem title="New Service" id="xNE-tm-qVH">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="XK9-GZ-pVt">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="j7Y-iU-rHl" id="mfM-Ik-eFp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="p2w-il-3ou">
