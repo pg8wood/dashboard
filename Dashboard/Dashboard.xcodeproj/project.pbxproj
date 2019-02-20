@@ -11,7 +11,8 @@
 		609D2A4B16370895BE203CD7 /* Pods_DashboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
 		B87F22DF221D0CEB005BD677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87F22DE221D0CEB005BD677 /* LaunchScreen.storyboard */; };
-		B87F22E5221D0DA9005BD677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87F22E3221D0DA9005BD677 /* Main.storyboard */; };
+		B87F22E8221D0E15005BD677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87F22E6221D0E15005BD677 /* Main.storyboard */; };
+		B87F22EB221D0E92005BD677 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */; };
 		B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5572221B07FA007817A3 /* AppDelegate.swift */; };
 		B88D5575221B07FA007817A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5574221B07FA007817A3 /* ViewController.swift */; };
 		B88D557A221B07FB007817A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88D5579221B07FB007817A3 /* Assets.xcassets */; };
@@ -48,7 +49,8 @@
 		6D3C17976C2C6C5F1DE8BD15 /* Pods-DashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardUITests/Pods-DashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87F22DE221D0CEB005BD677 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B87F22E4221D0DA9005BD677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B87F22E7221D0E15005BD677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
 		B88D556F221B07FA007817A3 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5572221B07FA007817A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88D5574221B07FA007817A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */,
 				B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */,
 				B88D5574221B07FA007817A3 /* ViewController.swift */,
+				B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */,
 			);
 			name = Home;
 			path = "../New Group";
@@ -161,7 +164,7 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B87F22E3221D0DA9005BD677 /* Main.storyboard */,
+				B87F22E6221D0E15005BD677 /* Main.storyboard */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
 				B87F22DC221D0A64005BD677 /* Features */,
 				B88D55A6221B3469007817A3 /* Network */,
@@ -320,7 +323,7 @@
 				B88D557A221B07FB007817A3 /* Assets.xcassets in Resources */,
 				B87F22DF221D0CEB005BD677 /* LaunchScreen.storyboard in Resources */,
 				B88D55B0221B4B80007817A3 /* ServiceCollectionViewCell.xib in Resources */,
-				B87F22E5221D0DA9005BD677 /* Main.storyboard in Resources */,
+				B87F22E8221D0E15005BD677 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B88D55AF221B4B80007817A3 /* ServiceCollectionViewCell.swift in Sources */,
+				B87F22EB221D0E92005BD677 /* AddServiceViewController.swift in Sources */,
 				B88D5575221B07FA007817A3 /* ViewController.swift in Sources */,
 				B88D55A8221B3589007817A3 /* NetworkService.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
@@ -461,10 +465,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B87F22E3221D0DA9005BD677 /* Main.storyboard */ = {
+		B87F22E6221D0E15005BD677 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B87F22E4221D0DA9005BD677 /* Base */,
+				B87F22E7221D0E15005BD677 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
