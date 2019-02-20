@@ -9,7 +9,7 @@
 import UIKit
 import PinkyPromise
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -60,6 +60,10 @@ class ViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addService(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
+        let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController")
+        
+        present(addServiceViewController, animated: true)
     }
     
     @IBAction func editServices(_ sender: UIBarButtonItem) {
@@ -76,7 +80,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension ViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -88,7 +92,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension ViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell

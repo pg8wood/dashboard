@@ -10,17 +10,19 @@
 		181635E1DEA410B89E2C66D7 /* Pods_Dashboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */; };
 		609D2A4B16370895BE203CD7 /* Pods_DashboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
-		B87F22DF221D0CEB005BD677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87F22DE221D0CEB005BD677 /* LaunchScreen.storyboard */; };
-		B87F22E8221D0E15005BD677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87F22E6221D0E15005BD677 /* Main.storyboard */; };
-		B87F22EB221D0E92005BD677 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */; };
+		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
+		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
+		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
+		B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D242221DC94E0038BF81 /* Main.storyboard */; };
+		B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
+		B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D244221DC94E0038BF81 /* AddServiceViewController.swift */; };
+		B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */; };
+		B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
+		B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* NetworkService.swift */; };
+		B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */; };
 		B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5572221B07FA007817A3 /* AppDelegate.swift */; };
-		B88D5575221B07FA007817A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5574221B07FA007817A3 /* ViewController.swift */; };
-		B88D557A221B07FB007817A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88D5579221B07FB007817A3 /* Assets.xcassets */; };
 		B88D5588221B07FB007817A3 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5587221B07FB007817A3 /* DashboardTests.swift */; };
 		B88D5593221B07FB007817A3 /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5592221B07FB007817A3 /* DashboardUITests.swift */; };
-		B88D55A8221B3589007817A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D55A7221B3589007817A3 /* NetworkService.swift */; };
-		B88D55AF221B4B80007817A3 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */; };
-		B88D55B0221B4B80007817A3 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,23 +50,25 @@
 		44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DashboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3C17976C2C6C5F1DE8BD15 /* Pods-DashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardUITests/Pods-DashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B87F22DE221D0CEB005BD677 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B87F22E7221D0E15005BD677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
+		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
+		B881D242221DC94E0038BF81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		B881D244221DC94E0038BF81 /* AddServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
+		B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B881D247221DC94E0038BF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B881D248221DC94E0038BF81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B881D24A221DC94F0038BF81 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
 		B88D556F221B07FA007817A3 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5572221B07FA007817A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B88D5574221B07FA007817A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
-		B88D5579221B07FB007817A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		B88D557E221B07FB007817A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B88D5583221B07FB007817A3 /* DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5587221B07FB007817A3 /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
 		B88D5589221B07FB007817A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B88D558E221B07FB007817A3 /* DashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5592221B07FB007817A3 /* DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUITests.swift; sourceTree = "<group>"; };
 		B88D5594221B07FB007817A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B88D55A7221B3589007817A3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceCollectionViewCell.swift; path = ../ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
-		B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ServiceCollectionViewCell.xib; path = ../ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		F9EA98C8A5BD8343AEEFC858 /* Pods-Dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,36 +111,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B87F22DB221D09AB005BD677 /* Home */ = {
+		B881D23D221DC94E0038BF81 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B88D55AD221B4B80007817A3 /* ServiceCollectionViewCell.swift */,
-				B88D55AE221B4B80007817A3 /* ServiceCollectionViewCell.xib */,
-				B88D5574221B07FA007817A3 /* ViewController.swift */,
-				B87F22EA221D0E92005BD677 /* AddServiceViewController.swift */,
+				B881D23E221DC94E0038BF81 /* Home */,
 			);
-			name = Home;
-			path = "../New Group";
+			path = Features;
 			sourceTree = "<group>";
 		};
-		B87F22DC221D0A64005BD677 /* Features */ = {
+		B881D23E221DC94E0038BF81 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B87F22DB221D09AB005BD677 /* Home */,
+				B881D242221DC94E0038BF81 /* Main.storyboard */,
+				B881D240221DC94E0038BF81 /* HomeViewController.swift */,
+				B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */,
+				B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */,
+				B881D241221DC94E0038BF81 /* EmptyTableView.xib */,
+				B881D257221DCC630038BF81 /* AddService */,
 			);
-			name = Features;
-			path = "New Group1";
+			path = Home;
 			sourceTree = "<group>";
 		};
-		B87F22DD221D0AB9005BD677 /* Supporting Files */ = {
+		B881D245221DC94E0038BF81 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B88D557E221B07FB007817A3 /* Info.plist */,
-				B87F22DE221D0CEB005BD677 /* LaunchScreen.storyboard */,
-				B88D5579221B07FB007817A3 /* Assets.xcassets */,
+				B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */,
+				B881D247221DC94E0038BF81 /* Assets.xcassets */,
+				B881D248221DC94E0038BF81 /* Info.plist */,
 			);
-			name = "Supporting Files";
-			path = "New Group2";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B881D249221DC94F0038BF81 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B881D24A221DC94F0038BF81 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B881D257221DCC630038BF81 /* AddService */ = {
+			isa = PBXGroup;
+			children = (
+				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
+				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+			);
+			path = AddService;
 			sourceTree = "<group>";
 		};
 		B88D5566221B07FA007817A3 = {
@@ -164,11 +184,10 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B87F22E6221D0E15005BD677 /* Main.storyboard */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
-				B87F22DC221D0A64005BD677 /* Features */,
-				B88D55A6221B3469007817A3 /* Network */,
-				B87F22DD221D0AB9005BD677 /* Supporting Files */,
+				B881D23D221DC94E0038BF81 /* Features */,
+				B881D249221DC94F0038BF81 /* Network */,
+				B881D245221DC94E0038BF81 /* Supporting Files */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -189,14 +208,6 @@
 				B88D5594221B07FB007817A3 /* Info.plist */,
 			);
 			path = DashboardUITests;
-			sourceTree = "<group>";
-		};
-		B88D55A6221B3469007817A3 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				B88D55A7221B3589007817A3 /* NetworkService.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
@@ -320,10 +331,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B88D557A221B07FB007817A3 /* Assets.xcassets in Resources */,
-				B87F22DF221D0CEB005BD677 /* LaunchScreen.storyboard in Resources */,
-				B88D55B0221B4B80007817A3 /* ServiceCollectionViewCell.xib in Resources */,
-				B87F22E8221D0E15005BD677 /* Main.storyboard in Resources */,
+				B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */,
+				B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */,
+				B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */,
+				B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */,
+				B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */,
+				B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +438,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B88D55AF221B4B80007817A3 /* ServiceCollectionViewCell.swift in Sources */,
-				B87F22EB221D0E92005BD677 /* AddServiceViewController.swift in Sources */,
-				B88D5575221B07FA007817A3 /* ViewController.swift in Sources */,
-				B88D55A8221B3589007817A3 /* NetworkService.swift in Sources */,
+				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
+				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
+				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
+				B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,17 +476,6 @@
 			targetProxy = B88D558F221B07FB007817A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B87F22E6221D0E15005BD677 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B87F22E7221D0E15005BD677 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B88D5595221B07FB007817A3 /* Debug */ = {
@@ -599,7 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
-				INFOPLIST_FILE = Dashboard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,7 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
-				INFOPLIST_FILE = Dashboard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
