@@ -50,11 +50,11 @@
                                                     <action selector="urlTextFieldEditingDidEnd:" destination="dyp-ae-97u" eventType="editingDidEnd" id="YVo-ek-JnH"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psI-iQ-z7E">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psI-iQ-z7E">
                                                 <rect key="frame" x="0.0" y="42" width="225" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -85,6 +85,8 @@
                     </view>
                     <connections>
                         <outlet property="logoImageView" destination="8zx-5H-8yK" id="UTr-I8-ykq"/>
+                        <outlet property="nameTextField" destination="psI-iQ-z7E" id="H3V-Lb-Njx"/>
+                        <outlet property="serviceUrlTextField" destination="CsI-sV-SYL" id="koD-hd-2iU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msO-sV-e5x" userLabel="First Responder" sceneMemberID="firstResponder"/>

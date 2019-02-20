@@ -9,12 +9,15 @@
 import UIKit
 
 class AddServiceViewController: UIViewController {
+    @IBOutlet weak var serviceUrlTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        serviceUrlTextField.delegate = self
+        nameTextField.delegate = self
     }
-    
     
     @IBAction func urlTextFieldEditingDidEnd(_ sender: UITextField) {
         guard let url = sender.text else {
@@ -38,5 +41,18 @@ class AddServiceViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddServiceViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Search for next first responder
+        if let nextTextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return false
     }
 }
