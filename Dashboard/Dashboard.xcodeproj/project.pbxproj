@@ -184,10 +184,10 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
 				B881D23D221DC94E0038BF81 /* Features */,
 				B881D249221DC94F0038BF81 /* Network */,
 				B881D245221DC94E0038BF81 /* Supporting Files */,
+				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";

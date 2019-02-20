@@ -14,6 +14,11 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
+    @IBAction func urlTextFieldEditingDidEnd(_ sender: UITextField) {
+        
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
