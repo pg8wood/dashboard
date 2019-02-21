@@ -13,6 +13,8 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
     
+    private var persistenceClient = PersistenceClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         serviceUrlTextField.delegate = self
@@ -41,6 +43,17 @@ class AddServiceViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        guard let name = nameTextField.text,
+            let url = serviceUrlTextField.text,
+            let image = logoImageView.image else {
+            // TODO handle error
+            return
+        }
+        
+        persistenceClient.save(newService: ServiceModel(name: name, url: url, image: image))
     }
 }
 

@@ -32,6 +32,11 @@
                                                 <action selector="cancelButtonTapped:" destination="dyp-ae-97u" id="fAV-ic-jXw"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gJJ-E9-lc4">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="dyp-ae-97u" id="9Ii-XA-Zmd"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
