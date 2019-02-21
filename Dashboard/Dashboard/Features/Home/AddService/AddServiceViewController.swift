@@ -31,7 +31,7 @@ class AddServiceViewController: UIViewController {
                 
                 // If an image is more than twice as wide as it is tall, ensure it doesn't get
                 // clipped to oblivion
-                let shouldScaleImage = favicon.size.width / favicon.size.height > 2
+                let shouldScaleImage = favicon.size.width / favicon.size.height > 1.5 
                 self?.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFit : .scaleAspectFill
             } catch {
                 self?.logoImageView.image = UIImage(named: "missing-image")
