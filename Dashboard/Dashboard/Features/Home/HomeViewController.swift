@@ -13,9 +13,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    // TODO: just for MVP. Future: let user add these, persist them
-    let serviceNames = ["My website", "Apple", "Always-off server", "Discord Assistant Bot"]
-    let serviceURLs = ["https://patrickgatewood.com", "https://apple.com", "https://fafhsdkfhdauiwhiufaehrg.com", "https://assistant.google.com"]
+    var serviceNames = ["My website", "Apple", "Always-off server", "Discord Assistant Bot"]
+    var serviceURLs = ["https://patrickgatewood.com", "https://apple.com", "https://fafhsdkfhdauiwhiufaehrg.com", "https://assistant.google.com"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +58,15 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func addService(_ sender: UIBarButtonItem) {
+    @IBAction func addServiceTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
-        let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController")
+        let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
+        addServiceViewController.newServiceDelegate = self
         
         present(addServiceViewController, animated: true)
     }
     
-    @IBAction func editServices(_ sender: UIBarButtonItem) {
+    @IBAction func editServicesTapped(_ sender: UIBarButtonItem) {
     }
     
     func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
@@ -117,5 +117,13 @@ extension HomeViewController: UICollectionViewDelegate {
                 self?.onServiceStatusResult(result, for: cell)
             }
         }
+    }
+}
+
+extension HomeViewController: NewServiceDelegate {
+    func onSaved(newService: ServiceModel) {
+        serviceNames.insert(newService.name, at: 0)
+        serviceURLs.insert(newService.url, at: 0)
+        collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
     }
 }

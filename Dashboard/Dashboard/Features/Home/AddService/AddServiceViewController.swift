@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol NewServiceDelegate {
+    func onSaved(newService: ServiceModel)
+}
+
 class AddServiceViewController: UIViewController {
     @IBOutlet weak var serviceUrlTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
+    
+    public var newServiceDelegate: NewServiceDelegate?
     
     private var persistenceClient = PersistenceClient()
     
@@ -53,7 +59,11 @@ class AddServiceViewController: UIViewController {
             return
         }
         
-        persistenceClient.save(newService: ServiceModel(name: name, url: url, image: image))
+        let service = ServiceModel(name: name, url: url, image: image)
+        persistenceClient.save(newService: service)
+        newServiceDelegate?.onSaved(newService: service)
+        
+        dismiss(animated: true, completion: nil)
     }
 }
 
