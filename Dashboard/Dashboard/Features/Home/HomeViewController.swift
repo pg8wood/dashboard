@@ -14,10 +14,12 @@ class HomeViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     var services: [ServiceModel] = []
+    var database: Database = PersistenceClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+        services = database.getStoredServices().reversed()
     }
     
     override func viewWillAppear(_ animated: Bool) {
