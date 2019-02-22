@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol NewServiceDelegate {
     func onSaved(newService: ServiceModel)
@@ -19,6 +20,7 @@ class AddServiceViewController: UIViewController {
     
     public var newServiceDelegate: NewServiceDelegate?
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var persistenceClient = PersistenceClient()
     
     override func viewDidLoad() {
@@ -59,8 +61,13 @@ class AddServiceViewController: UIViewController {
             return
         }
         
-        let service = ServiceModel(name: name, url: url, image: image)
-        persistenceClient.save(newService: service)
+        // TODO save image and use url
+        let imageUrl = ""
+        
+        let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
+        service.populate(name: name, url: url, imageUrl: imageUrl)
+        
+//        persistenceClient.save(newService: service)
         newServiceDelegate?.onSaved(newService: service)
         
         dismiss(animated: true, completion: nil)

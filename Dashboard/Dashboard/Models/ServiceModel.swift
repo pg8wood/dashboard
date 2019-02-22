@@ -6,17 +6,21 @@
 //  Copyright © 2019 Patrick Gatewood. All rights reserved.
 //
 
-import UIKit
+import CoreData
 
-public class ServiceModel {
+@objc(ServiceModel)
+public class ServiceModel: NSManagedObject {
+    static var entityName: String {
+        return String(describing: self)
+    }
     
-    public var name: String
-    public var url: String
-    public var image: UIImage
+    @NSManaged var name: String
+    @NSManaged var url: String
+    @NSManaged var imagePath: String
     
-    init(name: String, url: String, image: UIImage) {
+    func populate(name: String, url: String, imageUrl: String) {
         self.name = name
         self.url = url
-        self.image = image
+        self.imagePath = imageUrl
     }
 }

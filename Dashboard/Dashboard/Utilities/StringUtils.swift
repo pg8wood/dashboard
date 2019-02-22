@@ -17,6 +17,7 @@ public class StringUtils {
         
         let protocolString = "https://"
         var httpsUrl: String
+        
         if url.starts(with: "http://") {
             // Swift 4 strings... wow
             let index = url.index(after: url.index(url.startIndex, offsetBy: protocolString.count))

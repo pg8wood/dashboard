@@ -13,8 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var serviceNames = ["My website", "Apple", "Always-off server", "Discord Assistant Bot"]
-    var serviceURLs = ["https://patrickgatewood.com", "https://apple.com", "https://fafhsdkfhdauiwhiufaehrg.com", "https://assistant.google.com"]
+    var services: [ServiceModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +31,10 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            let url = serviceURLs[indexPath.row]
+            let serviceUrl = services[indexPath.row].url
             
             // TODO: do this only when the user adds the service for the first time. Also let them change this image.
-            NetworkService.fetchFavicon(for: url).call { result in
+            NetworkService.fetchFavicon(for: serviceUrl).call { result in
                 do {
                     let favicon = try result.value()
                     cell.logoImageView.image = favicon
@@ -49,7 +48,7 @@ class HomeViewController: UIViewController {
                 }
             }
             
-            NetworkService.fetchServerStatus(url: url).call { [weak self] result in
+            NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
                 DispatchQueue.main.async {
                     self?.onServiceStatusResult(result, for: cell)
                 }
@@ -87,7 +86,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return serviceURLs.count
+        return services.count
     }
 }
 
@@ -97,21 +96,15 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
         cell.logoImageView.image = UIImage(named: "missing-image")
-        cell.nameLabel.text = serviceNames[indexPath.row]
+        cell.nameLabel.text = services[indexPath.row].name
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
-        cell.layer.masksToBounds = true
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.layer.shadowRadius = 6.0
-        cell.layer.shadowOpacity = 0.25
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.layer.cornerRadius).cgPath
+        cell.addShadow()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NetworkService.fetchServerStatus(url: serviceURLs[indexPath.row]).call { [weak self] result in
+        NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
             DispatchQueue.main.async {
                 let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
                 self?.onServiceStatusResult(result, for: cell)
@@ -120,10 +113,10 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - NewServiceDelegate
 extension HomeViewController: NewServiceDelegate {
     func onSaved(newService: ServiceModel) {
-        serviceNames.insert(newService.name, at: 0)
-        serviceURLs.insert(newService.url, at: 0)
+        services.insert(newService, at: 0)
         collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
     }
 }

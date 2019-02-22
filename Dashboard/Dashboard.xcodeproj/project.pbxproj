@@ -13,6 +13,8 @@
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
+		B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
+		B87F2300221F855F005BD677 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FF221F855F005BD677 /* UIViewExtensions.swift */; };
 		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
 		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
 		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
@@ -56,6 +58,8 @@
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Services.xcdatamodel; sourceTree = "<group>"; };
+		B87F22FF221F855F005BD677 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = "Dashboard/New Group1/New Group/UIViewExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				B87F22F6221E6160005BD677 /* Persistence.swift */,
+				B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -141,10 +146,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B87F22FE221F853F005BD677 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B87F22FF221F855F005BD677 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B881D23D221DC94E0038BF81 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				B881D23E221DC94E0038BF81 /* Home */,
+				B87F22FE221F853F005BD677 /* Extensions */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -476,6 +490,8 @@
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
 				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
+				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
+				B87F2300221F855F005BD677 /* UIViewExtensions.swift in Sources */,
 				B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,
@@ -794,6 +810,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */,
+			);
+			currentVersion = B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */;
+			path = Services.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B88D5567221B07FA007817A3 /* Project object */;
 }
