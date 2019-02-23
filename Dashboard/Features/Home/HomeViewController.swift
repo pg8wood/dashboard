@@ -11,6 +11,7 @@ import PinkyPromise
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet var collectionView: UICollectionView!
     
     var services: [ServiceModel] = []
@@ -18,13 +19,30 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+        setupNavigationBar()
+        setupCollectionView()
         services = database.getStoredServices().reversed()
+    }
+ 
+    private func setupNavigationBar() {
+        navigationBar.delegate = self
+        
+        let addItem = UINavigationItem()
+        addItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addServiceTapped(_:)))
+        
+        navigationBar.items = [addItem]
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Hides the navigationBar's separator
         navigationController?.navigationBar.clipsToBounds = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -107,5 +125,14 @@ extension HomeViewController: NewServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
         services.insert(newService, at: 0)
         collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
+    }
+}
+
+// MARK - NavigationBarDelegate
+
+extension HomeViewController: UINavigationBarDelegate {
+
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
