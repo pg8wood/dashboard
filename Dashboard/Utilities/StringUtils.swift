@@ -10,7 +10,7 @@ import Foundation
 
 public class StringUtils {
     
-    public static func convertString(toHttpsUrl url: String) -> String {
+    public static func convertString(toHttpsUrlString url: String) -> String {
         if url.starts(with: "https://") {
             return url
         }

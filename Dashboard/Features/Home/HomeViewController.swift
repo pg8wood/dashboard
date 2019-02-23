@@ -33,23 +33,8 @@ class HomeViewController: UIViewController {
                 return
             }
             
+            // Render each service status
             let serviceUrl = services[indexPath.row].url
-            
-            // TODO: do this only when the user adds the service for the first time. Also let them change this image.
-            NetworkService.fetchFavicon(for: serviceUrl).call { result in
-                do {
-                    let favicon = try result.value()
-                    cell.logoImageView.image = favicon
-                    
-                    // If an image is more than twice as wide as it is tall, ensure it doesn't get
-                    // clipped to oblivion
-                    let shouldScaleImage = favicon.size.width / favicon.size.height > 2
-                    cell.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFit : .scaleAspectFill
-                } catch {
-                    cell.logoImageView.image = UIImage(named: "missing-image")
-                }
-            }
-            
             NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
                 DispatchQueue.main.async {
                     self?.onServiceStatusResult(result, for: cell)
@@ -97,8 +82,10 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
-        cell.logoImageView.image = UIImage(named: "missing-image")
-        cell.nameLabel.text = services[indexPath.row].name
+        let service = services[indexPath.row]
+        
+        cell.logoImageView.image = UIImage(contentsOfFile: service.imagePath) ?? UIImage(named: "missing-image")
+        cell.nameLabel.text = service.name
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
         cell.addShadow()
@@ -117,7 +104,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 // MARK: - NewServiceDelegate
 extension HomeViewController: NewServiceDelegate {
-    func onSaved(newService: ServiceModel) {
+    func onNewServiceCreated(newService: ServiceModel) {
         services.insert(newService, at: 0)
         collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
     }

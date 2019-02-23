@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol NewServiceDelegate {
-    func onSaved(newService: ServiceModel)
+    func onNewServiceCreated(newService: ServiceModel)
 }
 
 class AddServiceViewController: UIViewController {
@@ -34,7 +34,7 @@ class AddServiceViewController: UIViewController {
             return
         }
         
-        NetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrl: url)).call { [weak self] result in
+        NetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
             do {
                 let favicon = try result.value()
                 self?.logoImageView.image = favicon
@@ -61,15 +61,12 @@ class AddServiceViewController: UIViewController {
             return
         }
         
-        // TODO save image and use url
-        let imageUrl = ""
-        
+        let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
+        let imageUrl = persistenceClient.save(image: image, named: name)
         let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
-        service.populate(name: name, url: url, imageUrl: imageUrl)
         
-//        persistenceClient.save(newService: service)
-        newServiceDelegate?.onSaved(newService: service)
-        
+        service.populate(name: name, url: serviceUrl, imageUrl: imageUrl)
+        newServiceDelegate?.onNewServiceCreated(newService: service)
         dismiss(animated: true, completion: nil)
     }
 }

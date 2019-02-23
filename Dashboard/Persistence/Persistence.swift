@@ -54,7 +54,7 @@ class PersistenceClient: Database {
                 try imagePngData.write(to: imageFilePath, options: .atomic)
             }
         } catch {
-            // TODO handle error
+            print("Failed to save image: \(error)")
         }
         
         return imageFilePath.path
