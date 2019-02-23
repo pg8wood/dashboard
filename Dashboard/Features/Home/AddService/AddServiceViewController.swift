@@ -21,7 +21,7 @@ class AddServiceViewController: UIViewController {
     public var newServiceDelegate: NewServiceDelegate?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private var persistenceClient = PersistenceClient()
+    private var database: Database = PersistenceClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +62,10 @@ class AddServiceViewController: UIViewController {
         }
         
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
-        let imageUrl = persistenceClient.save(image: image, named: name)
         let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
         
-        service.populate(name: name, url: serviceUrl, imageUrl: imageUrl)
+        service.populate(name: name, url: serviceUrl)
+        database.save(image: image, named: name)
         newServiceDelegate?.onNewServiceCreated(newService: service)
         dismiss(animated: true, completion: nil)
     }

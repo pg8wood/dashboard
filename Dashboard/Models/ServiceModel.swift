@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import UIKit
 
 @objc(ServiceModel)
 public class ServiceModel: NSManagedObject {
@@ -16,11 +17,13 @@ public class ServiceModel: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var url: String
-    @NSManaged var imagePath: String
     
-    func populate(name: String, url: String, imageUrl: String) {
+    var image: UIImage? {
+        return PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")
+    }
+    
+    func populate(name: String, url: String) {
         self.name = name
         self.url = url
-        self.imagePath = imageUrl
     }
 }

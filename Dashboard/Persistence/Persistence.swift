@@ -13,10 +13,20 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 protocol Database {
     func getStoredServices() -> [ServiceModel]
-    func save(image: UIImage, named fileName: String) -> String
+    func save(image: UIImage, named fileName: String)
 }
 
-class PersistenceClient: Database {
+class PersistenceClient {
+    static func fetchImage(named: String) -> UIImage? {
+        let fileManager = FileManager.default
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let imageFilePath = documentsUrl.appendingPathComponent("\(named)")
+        
+        return UIImage(contentsOfFile: imageFilePath.path)
+    }
+}
+
+extension PersistenceClient: Database {
     func getStoredServices() -> [ServiceModel] {
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -35,13 +45,11 @@ class PersistenceClient: Database {
      
      - Parameter image: the image to save
      - Parameter fileName: the name of the file to save the image in. Don't pass the extension.
-     
-     -Returns: The file path to the saved image.
      */
-    func save(image: UIImage, named fileName: String) -> String {
+    func save(image: UIImage, named fileName: String) {
         let fileManager = FileManager.default
         let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let imageFilePath = documentsUrl.appendingPathComponent("\(String(fileName))")
+        let imageFilePath = documentsUrl.appendingPathComponent("\(fileName)")
         
         do {
             let files = try fileManager.contentsOfDirectory(atPath: documentsUrl.path)
@@ -56,7 +64,5 @@ class PersistenceClient: Database {
         } catch {
             print("Failed to save image: \(error)")
         }
-        
-        return imageFilePath.path
     }
 }

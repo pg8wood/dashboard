@@ -27,10 +27,11 @@ class HomeViewController: UIViewController {
     private func setupNavigationBar() {
         navigationBar.delegate = self
         
-        let addItem = UINavigationItem()
-        addItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addServiceTapped(_:)))
+        let navigationItem = UINavigationItem()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editServicesTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addServiceTapped(_:)))
         
-        navigationBar.items = [addItem]
+        navigationBar.items = [navigationItem]
     }
     
     private func setupCollectionView() {
@@ -42,7 +43,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Hides the navigationBar's separator
         navigationController?.navigationBar.clipsToBounds = true
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,8 +61,8 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // MARK: - IBActions
-    @IBAction func addServiceTapped(_ sender: UIBarButtonItem) {
+    // MARK: - BarButtonItem actions
+    @objc func addServiceTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
         let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
         addServiceViewController.newServiceDelegate = self
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
         present(addServiceViewController, animated: true)
     }
     
-    @IBAction func editServicesTapped(_ sender: UIBarButtonItem) {
+    @objc func editServicesTapped(_ sender: UIBarButtonItem) {
     }
     
     func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
@@ -102,7 +102,7 @@ extension HomeViewController: UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
         let service = services[indexPath.row]
         
-        cell.logoImageView.image = UIImage(contentsOfFile: service.imagePath) ?? UIImage(named: "missing-image")
+        cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
