@@ -13,7 +13,7 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 protocol Database {
     func getStoredServices() -> [ServiceModel]
-    func save(newService: ServiceModel)
+    func save(image: UIImage, named fileName: String) -> String
 }
 
 class PersistenceClient: Database {
@@ -30,7 +30,33 @@ class PersistenceClient: Database {
         }
     }
     
-    func save(newService: ServiceModel) {
-        // TODO
+    /**
+     Saves an image to the Documents directory.
+     
+     - Parameter image: the image to save
+     - Parameter fileName: the name of the file to save the image in. Don't pass the extension.
+     
+     -Returns: The file path to the saved image.
+     */
+    func save(image: UIImage, named fileName: String) -> String {
+        let fileManager = FileManager.default
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let imageFilePath = documentsUrl.appendingPathComponent("\(String(fileName))")
+        
+        do {
+            let files = try fileManager.contentsOfDirectory(atPath: documentsUrl.path)
+            
+            if files.contains(imageFilePath.path) {
+                try fileManager.removeItem(atPath: imageFilePath.path)
+            }
+            
+            if let imagePngData = image.pngData() {
+                try imagePngData.write(to: imageFilePath, options: .atomic)
+            }
+        } catch {
+            // TODO handle error
+        }
+        
+        return imageFilePath.path
     }
 }
