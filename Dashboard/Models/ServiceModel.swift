@@ -19,6 +19,7 @@ public class ServiceModel: NSManagedObject {
     @NSManaged var url: String
     
     var image: UIImage? {
+        // TODO: - should this be stored in-memory after it's fetched once? 
         return PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")
     }
     

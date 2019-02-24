@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-protocol NewServiceDelegate {
+protocol ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel)
 }
 
@@ -18,7 +18,8 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
     
-    public var newServiceDelegate: NewServiceDelegate?
+    public var serviceDelegate: ServiceDelegate?
+    public var serviceToEdit: ServiceModel?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var database: Database = PersistenceClient()
@@ -27,6 +28,17 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         serviceUrlTextField.delegate = self
         nameTextField.delegate = self
+        populateView()
+    }
+    
+    private func populateView() {
+        guard let serviceToEdit = serviceToEdit else {
+            return
+        }
+        
+        serviceUrlTextField.text = serviceToEdit.url
+        nameTextField.text = serviceToEdit.name
+        logoImageView.image = serviceToEdit.image
     }
     
     @IBAction func urlTextFieldEditingDidEnd(_ sender: UITextField) {
@@ -66,7 +78,7 @@ class AddServiceViewController: UIViewController {
         
         service.populate(name: name, url: serviceUrl)
         database.save(image: image, named: name)
-        newServiceDelegate?.onNewServiceCreated(newService: service)
+        serviceDelegate?.onNewServiceCreated(newService: service)
         dismiss(animated: true, completion: nil)
     }
 }

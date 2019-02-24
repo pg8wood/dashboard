@@ -16,6 +16,17 @@ class HomeViewController: UIViewController {
     
     var services: [ServiceModel] = []
     var database: Database = PersistenceClient()
+    
+    override var isEditing: Bool {
+        didSet {
+            guard let leftBarButtonItem = navigationBar.items?.first?.leftBarButtonItem else {
+                return
+            }
+            
+            leftBarButtonItem.title = isEditing ? "Done" : "Edit"
+            leftBarButtonItem.style = isEditing ? .done : .plain
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +39,7 @@ class HomeViewController: UIViewController {
         navigationBar.delegate = self
         
         let navigationItem = UINavigationItem()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editServicesTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editServicesTapped(_:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addServiceTapped(_:)))
         
         navigationBar.items = [navigationItem]
@@ -63,14 +74,20 @@ class HomeViewController: UIViewController {
     
     // MARK: - BarButtonItem actions
     @objc func addServiceTapped(_ sender: UIBarButtonItem) {
+        presentAddServiceViewController()
+    }
+    
+    func presentAddServiceViewController(serviceToEdit: ServiceModel? = nil) {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
         let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
-        addServiceViewController.newServiceDelegate = self
+        addServiceViewController.serviceDelegate = self
+        addServiceViewController.serviceToEdit = serviceToEdit
         
         present(addServiceViewController, animated: true)
     }
     
     @objc func editServicesTapped(_ sender: UIBarButtonItem) {
+        isEditing.toggle()
     }
     
     func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
@@ -111,17 +128,22 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
-            DispatchQueue.main.async {
-                let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
-                self?.onServiceStatusResult(result, for: cell)
+        if isEditing {
+            let serviceToEdit = services[indexPath.row]
+            presentAddServiceViewController(serviceToEdit: serviceToEdit)
+        } else {
+            NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
+                DispatchQueue.main.async {
+                    let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
+                    self?.onServiceStatusResult(result, for: cell)
+                }
             }
         }
     }
 }
 
-// MARK: - NewServiceDelegate
-extension HomeViewController: NewServiceDelegate {
+// MARK: - ServiceDelegate
+extension HomeViewController: ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
         services.insert(newService, at: 0)
         collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
@@ -131,7 +153,6 @@ extension HomeViewController: NewServiceDelegate {
 // MARK - NavigationBarDelegate
 
 extension HomeViewController: UINavigationBarDelegate {
-
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
