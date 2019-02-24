@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-DE-agA">
-                        <rect key="frame" x="10" y="25.5" width="60" height="60"/>
+                        <rect key="frame" x="10" y="20.5" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="tTM-DE-agA" secondAttribute="height" multiplier="1:1" id="lCb-dt-prT"/>
-                            <constraint firstAttribute="width" constant="60" id="le2-1c-2hC"/>
+                            <constraint firstAttribute="width" constant="70" id="le2-1c-2hC"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
-                        <rect key="frame" x="80" y="45.5" width="260" height="20.5"/>
+                        <rect key="frame" x="90" y="45.5" width="250" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

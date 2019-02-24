@@ -66,7 +66,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-ow-R4P">
                                         <rect key="frame" x="233" y="0.0" width="110" height="125"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-5H-8yK">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing-image" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-5H-8yK">
                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="NeV-X1-WCP"/>
@@ -78,6 +78,9 @@
                                                 <state key="normal" title="Edit"/>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8zx-5H-8yK" firstAttribute="top" secondItem="UUs-ow-R4P" secondAttribute="topMargin" id="VQ4-Be-afN"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -90,16 +93,15 @@
                             <constraint firstItem="KCr-dN-EEh" firstAttribute="top" secondItem="l0M-Nt-Gu7" secondAttribute="top" id="3Jl-dN-5nX"/>
                             <constraint firstItem="KCr-dN-EEh" firstAttribute="trailing" secondItem="l0M-Nt-Gu7" secondAttribute="trailing" id="6R4-So-b3c"/>
                             <constraint firstItem="KCr-dN-EEh" firstAttribute="leading" secondItem="dmU-tZ-rNu" secondAttribute="leading" id="CNA-eG-344"/>
+                            <constraint firstItem="3At-aj-0Qz" firstAttribute="top" secondItem="KCr-dN-EEh" secondAttribute="bottom" id="E3q-Dr-vBC"/>
                             <constraint firstItem="l0M-Nt-Gu7" firstAttribute="bottom" secondItem="3At-aj-0Qz" secondAttribute="bottom" constant="564" id="Yvb-vs-oZo"/>
-                            <constraint firstItem="3At-aj-0Qz" firstAttribute="top" secondItem="KCr-dN-EEh" secondAttribute="bottom" id="io8-Hu-XUA"/>
                             <constraint firstAttribute="trailing" secondItem="3At-aj-0Qz" secondAttribute="trailing" constant="16" id="u18-pp-7vQ"/>
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="leading" secondItem="dmU-tZ-rNu" secondAttribute="leadingMargin" id="zPz-Hy-01a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l0M-Nt-Gu7"/>
                     </view>
                     <connections>
-                        <outlet property="editImageButton" destination="lDL-El-igJ" id="cXd-90-vpe"/>
-                        <outlet property="logoImageContainer" destination="UUs-ow-R4P" id="V5K-fr-GtK"/>
+                        <outlet property="logoImageContainer" destination="UUs-ow-R4P" id="NW6-rz-a3C"/>
                         <outlet property="logoImageView" destination="8zx-5H-8yK" id="UTr-I8-ykq"/>
                         <outlet property="nameTextField" destination="psI-iQ-z7E" id="H3V-Lb-Njx"/>
                         <outlet property="serviceUrlTextField" destination="CsI-sV-SYL" id="koD-hd-2iU"/>

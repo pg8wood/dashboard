@@ -16,10 +16,9 @@ protocol ServiceDelegate {
 
 class AddServiceViewController: UIViewController {
     @IBOutlet weak var serviceUrlTextField: UITextField!
-    @IBOutlet weak var logoImageContainer: UIStackView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var logoImageContainer: UIStackView!
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var editImageButton: UIButton!
     
     public var serviceDelegate: ServiceDelegate?
     public var serviceToEdit: ServiceModel?
@@ -31,17 +30,16 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         serviceUrlTextField.delegate = self
         nameTextField.delegate = self
-        addGestureRecognizers() 
-        populateView()
+        setupView()
+        addGestureRecognizers()
     }
     
     private func addGestureRecognizers() {
-    let editImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editImageButtonTapped(_:)))
-        logoImageContainer.addGestureRecognizer(editImageTapGestureRecognizer)
-        editImageButton.addGestureRecognizer(editImageTapGestureRecognizer)
+        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
+        logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
     }
     
-    private func populateView() {
+    private func setupView() {
         guard let serviceToEdit = serviceToEdit else {
             return
         }
@@ -49,6 +47,7 @@ class AddServiceViewController: UIViewController {
         serviceUrlTextField.text = serviceToEdit.url
         nameTextField.text = serviceToEdit.name
         logoImageView.image = serviceToEdit.image
+        logoImageView.layer.cornerRadius = 15
     }
     
     @IBAction func urlTextFieldEditingDidEnd(_ sender: UITextField) {
@@ -66,12 +65,12 @@ class AddServiceViewController: UIViewController {
                 let shouldScaleImage = favicon.size.width / favicon.size.height > 1.5 
                 self?.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFit : .scaleAspectFill
             } catch {
-                self?.logoImageView.image = UIImage(named: "missing-image")
+                // No handling needed as the default image is already there
             }
         }
     }
     
-    @objc func editImageButtonTapped(_ sender: Any) {
+    @objc func editImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.delegate = self
@@ -95,7 +94,6 @@ class AddServiceViewController: UIViewController {
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
         
         if let editedService = serviceToEdit {
-//            database.renameFile(from: editedService.name, to: name)
             editedService.populate(name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
@@ -109,7 +107,7 @@ class AddServiceViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-
+// MARK: - UITextField Delegate
 extension AddServiceViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Search for next first responder

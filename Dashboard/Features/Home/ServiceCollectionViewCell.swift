@@ -16,5 +16,6 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        logoImageView.layer.cornerRadius = 15
     }
 }
