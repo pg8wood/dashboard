@@ -55,6 +55,13 @@ class AddServiceViewController: UIViewController {
             return
         }
         
+        logoImageView.image = nil
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = logoImageView.center
+        logoImageView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
         NetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
             do {
                 let favicon = try result.value()
@@ -65,8 +72,10 @@ class AddServiceViewController: UIViewController {
                 let shouldScaleImage = favicon.size.width / favicon.size.height > 1.5 
                 self?.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFit : .scaleAspectFill
             } catch {
-                // No handling needed as the default image is already there
+                self?.logoImageView.image = UIImage(named: "missing-image")!
             }
+            
+            activityIndicator.removeFromSuperview()
         }
     }
     
