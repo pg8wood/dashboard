@@ -70,14 +70,13 @@ class AddServiceViewController: UIViewController {
         guard let name = nameTextField.text,
             let url = serviceUrlTextField.text,
             let image = logoImageView.image else {
-            // TODO handle error
             return
         }
         
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
         
         if let editedService = serviceToEdit {
-            // todo rename or save new image 
+            // TODO detect image creation OR change and save new image instead
             database.renameFile(from: editedService.name, to: name)
             editedService.populate(name: name, url: serviceUrl)
             serviceDelegate?.onServiceChanged(service: editedService)
