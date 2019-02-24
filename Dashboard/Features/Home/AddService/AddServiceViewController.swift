@@ -11,6 +11,7 @@ import CoreData
 
 protocol ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel)
+    func onServiceChanged(service: ServiceModel)
 }
 
 class AddServiceViewController: UIViewController {
@@ -74,11 +75,20 @@ class AddServiceViewController: UIViewController {
         }
         
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
-        let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
         
-        service.populate(name: name, url: serviceUrl)
-        database.save(image: image, named: name)
-        serviceDelegate?.onNewServiceCreated(newService: service)
+        if let editedService = serviceToEdit {
+            // todo rename or save new image 
+            database.renameFile(from: editedService.name, to: name)
+            editedService.populate(name: name, url: serviceUrl)
+            serviceDelegate?.onServiceChanged(service: editedService)
+        } else {
+            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
+            
+            service.populate(name: name, url: serviceUrl)
+            database.save(image: image, named: name)
+            serviceDelegate?.onNewServiceCreated(newService: service)
+        }
+        
         dismiss(animated: true, completion: nil)
     }
 }

@@ -14,12 +14,12 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 protocol Database {
     func getStoredServices() -> [ServiceModel]
     func save(image: UIImage, named fileName: String)
+    func renameFile(from oldFileName: String, to newFileName: String)
 }
 
 class PersistenceClient {
     static func fetchImage(named: String) -> UIImage? {
-        let fileManager = FileManager.default
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let imageFilePath = documentsUrl.appendingPathComponent("\(named)")
         
         return UIImage(contentsOfFile: imageFilePath.path)
@@ -48,7 +48,7 @@ extension PersistenceClient: Database {
      */
     func save(image: UIImage, named fileName: String) {
         let fileManager = FileManager.default
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let imageFilePath = documentsUrl.appendingPathComponent("\(fileName)")
         
         do {
@@ -63,6 +63,19 @@ extension PersistenceClient: Database {
             }
         } catch {
             print("Failed to save image: \(error)")
+        }
+    }
+    
+    func renameFile(from oldFileName: String, to newFileName: String) {
+        let fileManager = FileManager.default
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let oldImageFilePath = documentsUrl.appendingPathComponent("\(oldFileName)")
+        let newImageFilePath = documentsUrl.appendingPathComponent("\(newFileName)")
+        
+        do {
+            try fileManager.moveItem(at: oldImageFilePath, to: newImageFilePath)
+        } catch {
+            print("Failed to rename image: \(error)")
         }
     }
 }

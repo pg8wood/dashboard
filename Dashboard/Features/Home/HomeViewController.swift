@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
             leftBarButtonItem.style = isEditing ? .done : .plain
         }
     }
+    
+    var editingIndexPath: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +82,7 @@ class HomeViewController: UIViewController {
     func presentAddServiceViewController(serviceToEdit: ServiceModel? = nil) {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
         let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
+        
         addServiceViewController.serviceDelegate = self
         addServiceViewController.serviceToEdit = serviceToEdit
         
@@ -129,9 +132,12 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isEditing {
+            editingIndexPath = indexPath
+            
             let serviceToEdit = services[indexPath.row]
             presentAddServiceViewController(serviceToEdit: serviceToEdit)
         } else {
+            // TODO indicate loading
             NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
                 DispatchQueue.main.async {
                     let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
@@ -147,6 +153,17 @@ extension HomeViewController: ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
         services.insert(newService, at: 0)
         collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
+    }
+    
+    func onServiceChanged(service: ServiceModel) {
+        isEditing = false
+        guard let editingIndexPath = editingIndexPath else {
+            fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
+        }
+        
+        services[editingIndexPath.row] = service
+        collectionView.reloadItems(at: [editingIndexPath])
+        self.editingIndexPath = nil
     }
 }
 
