@@ -121,15 +121,8 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
         let service = services[indexPath.row]
-        let serviceLogo = service.image
 
-        cell.logoImageView.image = serviceLogo
-        
-        // If an image is more than twice as wide as it is tall, ensure it doesn't get
-        // clipped to oblivion
-//        let shouldScaleImage = serviceLogo.size.width / serviceLogo.size.height < 0.8
-//        cell.logoImageView.contentMode = shouldScaleImage ? .scaleAspectFill : .scaleAspectFit
-        
+        cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
