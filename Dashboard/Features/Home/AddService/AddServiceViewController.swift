@@ -16,8 +16,10 @@ protocol ServiceDelegate {
 
 class AddServiceViewController: UIViewController {
     @IBOutlet weak var serviceUrlTextField: UITextField!
+    @IBOutlet weak var logoImageContainer: UIStackView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var editImageButton: UIButton!
     
     public var serviceDelegate: ServiceDelegate?
     public var serviceToEdit: ServiceModel?
@@ -29,7 +31,14 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         serviceUrlTextField.delegate = self
         nameTextField.delegate = self
+        addGestureRecognizers() 
         populateView()
+    }
+    
+    private func addGestureRecognizers() {
+    let editImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editImageButtonTapped(_:)))
+        logoImageContainer.addGestureRecognizer(editImageTapGestureRecognizer)
+        editImageButton.addGestureRecognizer(editImageTapGestureRecognizer)
     }
     
     private func populateView() {
@@ -62,11 +71,21 @@ class AddServiceViewController: UIViewController {
         }
     }
     
+    @objc func editImageButtonTapped(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true)
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func doneButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text,
             let url = serviceUrlTextField.text,
             let image = logoImageView.image else {
@@ -76,18 +95,17 @@ class AddServiceViewController: UIViewController {
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
         
         if let editedService = serviceToEdit {
-            // TODO detect image creation OR change and save new image instead
-            database.renameFile(from: editedService.name, to: name)
-            editedService.populate(name: name, url: serviceUrl)
+//            database.renameFile(from: editedService.name, to: name)
+            editedService.populate(name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
             let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
             
-            service.populate(name: name, url: serviceUrl)
-            database.save(image: image, named: name)
+            service.populate(name: name, url: serviceUrl, image: image)
             serviceDelegate?.onNewServiceCreated(newService: service)
         }
-        
+        database.save(image: image, named: name)
+
         dismiss(animated: true, completion: nil)
     }
 }
@@ -103,4 +121,24 @@ extension AddServiceViewController: UITextFieldDelegate {
         
         return false
     }
+}
+
+// MARK: - ImagePickerController Delegate
+extension AddServiceViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            logoImageView.contentMode = .scaleAspectFit
+            logoImageView.image = pickedImage
+        }
+        
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+}
+
+extension AddServiceViewController: UINavigationControllerDelegate {
+    
 }

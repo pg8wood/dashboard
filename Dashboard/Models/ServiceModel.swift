@@ -18,13 +18,18 @@ public class ServiceModel: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var url: String
     
-    var image: UIImage? {
-        // TODO: - should this be stored in-memory after it's fetched once? 
-        return PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")
+    var inMemoryImage: UIImage?
+    var image: UIImage {
+        get {
+            return inMemoryImage ?? PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")!
+        } set {
+            inMemoryImage = newValue
+        }
     }
     
-    func populate(name: String, url: String) {
+    func populate(name: String, url: String, image: UIImage) {
         self.name = name
         self.url = url
+        self.image = image
     }
 }

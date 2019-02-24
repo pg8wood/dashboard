@@ -75,7 +75,7 @@ extension PersistenceClient: Database {
         do {
             try fileManager.moveItem(at: oldImageFilePath, to: newImageFilePath)
         } catch {
-            print("Failed to rename image: \(error)")
+            print("Failed to rename image. Saving new instead")
         }
     }
 }
