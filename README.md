@@ -3,7 +3,7 @@
 
 
 <div align=center>
-	<img src="./docs/screenshot.jpeg" height=700px />
+	<img src="./docs/screenshot.jpeg" width=50% />
 </div>
 
 ## Features
