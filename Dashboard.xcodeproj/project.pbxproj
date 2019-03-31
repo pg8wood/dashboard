@@ -41,7 +41,8 @@
 		B890795C225170F900FFB807 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B890795D2251711F00FFB807 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F2301221F9B66005BD677 /* UIViewExtensions.swift */; };
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
-		B8907962225171FA00FFB807 /* PersistenceCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8907960225171FA00FFB807 /* PersistenceCopy.swift */; };
+		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
+		B89079662251844000FFB807 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +124,6 @@
 		B890794A225157D100FFB807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B890794C225157D100FFB807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewController.swift; sourceTree = "<group>"; };
-		B8907960225171FA00FFB807 /* PersistenceCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceCopy.swift; sourceTree = "<group>"; };
 		B89079632251791F00FFB807 /* Dashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dashboard.entitlements; sourceTree = "<group>"; };
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,9 +289,6 @@
 			children = (
 				B89079632251791F00FFB807 /* Dashboard.entitlements */,
 				B881D23D221DC94E0038BF81 /* Features */,
-				B87F22F8221E61B7005BD677 /* Models */,
-				B881D249221DC94F0038BF81 /* Network */,
-				B87F22F5221E610B005BD677 /* Persistence */,
 				B87F22F2221E1344005BD677 /* Utilities */,
 				B881D245221DC94E0038BF81 /* Supporting Files */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
@@ -320,6 +317,9 @@
 		B890793E225157B500FFB807 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B87F22F8221E61B7005BD677 /* Models */,
+				B881D249221DC94F0038BF81 /* Network */,
+				B87F22F5221E610B005BD677 /* Persistence */,
 				B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */,
 				B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */,
 				B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */,
@@ -334,7 +334,6 @@
 				B8907947225157D100FFB807 /* TodayViewController.swift */,
 				B8907949225157D100FFB807 /* MainInterface.storyboard */,
 				B890794C225157D100FFB807 /* Info.plist */,
-				B8907960225171FA00FFB807 /* PersistenceCopy.swift */,
 			);
 			path = DashboardWidget;
 			sourceTree = "<group>";
@@ -668,7 +667,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8907962225171FA00FFB807 /* PersistenceCopy.swift in Sources */,
+				B89079662251844000FFB807 /* NetworkService.swift in Sources */,
+				B890796522517CEB00FFB807 /* Persistence.swift in Sources */,
 				B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */,
 				B890795D2251711F00FFB807 /* UIViewExtensions.swift in Sources */,
 				B890795C225170F900FFB807 /* ServiceModel.swift in Sources */,

@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import PinkyPromise
 
 class ServiceCollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     var services: [ServiceModel] = []
+    var database: Database = PersistenceClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        services = database.getStoredServices().reversed()
         setupCollectionView()
     }
     
@@ -22,6 +25,31 @@ class ServiceCollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        for cell in collectionView.visibleCells {
+            guard let indexPath = collectionView.indexPath(for: cell), let cell = cell as? ServiceCollectionViewCell else {
+                return
+            }
+            
+            // Render each service status
+            let serviceUrl = services[indexPath.row].url
+            NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
+                DispatchQueue.main.async {
+                    self?.onServiceStatusResult(result, for: cell)
+                }
+            }
+        }
+    }
+    
+    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
+        do {
+            let _ = try result.value()
+            cell.statusImageView.image = UIImage(named: "check")
+        } catch {
+            cell.statusImageView.image = UIImage(named: "server-error")
+        }
     }
 }
 
@@ -50,5 +78,15 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         cell.layer.cornerRadius = 20
         cell.addShadow()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO indicate loading
+        NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
+            DispatchQueue.main.async {
+                let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
+                self?.onServiceStatusResult(result, for: cell)
+            }
+        }
     }
 }

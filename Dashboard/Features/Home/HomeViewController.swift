@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import PinkyPromise
 
 class HomeViewController: ServiceCollectionViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    
-    var database: Database = PersistenceClient()
     
     override var isEditing: Bool {
         didSet {
@@ -31,7 +28,6 @@ class HomeViewController: ServiceCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        services = database.getStoredServices().reversed()
     }
  
     private func setupNavigationBar() {
@@ -44,27 +40,9 @@ class HomeViewController: ServiceCollectionViewController {
         navigationBar.items = [navigationItem]
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         // Hides the navigationBar's separator
         navigationController?.navigationBar.clipsToBounds = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        for cell in collectionView.visibleCells {
-            guard let indexPath = collectionView.indexPath(for: cell), let cell = cell as? ServiceCollectionViewCell else {
-                return
-            }
-            
-            // Render each service status
-            let serviceUrl = services[indexPath.row].url
-            NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
-                DispatchQueue.main.async {
-                    self?.onServiceStatusResult(result, for: cell)
-                }
-            }
-        }
     }
     
     // MARK: - BarButtonItem actions
@@ -86,35 +64,18 @@ class HomeViewController: ServiceCollectionViewController {
         isEditing.toggle()
     }
     
-    func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
-        do {
-            let _ = try result.value()
-            cell.statusImageView.image = UIImage(named: "check")
-        } catch {
-            cell.statusImageView.image = UIImage(named: "server-error")
-        }
-    }
-    
     // MARK: - UICollectionViewDelegate
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isEditing {
             editingIndexPath = indexPath
             
             let serviceToEdit = services[indexPath.row]
             presentAddServiceViewController(serviceToEdit: serviceToEdit)
         } else {
-            // TODO indicate loading
-            NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
-                DispatchQueue.main.async {
-                    let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
-                    self?.onServiceStatusResult(result, for: cell)
-                }
-            }
+            super.collectionView(collectionView, didSelectItemAt: indexPath)
         }
     }
 }
-
-
 
 // MARK: - ServiceDelegate
 extension HomeViewController: ServiceDelegate {
