@@ -47,7 +47,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="500"/>
                     <connections>
-                        <outlet property="collectionView" destination="zhj-D8-5Bj" id="blT-Vs-ReV"/>
+                        <outlet property="collectionView" destination="zhj-D8-5Bj" id="WHa-d6-hpg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

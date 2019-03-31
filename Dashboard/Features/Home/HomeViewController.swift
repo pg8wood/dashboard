@@ -9,12 +9,10 @@
 import UIKit
 import PinkyPromise
 
-class HomeViewController: UIViewController {
+class HomeViewController: ServiceCollectionViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet var collectionView: UICollectionView!
     
-    var services: [ServiceModel] = []
     var database: Database = PersistenceClient()
     
     override var isEditing: Bool {
@@ -33,7 +31,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        setupCollectionView()
         services = database.getStoredServices().reversed()
     }
  
@@ -47,11 +44,7 @@ class HomeViewController: UIViewController {
         navigationBar.items = [navigationItem]
     }
     
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
-    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         // Hides the navigationBar's separator
@@ -101,35 +94,8 @@ class HomeViewController: UIViewController {
             cell.statusImageView.image = UIImage(named: "server-error")
         }
     }
-}
-
-// MARK: - UICollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return services.count
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension HomeViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
-        let service = services[indexPath.row]
-
-        cell.logoImageView.image = service.image
-        cell.nameLabel.text = service.name
-        cell.statusImageView.image = UIImage(named: "server-error")
-        cell.layer.cornerRadius = 20
-        cell.addShadow()
-        return cell
-    }
-    
+    // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isEditing {
             editingIndexPath = indexPath
@@ -147,6 +113,8 @@ extension HomeViewController: UICollectionViewDelegate {
         }
     }
 }
+
+
 
 // MARK: - ServiceDelegate
 extension HomeViewController: ServiceDelegate {

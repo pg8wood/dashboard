@@ -106,7 +106,7 @@ class AddServiceViewController: UIViewController {
             editedService.populate(name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
-            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: appDelegate.persistentContainer.viewContext) as! ServiceModel
+            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
             
             service.populate(name: name, url: serviceUrl, image: image)
             serviceDelegate?.onNewServiceCreated(newService: service)

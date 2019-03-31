@@ -9,8 +9,7 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
-    @IBOutlet weak var collectionView: UICollectionView!
+class TodayViewController: ServiceCollectionViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +39,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         completionHandler(NCUpdateResult.newData)
     }
-}
-
-// MARK: - UICollectionViewDataSource
-// TODO duplicated code
-extension TodayViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    
+    // MARK: - UICollectionViewDataSource
+    // TODO duplicated code
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
-}
+
 
 // MARK: - UICollectionViewDelegate
 // TODO duplicated code
-extension TodayViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//extension TodayViewController: UICollectionViewDelegate {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
 //        let service = services[indexPath.row]
 
