@@ -17,7 +17,7 @@ class ServiceCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        services = database.getStoredServices().reversed()
+        services = database.getStoredServices()
         setupCollectionView()
     }
     

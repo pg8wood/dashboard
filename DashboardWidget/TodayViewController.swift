@@ -13,8 +13,6 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Remove top insets that usually exist to pad the top of the CollectionView from the NavigationBar
-//        collectionView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
 
         self.preferredContentSize = CGSize(width:self.view.frame.size.width, height: 250)
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
@@ -22,25 +20,17 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 3 * collectionView.frame.size.height)
+            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
         } else if activeDisplayMode == .compact {
             self.preferredContentSize = CGSize(width: maxSize.width, height: 250)
         }
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                                 willDisplay cell: UICollectionViewCell,
-                                 forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
         
         cell.nameLabel.isHidden = true;
