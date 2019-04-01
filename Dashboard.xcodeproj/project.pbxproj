@@ -317,12 +317,10 @@
 		B890793E225157B500FFB807 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B89079672251869C00FFB807 /* ServiceCollectionView */,
 				B87F22F8221E61B7005BD677 /* Models */,
 				B881D249221DC94F0038BF81 /* Network */,
 				B87F22F5221E610B005BD677 /* Persistence */,
-				B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */,
-				B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */,
-				B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -336,6 +334,16 @@
 				B890794C225157D100FFB807 /* Info.plist */,
 			);
 			path = DashboardWidget;
+			sourceTree = "<group>";
+		};
+		B89079672251869C00FFB807 /* ServiceCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */,
+				B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */,
+				B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */,
+			);
+			path = ServiceCollectionView;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
