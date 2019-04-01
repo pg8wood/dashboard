@@ -3,8 +3,8 @@
 
 
 <div align=center>
-	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/widget_screenshot.PNG" width=50% />
-	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/app_screenshot.PNG" width=50% />
+	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/widget_screenshot.PNG" width=40% />
+	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/app_screenshot.PNG" width=40% />
 </div>
 
 ## Features
