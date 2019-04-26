@@ -849,7 +849,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -870,7 +870,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -884,7 +884,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
 				INFOPLIST_FILE = DashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -906,7 +906,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
 				INFOPLIST_FILE = DashboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -927,7 +927,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
 				INFOPLIST_FILE = DashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -948,7 +948,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
 				INFOPLIST_FILE = DashboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -970,6 +970,12 @@
 				CODE_SIGN_ENTITLEMENTS = DashboardWidget/DashboardWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FavIcon/FavIcon.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PinkyPromise/PinkyPromise.framework/Headers\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
 				INFOPLIST_FILE = DashboardWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,7 +983,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard.DashboardWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dash.DashboardWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -999,7 +1005,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard.DashboardWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dash.DashboardWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
