@@ -3,7 +3,7 @@ info:
   description: "Dashboard REST API for Service monitoring CRUD operations and APN push tokens."
   version: "1.0.0"
   title: "Dashboard Service"
-host: "TODO.com"
+host: "localhost:8080"
 basePath: "/dashboard"
 tags:
 - name: "push-token"
@@ -11,7 +11,7 @@ tags:
 - name: "service"
   description: "Service CRUD operations"
 schemes:
-- "https"
+# - "https"
 - "http"
 paths:
   /push/token:
@@ -44,13 +44,6 @@ paths:
         summary: "Get all Services for this User"
         produces:
         - "application/json"
-        parameters:
-        - name: "serviceId"
-          in: "path"
-          description: "ID of the Service to return"
-          required: true
-          type: "integer"
-          format: "int32"
         responses:
           200:
             description: "successful operation"
@@ -58,11 +51,8 @@ paths:
               type: array
               items:
                 $ref: "#/definitions/Service"
-          400:
-            description: "Invalid ID"
           404:
-            description: "Service not found"
-  /service:
+            description: "No Services found"
       post:
         tags:
         - "service"
@@ -82,7 +72,7 @@ paths:
         responses:
           405:
             description: "Invalid input"
-  /service/{serviceId}:
+  /services/{serviceId}:
     get:
       tags:
       - "service"
@@ -106,7 +96,7 @@ paths:
           description: "Invalid ID"
         404:
           description: "Service not found"
-    post:
+    put:
       tags:
       - "service"
       summary: "Updates a Service in the store with form data"
@@ -143,10 +133,11 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "api_key"
-        in: "header"
-        required: false
-        type: "string"
+      # TODO
+      # - name: "api_key"
+      #   in: "header"
+      #   required: false
+      #   type: "string"
       - name: "serviceId"
         in: "path"
         description: "Service id to delete"
