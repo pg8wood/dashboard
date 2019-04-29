@@ -29,4 +29,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     var migrations = MigrationConfig()
     migrations.add(model: Service.self, database: .sqlite)
     services.register(migrations)
+    
+    // Port configuration
+    let dashboardServiceConfig = NIOServerConfig.default(hostname: "patrickgatewood.com", port: 9000)
+    services.register(dashboardServiceConfig)
 }
