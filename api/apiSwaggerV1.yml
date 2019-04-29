@@ -6,19 +6,19 @@ info:
 host: "localhost:8080"
 basePath: "/dashboard"
 tags:
-- name: "push-token"
-  description: "Apple Push-releated operations"
-- name: "service"
+- name: "Users"
+  description: "User account operations"
+- name: "Services"
   description: "Service CRUD operations"
 schemes:
 # - "https"
 - "http"
 paths:
-  /push/token:
+  /users/create:
     post:
       tags:
-      - "push-token"
-      summary: "Add a new Apple Push token for the associated User"
+      - "Users"
+      summary: "Create a user"
       consumes:
       - "application/json"
       produces:
@@ -26,13 +26,15 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Push object that needs to be added"
+        description: "User object to be created"
         required: true
         schema:
-          $ref: "#/definitions/PushToken"
+          $ref: "#/definitions/User"
       responses:
         200:
           description: "Success"
+          schema:
+            $ref: "#/definitions/User"
         400:
           description: "Bad request"
         500:
@@ -40,7 +42,7 @@ paths:
   /services:
       get:
         tags:
-        - "service"
+        - "Services"
         summary: "Get all Services for this User"
         produces:
         - "application/json"
@@ -55,7 +57,7 @@ paths:
             description: "No Services found"
       post:
         tags:
-        - "service"
+        - "Services"
         summary: "Add a new Service"
         description: "Adds a new service and begins tracking its uptime"
         consumes:
@@ -75,7 +77,7 @@ paths:
   /services/{serviceId}:
     get:
       tags:
-      - "service"
+      - "Services"
       summary: "Find Service by ID"
       description: "Returns a single Service"
       produces:
@@ -98,7 +100,7 @@ paths:
           description: "Service not found"
     put:
       tags:
-      - "service"
+      - "Services"
       summary: "Updates a Service in the store with form data"
       description: ""
       consumes:
@@ -127,7 +129,7 @@ paths:
           description: "Invalid input"
     delete:
       tags:
-      - "service"
+      - "Services"
       summary: "Deletes a Service"
       description: ""
       produces:
@@ -150,13 +152,13 @@ paths:
         404:
           description: "Service not found"
 definitions:
-  PushToken:
+  User:
     type: "object"
     required:
-    - "userId"
+    - "id"
     - "pushToken"
     properties:
-      userId:
+      id:
         type: "integer"
         format: "int32"
       pushToken:
@@ -174,3 +176,5 @@ definitions:
         type: "string"
         format: "url"
         example: "https://patrickgatewood.com"
+        
+      
