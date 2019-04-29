@@ -14,7 +14,7 @@ schemes:
 # - "https"
 - "http"
 paths:
-  /users/create:
+  /users:
     post:
       tags:
       - "Users"
@@ -29,7 +29,11 @@ paths:
         description: "User object to be created"
         required: true
         schema:
-          $ref: "#/definitions/User"
+          type: object
+          properties:
+            pushToken:
+              type: "string"
+          
       responses:
         200:
           description: "Success"
@@ -155,7 +159,6 @@ definitions:
   User:
     type: "object"
     required:
-    - "id"
     - "pushToken"
     properties:
       id:
