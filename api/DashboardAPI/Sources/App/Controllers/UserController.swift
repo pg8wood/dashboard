@@ -11,7 +11,7 @@ final class UserController {
 
 extension UserController: RouteCollection {
     func boot(router: Router) throws {
-        let pushRoute = router.grouped("user", "push-token")
+        let pushRoute = router.grouped("dashboard", "users")
         pushRoute.post(User.parameter, use: createHandler)
     }
 }

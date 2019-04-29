@@ -10,11 +10,11 @@ import FluentSQLite
 
 final class User {
     var id: Int?
-    var services: [Service]
+    var pushToken: String
+    var services: [Service]?
     
-    init(id: Int, services: [Service]) {
-        self.id = id
-        self.services = services
+    init(pushToken: String) {
+        self.pushToken = pushToken
     }
 }
 
