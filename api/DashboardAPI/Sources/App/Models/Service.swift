@@ -15,4 +15,4 @@ final class Service: Codable {
 extension Service: SQLiteModel { }
 extension Service: Migration { }
 extension Service: Content { }
-extension Service: Parameter { } // TODO might not need
+extension Service: Parameter { }
