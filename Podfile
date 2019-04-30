@@ -13,6 +13,7 @@ target 'Dashboard' do
     inherit! :search_paths
     # Pods for DashboardWidget
     pod 'PinkyPromise'
+    pod 'FavIcon'
     end
 
 

@@ -18,7 +18,7 @@ protocol Database {
 }
 
 class PersistenceClient {
-    static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.patrickgatewood.dashboard")!
+    static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.willowtreeapps.patrick.gatewood.dashboard")!
     
     let fileManager = FileManager.default
     

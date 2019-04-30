@@ -842,15 +842,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dashboard/Dashboard.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Patrick Gatewood Dashboard Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -863,15 +864,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dashboard/Dashboard.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Patrick Gatewood Dashboard Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -968,8 +970,9 @@
 			baseConfigurationReference = 83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DashboardWidget/DashboardWidget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = DashboardWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,8 +980,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard.DashboardWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -990,8 +994,9 @@
 			baseConfigurationReference = 5E584C8E44D9B323E7EA3D26 /* Pods-DashboardWidget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DashboardWidget/DashboardWidget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZZH6JZ9Q5;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = DashboardWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -999,8 +1004,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.patrickgatewood.Dashboard.DashboardWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
