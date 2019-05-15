@@ -17,6 +17,15 @@ public enum NetworkError: Error {
 
 public class NetworkService {
     
+    private static let baseUrl: String = "localhost:9000"
+    
+    public static func sendDeviceTokenToServer(data: deviceToken) {
+        let url = URL("\(baseUrl)/")
+        // TODO use UIDevice.current.identifierForVendor?.uuidString or something temporary for a unique user account.
+        // Will need an account system like oauth or somehting in order to support multiple users in the future.
+        // For now, just use a single user.
+    }
+    
     public static func fetchServerStatus(url: String) -> Promise<Int> {
         guard let url = URL(string: url) else {
             return Promise(error: NetworkError.InvalidUrl)
