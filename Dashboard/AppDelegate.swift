@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // TODO: remove
+        print("registering for push...")
+        
         UIApplication.shared.registerForRemoteNotifications()
         return true
     }
@@ -60,7 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Apple Push Notification service
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        NetworkService.sendDeviceTokenToServer(data: deviceToken)
+        let token = String(decoding: deviceToken, as: UTF8.self)
+        print("received device token: \(token)")
+        NetworkService.sendDeviceTokenToServer(deviceToken).call { [weak self] result in
+            print("result: \(result)")
+        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

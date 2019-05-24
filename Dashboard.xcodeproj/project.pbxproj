@@ -11,6 +11,8 @@
 		609D2A4B16370895BE203CD7 /* Pods_DashboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */; };
 		7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5FDB7FE2E5772F63B2D9C1 /* Pods_DashboardWidget.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
+		B872C10D229845CC002DF468 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C10C229845CC002DF468 /* UserModel.swift */; };
+		B872C10E229845CC002DF468 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C10C229845CC002DF468 /* UserModel.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
@@ -94,6 +96,7 @@
 		6D3C17976C2C6C5F1DE8BD15 /* Pods-DashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardUITests/Pods-DashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		B872C10C229845CC002DF468 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				B87F22F9221E61FA005BD677 /* ServiceModel.swift */,
+				B872C10C229845CC002DF468 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,11 +458,17 @@
 					B88D556E221B07FA007817A3 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
 							};
 						};
 					};
@@ -654,6 +664,7 @@
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
 				B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
+				B872C10D229845CC002DF468 /* UserModel.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +697,7 @@
 				B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */,
 				B89079552251582000FFB807 /* ServiceCollectionViewCell.swift in Sources */,
+				B872C10E229845CC002DF468 /* UserModel.swift in Sources */,
 				B8907948225157D100FFB807 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

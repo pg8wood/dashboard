@@ -17,13 +17,44 @@ public enum NetworkError: Error {
 
 public class NetworkService {
     
-    private static let baseUrl: String = "localhost:9000"
+    private static let baseUrl: String = "http://patrickgatewood.com:9000/dashboard"
     
-    public static func sendDeviceTokenToServer(data: deviceToken) {
-        let url = URL("\(baseUrl)/")
-        // TODO use UIDevice.current.identifierForVendor?.uuidString or something temporary for a unique user account.
-        // Will need an account system like oauth or somehting in order to support multiple users in the future.
-        // For now, just use a single user.
+    public static func sendDeviceTokenToServer(_ deviceToken: Data) -> Promise<Int> {
+        print("sending token to server")
+        let url = URL(string: "\(baseUrl)/users")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    
+        let user = UserModel(pushToken: deviceToken)
+        
+        return Promise { fulfill in
+            do {
+                let userJson = try JSONEncoder().encode(user)
+                request.httpBody = userJson
+                
+                let task = URLSession.shared.dataTask(with: request) { (_ data, response, error) in
+                    if let error = error {
+                        fulfill(.failure(error))
+                        return
+                    }
+                    
+                    guard let response = response as? HTTPURLResponse else {
+                        fulfill(.failure(NetworkError.NoResponse))
+                        return
+                    }
+                    
+                    print("success sending token")
+                    fulfill(.success(response.statusCode))
+                }
+                
+                task.resume()
+            
+            } catch {
+                fulfill(.failure(NetworkError.InvalidUrl))
+                // TODO throw json encode error
+            }
+        }
     }
     
     public static func fetchServerStatus(url: String) -> Promise<Int> {
