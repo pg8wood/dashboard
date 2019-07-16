@@ -16,6 +16,12 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
+    }
+    
+    private func setupView() {
+        backgroundColor = UIColor.secondarySystemGroupedBackground
         logoImageView.layer.cornerRadius = 15
+        nameLabel.textColor = UIColor.label
     }
 }

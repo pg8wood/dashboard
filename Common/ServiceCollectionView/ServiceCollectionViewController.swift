@@ -25,9 +25,14 @@ class ServiceCollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+        collectionView.backgroundColor = UIColor.systemGroupedBackground
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        pingServices()
+    }
+    
+    func pingServices() {
         for cell in collectionView.visibleCells {
             guard let indexPath = collectionView.indexPath(for: cell), let cell = cell as? ServiceCollectionViewCell else {
                 return
@@ -76,7 +81,7 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         cell.nameLabel.text = service.name
         cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
-        cell.addShadow()
+
         return cell
     }
     

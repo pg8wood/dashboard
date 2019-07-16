@@ -11,11 +11,11 @@
 		609D2A4B16370895BE203CD7 /* Pods_DashboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237E6AA41F2145D7B91CB597 /* Pods_DashboardUITests.framework */; };
 		7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5FDB7FE2E5772F63B2D9C1 /* Pods_DashboardWidget.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
+		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
-		B87F2302221F9B66005BD677 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F2301221F9B66005BD677 /* UIViewExtensions.swift */; };
 		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
 		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
 		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
@@ -39,7 +39,6 @@
 		B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795C225170F900FFB807 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
-		B890795D2251711F00FFB807 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F2301221F9B66005BD677 /* UIViewExtensions.swift */; };
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
 		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B89079662251844000FFB807 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* NetworkService.swift */; };
@@ -94,11 +93,11 @@
 		6D3C17976C2C6C5F1DE8BD15 /* Pods-DashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardUITests/Pods-DashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		B8546C7022DE58520017E2DA /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Services.xcdatamodel; sourceTree = "<group>"; };
-		B87F2301221F9B66005BD677 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
@@ -207,7 +206,7 @@
 		B87F22FE221F853F005BD677 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B87F2301221F9B66005BD677 /* UIViewExtensions.swift */,
+				B8546C7022DE58520017E2DA /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,9 +637,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B87F2302221F9B66005BD677 /* UIViewExtensions.swift in Sources */,
 				B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
+				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
@@ -675,7 +674,6 @@
 				B89079662251844000FFB807 /* NetworkService.swift in Sources */,
 				B890796522517CEB00FFB807 /* Persistence.swift in Sources */,
 				B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */,
-				B890795D2251711F00FFB807 /* UIViewExtensions.swift in Sources */,
 				B890795C225170F900FFB807 /* ServiceModel.swift in Sources */,
 				B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */,
@@ -767,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -822,7 +820,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -843,6 +841,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -866,6 +865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = "$(SRCROOT)/Dashboard/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -972,7 +972,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = DashboardWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -994,7 +994,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UMFPW78PV;
 				INFOPLIST_FILE = DashboardWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
