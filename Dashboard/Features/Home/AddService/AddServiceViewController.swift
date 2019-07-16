@@ -40,13 +40,13 @@ class AddServiceViewController: UIViewController {
     }
     
     private func setupView() {
-        guard let serviceToEdit = serviceToEdit else {
-            return
-        }
+        serviceUrlTextField.text = serviceToEdit?.url
+        serviceUrlTextField.textColor = UIColor.textColor
         
-        serviceUrlTextField.text = serviceToEdit.url
-        nameTextField.text = serviceToEdit.name
-        logoImageView.image = serviceToEdit.image
+        nameTextField.text = serviceToEdit?.name
+        nameTextField.textColor = UIColor.textColor
+        
+        logoImageView.image = serviceToEdit?.image
         logoImageView.layer.cornerRadius = 15
     }
     

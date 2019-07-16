@@ -10,14 +10,14 @@ import UIKit
 
 extension UIColor {
     
-    static let serviceCellBackground = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+    static let textColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         switch traitCollection.userInterfaceStyle {
         case .dark:
-            return .tertiarySystemFill
+            return .lightText
         case .light, .unspecified:
-            return .tertiarySystemFill
+            return .darkText
         @unknown default: // Could there be other interface styles in the future?
-            return .tertiarySystemFill
+            return .darkText
         }
     }
 }
