@@ -11,9 +11,12 @@ import NotificationCenter
 
 class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var vibrancyView: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        vibrancyView.effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .fill)
         self.preferredContentSize = CGSize(width:self.view.frame.size.width, height: 250)
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
@@ -30,9 +33,12 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
         completionHandler(NCUpdateResult.newData)
     }
     
+    // MARK - UICollectionViewDelegate
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
-        
+      
+        cell.backgroundColor = UIColor.tertiarySystemGroupedBackground
         cell.nameLabel.isHidden = true;
     }
     

@@ -25,7 +25,6 @@ class ServiceCollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
-        collectionView.backgroundColor = UIColor.systemGroupedBackground
     }
     
     override func viewDidAppear(_ animated: Bool) {
