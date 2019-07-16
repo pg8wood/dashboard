@@ -46,7 +46,7 @@ class AddServiceViewController: UIViewController {
         nameTextField.text = serviceToEdit?.name
         nameTextField.textColor = UIColor.textColor
         
-        logoImageView.image = serviceToEdit?.image
+        logoImageView.image = serviceToEdit?.image ?? UIImage(named: "missing-image")!
         logoImageView.layer.cornerRadius = 15
     }
     
