@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zhj-D8-5Bj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="456"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="5" id="Bve-Vv-IwD">
                                     <size key="itemSize" width="335" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="17.5" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <visualEffectView key="backgroundView" opaque="NO" contentMode="scaleToFill" id="I5d-63-L4x">
-                                    <rect key="frame" x="0.0" y="-44" width="320" height="500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CH5-jv-Jc1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="372"/>
@@ -33,6 +33,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yc-zC-5Zp">
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e4O-wJ-1ZB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
                                                 <vibrancyEffect>
@@ -51,7 +52,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zhj-D8-5Bj" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="VLO-At-L4d"/>
-                            <constraint firstItem="zhj-D8-5Bj" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="iJN-T4-gQL"/>
+                            <constraint firstItem="zhj-D8-5Bj" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="iJN-T4-gQL"/>
                             <constraint firstAttribute="bottom" secondItem="zhj-D8-5Bj" secondAttribute="bottom" id="s15-qp-o5W"/>
                             <constraint firstAttribute="trailing" secondItem="zhj-D8-5Bj" secondAttribute="trailing" id="vw1-qg-dKT"/>
                         </constraints>

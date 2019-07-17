@@ -21,7 +21,8 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
-    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode,
+                                          withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
         } else if activeDisplayMode == .compact {
@@ -38,11 +39,11 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
       
-        cell.backgroundColor = UIColor.tertiarySystemGroupedBackground
+        cell.backgroundColor = UIColor.clear
         cell.nameLabel.isHidden = true;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 75)
+        return CGSize(width: 145, height: 60)
     }
 }
