@@ -17,7 +17,7 @@ public class ServiceModel: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var url: String
-    
+
     var inMemoryImage: UIImage?
     var image: UIImage {
         get {

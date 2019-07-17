@@ -25,6 +25,7 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
                                           withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
+            pingServices()
         } else if activeDisplayMode == .compact {
             self.preferredContentSize = CGSize(width: maxSize.width, height: 250)
         }
@@ -40,6 +41,8 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
         guard let cell = cell as? ServiceCollectionViewCell else { return }
       
         cell.backgroundColor = UIColor.clear
+        cell.imageContainerView.backgroundColor = UIColor.clear
+        cell.loadingIndicator.color = .widgetLoadingIndicatorColor
         cell.nameLabel.isHidden = true;
     }
     

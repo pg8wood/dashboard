@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.59" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.45"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -27,32 +25,49 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
-                        <rect key="frame" x="90" y="45.5" width="250" height="20.5"/>
+                        <rect key="frame" x="90" y="45.5" width="143" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
-                        <rect key="frame" x="350" y="-200.5" width="40" height="512"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSV-MZ-3xz">
+                        <rect key="frame" x="350" y="0.0" width="40" height="111"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="111"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VLo-Px-XA5">
+                                <rect key="frame" x="10" y="45.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="nPM-Td-DBY"/>
+                            <constraint firstItem="VLo-Px-XA5" firstAttribute="centerX" secondItem="kSV-MZ-3xz" secondAttribute="centerX" id="Lep-U3-4dB"/>
+                            <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="kSV-MZ-3xz" secondAttribute="leading" id="dM4-i3-rg1"/>
+                            <constraint firstAttribute="trailing" secondItem="FIt-pS-KJu" secondAttribute="trailing" id="fe3-0A-fc1"/>
+                            <constraint firstAttribute="width" constant="40" id="kph-8F-GTL"/>
+                            <constraint firstItem="VLo-Px-XA5" firstAttribute="centerY" secondItem="kSV-MZ-3xz" secondAttribute="centerY" id="mBr-5Q-HGg"/>
+                            <constraint firstItem="FIt-pS-KJu" firstAttribute="top" secondItem="kSV-MZ-3xz" secondAttribute="top" id="nlq-ie-Baf"/>
+                            <constraint firstAttribute="bottom" secondItem="FIt-pS-KJu" secondAttribute="bottom" id="ovs-Eo-Wba"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Aj-t8-to7"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Qs-L1-gpl"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MUc-te-VxN"/>
-                <constraint firstItem="FIt-pS-KJu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Rrq-1f-fGX"/>
-                <constraint firstAttribute="trailing" secondItem="FIt-pS-KJu" secondAttribute="trailing" constant="10" id="VJX-MC-S4K"/>
-                <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="9mm-Qf-BgE" secondAttribute="trailing" constant="10" id="mCH-Qb-nHW"/>
+                <constraint firstAttribute="trailing" secondItem="kSV-MZ-3xz" secondAttribute="trailing" constant="10" id="kkU-LR-xxv"/>
+                <constraint firstItem="kSV-MZ-3xz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ntN-CD-DBM"/>
+                <constraint firstAttribute="bottom" secondItem="kSV-MZ-3xz" secondAttribute="bottom" id="qko-vp-pxf"/>
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="leading" secondItem="tTM-DE-agA" secondAttribute="trailing" constant="10" id="ts8-9Z-4ze"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="203" height="40"/>
             <connections>
+                <outlet property="imageContainerView" destination="kSV-MZ-3xz" id="Fc9-Db-xhO"/>
+                <outlet property="loadingIndicator" destination="VLo-Px-XA5" id="g5r-FQ-7LZ"/>
                 <outlet property="logoImageView" destination="tTM-DE-agA" id="I9Z-yP-UD3"/>
                 <outlet property="nameLabel" destination="9mm-Qf-BgE" id="t4I-ht-GrH"/>
                 <outlet property="statusImageView" destination="FIt-pS-KJu" id="1Ba-ds-Uvb"/>

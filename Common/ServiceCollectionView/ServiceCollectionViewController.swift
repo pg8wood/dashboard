@@ -33,21 +33,33 @@ class ServiceCollectionViewController: UIViewController {
     
     func pingServices() {
         for cell in collectionView.visibleCells {
-            guard let indexPath = collectionView.indexPath(for: cell), let cell = cell as? ServiceCollectionViewCell else {
-                return
+            guard let cell = cell as? ServiceCollectionViewCell else {
+                break
             }
             
-            // Render each service status
-            let serviceUrl = services[indexPath.row].url
-            NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
-                DispatchQueue.main.async {
-                    self?.onServiceStatusResult(result, for: cell)
-                }
+            pingService(for: cell)
+        }
+    }
+    
+    func pingService(for cell: ServiceCollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        cell.startLoading()
+        
+        let serviceUrl = services[indexPath.row].url
+        
+        NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
+            DispatchQueue.main.async {
+                self?.onServiceStatusResult(result, for: cell)
             }
         }
     }
     
     func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
+        cell.stopLoading()
+        
         do {
             let _ = try result.value()
             cell.statusImageView.image = UIImage(named: "check")
@@ -85,12 +97,8 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO indicate loading
-        NetworkService.fetchServerStatus(url: services[indexPath.row].url).call { [weak self] result in
-            DispatchQueue.main.async {
-                let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
-                self?.onServiceStatusResult(result, for: cell)
-            }
-        }
+        let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
+        
+        pingService(for: cell)
     }
 }

@@ -41,10 +41,10 @@ class AddServiceViewController: UIViewController {
     
     private func setupView() {
         serviceUrlTextField.text = serviceToEdit?.url
-        serviceUrlTextField.textColor = UIColor.textColor
+        serviceUrlTextField.textColor = .textColor
         
         nameTextField.text = serviceToEdit?.name
-        nameTextField.textColor = UIColor.textColor
+        nameTextField.textColor = .textColor
         
         logoImageView.image = serviceToEdit?.image ?? UIImage(named: "missing-image")!
         logoImageView.layer.cornerRadius = 15
@@ -57,7 +57,8 @@ class AddServiceViewController: UIViewController {
         
         logoImageView.image = nil
         
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = .loadingIndicatorColor
         activityIndicator.center = logoImageView.center
         logoImageView.addSubview(activityIndicator)
         activityIndicator.startAnimating()

@@ -12,6 +12,7 @@
 		7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5FDB7FE2E5772F63B2D9C1 /* Pods_DashboardWidget.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
 		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
+		B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
@@ -215,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				B881D23E221DC94E0038BF81 /* Home */,
-				B87F22FE221F853F005BD677 /* Extensions */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -316,10 +316,11 @@
 		B890793E225157B500FFB807 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B89079672251869C00FFB807 /* ServiceCollectionView */,
+				B87F22FE221F853F005BD677 /* Extensions */,
 				B87F22F8221E61B7005BD677 /* Models */,
 				B881D249221DC94F0038BF81 /* Network */,
 				B87F22F5221E610B005BD677 /* Persistence */,
+				B89079672251869C00FFB807 /* ServiceCollectionView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -671,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */,
 				B89079662251844000FFB807 /* NetworkService.swift in Sources */,
 				B890796522517CEB00FFB807 /* Persistence.swift in Sources */,
 				B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */,

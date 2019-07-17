@@ -12,7 +12,9 @@ import CoreMotion
 class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var statusImageView: UIImageView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,8 +22,19 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        backgroundColor = UIColor.secondarySystemGroupedBackground
         logoImageView.layer.cornerRadius = 15
         nameLabel.textColor = UIColor.label
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.color = .loadingIndicatorColor
+    }
+    
+    func startLoading() {
+        loadingIndicator.startAnimating()
+        statusImageView.image = nil
+    }
+    
+    func stopLoading() {
+        loadingIndicator.stopAnimating()
     }
 }
