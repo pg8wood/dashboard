@@ -40,7 +40,7 @@
                                 <rect key="frame" x="10" y="45.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VLo-Px-XA5" firstAttribute="centerX" secondItem="kSV-MZ-3xz" secondAttribute="centerX" id="Lep-U3-4dB"/>
                             <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="kSV-MZ-3xz" secondAttribute="leading" id="dM4-i3-rg1"/>
@@ -53,7 +53,7 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemBackgroundColor"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Aj-t8-to7"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Qs-L1-gpl"/>
