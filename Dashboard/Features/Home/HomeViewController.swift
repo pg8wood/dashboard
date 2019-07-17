@@ -83,7 +83,10 @@ class HomeViewController: ServiceCollectionViewController {
 extension HomeViewController: ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
         services.insert(newService, at: 0)
-        collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
+        
+        let newIndexPath = IndexPath(row: 0, section: 0)
+        collectionView.insertItems(at: [newIndexPath])
+        pingService(for: collectionView.cellForItem(at: newIndexPath) as! ServiceCollectionViewCell)
     }
     
     func onServiceChanged(service: ServiceModel) {
@@ -94,6 +97,7 @@ extension HomeViewController: ServiceDelegate {
         
         services[editingIndexPath.row] = service
         collectionView.reloadItems(at: [editingIndexPath])
+        pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
         self.editingIndexPath = nil
     }
 }

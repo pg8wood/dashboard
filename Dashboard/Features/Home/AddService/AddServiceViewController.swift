@@ -50,6 +50,7 @@ class AddServiceViewController: UIViewController {
         
         navigationController.navigationBar.topItem?.title = mode == .create ? "Add Service" : "Edit Service"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
+        updateDoneButton()
     }
     
     private func setupView() {
@@ -69,7 +70,9 @@ class AddServiceViewController: UIViewController {
     }
     
     private func updateDoneButton() {
-        if let serviceUrl = serviceUrlTextField.text, let serviceName = nameTextField.text, !serviceUrl.isEmpty, !serviceName.isEmpty {
+        let bothTextFieldsNContainText = serviceUrlTextField.text?.count ?? 0 > 0 && nameTextField.text?.count ?? 0 > 0
+        
+        if mode == .edit || bothTextFieldsNContainText {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
         } else {
             navigationItem.rightBarButtonItem = nil
