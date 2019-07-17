@@ -53,11 +53,13 @@ class HomeViewController: ServiceCollectionViewController {
     func presentAddServiceViewController(serviceToEdit: ServiceModel? = nil) {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
         let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
-        
+        addServiceViewController.mode = serviceToEdit == nil ? .create : .edit
         addServiceViewController.serviceDelegate = self
         addServiceViewController.serviceToEdit = serviceToEdit
         
-        present(addServiceViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: addServiceViewController)
+        
+        present(navigationController, animated: true)
     }
     
     @objc func editServicesTapped(_ sender: UIBarButtonItem) {

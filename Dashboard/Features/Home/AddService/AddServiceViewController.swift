@@ -14,6 +14,11 @@ protocol ServiceDelegate {
     func onServiceChanged(service: ServiceModel)
 }
 
+enum Mode {
+    case create
+    case edit
+}
+
 class AddServiceViewController: UIViewController {
     @IBOutlet weak var serviceUrlTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,20 +28,28 @@ class AddServiceViewController: UIViewController {
     public var serviceDelegate: ServiceDelegate?
     public var serviceToEdit: ServiceModel?
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var mode: Mode = .create
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
     private var database: Database = PersistenceClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         serviceUrlTextField.delegate = self
         nameTextField.delegate = self
+        setupNavigationBar()
         setupView()
         addGestureRecognizers()
     }
     
-    private func addGestureRecognizers() {
-        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
-        logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
+    private func setupNavigationBar() {
+        guard let navigationController = navigationController else {
+            return
+        }
+        
+        navigationController.navigationBar.topItem?.title = mode == .create ? "Add Service" : "Edit Service"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
     }
     
     private func setupView() {
@@ -50,10 +63,25 @@ class AddServiceViewController: UIViewController {
         logoImageView.layer.cornerRadius = 15
     }
     
+    private func addGestureRecognizers() {
+        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
+        logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
+    }
+    
+    private func updateDoneButton() {
+        if let serviceUrl = serviceUrlTextField.text, let serviceName = nameTextField.text, !serviceUrl.isEmpty, !serviceName.isEmpty {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
     @IBAction func urlTextFieldEditingDidEnd(_ sender: UITextField) {
         guard let url = sender.text else {
             return
         }
+        
+        updateDoneButton()
         
         logoImageView.image = nil
         
@@ -80,6 +108,11 @@ class AddServiceViewController: UIViewController {
         }
     }
     
+    @IBAction func nameTextFieldEditingChanged(_ sender: UITextField) {
+        updateDoneButton()
+    }
+    
+    
     @objc func editImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         
@@ -90,7 +123,7 @@ class AddServiceViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
