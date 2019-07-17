@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3At-aj-0Qz">
-                                <rect key="frame" x="16" y="89" width="343" height="125"/>
+                                <rect key="frame" x="16" y="54" width="343" height="125"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PzC-KP-E9c">
                                         <rect key="frame" x="0.0" y="33" width="225" height="59"/>
@@ -69,7 +69,7 @@
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="l0M-Nt-Gu7" firstAttribute="bottom" secondItem="3At-aj-0Qz" secondAttribute="bottom" constant="564" id="Yvb-vs-oZo"/>
+                            <constraint firstItem="3At-aj-0Qz" firstAttribute="top" secondItem="l0M-Nt-Gu7" secondAttribute="top" constant="10" id="Bmn-kE-wIc"/>
                             <constraint firstAttribute="trailing" secondItem="3At-aj-0Qz" secondAttribute="trailing" constant="16" id="u18-pp-7vQ"/>
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="leading" secondItem="dmU-tZ-rNu" secondAttribute="leadingMargin" id="zPz-Hy-01a"/>
                         </constraints>
