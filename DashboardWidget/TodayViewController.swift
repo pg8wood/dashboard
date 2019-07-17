@@ -47,6 +47,6 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 145, height: 60)
+        return CGSize(width: 145, height: 45)
     }
 }
