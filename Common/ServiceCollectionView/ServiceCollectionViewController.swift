@@ -76,10 +76,18 @@ class ServiceCollectionViewController: UIViewController {
     }
     
     func onServiceStatusResult(_ result: Result<Int>, for cell: ServiceCollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
+        let service = services[indexPath.row]
+        
         cell.stopLoading()
         
         do {
             let _ = try result.value()
+            
+            database.updateLastOnlineDate(for: service, lastOnline: Date(timeIntervalSinceNow: 0))
+            
             cell.statusImageView.image = UIImage(named: "check")
         } catch {
             cell.statusImageView.image = UIImage(named: "server-error")
@@ -108,8 +116,10 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         
         cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
-        cell.statusImageView.image = UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
+        
+        let onlineRecently = Date().timeIntervalSince(service.lastOnlineDate) <= 60 * 5 // online in the last 5 minutes
+        cell.statusImageView.image = onlineRecently ? UIImage(named: "check") : UIImage(named: "server-error")
 
         return cell
     }

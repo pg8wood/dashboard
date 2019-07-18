@@ -13,6 +13,7 @@ protocol Database {
     func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void)
     func save(image: UIImage, named fileName: String)
     func renameFile(from oldFileName: String, to newFileName: String)
+    func updateLastOnlineDate(for service: ServiceModel, lastOnline: Date)
 }
 
 class PersistenceClient {
@@ -91,5 +92,9 @@ extension PersistenceClient: Database {
         } catch {
             print("Failed to rename image. Saving new instead")
         }
+    }
+    
+    func updateLastOnlineDate(for service: ServiceModel, lastOnline: Date) {
+        service.lastOnlineDate = lastOnline
     }
 }

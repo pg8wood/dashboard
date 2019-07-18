@@ -30,7 +30,7 @@ extension PersistenceClient: ServiceDatabase {
             
             let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
             
-            service.populate(index: Int64(numberOfServices), name: name, url: url, image: image)
+            service.populate(index: Int64(numberOfServices), name: name, url: url, image: image, lastOnlineDate: .distantPast)
             save(image: image, named: name)
             
             completion(.success(service))
@@ -40,7 +40,7 @@ extension PersistenceClient: ServiceDatabase {
     }
     
     func edit(service: ServiceModel, name: String, url: String, image: UIImage) {
-        service.populate(index: service.index, name: name, url: url, image: image)
+        service.populate(index: service.index, name: name, url: url, image: image, lastOnlineDate: service.lastOnlineDate)
     }
     
     /// Swap two services' indices in the database
