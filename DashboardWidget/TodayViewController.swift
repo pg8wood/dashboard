@@ -17,19 +17,37 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        preferredContentSize = CGSize(width:self.view.frame.size.width, height: 250)
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         vibrancyView.effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .fill)
-        self.preferredContentSize = CGSize(width:self.view.frame.size.width, height: 250)
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode,
                                           withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
-            pingServices()
+            pingAppearingServices()
         } else if activeDisplayMode == .compact {
             self.preferredContentSize = CGSize(width: maxSize.width, height: 250)
+        }
+    }
+    
+    /// Pings the services about to show.  If this operation ever takes much longer, it may be a good candidate to
+    /// start caching the responses instead of re-pinging each time
+    private func pingAppearingServices() {
+        let numberOfCells = collectionView.numberOfItems(inSection: 0)
+        
+        guard numberOfCells > 2 else {
+            return
+        }
+        
+        for i in 2..<numberOfCells {
+            guard let cell = collectionView.cellForItem(at: IndexPath(row: i, section:  0)) as? ServiceCollectionViewCell else {
+                continue
+            }
+            
+            pingService(for: cell)
         }
     }
         
@@ -53,6 +71,6 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: cellHeight)
+        return CGSize(width: collectionView.frame.size.width - 5, height: cellHeight)
     }
 }
