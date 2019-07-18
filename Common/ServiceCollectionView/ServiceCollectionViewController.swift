@@ -116,10 +116,8 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         
         cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
+        cell.statusImageView.image = service.wasOnlineRecently ? UIImage(named: "check") : UIImage(named: "server-error")
         cell.layer.cornerRadius = 20
-        
-        let onlineRecently = Date().timeIntervalSince(service.lastOnlineDate) <= 60 * 5 // online in the last 5 minutes
-        cell.statusImageView.image = onlineRecently ? UIImage(named: "check") : UIImage(named: "server-error")
 
         return cell
     }

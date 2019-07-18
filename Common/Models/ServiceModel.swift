@@ -19,6 +19,11 @@ public class ServiceModel: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var url: String
     @NSManaged var lastOnlineDate: Date
+    
+    /// Determine if the service was online in the last 5 minutes
+    var wasOnlineRecently: Bool {
+        return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5
+    }
 
     var inMemoryImage: UIImage?
     var image: UIImage {
