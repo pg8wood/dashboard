@@ -109,8 +109,20 @@ class HomeViewController: ServiceCollectionViewController {
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         PersistenceClient.shared.swap(service: services[sourceIndexPath.row], with: services[destinationIndexPath.row])
-        services = PersistenceClient.shared.getStoredServices()
-        collectionView.reloadItems(at: [sourceIndexPath, destinationIndexPath])
+        PersistenceClient.shared.getStoredServices { [weak self] result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                do {
+                    let services = try result.get()
+                    self.services = services
+                    
+                    collectionView.reloadData()
+                } catch {
+                    self.show(error: error)
+                }
+            }
+        }
     }
 }
 

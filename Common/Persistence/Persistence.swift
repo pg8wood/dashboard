@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 protocol Database {
-    func getStoredServices() -> [ServiceModel]
+    func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void)
     func save(image: UIImage, named fileName: String)
     func renameFile(from oldFileName: String, to newFileName: String)
 }
@@ -42,7 +42,7 @@ class PersistenceClient {
 }
 
 extension PersistenceClient: Database {
-    func getStoredServices() -> [ServiceModel] {
+    func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void) {
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
         let sortDescriptor = NSSortDescriptor(keyPath: \ServiceModel.index, ascending: true)
@@ -50,8 +50,9 @@ extension PersistenceClient: Database {
         serviceFetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
+            // TODO create database error and use here instead of unsafe uwrap
             let fetchedServices = try managedContext.fetch(serviceFetchRequest) as! [ServiceModel]
-            return fetchedServices
+            completion(.success(fetchedServices))
         } catch {
             fatalError("Failed to fetch service models: \(error)")
         }

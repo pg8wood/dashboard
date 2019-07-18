@@ -146,24 +146,21 @@ class AddServiceViewController: UIViewController {
             database.createService(name: name, url: serviceUrl, image: image) { [weak self] result in
                 guard let self = self else { return }
                 
-                do {
-                    let newService = try result.get()
-                    self.serviceDelegate?.onNewServiceCreated(newService: newService)
-                } catch {
-                    self.show(error: error)
+                DispatchQueue.main.async {
+                    do {
+                        let newService = try result.get()
+                        self.serviceDelegate?.onNewServiceCreated(newService: newService)
+                    } catch {
+                        self.show(error: error)
+                    }
                 }
             }
         }
-        
-         // TODO why is this saved twice?
+
         dismiss(animated: true, completion: nil)
     }
-    
-    private func show(error: Error) {
-        let alertViewController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
-        present(alertViewController, animated: true)
-    }
 }
+
 // MARK: - UITextField Delegate
 extension AddServiceViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

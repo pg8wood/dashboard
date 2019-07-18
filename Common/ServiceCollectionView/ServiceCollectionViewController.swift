@@ -22,8 +22,20 @@ class ServiceCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        services = database.getStoredServices()
-        setupCollectionView()
+        database.getStoredServices { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                do {
+                    self.services = try result.get()
+                    self.setupCollectionView()
+                } catch {
+                    self.show(error: error)
+                }
+            }
+        }
     }
     
     private func setupCollectionView() {
