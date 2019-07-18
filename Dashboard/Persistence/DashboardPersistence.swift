@@ -45,10 +45,8 @@ extension PersistenceClient: ServiceDatabase {
     
     /// Swap two services' indices in the database
     func swap(service: ServiceModel, with otherService: ServiceModel) {
-        let firstIndex = service.index
-        let secondIndex = service.index
-        
-        service.index = secondIndex
-        otherService.index = firstIndex
+        service.index += otherService.index
+        otherService.index = service.index - otherService.index
+        service.index -= otherService.index
     }
 }

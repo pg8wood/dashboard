@@ -110,7 +110,7 @@ class HomeViewController: ServiceCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         PersistenceClient.shared.swap(service: services[sourceIndexPath.row], with: services[destinationIndexPath.row])
         services = PersistenceClient.shared.getStoredServices()
-        collectionView.reloadData()
+        collectionView.reloadItems(at: [sourceIndexPath, destinationIndexPath])
     }
 }
 

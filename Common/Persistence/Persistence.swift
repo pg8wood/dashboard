@@ -45,6 +45,9 @@ extension PersistenceClient: Database {
     func getStoredServices() -> [ServiceModel] {
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
+        let sortDescriptor = NSSortDescriptor(keyPath: \ServiceModel.index, ascending: true)
+        
+        serviceFetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             let fetchedServices = try managedContext.fetch(serviceFetchRequest) as! [ServiceModel]
