@@ -9,8 +9,6 @@
 import CoreData
 import UIKit
 
-//let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
 protocol Database {
     func getStoredServices() -> [ServiceModel]
     func save(image: UIImage, named fileName: String)

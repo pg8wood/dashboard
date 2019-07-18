@@ -32,7 +32,7 @@ class AddServiceViewController: UIViewController {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
-    private var database: Database = PersistenceClient()
+    private var database: ServiceDatabase = PersistenceClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,15 +140,13 @@ class AddServiceViewController: UIViewController {
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
         
         if let editedService = serviceToEdit {
-            editedService.populate(name: name, url: serviceUrl, image: image)
+            database.edit(service: editedService,name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
-            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
-            
-            service.populate(name: name, url: serviceUrl, image: image)
-            serviceDelegate?.onNewServiceCreated(newService: service)
+            let newService = database.createService(name: name, url: serviceUrl, image: image)
+            serviceDelegate?.onNewServiceCreated(newService: newService)
         }
-        database.save(image: image, named: name)
+        database.save(image: image, named: name) // TODO why is this saved twice?
 
         dismiss(animated: true, completion: nil)
     }
@@ -184,5 +182,5 @@ extension AddServiceViewController: UIImagePickerControllerDelegate {
 }
 
 extension AddServiceViewController: UINavigationControllerDelegate {
-    
+    // Empty stub to conform to UIImagePickerControllerDelegate
 }
