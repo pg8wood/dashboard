@@ -32,7 +32,7 @@ class AddServiceViewController: UIViewController {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
-    private var database: ServiceDatabase = PersistenceClient()
+    private var database: ServiceDatabase = PersistenceClient.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,12 +143,25 @@ class AddServiceViewController: UIViewController {
             database.edit(service: editedService,name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
-            let newService = database.createService(name: name, url: serviceUrl, image: image)
-            serviceDelegate?.onNewServiceCreated(newService: newService)
+            database.createService(name: name, url: serviceUrl, image: image) { [weak self] result in
+                guard let self = self else { return }
+                
+                do {
+                    let newService = try result.get()
+                    self.serviceDelegate?.onNewServiceCreated(newService: newService)
+                } catch {
+                    self.show(error: error)
+                }
+            }
         }
-        database.save(image: image, named: name) // TODO why is this saved twice?
-
+        
+         // TODO why is this saved twice?
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func show(error: Error) {
+        let alertViewController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
+        present(alertViewController, animated: true)
     }
 }
 // MARK: - UITextField Delegate

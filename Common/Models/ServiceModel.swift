@@ -15,6 +15,7 @@ public class ServiceModel: NSManagedObject {
         return String(describing: self)
     }
     
+    @NSManaged var index: Int64
     @NSManaged var name: String
     @NSManaged var url: String
 
@@ -27,7 +28,8 @@ public class ServiceModel: NSManagedObject {
         }
     }
     
-    func populate(name: String, url: String, image: UIImage) {
+    func populate(index: Int64, name: String, url: String, image: UIImage) {
+        self.index = index
         self.name = name
         self.url = url
         self.image = image

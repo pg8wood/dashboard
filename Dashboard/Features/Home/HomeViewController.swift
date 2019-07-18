@@ -24,7 +24,12 @@ class HomeViewController: ServiceCollectionViewController {
     }
     
     var editingIndexPath: IndexPath?
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        database = PersistenceClient()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(onLongPress)))
@@ -103,7 +108,9 @@ class HomeViewController: ServiceCollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        services.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        PersistenceClient.shared.swap(service: services[sourceIndexPath.row], with: services[destinationIndexPath.row])
+        services = PersistenceClient.shared.getStoredServices()
+        collectionView.reloadData()
     }
 }
 

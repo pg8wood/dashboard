@@ -13,7 +13,12 @@ class ServiceCollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     var services: [ServiceModel] = []
-    var database: Database = PersistenceClient()
+    var database: Database
+    
+    required init?(coder: NSCoder) {
+        database = PersistenceClient()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,7 @@ class ServiceCollectionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         pingServices()
     }
     
