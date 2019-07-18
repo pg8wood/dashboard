@@ -27,27 +27,8 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
                                           withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
-            pingAppearingServices()
         } else if activeDisplayMode == .compact {
             self.preferredContentSize = CGSize(width: maxSize.width, height: 250)
-        }
-    }
-    
-    /// Pings the services about to show.  If this operation ever takes much longer, it may be a good candidate to
-    /// start caching the responses instead of re-pinging each time
-    private func pingAppearingServices() {
-        let numberOfCells = collectionView.numberOfItems(inSection: 0)
-        
-        guard numberOfCells > 2 else {
-            return
-        }
-        
-        for i in 2..<numberOfCells {
-            guard let cell = collectionView.cellForItem(at: IndexPath(row: i, section:  0)) as? ServiceCollectionViewCell else {
-                continue
-            }
-            
-            pingService(for: cell)
         }
     }
         
@@ -60,6 +41,12 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
         adaptCellLayoutForWidgetView(cell)
+        
+        // Since the ping call can return before the cell is set up, delay it by half a second. It may be better to ping first and
+        // cache the response here. 
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.55) { [ weak self] in
+            self?.pingService(for: cell)
+        }
     }
     
     private func adaptCellLayoutForWidgetView(_ cell: ServiceCollectionViewCell) {
