@@ -27,6 +27,7 @@ class HomeViewController: ServiceCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(onLongPress)))
         setupNavigationBar()
     }
  
@@ -66,6 +67,25 @@ class HomeViewController: ServiceCollectionViewController {
         isEditing.toggle()
     }
     
+    @objc func onLongPress(_ sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            guard let indexPath = collectionView.indexPathForItem(at: sender.location(in: collectionView)) else {
+                return
+            }
+            
+            collectionView.beginInteractiveMovementForItem(at: indexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(sender.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        case .cancelled:
+            collectionView.cancelInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
+    
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isEditing {
@@ -76,6 +96,14 @@ class HomeViewController: ServiceCollectionViewController {
         } else {
             super.collectionView(collectionView, didSelectItemAt: indexPath)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        services.swapAt(sourceIndexPath.row, destinationIndexPath.row)
     }
 }
 
