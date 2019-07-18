@@ -14,6 +14,11 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     @IBOutlet weak var vibrancyView: UIVisualEffectView!
     
     private final let cellHeight: CGFloat = 45
+    private final let cellSpacing: CGFloat = 10
+    
+    private var widgetPreferredHeight: CGFloat {
+        return (cellHeight + cellSpacing) * CGFloat(collectionView.numberOfItems(inSection: 0))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,7 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode,
                                           withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
+            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: widgetPreferredHeight)
         } else if activeDisplayMode == .compact {
             self.preferredContentSize = CGSize(width: maxSize.width, height: 250)
         }
