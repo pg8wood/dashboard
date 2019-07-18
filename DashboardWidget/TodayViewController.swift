@@ -13,6 +13,8 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     
     @IBOutlet weak var vibrancyView: UIVisualEffectView!
     
+    private final let cellHeight: CGFloat = 45
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,14 +41,18 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
-      
+        adaptCellLayoutForWidgetView(cell)
+    }
+    
+    private func adaptCellLayoutForWidgetView(_ cell: ServiceCollectionViewCell) {
         cell.backgroundColor = UIColor.clear
         cell.imageContainerView.backgroundColor = UIColor.clear
         cell.loadingIndicator.color = .widgetLoadingIndicatorColor
-        cell.nameLabel.isHidden = true;
+        cell.logoImageViewWidthConstraint.constant = cellHeight
+        cell.statusImageViewWidthConstraint.constant = 30
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 145, height: 45)
+        return CGSize(width: collectionView.frame.size.width, height: cellHeight)
     }
 }

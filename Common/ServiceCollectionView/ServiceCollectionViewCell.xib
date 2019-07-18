@@ -24,8 +24,8 @@
                             <constraint firstAttribute="width" constant="70" id="le2-1c-2hC"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
-                        <rect key="frame" x="90" y="45.5" width="143" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mm-Qf-BgE" userLabel="Name Label">
+                        <rect key="frame" x="90" y="45.5" width="245" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +34,10 @@
                         <rect key="frame" x="350" y="0.0" width="40" height="111"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="111"/>
+                                <rect key="frame" x="0.0" y="35.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FIt-pS-KJu" secondAttribute="height" multiplier="1:1" id="grK-kF-BP6"/>
+                                </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VLo-Px-XA5">
                                 <rect key="frame" x="10" y="45.5" width="20" height="20"/>
@@ -42,13 +45,12 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FIt-pS-KJu" firstAttribute="centerY" secondItem="kSV-MZ-3xz" secondAttribute="centerY" id="GTe-7F-vAx"/>
                             <constraint firstItem="VLo-Px-XA5" firstAttribute="centerX" secondItem="kSV-MZ-3xz" secondAttribute="centerX" id="Lep-U3-4dB"/>
                             <constraint firstItem="FIt-pS-KJu" firstAttribute="leading" secondItem="kSV-MZ-3xz" secondAttribute="leading" id="dM4-i3-rg1"/>
                             <constraint firstAttribute="trailing" secondItem="FIt-pS-KJu" secondAttribute="trailing" id="fe3-0A-fc1"/>
                             <constraint firstAttribute="width" constant="40" id="kph-8F-GTL"/>
                             <constraint firstItem="VLo-Px-XA5" firstAttribute="centerY" secondItem="kSV-MZ-3xz" secondAttribute="centerY" id="mBr-5Q-HGg"/>
-                            <constraint firstItem="FIt-pS-KJu" firstAttribute="top" secondItem="kSV-MZ-3xz" secondAttribute="top" id="nlq-ie-Baf"/>
-                            <constraint firstAttribute="bottom" secondItem="FIt-pS-KJu" secondAttribute="bottom" id="ovs-Eo-Wba"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,6 +60,7 @@
                 <constraint firstItem="9mm-Qf-BgE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Aj-t8-to7"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7Qs-L1-gpl"/>
                 <constraint firstItem="tTM-DE-agA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MUc-te-VxN"/>
+                <constraint firstItem="kSV-MZ-3xz" firstAttribute="leading" secondItem="9mm-Qf-BgE" secondAttribute="trailing" constant="15" id="P9X-cv-Dhj"/>
                 <constraint firstAttribute="trailing" secondItem="kSV-MZ-3xz" secondAttribute="trailing" constant="10" id="kkU-LR-xxv"/>
                 <constraint firstItem="kSV-MZ-3xz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ntN-CD-DBM"/>
                 <constraint firstAttribute="bottom" secondItem="kSV-MZ-3xz" secondAttribute="bottom" id="qko-vp-pxf"/>
@@ -69,8 +72,10 @@
                 <outlet property="imageContainerView" destination="kSV-MZ-3xz" id="Fc9-Db-xhO"/>
                 <outlet property="loadingIndicator" destination="VLo-Px-XA5" id="g5r-FQ-7LZ"/>
                 <outlet property="logoImageView" destination="tTM-DE-agA" id="I9Z-yP-UD3"/>
+                <outlet property="logoImageViewWidthConstraint" destination="le2-1c-2hC" id="uhF-bN-2gd"/>
                 <outlet property="nameLabel" destination="9mm-Qf-BgE" id="t4I-ht-GrH"/>
                 <outlet property="statusImageView" destination="FIt-pS-KJu" id="1Ba-ds-Uvb"/>
+                <outlet property="statusImageViewWidthConstraint" destination="kph-8F-GTL" id="f4p-5a-yd3"/>
             </connections>
             <point key="canvasLocation" x="28.800000000000001" y="138.98050974512745"/>
         </collectionViewCell>

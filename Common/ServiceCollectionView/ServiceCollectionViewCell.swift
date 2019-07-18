@@ -16,6 +16,9 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var statusImageView: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var statusImageViewWidthConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
