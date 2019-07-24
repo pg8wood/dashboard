@@ -111,22 +111,18 @@ class HomeViewController: ServiceCollectionViewController {
 // MARK: - ServiceDelegate
 extension HomeViewController: ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
-        // TODO might not need now that we use the fetchedcontrollerdelegate
-//        let newIndexPath = IndexPath(row: 0, section: 0)
-//        collectionView.insertItems(at: [newIndexPath])
-//        pingService(for: collectionView.cellForItem(at: newIndexPath) as! ServiceCollectionViewCell)
+        let newIndexPath = IndexPath(row: 0, section: 0)
+        pingService(for: collectionView.cellForItem(at: newIndexPath) as! ServiceCollectionViewCell)
     }
     
     func onServiceChanged(service: ServiceModel) {
-//        isEditing = false
-//        guard let editingIndexPath = editingIndexPath else {
-//            fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
-//        }
-//        
-//        services[editingIndexPath.row] = service
-//        collectionView.reloadItems(at: [editingIndexPath])
-//        pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
-//        self.editingIndexPath = nil
+        isEditing = false
+        self.editingIndexPath = nil
+        guard let editingIndexPath = editingIndexPath else {
+            fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
+        }
+        
+        pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
     }
 }
 

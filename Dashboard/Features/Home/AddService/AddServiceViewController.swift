@@ -64,8 +64,7 @@ class AddServiceViewController: UIViewController {
     }
     
     private func addGestureRecognizers() {
-        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
-        logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
+        logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editButtonTapped(_:))))
     }
     
     private func updateDoneButton() {
@@ -114,8 +113,7 @@ class AddServiceViewController: UIViewController {
         updateDoneButton()
     }
     
-    
-    @objc func editImage(_ sender: Any) {
+    @IBAction func editButtonTapped(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.delegate = self

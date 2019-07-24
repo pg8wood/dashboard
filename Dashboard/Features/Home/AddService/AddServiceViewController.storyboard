@@ -55,6 +55,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDL-El-igJ">
                                                 <rect key="frame" x="0.0" y="120" width="110" height="5"/>
                                                 <state key="normal" title="Edit"/>
+                                                <connections>
+                                                    <action selector="editButtonTapped:" destination="dyp-ae-97u" eventType="touchUpInside" id="45E-bU-Vbe"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
