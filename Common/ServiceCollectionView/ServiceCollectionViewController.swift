@@ -8,34 +8,23 @@
 
 import UIKit
 import PinkyPromise
+import CoreData
 
 class ServiceCollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
-    var services: [ServiceModel] = []
-    var database: Database
+    var database: Database!
     
-    required init?(coder: NSCoder) {
-        database = PersistenceClient()
-        super.init(coder: coder)
+    private var blockCollectionViewOperations: [BlockOperation] = []
+    
+    convenience init() {
+        self.init()
+        database = PersistenceClient(delegate: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        database.getStoredServices { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                do {
-                    self.services = try result.get()
-                    self.setupCollectionView()
-                } catch {
-                    self.show(error: error)
-                }
-            }
-        }
+        setupCollectionView()
     }
     
     private func setupCollectionView() {
@@ -66,7 +55,7 @@ class ServiceCollectionViewController: UIViewController {
         
         cell.startLoading()
         
-        let serviceUrl = services[indexPath.row].url
+        let serviceUrl = database.getServiceModel(at: indexPath).url
         
         NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
             DispatchQueue.main.async {
@@ -79,7 +68,7 @@ class ServiceCollectionViewController: UIViewController {
         guard let indexPath = collectionView.indexPath(for: cell) else {
             return
         }
-        let service = services[indexPath.row]
+        let service = database.getServiceModel(at: indexPath)
         
         cell.stopLoading()
         
@@ -103,7 +92,7 @@ extension ServiceCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return services.count
+        return database.numberOfServices()
     }
 }
 
@@ -112,7 +101,7 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
-        let service = services[indexPath.row]
+        let service = database.getServiceModel(at: indexPath)
         
         cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
@@ -126,5 +115,48 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! ServiceCollectionViewCell
         
         pingService(for: cell)
+    }
+}
+
+extension ServiceCollectionViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        blockCollectionViewOperations.removeAll(keepingCapacity: false)
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        
+        let operation: BlockOperation
+        
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            operation = BlockOperation { self.collectionView.insertItems(at: [newIndexPath]) }
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            operation = BlockOperation { self.collectionView.deleteItems(at: [indexPath]) }
+        case .move:
+            /* This case is handled implcitly by the database's `sortDescriptor`. When .update
+            is handled, the items are sorted and moved by the collectionView */
+            return
+        case .update:
+            guard let indexPath = indexPath else { return }
+            operation = BlockOperation { self.collectionView.reloadItems(at: [indexPath]) }
+        @unknown default:
+            fatalError("Unknown BlockOperation type")
+        }
+        
+        blockCollectionViewOperations.append(operation)
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        collectionView.performBatchUpdates({
+            self.blockCollectionViewOperations.forEach { $0.start() }
+        }, completion: { finished in
+            self.blockCollectionViewOperations.removeAll(keepingCapacity: false)
+        })
     }
 }

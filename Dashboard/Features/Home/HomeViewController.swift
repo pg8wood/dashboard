@@ -27,7 +27,7 @@ class HomeViewController: ServiceCollectionViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        database = PersistenceClient()
+        database = PersistenceClient(delegate: self)
     }
     
     override func viewDidLoad() {
@@ -62,6 +62,7 @@ class HomeViewController: ServiceCollectionViewController {
         addServiceViewController.mode = serviceToEdit == nil ? .create : .edit
         addServiceViewController.serviceDelegate = self
         addServiceViewController.serviceToEdit = serviceToEdit
+        addServiceViewController.database = database
         
         let navigationController = UINavigationController(rootViewController: addServiceViewController)
         
@@ -96,7 +97,7 @@ class HomeViewController: ServiceCollectionViewController {
         if isEditing {
             editingIndexPath = indexPath
             
-            let serviceToEdit = services[indexPath.row]
+            let serviceToEdit = database.getServiceModel(at: indexPath)
             presentAddServiceViewController(serviceToEdit: serviceToEdit)
         } else {
             super.collectionView(collectionView, didSelectItemAt: indexPath)
@@ -108,45 +109,29 @@ class HomeViewController: ServiceCollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        PersistenceClient.shared.swap(service: services[sourceIndexPath.row], with: services[destinationIndexPath.row])
-        
-        PersistenceClient.shared.getStoredServices { [weak self] result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                do {
-                    let services = try result.get()
-                    self.services = services
-                    
-                    collectionView.reloadData()
-                } catch {
-                    self.show(error: error)
-                }
-            }
-        }
+        database.swap(itemAt: sourceIndexPath, with: destinationIndexPath)
     }
 }
 
 // MARK: - ServiceDelegate
 extension HomeViewController: ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel) {
-        services.insert(newService, at: 0)
-        
-        let newIndexPath = IndexPath(row: 0, section: 0)
-        collectionView.insertItems(at: [newIndexPath])
-        pingService(for: collectionView.cellForItem(at: newIndexPath) as! ServiceCollectionViewCell)
+        // TODO might not need now that we use the fetchedcontrollerdelegate
+//        let newIndexPath = IndexPath(row: 0, section: 0)
+//        collectionView.insertItems(at: [newIndexPath])
+//        pingService(for: collectionView.cellForItem(at: newIndexPath) as! ServiceCollectionViewCell)
     }
     
     func onServiceChanged(service: ServiceModel) {
-        isEditing = false
-        guard let editingIndexPath = editingIndexPath else {
-            fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
-        }
-        
-        services[editingIndexPath.row] = service
-        collectionView.reloadItems(at: [editingIndexPath])
-        pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
-        self.editingIndexPath = nil
+//        isEditing = false
+//        guard let editingIndexPath = editingIndexPath else {
+//            fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
+//        }
+//        
+//        services[editingIndexPath.row] = service
+//        collectionView.reloadItems(at: [editingIndexPath])
+//        pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
+//        self.editingIndexPath = nil
     }
 }
 

@@ -10,25 +10,16 @@ import CoreData
 import UIKit
 
 // TODO unit test these protocols
-protocol ServiceDatabase: Database {
+extension Database {
     func createService(name: String, url: String, image: UIImage,
-                       completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void)
-    func edit(service: ServiceModel, name: String, url: String, image: UIImage)
-    func swap(service: ServiceModel, with otherService: ServiceModel)
-}
-
-extension PersistenceClient: ServiceDatabase {
-    static let shared = PersistenceClient()
-    
-    func createService(name: String, url: String, image: UIImage,
-                       completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void){
+                       completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void) {
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
         
         do {
             let numberOfServices = try managedContext.count(for: serviceFetchRequest)
             
-            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
+            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: managedContext) as! ServiceModel
             
             service.populate(index: Int64(numberOfServices), name: name, url: url, image: image, lastOnlineDate: .distantPast)
             save(image: image, named: name)
@@ -44,9 +35,13 @@ extension PersistenceClient: ServiceDatabase {
     }
     
     /// Swap two services' indices in the database
-    func swap(service: ServiceModel, with otherService: ServiceModel) {
-        service.index += otherService.index
-        otherService.index = service.index - otherService.index
-        service.index -= otherService.index
+    func swap(itemAt sourceIndexPath: IndexPath, with destinationIndexPath: IndexPath) {
+        let sourceService = fetchedResultsController.object(at: sourceIndexPath) as! ServiceModel
+        let destinationService = fetchedResultsController.object(at: destinationIndexPath) as! ServiceModel
+
+        let sourceIndex = sourceService.index
+
+        sourceService.index = destinationService.index
+        destinationService.index = sourceIndex
     }
 }

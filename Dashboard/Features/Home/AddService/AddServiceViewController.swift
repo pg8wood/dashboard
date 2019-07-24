@@ -25,14 +25,13 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var logoImageContainer: UIStackView!
     @IBOutlet weak var logoImageView: UIImageView!
     
-    public var serviceDelegate: ServiceDelegate?
-    public var serviceToEdit: ServiceModel?
-    
+    var serviceToEdit: ServiceModel?
+    var serviceDelegate: ServiceDelegate?
+    var database: Database?
     var mode: Mode = .create
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped(_:)))
-    private var database: ServiceDatabase = PersistenceClient.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,10 +139,10 @@ class AddServiceViewController: UIViewController {
         let serviceUrl = StringUtils.convertString(toHttpsUrlString: url)
         
         if let editedService = serviceToEdit {
-            database.edit(service: editedService,name: name, url: serviceUrl, image: image)
+            database?.edit(service: editedService,name: name, url: serviceUrl, image: image)
             serviceDelegate?.onServiceChanged(service: editedService)
         } else {
-            database.createService(name: name, url: serviceUrl, image: image) { [weak self] result in
+            database?.createService(name: name, url: serviceUrl, image: image) { [weak self] result in
                 guard let self = self else { return }
                 
                 DispatchQueue.main.async {

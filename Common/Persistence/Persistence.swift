@@ -12,6 +12,8 @@ import UIKit
 protocol Database {
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> { get }
     
+    func getServiceModel(at indexPath: IndexPath) -> ServiceModel
+    func numberOfServices() -> Int
     func save(image: UIImage, named fileName: String)
     func renameFile(from oldFileName: String, to newFileName: String)
     func updateLastOnlineDate(for service: ServiceModel, lastOnline: Date)
@@ -34,7 +36,7 @@ class PersistenceClient {
         return container
     }()
     
-    private var fetchController: NSFetchedResultsController<NSFetchRequestResult>!
+    var fetchController: NSFetchedResultsController<NSFetchRequestResult>!
     
     init(delegate: NSFetchedResultsControllerDelegate) {
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
@@ -44,10 +46,10 @@ class PersistenceClient {
         serviceFetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchController = NSFetchedResultsController(fetchRequest: serviceFetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = delegate
+        fetchController.delegate = delegate
         
         do {
-            try fetchController.performFetch()
+            try fetchedResultsController.performFetch()
         } catch {
             // TODO have delegate show error
             fatalError("Failed to fetch service models: \(error)")
@@ -63,6 +65,14 @@ class PersistenceClient {
 extension PersistenceClient: Database {
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
         return fetchController
+    }
+    
+    func getServiceModel(at indexPath: IndexPath) -> ServiceModel {
+        return fetchedResultsController.object(at: indexPath) as! ServiceModel
+    }
+    
+    func numberOfServices() -> Int {
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     /**
