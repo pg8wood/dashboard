@@ -25,11 +25,6 @@ class HomeViewController: ServiceCollectionViewController {
     
     var editingIndexPath: IndexPath?
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        database = PersistenceClient(delegate: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(onLongPress)))

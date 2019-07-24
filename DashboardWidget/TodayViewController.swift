@@ -24,7 +24,7 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
         super.viewDidLoad()
         
         preferredContentSize = CGSize(width:self.view.frame.size.width, height: 250)
-        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        extensionContext?.widgetLargestAvailableDisplayMode = database.numberOfServices() > 2 ? .expanded : .compact
         vibrancyView.effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .fill)
     }
     
@@ -46,12 +46,6 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ServiceCollectionViewCell else { return }
         adaptCellLayoutForWidgetView(cell)
-        
-        // Since the ping call can return before the cell is set up, delay it by half a second. It may be better to ping first and
-        // cache the response here. 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.55) { [ weak self] in
-            self?.pingService(for: cell)
-        }
     }
     
     private func adaptCellLayoutForWidgetView(_ cell: ServiceCollectionViewCell) {
@@ -59,6 +53,7 @@ class TodayViewController: ServiceCollectionViewController, NCWidgetProviding, U
         cell.imageContainerView.backgroundColor = UIColor.clear
         cell.loadingIndicator.color = .widgetLoadingIndicatorColor
         cell.logoImageViewWidthConstraint.constant = cellHeight
+        cell.logoImageView.layer.cornerRadius = 0
         cell.statusImageViewWidthConstraint.constant = 30
     }
     

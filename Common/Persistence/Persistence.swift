@@ -38,7 +38,7 @@ class PersistenceClient {
     
     var fetchController: NSFetchedResultsController<NSFetchRequestResult>!
     
-    init(delegate: NSFetchedResultsControllerDelegate) {
+    init() {
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let sortDescriptor = NSSortDescriptor(keyPath: \ServiceModel.index, ascending: true)
@@ -46,7 +46,6 @@ class PersistenceClient {
         serviceFetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchController = NSFetchedResultsController(fetchRequest: serviceFetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchController.delegate = delegate
         
         do {
             try fetchedResultsController.performFetch()

@@ -13,17 +13,14 @@ import CoreData
 class ServiceCollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
-    var database: Database!
+    var database: Database = PersistenceClient()
     
     private var blockCollectionViewOperations: [BlockOperation] = []
     
-    convenience init() {
-        self.init()
-        database = PersistenceClient(delegate: self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        database.fetchedResultsController.delegate = self
         setupCollectionView()
     }
     
