@@ -22,7 +22,7 @@ extension Database {
             let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: managedContext) as! ServiceModel
             
             service.populate(index: Int64(numberOfServices), name: name, url: url, image: image, lastOnlineDate: .distantPast)
-            save(image: image, named: name)
+            save(image: image, named: name) // Any user service with this name will show this favicon
             
             completion(.success(service))
         } catch {
@@ -32,6 +32,8 @@ extension Database {
     
     func edit(service: ServiceModel, name: String, url: String, image: UIImage) {
         service.populate(index: service.index, name: name, url: url, image: image, lastOnlineDate: service.lastOnlineDate)
+        
+        save(image: image, named: name) // Any user service with this name will show this favicon
     }
     
     /// Swap two services' indices in the database

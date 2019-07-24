@@ -143,13 +143,11 @@ class AddServiceViewController: UIViewController {
             database?.createService(name: name, url: serviceUrl, image: image) { [weak self] result in
                 guard let self = self else { return }
                 
-                DispatchQueue.main.async {
-                    do {
-                        let newService = try result.get()
-                        self.serviceDelegate?.onNewServiceCreated(newService: newService)
-                    } catch {
-                        self.show(error: error)
-                    }
+                do {
+                    let newService = try result.get()
+                    self.serviceDelegate?.onNewServiceCreated(newService: newService)
+                } catch {
+                    self.show(error: error)
                 }
             }
         }

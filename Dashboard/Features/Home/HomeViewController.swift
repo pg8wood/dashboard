@@ -117,12 +117,13 @@ extension HomeViewController: ServiceDelegate {
     
     func onServiceChanged(service: ServiceModel) {
         isEditing = false
-        self.editingIndexPath = nil
+        
         guard let editingIndexPath = editingIndexPath else {
             fatalError("A UICollectionViewCell was edited but its IndexPath is unknown!")
         }
         
         pingService(for: collectionView.cellForItem(at: editingIndexPath) as! ServiceCollectionViewCell)
+        self.editingIndexPath = nil
     }
 }
 
