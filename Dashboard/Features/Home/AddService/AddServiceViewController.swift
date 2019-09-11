@@ -94,7 +94,7 @@ class AddServiceViewController: UIViewController {
         logoImageView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
-        NetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
+        OldNetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
             do {
                 let favicon = try result.value()
                 self?.logoImageView.image = favicon

@@ -10,16 +10,17 @@ import Foundation
 import FavIcon
 import PinkyPromise
 
-public enum NetworkError: Error {
-    case InvalidUrl
-    case NoResponse
+public enum OldNetworkError: Error {
+    case invalidUrl
+    case noResponse
+    case error(description: String)
 }
 
-public class NetworkService {
+public class OldNetworkService {
     
     public static func fetchServerStatus(url: String) -> Promise<Int> {
         guard let url = URL(string: url) else {
-            return Promise(error: NetworkError.InvalidUrl)
+            return Promise(error: OldNetworkError.invalidUrl)
         }
      
         var request = URLRequest(url: url)
@@ -33,7 +34,7 @@ public class NetworkService {
                 }
                 
                 guard let response = response as? HTTPURLResponse else {
-                    fulfill(.failure(NetworkError.NoResponse))
+                    fulfill(.failure(OldNetworkError.noResponse))
                     return
                 }
                 
