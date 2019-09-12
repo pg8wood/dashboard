@@ -17,16 +17,31 @@ struct ServiceRow: View {
     
     var body: some View {
         HStack {
+            Spacer()
+            
             Image(uiImage: viewModel.image)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .padding(10)
+            
+            Spacer()
+            
             Text(viewModel.name)
+            
+            Spacer()
+            
             Image(uiImage: viewModel.statusImage)
                 .resizable()
-            .scaledToFit()
+                .scaledToFit()
+                .frame(height: 50)
+            
+            Spacer()
         }
-         .frame(height: 50)
+        .frame(height: 100)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .cornerRadius(15)
     }
+    
 }
 
 struct ServiceItem_Previews: PreviewProvider {

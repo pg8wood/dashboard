@@ -17,11 +17,12 @@ struct HomeView: View {
     }
     
     var body: some View {
-        List {
+        VStack{
             ForEach(viewModel.services) { service in
                 ServiceRow(viewModel: service)
             }
         }
+        .padding(.horizontal, 15)
     }
 }
 

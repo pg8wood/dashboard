@@ -19,7 +19,13 @@ class HomeViewModel: ObservableObject {
         self.networkService = networkService
     }
     
-    func fetchStatuses(forServices services: [ServiceRowViewModel]) { // TODO should that be the model type instead of viewmodel type?
+    convenience init(services: [ServiceRowViewModel]) {
+        self.init(networkService: NetworkService())
+        self.services = services
+        fetchServerStatuses()
+    }
+    
+    func fetchServerStatuses() {
         for service in services {
             service.fetchStatus()
         }

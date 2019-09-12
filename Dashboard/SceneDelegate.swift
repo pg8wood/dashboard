@@ -19,13 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     if let windowScene = scene as? UIWindowScene {
         let window = UIWindow(windowScene: windowScene)
-        let viewModel = HomeViewModel(networkService: NetworkService())
         
-        // Testing data. Need to remove
-        viewModel.services.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
-        viewModel.services.append(ServiceRowViewModel(name: "Test Service"))
+        // Testing data
+        var testServices = [ServiceRowViewModel]()
+        testServices.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
+        testServices.append(ServiceRowViewModel(name: "Test Service"))
 
-        window.rootViewController = UIHostingController(rootView: HomeView(viewModel: viewModel))
+        window.rootViewController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(services: testServices)))
         self.window = window
         window.makeKeyAndVisible()
     }

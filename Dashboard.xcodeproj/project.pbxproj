@@ -206,6 +206,15 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		B831A640232ACEA300F944C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8F3915C2329746500F62FF8 /* HomeView.swift */,
+				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B87F22F2221E1344005BD677 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,9 +391,8 @@
 		B8F3915B2329741B00F62FF8 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B831A640232ACEA300F944C6 /* Views */,
 				B8F39169232A98A700F62FF8 /* ViewModels */,
-				B8F3915C2329746500F62FF8 /* HomeView.swift */,
-				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
