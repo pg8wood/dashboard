@@ -16,11 +16,15 @@ enum Status {
     case unknown
 }
 
-class ServiceRowViewModel: ObservableObject {
+class ServiceRowViewModel: ObservableObject, Identifiable {
     @Published var name: String = ""
     @Published var url: String = ""
     @Published var image: UIImage = UIImage(named: "missing-image")!
     @Published var status: Status = .unknown
+    
+    var id: String {
+        return url
+    }
     
     var statusImage: UIImage {
         switch status {
@@ -36,6 +40,15 @@ class ServiceRowViewModel: ObservableObject {
     
     init(networkService: NetworkFetchable) {
         self.networkService = networkService
+    }
+    
+    convenience init(name: String = "", url: String = "", image: UIImage = UIImage(named: "missing-image")!, status: Status = .unknown) {
+        self.init(networkService: NetworkService())
+        
+        self.name = name
+        self.url = url
+        self.image = image
+        self.status = status
     }
     
     func fetchStatus() {

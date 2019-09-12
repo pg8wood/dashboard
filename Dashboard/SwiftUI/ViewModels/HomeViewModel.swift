@@ -12,7 +12,7 @@ import Combine
 class HomeViewModel: ObservableObject {
     @Published var services: [ServiceRowViewModel] = []
     
-    private let networkService: NetworkFetchable!
+    let networkService: NetworkFetchable!
     private var disposables = Set<AnyCancellable>()
 
     init(networkService: NetworkFetchable) {

@@ -31,7 +31,7 @@ struct ServiceRow: View {
 
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        var viewModel = ServiceRowViewModel(networkService: MockNetworkService())
+        let viewModel = ServiceRowViewModel(networkService: MockNetworkService())
         viewModel.name = "My Website"
         return ServiceRow(viewModel: viewModel)
     }

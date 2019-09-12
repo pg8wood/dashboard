@@ -19,9 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     if let windowScene = scene as? UIWindowScene {
         let window = UIWindow(windowScene: windowScene)
-//        let viewModel =
-//        window.rootViewController = UIHostingController(rootView: HomeView())
-        window.rootViewController = UIHostingController(rootView: Text("hi"))
+        let viewModel = HomeViewModel(networkService: NetworkService())
+        
+        // Testing data. Need to remove
+        viewModel.services.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
+        viewModel.services.append(ServiceRowViewModel(name: "Test Service"))
+
+        window.rootViewController = UIHostingController(rootView: HomeView(viewModel: viewModel))
         self.window = window
         window.makeKeyAndVisible()
     }
