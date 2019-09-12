@@ -17,7 +17,7 @@ enum NetworkError: Error {
 }
 
 protocol NetworkFetchable {
-    func fetchServerStatus(url: String) -> AnyPublisher<Int, NetworkError>
+    func fetchServerStatus(for url: String) -> AnyPublisher<Int, NetworkError>
 //    func fetchFavicon(for url: String) -> AnyPublisher<UIImage, NetworkError>
 }
 
@@ -30,13 +30,14 @@ class NetworkService {
 }
 
 extension NetworkService: NetworkFetchable {
-    func fetchServerStatus(url: String) -> AnyPublisher<Int, NetworkError> {
+    func fetchServerStatus(for url: String) -> AnyPublisher<Int, NetworkError> {
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
         }
 
         var request = URLRequest(url: url)
         request.httpMethod = "HEAD"
+        
         return session.dataTaskPublisher(for: url)
             .tryMap { data, response in
                 guard let response = response as? HTTPURLResponse else {
@@ -51,8 +52,8 @@ extension NetworkService: NetworkFetchable {
         .mapError { error in
             NetworkError.error(description: error.localizedDescription)
         }
-            .eraseToAnyPublisher()
-        }
+        .eraseToAnyPublisher()
+    }
     
 //    func fetchFavicon(for url: String) -> AnyPublisher<UIImage, NetworkError> {
 //        // TODO

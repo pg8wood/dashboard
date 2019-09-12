@@ -49,6 +49,10 @@
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
 		B8F3915D2329746500F62FF8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* HomeView.swift */; };
 		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
+		B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391622329B16500F62FF8 /* ServiceRow.swift */; };
+		B8F39168232A989500F62FF8 /* ServiceRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39167232A989500F62FF8 /* ServiceRowViewModel.swift */; };
+		B8F3916B232A9D4100F62FF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3916A232A9D4100F62FF8 /* HomeViewModel.swift */; };
+		B8F3916E232AA15A00F62FF8 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3916D232AA15A00F62FF8 /* MockNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +141,10 @@
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8F3915C2329746500F62FF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
+		B8F391622329B16500F62FF8 /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
+		B8F39167232A989500F62FF8 /* ServiceRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRowViewModel.swift; sourceTree = "<group>"; };
+		B8F3916A232A9D4100F62FF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B8F3916D232AA15A00F62FF8 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		F9EA98C8A5BD8343AEEFC858 /* Pods-Dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +274,7 @@
 			children = (
 				B881D24A221DC94F0038BF81 /* OldNetworkService.swift */,
 				B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */,
+				B8F3916D232AA15A00F62FF8 /* MockNetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -373,9 +382,20 @@
 		B8F3915B2329741B00F62FF8 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B8F39169232A98A700F62FF8 /* ViewModels */,
 				B8F3915C2329746500F62FF8 /* HomeView.swift */,
+				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B8F39169232A98A700F62FF8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B8F39167232A989500F62FF8 /* ServiceRowViewModel.swift */,
+				B8F3916A232A9D4100F62FF8 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
@@ -670,15 +690,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F3916B232A9D4100F62FF8 /* HomeViewModel.swift in Sources */,
 				B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
 				B8F3915D2329746500F62FF8 /* HomeView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
+				B8F39168232A989500F62FF8 /* ServiceRowViewModel.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
+				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
+				B8F3916E232AA15A00F62FF8 /* MockNetworkService.swift in Sources */,
 				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
