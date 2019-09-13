@@ -8,9 +8,37 @@
 
 import SwiftUI
 
-struct AddServiceView: View {
+struct AddServiceHostView: View {
+    @ObservedObject var viewModel: AddServiceHostViewModel
+    
+    init(viewModel: AddServiceHostViewModel) {
+        self.viewModel = viewModel
+    }
+     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            AddServiceView()
+                .navigationBarTitle("\(self.viewModel.serviceToEdit?.name != nil ? "Edit" : "Add") Service")
+        }
+    }
+}
+
+struct AddServiceView: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: AddServiceViewController, context: UIViewControllerRepresentableContext<AddServiceView>) {
+        // nothing to do
+    }
+    
+    func makeUIViewController(context: Context) -> AddServiceViewController {
+        let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
+        let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
+//        addServiceViewController.mode = serviceToEdit == nil ? .create : .edit
+        addServiceViewController.mode = .create
+        addServiceViewController.serviceDelegate = nil
+        addServiceViewController.serviceToEdit = nil
+
+//        let navigationController = UINavigationController(rootViewController: addServiceViewController)
+        
+        return addServiceViewController
     }
 }
 

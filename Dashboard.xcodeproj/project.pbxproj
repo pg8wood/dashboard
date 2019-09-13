@@ -13,6 +13,7 @@
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
 		B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */; };
 		B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8273E22232C025D00C0109E /* AddServiceView.swift */; };
+		B8273E27232C11EA00C0109E /* AddServiceHostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8273E26232C11EA00C0109E /* AddServiceHostViewModel.swift */; };
 		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
@@ -107,6 +108,7 @@
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPersistence.swift; sourceTree = "<group>"; };
 		B8273E22232C025D00C0109E /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceView.swift; sourceTree = "<group>"; };
+		B8273E26232C11EA00C0109E /* AddServiceHostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceHostViewModel.swift; sourceTree = "<group>"; };
 		B8546C7022DE58520017E2DA /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			children = (
 				B8F39167232A989500F62FF8 /* ServiceRowViewModel.swift */,
 				B8F3916A232A9D4100F62FF8 /* HomeViewModel.swift */,
+				B8273E26232C11EA00C0109E /* AddServiceHostViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
+				B8273E27232C11EA00C0109E /* AddServiceHostViewModel.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,

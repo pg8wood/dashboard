@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @Environment(\.editMode) var mode
     @ObservedObject var viewModel: HomeViewModel
     @State var showingAddServices = false
-        
+    @State var serviceToEdit: ServiceRowViewModel? = nil
+    
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
@@ -20,11 +21,11 @@ struct HomeView: View {
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
             Image(systemName: "plus.circle")
-                .resizable()
                 .scaledToFit()
                 .accessibility(label: Text("Add Service"))
                 .imageScale(.large)
                 .frame(width: 25, height: 25)
+                
         }
     }
     
@@ -33,6 +34,14 @@ struct HomeView: View {
             List {
                 ForEach(viewModel.services) { service in
                     ServiceRow(viewModel: service)
+                        .contextMenu {
+                            Button(action: {
+                                self.serviceToEdit = service
+                                self.showingAddServices.toggle()
+                            }){
+                                Text("Edit Service")
+                            }
+                    }
                 }
                 .onDelete(perform: deleteRow)
             }
@@ -40,7 +49,10 @@ struct HomeView: View {
             .navigationBarItems(leading: EditButton(),
                                 trailing: addServiceButton)
             .sheet(isPresented: $showingAddServices) {
-                AddServiceView()
+                AddServiceHostView(viewModel: AddServiceHostViewModel(self.serviceToEdit))
+                    .onDisappear() {
+                        self.serviceToEdit = nil
+                }
             }
         }
     }
