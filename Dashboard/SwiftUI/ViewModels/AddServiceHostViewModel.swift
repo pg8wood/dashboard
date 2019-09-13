@@ -9,7 +9,7 @@
 import Foundation
 
 class AddServiceHostViewModel: ObservableObject {
-    @Published var service: ServiceModel = ServiceModel()
+    @Published var service: ServiceModel?
     var serviceToEdit: ServiceRowViewModel?
     
     init(_ serviceToEdit: ServiceRowViewModel?) {

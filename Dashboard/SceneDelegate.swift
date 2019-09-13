@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Testing data
         var testServices = [ServiceRowViewModel]()
-        testServices.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
-        testServices.append(ServiceRowViewModel(name: "Test 2", url: "https://test2.com"))
-        testServices.append(ServiceRowViewModel(name: "Third Test", url: "https://test3.com"))
+//        testServices.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
+//        testServices.append(ServiceRowViewModel(name: "Test 2", url: "https://test2.com"))
+//        testServices.append(ServiceRowViewModel(name: "Third Test", url: "https://test3.com"))
 
         window.rootViewController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(services: testServices)))
         self.window = window

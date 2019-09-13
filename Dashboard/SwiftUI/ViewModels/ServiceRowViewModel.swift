@@ -17,10 +17,23 @@ enum Status {
 }
 
 class ServiceRowViewModel: ObservableObject, Identifiable {
-    @Published var name: String = ""
-    @Published var url: String = ""
-    @Published var image: UIImage = UIImage(named: "missing-image")!
-    @Published var status: Status = .unknown
+    private var model: ServiceModel
+    
+    var name: String {
+        model.name
+    }
+    
+    var url: String {
+        model.url
+    }
+    
+    var image: UIImage {
+        model.image
+    }
+    
+    var status: Status {
+        return model.wasOnlineRecently ? .online : .offline // TODO might move status into the model if possible
+    }
     
     var id: String {
         return url
@@ -38,29 +51,28 @@ class ServiceRowViewModel: ObservableObject, Identifiable {
     private let networkService: NetworkFetchable!
     private var disposables = Set<AnyCancellable>()
     
-    init(networkService: NetworkFetchable) {
+    init(networkService: NetworkFetchable, model: ServiceModel) {
         self.networkService = networkService
+        self.model = model
     }
     
-    convenience init(name: String = "", url: String = "", image: UIImage = UIImage(named: "missing-image")!, status: Status = .unknown) {
-        self.init(networkService: NetworkService())
-        
-        self.name = name
-        self.url = url
-        self.image = image
-        self.status = status
-    }
+//    convenience init(name: String = "", url: String = "", image: UIImage = UIImage(named: "missing-image")!, status: Status = .unknown) {
+//        let model = ServiceModel()
+//        model.populate(index: 0, name: name, url: url, image: image, lastOnlineDate: .init(timeIntervalSinceNow: .zero))
+//        
+//        self.init(networkService: NetworkService(), model: model)
+//    }
     
     func fetchStatus() {
         networkService.fetchServerStatus(for: self.url)
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let self = self else { return }
-                    
+                receiveCompletion: { value in
                     switch value {
                     case .failure:
-                        self.status = .offline // TODO error status maybe?
+                        // TODO: do we need to update this here?
+//                    self.model.lastOnlineDate = .init
+                        // TODO if not, just get rid of this completion block 
                         break
                     case .finished:
                         break
@@ -70,11 +82,10 @@ class ServiceRowViewModel: ObservableObject, Identifiable {
                     guard let self = self else { return }
                     
                     guard statusCode == 200 else {
-                        self.status = .offline // TODO error status maybe?
                         return
                     }
                     
-                    self.status = .online
+                    self.model.lastOnlineDate = .init(timeIntervalSinceNow: .zero)
                 })
             .store(in: &disposables)
     }

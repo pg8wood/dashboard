@@ -38,10 +38,10 @@ struct ServiceRow: View {
     
 }
 
-struct ServiceItem_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = ServiceRowViewModel(networkService: MockNetworkService())
-        viewModel.name = "My Website"
-        return ServiceRow(viewModel: viewModel)
-    }
-}
+//struct ServiceItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewModel = ServiceRowViewModel(name: "Hello", url: "", image: UIImage(), status: .unknown)
+//        
+//        return ServiceRow(viewModel: viewModel)
+//    }
+//}

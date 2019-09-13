@@ -62,17 +62,16 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = HomeViewModel(networkService: MockNetworkService())
-        
-        for i in 1...10 {
-            let serviceViewModel = ServiceRowViewModel(networkService: MockNetworkService())
-            serviceViewModel.name = "Service \(i)"
-            
-            viewModel.services.append(serviceViewModel)
-        }
-                
-       return HomeView(viewModel: viewModel)
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewModel = HomeViewModel(networkService: MockNetworkService())
+//        
+//        for i in 1...10 {
+//            let serviceViewModel = ServiceRowViewModel(name: "Hello", url: "", image: UIImage(), status: .unknown)
+//            
+//            viewModel.services.append(serviceViewModel)
+//        }
+//                
+//       return HomeView(viewModel: viewModel)
+//    }
+//}
