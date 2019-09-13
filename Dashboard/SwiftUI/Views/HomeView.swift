@@ -11,18 +11,42 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: HomeViewModel
+    @State var showingAddServices = false
         
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
     
+    var addServiceButton: some View {
+        Button(action: { self.showingAddServices.toggle() }) {
+            Image(systemName: "plus.circle")
+                .resizable()
+                .scaledToFit()
+                .accessibility(label: Text("Add Service"))
+                .imageScale(.large)
+                .frame(width: 25, height: 25)
+        }
+    }
+    
     var body: some View {
-        VStack{
-            ForEach(viewModel.services) { service in
-                ServiceRow(viewModel: service)
+        NavigationView {
+            List {
+                ForEach(viewModel.services) { service in
+                    ServiceRow(viewModel: service)
+                }
+                .onDelete(perform: deleteRow)
+            }
+            .navigationBarTitle("My Services")
+            .navigationBarItems(leading: EditButton(),
+                                trailing: addServiceButton)
+            .sheet(isPresented: $showingAddServices) {
+                AddServiceView()
             }
         }
-        .padding(.horizontal, 15)
+    }
+    
+    func deleteRow(at offsets: IndexSet) {
+        viewModel.services.remove(atOffsets: offsets)
     }
 }
 

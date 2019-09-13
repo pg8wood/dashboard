@@ -17,11 +17,9 @@ struct ServiceRow: View {
     
     var body: some View {
         HStack {
-            Spacer()
-            
             Image(uiImage: viewModel.image)
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .padding(10)
             
             Spacer()
@@ -34,12 +32,8 @@ struct ServiceRow: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 50)
-            
-            Spacer()
         }
-        .frame(height: 100)
-        .background(Color(UIColor.secondarySystemGroupedBackground))
-        .cornerRadius(15)
+        .frame(height: 80)
     }
     
 }

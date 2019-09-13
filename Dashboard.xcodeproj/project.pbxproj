@@ -12,6 +12,7 @@
 		7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5FDB7FE2E5772F63B2D9C1 /* Pods_DashboardWidget.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
 		B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */; };
+		B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8273E22232C025D00C0109E /* AddServiceView.swift */; };
 		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
@@ -105,6 +106,7 @@
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPersistence.swift; sourceTree = "<group>"; };
+		B8273E22232C025D00C0109E /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceView.swift; sourceTree = "<group>"; };
 		B8546C7022DE58520017E2DA /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				B8F3915C2329746500F62FF8 /* HomeView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
+				B8273E22232C025D00C0109E /* AddServiceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				B8F39168232A989500F62FF8 /* ServiceRowViewModel.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
+				B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
