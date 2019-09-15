@@ -46,6 +46,7 @@
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
 		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B89079662251844000FFB807 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
+		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
@@ -141,6 +142,7 @@
 		B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewController.swift; sourceTree = "<group>"; };
 		B89079632251791F00FFB807 /* Dashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dashboard.entitlements; sourceTree = "<group>"; };
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
+		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8F3915C2329746500F62FF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				B87F22F9221E61FA005BD677 /* ServiceModel.swift */,
+				B8AC722D232EC9DE00074652 /* MockServiceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
 				B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */,
+				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
