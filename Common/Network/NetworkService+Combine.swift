@@ -2,6 +2,8 @@
 //  NetworkService+Combine.swift
 //  Dashboard
 //
+//  Network client written in Combine.
+//
 //  Created by Patrick Gatewood on 9/11/19.
 //  Copyright © 2019 Patrick Gatewood. All rights reserved.
 //

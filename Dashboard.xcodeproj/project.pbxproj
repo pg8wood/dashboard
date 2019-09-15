@@ -258,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				B881D23E221DC94E0038BF81 /* Home */,
+				B881D257221DCC630038BF81 /* AddService */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -265,10 +266,8 @@
 		B881D23E221DC94E0038BF81 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B881D242221DC94E0038BF81 /* Main.storyboard */,
-				B881D240221DC94E0038BF81 /* HomeViewController.swift */,
-				B881D241221DC94E0038BF81 /* EmptyTableView.xib */,
-				B881D257221DCC630038BF81 /* AddService */,
+				B8AC722B232EC53900074652 /* SwiftUI */,
+				B8AC7229232EC50C00074652 /* UIKit */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,8 +295,7 @@
 		B881D257221DCC630038BF81 /* AddService */ = {
 			isa = PBXGroup;
 			children = (
-				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
-				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+				B8AC722A232EC52000074652 /* UIKit */,
 			);
 			path = AddService;
 			sourceTree = "<group>";
@@ -330,12 +328,11 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B8F3915B2329741B00F62FF8 /* SwiftUI */,
-				B89079632251791F00FFB807 /* Dashboard.entitlements */,
 				B881D23D221DC94E0038BF81 /* Features */,
 				B87F22F2221E1344005BD677 /* Utilities */,
 				B80B316E22E0CB0A00180D4E /* Persistence */,
 				B881D245221DC94E0038BF81 /* Supporting Files */,
+				B89079632251791F00FFB807 /* Dashboard.entitlements */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
 				B8F39159232973FD00F62FF8 /* SceneDelegate.swift */,
 			);
@@ -367,7 +364,7 @@
 				B87F22F8221E61B7005BD677 /* Models */,
 				B881D249221DC94F0038BF81 /* Network */,
 				B87F22F5221E610B005BD677 /* Persistence */,
-				B89079672251869C00FFB807 /* ServiceCollectionView */,
+				B8AC722C232EC5FF00074652 /* UIKit */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -393,13 +390,40 @@
 			path = ServiceCollectionView;
 			sourceTree = "<group>";
 		};
-		B8F3915B2329741B00F62FF8 /* SwiftUI */ = {
+		B8AC7229232EC50C00074652 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B881D242221DC94E0038BF81 /* Main.storyboard */,
+				B881D240221DC94E0038BF81 /* HomeViewController.swift */,
+				B881D241221DC94E0038BF81 /* EmptyTableView.xib */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8AC722A232EC52000074652 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
+				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8AC722B232EC53900074652 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				B831A640232ACEA300F944C6 /* Views */,
 				B8F39169232A98A700F62FF8 /* ViewModels */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B8AC722C232EC5FF00074652 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B89079672251869C00FFB807 /* ServiceCollectionView */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		B8F39169232A98A700F62FF8 /* ViewModels */ = {
