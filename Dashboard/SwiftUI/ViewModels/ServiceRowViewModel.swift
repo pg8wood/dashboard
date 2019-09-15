@@ -51,7 +51,7 @@ class ServiceRowViewModel: ObservableObject, Identifiable {
     private let networkService: NetworkFetchable!
     private var disposables = Set<AnyCancellable>()
     
-    init(networkService: NetworkFetchable, model: ServiceModel) {
+    init(networkService: NetworkFetchable = NetworkService(), model: ServiceModel) {
         self.networkService = networkService
         self.model = model
     }

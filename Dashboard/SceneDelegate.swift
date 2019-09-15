@@ -10,25 +10,19 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-  var window: UIWindow?
-  
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    var window: UIWindow?
     
-    if let windowScene = scene as? UIWindowScene {
-        let window = UIWindow(windowScene: windowScene)
-        
-        // Testing data
-        var testServices = [ServiceRowViewModel]()
-//        testServices.append(ServiceRowViewModel(name: "My website", url: "https://patrickgatewood.com"))
-//        testServices.append(ServiceRowViewModel(name: "Test 2", url: "https://test2.com"))
-//        testServices.append(ServiceRowViewModel(name: "Third Test", url: "https://test3.com"))
-
-        window.rootViewController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(services: testServices)))
-        self.window = window
-        window.makeKeyAndVisible()
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            PersistenceClient.shared.getStoredServices { result in
+                let services = (try? result.get()) ?? [ServiceModel]()
+                let serviceViewModels = services.map { ServiceRowViewModel(model: $0) }
+                
+                window.rootViewController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(services: serviceViewModels)))
+                self.window = window
+                window.makeKeyAndVisible()
+            }
+        }
     }
-  }
 }
