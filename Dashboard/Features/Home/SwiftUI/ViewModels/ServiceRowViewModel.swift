@@ -16,8 +16,12 @@ enum Status {
     case unknown
 }
 
-class ServiceRowViewModel: ObservableObject, Identifiable {
-    private var model: ServiceModel
+class ServiceRowViewModel: ObservableObject, Identifiable, Equatable {
+    static func == (lhs: ServiceRowViewModel, rhs: ServiceRowViewModel) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+    @Published var model: ServiceModel
     
     var name: String {
         model.name

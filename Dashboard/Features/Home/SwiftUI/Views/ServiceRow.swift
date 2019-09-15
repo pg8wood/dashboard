@@ -34,14 +34,17 @@ struct ServiceRow: View {
                 .frame(height: 50)
         }
         .frame(height: 80)
+        .frame(minWidth: 0, maxWidth: .infinity)
     }
     
 }
 
+#if DEBUG
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ServiceRowViewModel(model: MockServiceModel())
+        let viewModel = ServiceRowViewModel(model: MockServiceModel(name: "Hi"))
         
         return ServiceRow(viewModel: viewModel)
     }
 }
+#endif

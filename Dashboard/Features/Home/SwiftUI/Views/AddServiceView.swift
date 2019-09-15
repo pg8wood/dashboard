@@ -25,7 +25,7 @@ struct AddServiceHostView: View {
    }
      
     var body: some View {
-        AddServiceView(serviceToEdit: viewModel.service) // should the viewmodel's model be exposed here?
+        AddServiceView(serviceToEdit: viewModel.serviceToEdit?.model) // should the viewmodel's model be exposed here?
     }
 }
 
@@ -44,7 +44,6 @@ struct AddServiceView: UIViewControllerRepresentable {
         let storyboard = UIStoryboard(name: "AddServiceViewController", bundle: nil)
         let addServiceViewController = storyboard.instantiateViewController(withIdentifier: "AddServiceViewController") as! AddServiceViewController
         addServiceViewController.mode = serviceToEdit == nil ? .create : .edit
-        addServiceViewController.mode = .create
         addServiceViewController.serviceDelegate = nil
         addServiceViewController.serviceToEdit = serviceToEdit
         

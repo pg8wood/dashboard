@@ -37,8 +37,8 @@ struct HomeView: View {
                         .contextMenu {
                             Button(action: {
                                 self.serviceToEdit = service
-                                self.showingAddServices.toggle()
-                            }){
+                                self.showingAddServices.toggle() })
+                            {
                                 Text("Edit Service")
                             }
                     }
@@ -51,6 +51,11 @@ struct HomeView: View {
             .sheet(isPresented: $showingAddServices) {
                 AddServiceHostView(viewModel: AddServiceHostViewModel(self.serviceToEdit))
                     .onDisappear() {
+                        // TODO: instead of reloading everything we should get which was
+                        // created/changed and only update that. Might make sense to bind
+                        // services to the database rather than an in-memory array
+                        self.viewModel.loadServices()
+                        
                         self.serviceToEdit = nil
                 }
             }

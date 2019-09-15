@@ -42,6 +42,7 @@ extension PersistenceClient: ServiceDatabase {
     
     func edit(service: ServiceModel, name: String, url: String, image: UIImage) {
         service.populate(index: service.index, name: name, url: url, image: image, lastOnlineDate: service.lastOnlineDate)
+        saveContext()
     }
     
     /// Swap two services' indices in the database
@@ -49,6 +50,7 @@ extension PersistenceClient: ServiceDatabase {
         service.index += otherService.index
         otherService.index = service.index - otherService.index
         service.index -= otherService.index
+        saveContext()
     }
     
     // MARK: - Core Data Saving support

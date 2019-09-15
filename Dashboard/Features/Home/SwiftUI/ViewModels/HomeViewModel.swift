@@ -25,6 +25,17 @@ class HomeViewModel: ObservableObject {
         fetchServerStatuses()
     }
     
+    func loadServices() {
+        PersistenceClient.shared.getStoredServices { [weak self ] result in
+            guard let self = self else { return }
+            
+            let services = (try? result.get()) ?? [ServiceModel]()
+            let serviceViewModels = services.map { ServiceRowViewModel(model: $0) }
+            
+            self.services = serviceViewModels
+        }
+    }
+    
     func fetchServerStatuses() {
         for service in services {
             service.fetchStatus()
