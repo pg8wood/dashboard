@@ -31,6 +31,7 @@ struct ServiceRow: View {
                 .scaledToFit()
                 .frame(height: 50)
         }
+        .animation(.easeInOut)
         .frame(height: 80)
         .frame(minWidth: 0, maxWidth: .infinity)
     }

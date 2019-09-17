@@ -47,11 +47,11 @@ struct HomeView: View {
             .navigationBarTitle("My Services")
             .navigationBarItems(leading: EditButton(),
                                 trailing: addServiceButton)
-            .sheet(isPresented: $showingAddServices) {
-                AddServiceHostView(serviceToEdit: self.serviceToEdit)
-                    .onDisappear() {
-                        self.serviceToEdit = nil
-                }
+                .sheet(isPresented: $showingAddServices) {
+                    AddServiceHostView(serviceToEdit: self.serviceToEdit)
+                        .onDisappear() {
+                            self.serviceToEdit = nil
+                    }
             }
         }
     }
