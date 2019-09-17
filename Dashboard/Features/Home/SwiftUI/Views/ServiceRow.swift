@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct ServiceRow: View {
-    @Binding var name: String
-    @Binding var url: String
-    @Binding var image: UIImage
+    var name: String
+    var url: String
+    var image: UIImage
     
     var body: some View {
         HStack {

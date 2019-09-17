@@ -10,15 +10,14 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.editMode) var mode
-//    @ObservedObject var viewModel: HomeViewModel
-    @ObservedObject var services: ServiceList
+    @ObservedObject var serviceList: ServiceList
     @State var showingAddServices = false
-    @State var serviceToEditIndex: Int?
+    @State var serviceToEdit: ServiceModel?
     
-//    init(viewModel: HomeViewModel) {
-//        self.viewModel = viewModel
-//    }
-//
+    var services: [ServiceModel] {
+        return serviceList.services
+    }
+    
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
             Image(systemName: "plus.circle")
@@ -32,12 +31,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(services.services, id: \.url) { service in
-                    Text("\(service.name)")
-//                    ServiceRow(name: service.name, url: service.url, image: service.image)
+                ForEach(services, id: \.url) { service in
+                    ServiceRow(name: service.name, url: service.url, image: service.image)
                         .contextMenu {
                             Button(action: {
-                                self.serviceToEditIndex = self.services.services.firstIndex(of: service)
+                                self.serviceToEdit = service
                                 self.showingAddServices.toggle() })
                             {
                                 Text("Edit Service")
@@ -50,22 +48,17 @@ struct HomeView: View {
             .navigationBarItems(leading: EditButton(),
                                 trailing: addServiceButton)
             .sheet(isPresented: $showingAddServices) {
-                AddServiceHostView(serviceToEdit: self.services.services[self.serviceToEditIndex!]) // TODO no force unwrp
+                AddServiceHostView(serviceToEdit: self.serviceToEdit)
                     .onDisappear() {
-                        // TODO: instead of reloading everything we should get which was
-                        // created/changed and only update that. Might make sense to bind
-                        // services to the database rather than an in-memory array
-//                        self.viewModel.loadServices()
-                        
-                        self.serviceToEditIndex = nil
-//                        self.services.services[0].name = "test"
+                        self.serviceToEdit = nil
                 }
             }
         }
     }
     
     func deleteRow(at offsets: IndexSet) {
-//        services.remove(atOffsets: offsets)
+        // TODO delete for real
+        $serviceList.services.wrappedValue.remove(atOffsets: offsets)
     }
 }
 

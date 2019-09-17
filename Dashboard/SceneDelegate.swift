@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let services = (try? result.get()) ?? [ServiceModel]()
                 let serviceList = ServiceList(services: services)
                 
-                window.rootViewController = UIHostingController(rootView:HomeView(services: serviceList))
+                window.rootViewController = UIHostingController(rootView:HomeView(serviceList: serviceList))
                 self.window = window
                 window.makeKeyAndVisible()
             }

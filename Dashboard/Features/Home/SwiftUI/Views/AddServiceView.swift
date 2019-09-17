@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddServiceHostView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var serviceToEdit: ServiceModel
+    var serviceToEdit: ServiceModel?
     
     var cancelButton: some View {
        Button(action: {
@@ -26,7 +26,7 @@ struct AddServiceHostView: View {
 }
 
 struct AddServiceView: UIViewControllerRepresentable {
-    @ObservedObject var serviceToEdit: ServiceModel // should this be an environmentobject?
+    var serviceToEdit: ServiceModel?
     
     func updateUIViewController(_ uiViewController: UINavigationController, context: UIViewControllerRepresentableContext<AddServiceView>) {
         // nothing to do

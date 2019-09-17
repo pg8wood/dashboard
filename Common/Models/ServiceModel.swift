@@ -26,20 +26,16 @@ public class ServiceModel: NSManagedObject {
         return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5
     }
 
-    var inMemoryImage: UIImage?
     var image: UIImage {
         get {
-            return inMemoryImage ?? PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")!
-        } set {
-            inMemoryImage = newValue
+            return PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")!
         }
     }
     
-    func populate(index: Int64, name: String, url: String, image: UIImage, lastOnlineDate: Date) {
+    func populate(index: Int64, name: String, url: String, lastOnlineDate: Date) {
         self.index = index
         self.name = name
         self.url = url
-        self.image = image
         self.lastOnlineDate = lastOnlineDate
     }
     
