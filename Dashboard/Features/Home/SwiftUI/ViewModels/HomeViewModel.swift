@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    @Published var services: [ServiceRowViewModel] = []
+    @Published var services: [ServiceModel] = []
     
     let networkService: NetworkFetchable!
     private var disposables = Set<AnyCancellable>()
@@ -19,7 +19,7 @@ class HomeViewModel: ObservableObject {
         self.networkService = networkService
     }
     
-    convenience init(services: [ServiceRowViewModel]) {
+    convenience init(services: [ServiceModel]) {
         self.init(networkService: NetworkService())
         self.services = services
         fetchServerStatuses()
@@ -30,15 +30,13 @@ class HomeViewModel: ObservableObject {
             guard let self = self else { return }
             
             let services = (try? result.get()) ?? [ServiceModel]()
-            let serviceViewModels = services.map { ServiceRowViewModel(model: $0) }
-            
-            self.services = serviceViewModels
+            self.services = services
         }
     }
     
     func fetchServerStatuses() {
         for service in services {
-            service.fetchStatus()
+//            service.fetchStatus() // TODO
         }
     }
 }

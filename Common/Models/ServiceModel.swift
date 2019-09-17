@@ -8,6 +8,7 @@
 
 import CoreData
 import UIKit
+import Combine
 
 @objc(ServiceModel)
 public class ServiceModel: NSManagedObject {
@@ -40,5 +41,13 @@ public class ServiceModel: NSManagedObject {
         self.url = url
         self.image = image
         self.lastOnlineDate = lastOnlineDate
+    }
+    
+    // MARK: - Combine
+    var didChange = PassthroughSubject<Void, Never>()
+    
+    public override func didChangeValue(forKey key: String) {
+        super.didChangeValue(forKey: key)
+        didChange.send()
     }
 }

@@ -9,26 +9,24 @@
 import SwiftUI
 
 struct ServiceRow: View {
-    @ObservedObject var viewModel: ServiceRowViewModel
-    
-    init(viewModel: ServiceRowViewModel) {
-        self.viewModel = viewModel
-    }
+    @Binding var name: String
+    @Binding var url: String
+    @Binding var image: UIImage
     
     var body: some View {
         HStack {
-            Image(uiImage: viewModel.image)
+            Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
                 .padding(10)
             
             Spacer()
             
-            Text(viewModel.name)
+            Text(name)
             
             Spacer()
             
-            Image(uiImage: viewModel.statusImage)
+            Image(uiImage: image) // TODO use status image
                 .resizable()
                 .scaledToFit()
                 .frame(height: 50)
@@ -40,11 +38,11 @@ struct ServiceRow: View {
 }
 
 #if DEBUG
-struct ServiceItem_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = ServiceRowViewModel(model: MockServiceModel(name: "Hi"))
-        
-        return ServiceRow(viewModel: viewModel)
-    }
-}
+//struct ServiceItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let model = MockServiceModel(name: "Hi")
+//        
+//        return ServiceRow(model: model)
+//    }
+//}
 #endif

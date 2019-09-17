@@ -17,9 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             PersistenceClient.shared.getStoredServices { result in
                 let services = (try? result.get()) ?? [ServiceModel]()
-                let serviceViewModels = services.map { ServiceRowViewModel(model: $0) }
+                let serviceList = ServiceList(services: services)
                 
-                window.rootViewController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(services: serviceViewModels)))
+                window.rootViewController = UIHostingController(rootView:HomeView(services: serviceList))
                 self.window = window
                 window.makeKeyAndVisible()
             }

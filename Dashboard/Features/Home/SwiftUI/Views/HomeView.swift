@@ -10,14 +10,15 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.editMode) var mode
-    @ObservedObject var viewModel: HomeViewModel
+//    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var services: ServiceList
     @State var showingAddServices = false
-    @State var serviceToEdit: ServiceRowViewModel? = nil
+    @State var serviceToEditIndex: Int?
     
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
-    }
-    
+//    init(viewModel: HomeViewModel) {
+//        self.viewModel = viewModel
+//    }
+//
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
             Image(systemName: "plus.circle")
@@ -25,18 +26,18 @@ struct HomeView: View {
                 .accessibility(label: Text("Add Service"))
                 .imageScale(.large)
                 .frame(width: 25, height: 25)
-                
         }
     }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.services) { service in
-                    ServiceRow(viewModel: service)
+                ForEach(services.services, id: \.url) { service in
+                    Text("\(service.name)")
+//                    ServiceRow(name: service.name, url: service.url, image: service.image)
                         .contextMenu {
                             Button(action: {
-                                self.serviceToEdit = service
+                                self.serviceToEditIndex = self.services.services.firstIndex(of: service)
                                 self.showingAddServices.toggle() })
                             {
                                 Text("Edit Service")
@@ -49,21 +50,22 @@ struct HomeView: View {
             .navigationBarItems(leading: EditButton(),
                                 trailing: addServiceButton)
             .sheet(isPresented: $showingAddServices) {
-                AddServiceHostView(viewModel: AddServiceHostViewModel(self.serviceToEdit))
+                AddServiceHostView(serviceToEdit: self.services.services[self.serviceToEditIndex!]) // TODO no force unwrp
                     .onDisappear() {
                         // TODO: instead of reloading everything we should get which was
                         // created/changed and only update that. Might make sense to bind
                         // services to the database rather than an in-memory array
-                        self.viewModel.loadServices()
+//                        self.viewModel.loadServices()
                         
-                        self.serviceToEdit = nil
+                        self.serviceToEditIndex = nil
+//                        self.services.services[0].name = "test"
                 }
             }
         }
     }
     
     func deleteRow(at offsets: IndexSet) {
-        viewModel.services.remove(atOffsets: offsets)
+//        services.remove(atOffsets: offsets)
     }
 }
 
