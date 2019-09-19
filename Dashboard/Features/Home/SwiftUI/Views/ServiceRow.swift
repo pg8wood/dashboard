@@ -12,13 +12,15 @@ struct ServiceRow: View {
     var name: String
     var url: String
     var image: UIImage
+    var statusImage: UIImage
     
     var body: some View {
         HStack {
             Image(uiImage: image)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .padding(10)
+                .frame(width: 80, height: 50)
             
             Spacer()
             
@@ -26,10 +28,10 @@ struct ServiceRow: View {
             
             Spacer()
             
-            Image(uiImage: image) // TODO use status image
+            Image(uiImage: statusImage)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 50)
+                .frame(width: 80, height: 50)
         }
         .animation(.easeInOut)
         .frame(height: 80)

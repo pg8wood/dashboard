@@ -32,7 +32,7 @@ struct HomeView: View {
         NavigationView {
             List {
                 ForEach(services, id: \.url) { service in
-                    ServiceRow(name: service.name, url: service.url, image: service.image)
+                    ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage)
                         .contextMenu {
                             Button(action: {
                                 self.serviceToEdit = service
