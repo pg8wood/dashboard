@@ -13,6 +13,7 @@ struct ServiceRow: View {
     var url: String
     var image: UIImage
     var statusImage: UIImage
+    var isLoading: Bool // This seems like it could be eitehr state or binding... 
     
     var body: some View {
         HStack {
@@ -28,10 +29,15 @@ struct ServiceRow: View {
             
             Spacer()
             
-            Image(uiImage: statusImage)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 50)
+            if isLoading {
+                // TODO port UIActivityIndicator to SwiftUI
+                Text("loading...")
+            } else {
+                Image(uiImage: statusImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 50)
+            }
         }
         .frame(height: 80)
         .frame(minWidth: 0, maxWidth: .infinity)
@@ -41,7 +47,7 @@ struct ServiceRow: View {
 #if DEBUG
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        return ServiceRow(name: "Test Service", url: "test.com", image: UIImage(named: "missing-image")!, statusImage: UIImage(named: "check")!)
+        return ServiceRow(name: "Test Service", url: "test.com", image: UIImage(named: "missing-image")!, statusImage: UIImage(named: "check")!, isLoading: false)
     }
 }
 #endif

@@ -64,8 +64,11 @@ extension NetworkService: NetworkFetchable {
     }
     
     func updateServerStatus(for service: ServiceModel) {
+        service.isLoading = true
+        
         _ = fetchServerStatusCode(for: service.url)
             .sink(receiveCompletion: { completion in
+                service.isLoading = false
                 switch completion {
                 case .finished:
                     break
@@ -73,7 +76,7 @@ extension NetworkService: NetworkFetchable {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
                 }
             }, receiveValue: { responseCode in
-                print("response code: \(responseCode)")
+                service.isLoading = false
                 // TODO potential improvement: Show icons/descriptions for server-related errors outside of the success range
                 guard 200..<300 ~= responseCode else {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)

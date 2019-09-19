@@ -33,9 +33,12 @@ struct HomeView: View {
         NavigationView {
             List {
                 ForEach(services, id: \.url) { service in
-                    ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage)
-                        .onAppear {
+                    ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
+                    .onAppear {
                             self.network.updateServerStatus(for: service)
+                    }
+                    .onTapGesture {
+                        self.network.updateServerStatus(for: service)
                     }
                     .contextMenu {
                         Button(action: {
