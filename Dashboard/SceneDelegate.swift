@@ -19,14 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let database = PersistenceClient()
             let network = NetworkService(database: database)
             
-            let homeView = HomeView()
+            let homeTabView = HomeTabView()
                 .environment(\.managedObjectContext, moc)
                 .environmentObject(database)
                 .environmentObject(network)
 
             self.window = window
             
-            window.rootViewController = UIHostingController(rootView: homeView)
+            window.rootViewController = UIHostingController(rootView: homeTabView)
             window.makeKeyAndVisible()
         }
     }

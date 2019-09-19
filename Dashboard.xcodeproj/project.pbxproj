@@ -46,6 +46,8 @@
 		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B89079662251844000FFB807 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
+		B8B5A7DB233411B600224DFA /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5A7DA233411B600224DFA /* HomeTabView.swift */; };
+		B8B5A7DD233412F400224DFA /* HomeViewControllerRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
@@ -138,6 +140,8 @@
 		B89079632251791F00FFB807 /* Dashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dashboard.entitlements; sourceTree = "<group>"; };
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
+		B8B5A7DA233411B600224DFA /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerRepresentation.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8F3915C2329746500F62FF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				B8F3915C2329746500F62FF8 /* HomeView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 				B8273E22232C025D00C0109E /* AddServiceView.swift */,
+				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
+				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -718,12 +724,14 @@
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
+				B8B5A7DB233411B600224DFA /* HomeTabView.swift in Sources */,
 				B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */,
 				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
 				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
 				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
+				B8B5A7DD233412F400224DFA /* HomeViewControllerRepresentation.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,

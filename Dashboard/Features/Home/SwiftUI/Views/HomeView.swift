@@ -34,7 +34,7 @@ struct HomeView: View {
             List {
                 ForEach(services, id: \.url) { service in
                     ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
-                    .onAppear {
+                        .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
                             self.network.updateServerStatus(for: service)
                     }
                     .onTapGesture {
@@ -51,13 +51,14 @@ struct HomeView: View {
                 }
                 .onDelete(perform: deleteService)
             }
-            .navigationBarTitle("My Services")
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle("My Services", displayMode: .large)
             .navigationBarItems(leading: EditButton(),
                                 trailing: addServiceButton)
-                .sheet(isPresented: $showingAddServices) {
-                    AddServiceHostView(serviceToEdit: self.serviceToEdit)
-                        .onDisappear() {
-                            self.serviceToEdit = nil
+            .sheet(isPresented: $showingAddServices) {
+                AddServiceHostView(serviceToEdit: self.serviceToEdit)
+                    .onDisappear() {
+                        self.serviceToEdit = nil
                     }
             }
         }

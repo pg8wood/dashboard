@@ -65,7 +65,6 @@ class AddServiceViewController: UIViewController {
     }
     
     private func addGestureRecognizers() {
-        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
         logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
     }
     

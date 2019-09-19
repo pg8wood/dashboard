@@ -31,7 +31,9 @@ struct ServiceRow: View {
             
             if isLoading {
                 // TODO port UIActivityIndicator to SwiftUI
+                // TODO my website is so fast that it doesn't look like the view even changes when pinging it. Need a minimum time to show the loading indicator. (Caddy rocks!)
                 Text("loading...")
+                    .frame(width: 80, height: 50)
             } else {
                 Image(uiImage: statusImage)
                     .resizable()
@@ -39,8 +41,10 @@ struct ServiceRow: View {
                     .frame(width: 80, height: 50)
             }
         }
-        .frame(height: 80)
+        .frame(height: 110)
         .frame(minWidth: 0, maxWidth: .infinity)
+        .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
+        
     }
 }
 
