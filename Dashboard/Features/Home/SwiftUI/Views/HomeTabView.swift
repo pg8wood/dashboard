@@ -13,11 +13,15 @@ struct HomeTabView: View {
         TabView {
             HomeView()
                 .tabItem {
+                    Image(systemName: "13.square")
+                        .imageScale(.large)
                     Text("SwiftUI")
             }
             UIKitHomeView()
                 .edgesIgnoringSafeArea(.all)
                 .tabItem {
+                    Image(systemName: "12.square")
+                        .imageScale(.large)
                     Text("UIKit")
             }
         }

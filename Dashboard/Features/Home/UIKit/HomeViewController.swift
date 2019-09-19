@@ -24,6 +24,7 @@ class HomeViewController: ServiceCollectionViewController {
     }
     
     var editingIndexPath: IndexPath?
+    var isPresentedFromSwiftUI = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -124,6 +125,10 @@ class HomeViewController: ServiceCollectionViewController {
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "UIKit \(isPresentedFromSwiftUI ? "presented from SwiftUI" : "fullscreen. SwiftUI nowhere to be found")"
     }
 }
 

@@ -114,7 +114,6 @@ class AddServiceViewController: UIViewController {
         updateDoneButton()
     }
     
-    
     @objc func editImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         
