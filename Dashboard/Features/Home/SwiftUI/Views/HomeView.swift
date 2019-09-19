@@ -10,13 +10,13 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.editMode) var mode
-    @ObservedObject var serviceList: ServiceList
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var services: FetchedResults<ServiceModel>
+//    @EnvironmentObject var serviceList: ServiceList
+    
     @State var showingAddServices = false
     @State var serviceToEdit: ServiceModel?
-    
-    var services: [ServiceModel] {
-        return serviceList.services
-    }
+
     
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
@@ -42,7 +42,7 @@ struct HomeView: View {
                             }
                     }
                 }
-                .onDelete(perform: deleteRow)
+                .onDelete(perform: deleteService)
             }
             .navigationBarTitle("My Services")
             .navigationBarItems(leading: EditButton(),
@@ -56,9 +56,13 @@ struct HomeView: View {
         }
     }
     
-    func deleteRow(at offsets: IndexSet) {
-        // TODO delete for real
-        $serviceList.services.wrappedValue.remove(atOffsets: offsets)
+    func deleteService(at offsets: IndexSet) {
+        guard let deletionIndex = offsets.first else {
+            return
+        }
+        
+        let service = services[deletionIndex]
+        PersistenceClient.shared.delete(service)
     }
 }
 

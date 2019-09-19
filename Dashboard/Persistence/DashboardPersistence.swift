@@ -18,7 +18,16 @@ protocol ServiceDatabase: Database {
 }
 
 extension PersistenceClient: ServiceDatabase {
+    
     static let shared = PersistenceClient()
+    
+    static func allServicesFetchRequest() -> NSFetchRequest<ServiceModel> {
+        let request = ServiceModel.fetchRequest() as! NSFetchRequest<ServiceModel>
+        
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \ServiceModel.index, ascending: true)]
+        
+        return request
+    }
     
     func createService(name: String, url: String, image: UIImage,
                        completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void){

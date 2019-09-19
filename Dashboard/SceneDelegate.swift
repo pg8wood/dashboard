@@ -15,14 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            PersistenceClient.shared.getStoredServices { result in
-                let services = (try? result.get()) ?? [ServiceModel]()
-                let serviceList = ServiceList(services: services)
-                
-                window.rootViewController = UIHostingController(rootView:HomeView(serviceList: serviceList))
-                self.window = window
-                window.makeKeyAndVisible()
-            }
+            
+            let moc = PersistenceClient.persistentContainer.viewContext
+            let homeView = HomeView().environment(\.managedObjectContext, moc)
+
+            window.rootViewController = UIHostingController(rootView: homeView)
+            self.window = window
+            window.makeKeyAndVisible()
         }
     }
 }

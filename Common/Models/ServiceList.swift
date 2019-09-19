@@ -11,6 +11,7 @@ import Combine
 
 class ServiceList: ObservableObject {
     @Published var services: [ServiceModel]
+    var didChange = PassthroughSubject<Void, Never>()
     
     init(services: [ServiceModel]) {
         self.services = services
