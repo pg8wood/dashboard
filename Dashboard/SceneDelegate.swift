@@ -15,12 +15,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            
             let moc = PersistenceClient.persistentContainer.viewContext
-            let homeView = HomeView().environment(\.managedObjectContext, moc)
+            let database = PersistenceClient()
+            let network = NetworkService(database: database)
+            
+            let homeView = HomeView()
+                .environment(\.managedObjectContext, moc)
+                .environmentObject(database)
+                .environmentObject(network)
 
-            window.rootViewController = UIHostingController(rootView: homeView)
             self.window = window
+            
+            window.rootViewController = UIHostingController(rootView: homeView)
             window.makeKeyAndVisible()
         }
     }

@@ -17,7 +17,7 @@ protocol Database {
     func delete(_ service: ServiceModel)
 }
 
-class PersistenceClient {
+class PersistenceClient: ObservableObject {
     
     static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.willowtreeapps.patrick.gatewood.dashboard")!
     

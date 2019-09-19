@@ -21,7 +21,7 @@ struct AddServiceHostView: View {
    }
      
     var body: some View {
-        AddServiceView(serviceToEdit: serviceToEdit) // should the viewmodel's model be exposed here?
+        AddServiceView(serviceToEdit: serviceToEdit)
     }
 }
 

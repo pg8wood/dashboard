@@ -11,6 +11,7 @@
 import Foundation
 import Combine
 import FavIcon
+import SwiftUI
 
 enum NetworkError: Error {
     case invalidUrl
@@ -19,20 +20,25 @@ enum NetworkError: Error {
 }
 
 protocol NetworkFetchable {
-    func fetchServerStatus(for url: String) -> AnyPublisher<Int, NetworkError>
-//    func fetchFavicon(for url: String) -> AnyPublisher<UIImage, NetworkError>
+    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError>
+    func updateServerStatus(for service: ServiceModel)
 }
 
-class NetworkService {
+class NetworkService: ObservableObject {
+    let database: PersistenceClient
+    
     private let session: URLSession!
     
-    init(session: URLSession = .shared) {
+    private var disposables = Set<AnyCancellable>()
+    
+    init(session: URLSession = .shared, database: PersistenceClient) {
         self.session = session
+        self.database = database
     }
 }
 
 extension NetworkService: NetworkFetchable {
-    func fetchServerStatus(for url: String) -> AnyPublisher<Int, NetworkError> {
+    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError> {
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
         }
@@ -57,7 +63,25 @@ extension NetworkService: NetworkFetchable {
         .eraseToAnyPublisher()
     }
     
-//    func fetchFavicon(for url: String) -> AnyPublisher<UIImage, NetworkError> {
-//        // TODO
-//    }
+    func updateServerStatus(for service: ServiceModel) {
+        _ = fetchServerStatusCode(for: service.url)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(_):
+                    self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
+                }
+            }, receiveValue: { responseCode in
+                print("response code: \(responseCode)")
+                // TODO potential improvement: Show icons/descriptions for server-related errors outside of the success range
+                guard 200..<300 ~= responseCode else {
+                    self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
+                    return
+                }
+                
+                self.database.updateLastOnlineDate(for: service, lastOnline: Date())
+            })
+            .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+    }
 }

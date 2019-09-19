@@ -33,19 +33,15 @@ struct ServiceRow: View {
                 .scaledToFit()
                 .frame(width: 80, height: 50)
         }
-        .animation(.easeInOut)
         .frame(height: 80)
         .frame(minWidth: 0, maxWidth: .infinity)
     }
-    
 }
 
 #if DEBUG
-//struct ServiceItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let model = MockServiceModel(name: "Hi")
-//        
-//        return ServiceRow(model: model)
-//    }
-//}
+struct ServiceItem_Previews: PreviewProvider {
+    static var previews: some View {
+        return ServiceRow(name: "Test Service", url: "test.com", image: UIImage(named: "missing-image")!, statusImage: UIImage(named: "check")!)
+    }
+}
 #endif
