@@ -70,7 +70,10 @@ struct HomeView: View {
             return // show error?
         }
         
-        database.swap(service: services[sourceIndex], with: services[destination])
+        // Destination is an offset rather than an index, so massage it into an index
+        let destinationIndex = sourceIndex > destination ? destination : destination - 1
+        
+        database.swap(service: services[sourceIndex], with: services[destinationIndex])
     }
     
     private func deleteService(at offsets: IndexSet) {

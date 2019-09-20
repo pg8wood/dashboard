@@ -58,9 +58,15 @@ extension PersistenceClient: ServiceDatabase {
     /// Swap two services' indices in the database
     func swap(service: ServiceModel, with otherService: ServiceModel) {
         let sourceIndex = service.index
+        let sourceImageName = service.imageName
         let destinationIndex = otherService.index
+        let destinationImageName = otherService.imageName
+        
         service.index = destinationIndex
         otherService.index = sourceIndex
+
+        renameFile(from: sourceImageName, to: service.imageName)
+        renameFile(from: destinationImageName, to: otherService.imageName)
         
         saveContext()
     }
