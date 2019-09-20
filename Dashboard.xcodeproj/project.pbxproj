@@ -50,6 +50,7 @@
 		B8B5A7DD233412F400224DFA /* HomeViewControllerRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
+		B8D04A2B23352F5900833CC5 /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2A23352F5900833CC5 /* HomeNavigationBar.swift */; };
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
 		B8F3915D2329746500F62FF8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* HomeView.swift */; };
 		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
@@ -143,6 +144,7 @@
 		B8B5A7DA233411B600224DFA /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerRepresentation.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		B8D04A2A23352F5900833CC5 /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8F3915C2329746500F62FF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
@@ -400,11 +402,8 @@
 		B8AC722B232EC53900074652 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
-				B8F3915C2329746500F62FF8 /* HomeView.swift */,
-				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
-				B8273E22232C025D00C0109E /* AddServiceView.swift */,
-				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
+				B8D04A2823352EE600833CC5 /* Views */,
+				B8D04A2923352EF900833CC5 /* ViewModifiers */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -415,6 +414,26 @@
 				B89079672251869C00FFB807 /* ServiceCollectionView */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8D04A2823352EE600833CC5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
+				B8F3915C2329746500F62FF8 /* HomeView.swift */,
+				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
+				B8273E22232C025D00C0109E /* AddServiceView.swift */,
+				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B8D04A2923352EF900833CC5 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A2A23352F5900833CC5 /* HomeNavigationBar.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
@@ -727,6 +746,7 @@
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
+				B8D04A2B23352F5900833CC5 /* HomeNavigationBar.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,

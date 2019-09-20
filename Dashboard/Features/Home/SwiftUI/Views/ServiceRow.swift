@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ServiceRow: View {
+    var index: Int64
     var name: String
     var url: String
     var image: UIImage
@@ -25,6 +26,7 @@ struct ServiceRow: View {
             
             Spacer()
             
+//            Text("\(index)")
             Text(name)
             
             Spacer()
@@ -47,10 +49,10 @@ struct ServiceRow: View {
     }
 }
 
-#if DEBUG
-struct ServiceItem_Previews: PreviewProvider {
-    static var previews: some View {
-        return ServiceRow(name: "Test Service", url: "test.com", image: UIImage(named: "missing-image")!, statusImage: UIImage(named: "check")!, isLoading: false)
-    }
-}
-#endif
+//#if DEBUG
+//struct ServiceItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        return ServiceRow(name: "Test Service", url: "test.com", image: UIImage(named: "missing-image")!, statusImage: UIImage(named: "check")!, isLoading: false)
+//    }
+//}
+//#endif
