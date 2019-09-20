@@ -208,18 +208,6 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		B831A640232ACEA300F944C6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
-				B8F3915C2329746500F62FF8 /* HomeView.swift */,
-				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
-				B8273E22232C025D00C0109E /* AddServiceView.swift */,
-				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		B87F22F2221E1344005BD677 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,7 +400,11 @@
 		B8AC722B232EC53900074652 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				B831A640232ACEA300F944C6 /* Views */,
+				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
+				B8F3915C2329746500F62FF8 /* HomeView.swift */,
+				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
+				B8273E22232C025D00C0109E /* AddServiceView.swift */,
+				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";

@@ -37,8 +37,12 @@ public class ServiceModel: NSManagedObject {
 
     var image: UIImage {
         get {
-            return PersistenceClient.fetchImage(named: name) ?? UIImage(named: "missing-image")!
+            return PersistenceClient.fetchImage(named: imageName) ?? UIImage(named: "missing-image")!
         }
+    }
+    
+    var imageName: String {
+        return "\(index)-\(name)" // arbitrary unique image name
     }
     
     func populate(index: Int64, name: String, url: String, lastOnlineDate: Date) {

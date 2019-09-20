@@ -49,6 +49,7 @@ struct HomeView: View {
                         }
                     }
                 }
+                .onMove(perform: moveService)
                 .onDelete(perform: deleteService)
             }
             .listStyle(GroupedListStyle())
@@ -62,6 +63,14 @@ struct HomeView: View {
                     }
             }
         }
+    }
+    
+    private func moveService(from source: IndexSet, to destination: Int) {
+        guard let sourceIndex = source.first else {
+            return // show error?
+        }
+        
+        database.swap(service: services[sourceIndex], with: services[destination])
     }
     
     private func deleteService(at offsets: IndexSet) {

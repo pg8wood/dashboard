@@ -44,7 +44,6 @@ struct ServiceRow: View {
         .frame(height: 110)
         .frame(minWidth: 0, maxWidth: .infinity)
         .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
-        
     }
 }
 

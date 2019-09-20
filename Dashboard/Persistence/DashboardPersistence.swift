@@ -11,8 +11,7 @@ import UIKit
 
 // TODO unit test these protocols
 protocol ServiceDatabase: Database {
-    func createService(name: String, url: String, image: UIImage,
-                       completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void)
+    func createService(name: String, url: String, image: UIImage, completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void)
     func edit(service: ServiceModel, name: String, url: String, image: UIImage)
     func swap(service: ServiceModel, with otherService: ServiceModel)
 }
@@ -29,8 +28,7 @@ extension PersistenceClient: ServiceDatabase {
         return request
     }
     
-    func createService(name: String, url: String, image: UIImage,
-                       completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void){
+    func createService(name: String, url: String, image: UIImage, completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void) {
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
         
@@ -38,9 +36,10 @@ extension PersistenceClient: ServiceDatabase {
             let numberOfServices = try managedContext.count(for: serviceFetchRequest)
             
             let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
+            let id = Int64(numberOfServices)
             
-            service.populate(index: Int64(numberOfServices), name: name, url: url, lastOnlineDate: .distantPast)
-            save(image: image, named: name)
+            service.populate(index: id, name: name, url: url, lastOnlineDate: .distantPast)
+            save(image: image, named: service.imageName)
             
             completion(.success(service))
             saveContext()
@@ -50,15 +49,19 @@ extension PersistenceClient: ServiceDatabase {
     }
     
     func edit(service: ServiceModel, name: String, url: String, image: UIImage) {
+        let oldImageName = service.imageName
         service.populate(index: service.index, name: name, url: url, lastOnlineDate: service.lastOnlineDate)
+        renameFile(from: oldImageName, to: service.imageName)
         saveContext()
     }
     
     /// Swap two services' indices in the database
     func swap(service: ServiceModel, with otherService: ServiceModel) {
-        service.index += otherService.index
-        otherService.index = service.index - otherService.index
-        service.index -= otherService.index
+        let sourceIndex = service.index
+        let destinationIndex = otherService.index
+        service.index = destinationIndex
+        otherService.index = sourceIndex
+        
         saveContext()
     }
     
