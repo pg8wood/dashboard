@@ -30,9 +30,8 @@ struct ServiceRow: View {
             Spacer()
             
             if isLoading {
-                // TODO port UIActivityIndicator to SwiftUI
-                // TODO my website is so fast that it doesn't look like the view even changes when pinging it. Need a minimum time to show the loading indicator. (Caddy rocks!)
-                Text("loading...")
+                // TODO my website is so fast that it doesn't look like the view even changes when pinging it. Need a minimum time to show the loading indicator. (Caddy server rocks!)
+                ActivityIndicatorView()
                     .frame(width: 80, height: 50)
             } else {
                 Image(uiImage: statusImage)

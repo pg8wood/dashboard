@@ -42,8 +42,8 @@ struct ServiceListView: View {
                     .contextMenu {
                         Button(action: {
                             self.serviceToEdit = service
-                            self.showingAddServices.toggle() })
-                        {
+                            self.showingAddServices.toggle()
+                        }) {
                             Text("Edit Service")
                         }
                     }
