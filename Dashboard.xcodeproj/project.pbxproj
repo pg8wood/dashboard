@@ -51,8 +51,9 @@
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8D04A2B23352F5900833CC5 /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2A23352F5900833CC5 /* HomeNavigationBar.swift */; };
+		B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
-		B8F3915D2329746500F62FF8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* HomeView.swift */; };
+		B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* ServiceListView.swift */; };
 		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
 		B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391622329B16500F62FF8 /* ServiceRow.swift */; };
 /* End PBXBuildFile section */
@@ -145,8 +146,9 @@
 		B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerRepresentation.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8D04A2A23352F5900833CC5 /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
+		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8F3915C2329746500F62FF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B8F3915C2329746500F62FF8 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
 		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
 		B8F391622329B16500F62FF8 /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
@@ -420,10 +422,11 @@
 			isa = PBXGroup;
 			children = (
 				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
-				B8F3915C2329746500F62FF8 /* HomeView.swift */,
+				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 				B8273E22232C025D00C0109E /* AddServiceView.swift */,
 				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
+				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,8 +733,9 @@
 			files = (
 				B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
+				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
-				B8F3915D2329746500F62FF8 /* HomeView.swift in Sources */,
+				B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,

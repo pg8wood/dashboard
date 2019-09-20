@@ -29,22 +29,29 @@ extension PersistenceClient: ServiceDatabase {
     }
     
     func createService(name: String, url: String, image: UIImage, completion: @escaping (_ result: Result<ServiceModel, Error>) -> Void) {
-        let managedContext = PersistenceClient.persistentContainer.viewContext
-        let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
-        
-        do {
-            let numberOfServices = try managedContext.count(for: serviceFetchRequest)
-            
-            let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
-            let id = Int64(numberOfServices)
-            
-            service.populate(index: id, name: name, url: url, lastOnlineDate: .distantPast)
-            save(image: image, named: service.imageName)
-            
-            completion(.success(service))
-            saveContext()
-        } catch {
-            completion(.failure(error))
+        getStoredServices { result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "nil self while trying to persist new ServiceModel"])))
+                    return
+                }
+                
+                do {
+                    let services = try result.get()
+                    
+                    // Find the current largest index and increment it. This is not the most efficient way to get a unique ID for a ServiceModel, but it's good enough for innovation day
+                    let largestIndex = services.map { $0.index }.max()! + 1
+                    
+                    let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
+                    service.populate(index: largestIndex, name: name, url: url, lastOnlineDate: .distantPast)
+                    self.save(image: image, named: service.imageName)
+                    
+                    completion(.success(service))
+                    self.saveContext()
+                } catch {
+                    completion(.failure(error))
+                }
+            }
         }
     }
     

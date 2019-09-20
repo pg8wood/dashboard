@@ -12,7 +12,7 @@ struct HomeNavigationBar: ViewModifier {
     
     @Binding var showingAddServices: Bool
     @Binding var serviceToEdit: ServiceModel?
-    
+//    
 //    var addServiceButton: some View {
 //        Button(action: { self.showingAddServices.toggle() }) {
 //            Image(systemName: "plus.circle")
@@ -25,12 +25,6 @@ struct HomeNavigationBar: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .navigationBarTitle("My Services", displayMode: .large)
-            .sheet(isPresented: $showingAddServices) {
-                AddServiceHostView(serviceToEdit: self.serviceToEdit)
-                    .onDisappear() {
-                        self.serviceToEdit = nil
-                }
-        }
+            
     }
 }

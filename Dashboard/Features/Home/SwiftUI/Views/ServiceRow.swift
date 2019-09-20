@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ServiceRow: View {
-    var index: Int64
     var name: String
     var url: String
     var image: UIImage
@@ -26,7 +25,6 @@ struct ServiceRow: View {
             
             Spacer()
             
-//            Text("\(index)")
             Text(name)
             
             Spacer()
@@ -40,10 +38,10 @@ struct ServiceRow: View {
                 Image(uiImage: statusImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 80, height: 50)
+                    .frame(width: 80, height: 35)
             }
         }
-        .frame(height: 110)
+        .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
         .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
     }

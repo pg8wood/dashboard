@@ -11,12 +11,13 @@ import SwiftUI
 struct HomeTabView: View {
     var body: some View {
         TabView {
-            HomeView()
+            ServiceListView()
                 .tabItem {
                     Image(systemName: "13.square")
                         .imageScale(.large)
                     Text("SwiftUI")
             }
+            
             UIKitHomeView()
                 .edgesIgnoringSafeArea(.all)
                 .tabItem {
