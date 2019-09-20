@@ -40,10 +40,10 @@ extension PersistenceClient: ServiceDatabase {
                     let services = try result.get()
                     
                     // Find the current largest index and increment it. This is not the most efficient way to get a unique ID for a ServiceModel, but it's good enough for innovation day
-                    let largestIndex = services.map { $0.index }.max()! + 1
+                    let largestIndex = services.map { $0.index }.max() ?? 0
                     
                     let service = NSEntityDescription.insertNewObject(forEntityName: ServiceModel.entityName, into: PersistenceClient.persistentContainer.viewContext) as! ServiceModel
-                    service.populate(index: largestIndex, name: name, url: url, lastOnlineDate: .distantPast)
+                    service.populate(index: largestIndex + 1, name: name, url: url, lastOnlineDate: .distantPast)
                     self.save(image: image, named: service.imageName)
                     
                     completion(.success(service))
