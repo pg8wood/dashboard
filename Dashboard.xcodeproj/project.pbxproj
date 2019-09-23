@@ -52,6 +52,21 @@
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
 		B8D04A302335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */; };
+		B8D04A3723356F8100833CC5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A3523356F8100833CC5 /* Interface.storyboard */; };
+		B8D04A3923356F8400833CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A3823356F8400833CC5 /* Assets.xcassets */; };
+		B8D04A4023356F8400833CC5 /* DashboardWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B8D04A4523356F8400833CC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4423356F8400833CC5 /* ContentView.swift */; };
+		B8D04A4723356F8400833CC5 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4623356F8400833CC5 /* HostingController.swift */; };
+		B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */; };
+		B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4A23356F8400833CC5 /* NotificationController.swift */; };
+		B8D04A4D23356F8400833CC5 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4C23356F8400833CC5 /* NotificationView.swift */; };
+		B8D04A4F23356F8500833CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A4E23356F8500833CC5 /* Assets.xcassets */; };
+		B8D04A5223356F8500833CC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */; };
+		B8D04A5723356F8500833CC5 /* DashboardWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B8D04A3323356F8100833CC5 /* DashboardWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B8D04A632335717E00833CC5 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
+		B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
+		B8D04A662335717E00833CC5 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
+		B8D04A672335717E00833CC5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
 		B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* ServiceListView.swift */; };
 		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
@@ -80,6 +95,20 @@
 			remoteGlobalIDString = B8907942225157D100FFB807;
 			remoteInfo = DashboardWidget;
 		};
+		B8D04A4123356F8400833CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B88D5567221B07FA007817A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D04A3E23356F8400833CC5;
+			remoteInfo = "DashboardWatch Extension";
+		};
+		B8D04A5523356F8500833CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B88D5567221B07FA007817A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D04A3223356F8100833CC5;
+			remoteInfo = DashboardWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +121,28 @@
 				B890794F225157D100FFB807 /* DashboardWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A5B23356F8500833CC5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B8D04A4023356F8400833CC5 /* DashboardWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A5F23356F8500833CC5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B8D04A5723356F8500833CC5 /* DashboardWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -147,6 +198,20 @@
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewRepresentation.swift; sourceTree = "<group>"; };
+		B8D04A3323356F8100833CC5 /* DashboardWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DashboardWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D04A3623356F8100833CC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B8D04A3823356F8400833CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8D04A3A23356F8400833CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DashboardWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D04A4423356F8400833CC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B8D04A4623356F8400833CC5 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B8D04A4A23356F8400833CC5 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B8D04A4C23356F8400833CC5 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B8D04A4E23356F8500833CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B8D04A5323356F8500833CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8F3915C2329746500F62FF8 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
 		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
@@ -156,6 +221,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		403265D105B3E3D94A246203 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B88D556C221B07FA007817A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +258,13 @@
 			files = (
 				B8907945225157D100FFB807 /* NotificationCenter.framework in Frameworks */,
 				7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3C23356F8400833CC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +377,8 @@
 				B890793E225157B500FFB807 /* Common */,
 				B88D5571221B07FA007817A3 /* Dashboard */,
 				B8907946225157D100FFB807 /* DashboardWidget */,
+				B8D04A3423356F8100833CC5 /* DashboardWatch */,
+				B8D04A4323356F8400833CC5 /* DashboardWatch Extension */,
 				B88D5586221B07FB007817A3 /* DashboardTests */,
 				B88D5591221B07FB007817A3 /* DashboardUITests */,
 				B88D5570221B07FA007817A3 /* Products */,
@@ -313,6 +394,8 @@
 				B88D5583221B07FB007817A3 /* DashboardTests.xctest */,
 				B88D558E221B07FB007817A3 /* DashboardUITests.xctest */,
 				B8907943225157D100FFB807 /* DashboardWidget.appex */,
+				B8D04A3323356F8100833CC5 /* DashboardWatch.app */,
+				B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -439,6 +522,48 @@
 			path = UIKitPorts;
 			sourceTree = "<group>";
 		};
+		B8D04A3423356F8100833CC5 /* DashboardWatch */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A3523356F8100833CC5 /* Interface.storyboard */,
+				B8D04A3823356F8400833CC5 /* Assets.xcassets */,
+				B8D04A3A23356F8400833CC5 /* Info.plist */,
+			);
+			path = DashboardWatch;
+			sourceTree = "<group>";
+		};
+		B8D04A4323356F8400833CC5 /* DashboardWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A68233572DE00833CC5 /* CopiedFromDashboard */,
+				B8D04A4423356F8400833CC5 /* ContentView.swift */,
+				B8D04A4623356F8400833CC5 /* HostingController.swift */,
+				B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */,
+				B8D04A4A23356F8400833CC5 /* NotificationController.swift */,
+				B8D04A4C23356F8400833CC5 /* NotificationView.swift */,
+				B8D04A4E23356F8500833CC5 /* Assets.xcassets */,
+				B8D04A5323356F8500833CC5 /* Info.plist */,
+				B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */,
+				B8D04A5023356F8500833CC5 /* Preview Content */,
+			);
+			path = "DashboardWatch Extension";
+			sourceTree = "<group>";
+		};
+		B8D04A5023356F8500833CC5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B8D04A68233572DE00833CC5 /* CopiedFromDashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CopiedFromDashboard;
+			sourceTree = "<group>";
+		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,11 +592,13 @@
 				B88D556D221B07FA007817A3 /* Resources */,
 				D61A9CE1296A147FFDE43126 /* [CP] Embed Pods Frameworks */,
 				B8907953225157D100FFB807 /* Embed App Extensions */,
+				B8D04A5F23356F8500833CC5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B890794E225157D100FFB807 /* PBXTargetDependency */,
+				B8D04A5623356F8500833CC5 /* PBXTargetDependency */,
 			);
 			name = Dashboard;
 			productName = Dashboard;
@@ -534,13 +661,48 @@
 			productReference = B8907943225157D100FFB807 /* DashboardWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		B8D04A3223356F8100833CC5 /* DashboardWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8D04A5C23356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch" */;
+			buildPhases = (
+				B8D04A3123356F8100833CC5 /* Resources */,
+				B8D04A5B23356F8500833CC5 /* Embed App Extensions */,
+				403265D105B3E3D94A246203 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8D04A4223356F8400833CC5 /* PBXTargetDependency */,
+			);
+			name = DashboardWatch;
+			productName = DashboardWatch;
+			productReference = B8D04A3323356F8100833CC5 /* DashboardWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8D04A5823356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch Extension" */;
+			buildPhases = (
+				B8D04A3B23356F8400833CC5 /* Sources */,
+				B8D04A3C23356F8400833CC5 /* Frameworks */,
+				B8D04A3D23356F8400833CC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DashboardWatch Extension";
+			productName = "DashboardWatch Extension";
+			productReference = B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B88D5567221B07FA007817A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Patrick Gatewood";
 				TargetAttributes = {
@@ -568,6 +730,12 @@
 							};
 						};
 					};
+					B8D04A3223356F8100833CC5 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					B8D04A3E23356F8400833CC5 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 				};
 			};
 			buildConfigurationList = B88D556A221B07FA007817A3 /* Build configuration list for PBXProject "Dashboard" */;
@@ -587,6 +755,8 @@
 				B88D5582221B07FB007817A3 /* DashboardTests */,
 				B88D558D221B07FB007817A3 /* DashboardUITests */,
 				B8907942225157D100FFB807 /* DashboardWidget */,
+				B8D04A3223356F8100833CC5 /* DashboardWatch */,
+				B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -625,6 +795,24 @@
 			files = (
 				B890795622515B0200FFB807 /* Assets.xcassets in Resources */,
 				B890794B225157D100FFB807 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3123356F8100833CC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D04A3923356F8400833CC5 /* Assets.xcassets in Resources */,
+				B8D04A3723356F8100833CC5 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3D23356F8400833CC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D04A5223356F8500833CC5 /* Preview Assets.xcassets in Resources */,
+				B8D04A4F23356F8500833CC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +978,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8D04A3B23356F8400833CC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D04A632335717E00833CC5 /* ServiceModel.swift in Sources */,
+				B8D04A4723356F8400833CC5 /* HostingController.swift in Sources */,
+				B8D04A4523356F8400833CC5 /* ContentView.swift in Sources */,
+				B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */,
+				B8D04A672335717E00833CC5 /* Persistence.swift in Sources */,
+				B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */,
+				B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */,
+				B8D04A4D23356F8400833CC5 /* NotificationView.swift in Sources */,
+				B8D04A662335717E00833CC5 /* NetworkService+Combine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -808,6 +1012,16 @@
 			target = B8907942225157D100FFB807 /* DashboardWidget */;
 			targetProxy = B890794D225157D100FFB807 /* PBXContainerItemProxy */;
 		};
+		B8D04A4223356F8400833CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */;
+			targetProxy = B8D04A4123356F8400833CC5 /* PBXContainerItemProxy */;
+		};
+		B8D04A5623356F8500833CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D04A3223356F8100833CC5 /* DashboardWatch */;
+			targetProxy = B8D04A5523356F8500833CC5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -817,6 +1031,14 @@
 				B890794A225157D100FFB807 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		B8D04A3523356F8100833CC5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8D04A3623356F8100833CC5 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1116,6 +1338,94 @@
 			};
 			name = Release;
 		};
+		B8D04A5923356F8500833CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DashboardWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DashboardWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		B8D04A5A23356F8500833CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DashboardWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DashboardWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		B8D04A5D23356F8500833CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				IBSC_MODULE = DashboardWatch_Extension;
+				INFOPLIST_FILE = DashboardWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		B8D04A5E23356F8500833CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				IBSC_MODULE = DashboardWatch_Extension;
+				INFOPLIST_FILE = DashboardWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1160,6 +1470,24 @@
 			buildConfigurations = (
 				B8907951225157D100FFB807 /* Debug */,
 				B8907952225157D100FFB807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8D04A5823356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8D04A5923356F8500833CC5 /* Debug */,
+				B8D04A5A23356F8500833CC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8D04A5C23356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8D04A5D23356F8500833CC5 /* Debug */,
+				B8D04A5E23356F8500833CC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

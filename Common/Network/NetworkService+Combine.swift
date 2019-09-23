@@ -10,7 +10,6 @@
 
 import Foundation
 import Combine
-import FavIcon
 import SwiftUI
 
 enum NetworkError: Error {
