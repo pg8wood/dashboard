@@ -11,7 +11,7 @@ import UIKit
 import Combine
 
 @objc(ServiceModel)
-public class ServiceModel: NSManagedObject {
+public class ServiceModel: NSManagedObject, Identifiable {
     static var entityName: String {
         return String(describing: self)
     }
@@ -24,7 +24,7 @@ public class ServiceModel: NSManagedObject {
     /* TODO: This seems like a smell... the loading state should probably only be part of the view. But since
        in SwiftUI views are just functions of state, I'm unsure of where to put this
      */
-    @NSManaged var isLoading: Bool
+//    @NSManaged var isLoading: Bool
     
     /// Determine if the service was online in the last 5 minutes
     var wasOnlineRecently: Bool {
@@ -50,7 +50,6 @@ public class ServiceModel: NSManagedObject {
         self.name = name
         self.url = url
         self.lastOnlineDate = lastOnlineDate
-        self.isLoading = false
     }
     
     // MARK: - Combine

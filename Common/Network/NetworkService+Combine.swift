@@ -21,7 +21,7 @@ enum NetworkError: Error {
 
 protocol NetworkFetchable {
     func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError>
-    func updateServerStatus(for service: ServiceModel)
+    func updateServerStatus(for service: ServiceModel) -> PassthroughSubject<Bool, Never>
 }
 
 class NetworkService: ObservableObject {
@@ -63,12 +63,18 @@ extension NetworkService: NetworkFetchable {
         .eraseToAnyPublisher()
     }
     
-    func updateServerStatus(for service: ServiceModel) {
-        service.isLoading = true
+    func updateServerStatus(for service: ServiceModel) -> PassthroughSubject<Bool, Never> {
+        let networkActivityPublisher = PassthroughSubject<Bool, Never>()
         
         _ = fetchServerStatusCode(for: service.url)
+            .handleEvents(receiveSubscription: { _ in
+                networkActivityPublisher.send(true)
+            }, receiveCompletion: { _ in
+                networkActivityPublisher.send(false)
+            }, receiveCancel: {
+                networkActivityPublisher.send(false)
+            })
             .sink(receiveCompletion: { completion in
-                service.isLoading = false
                 switch completion {
                 case .finished:
                     break
@@ -76,7 +82,6 @@ extension NetworkService: NetworkFetchable {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
                 }
             }, receiveValue: { responseCode in
-                service.isLoading = false
                 // TODO potential improvement: Show icons/descriptions for server-related errors outside of the success range
                 guard 200..<300 ~= responseCode else {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
@@ -86,5 +91,7 @@ extension NetworkService: NetworkFetchable {
                 self.database.updateLastOnlineDate(for: service, lastOnline: Date())
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+        
+        return networkActivityPublisher
     }
 }

@@ -287,7 +287,8 @@
 		B881D257221DCC630038BF81 /* AddService */ = {
 			isa = PBXGroup;
 			children = (
-				B8AC722A232EC52000074652 /* UIKit */,
+				B8D04A6A2339152100833CC5 /* SwiftUI */,
+				B8D04A692339151700833CC5 /* UIKit */,
 			);
 			path = AddService;
 			sourceTree = "<group>";
@@ -392,15 +393,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		B8AC722A232EC52000074652 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
-				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		B8AC722B232EC53900074652 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,7 +415,6 @@
 				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
 				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
-				B8273E22232C025D00C0109E /* AddServiceView.swift */,
 				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
 				B8D04A2E233553D700833CC5 /* UIKitPorts */,
 			);
@@ -437,6 +428,23 @@
 				B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */,
 			);
 			path = UIKitPorts;
+			sourceTree = "<group>";
+		};
+		B8D04A692339151700833CC5 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
+				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8D04A6A2339152100833CC5 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				B8273E22232C025D00C0109E /* AddServiceView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {

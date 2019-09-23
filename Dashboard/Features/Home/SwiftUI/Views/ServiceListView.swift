@@ -31,14 +31,11 @@ struct ServiceListView: View {
     
     var serviceList: some View {
         List {
-            ForEach(services, id: \.index) { service in
-                ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
-                    .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
-                        self.network.updateServerStatus(for: service)
-                    }
-                    .onTapGesture {
-                        self.network.updateServerStatus(for: service)
-                    }
+            ForEach(services) { service in
+                /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
+                    @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
+                
+                ServiceRow(service: service, name: service.name, url: service.url, image: service.image, statusImage: service.statusImage)
                     .contextMenu {
                         Button(action: {
                             self.serviceToEdit = service
@@ -65,17 +62,14 @@ struct ServiceListView: View {
                     serviceList
                 }
             }
-                /* The conditional view above is wrapped in a VStack only to wrap it into a common ancenstor so that either conditional view may share the same modifiers.
-                 I'd rather use a custom view modifier, but no views seem to render if a custom ViewModifier has a `.navigationBarItems` modifier.
+                // The conditional view above is wrapped in a VStack only to wrap it into a common ancenstor so that either conditional view may share the same modifiers.
+                // I'd rather use a custom view modifier, but no views seem to render if a custom ViewModifier has a `.navigationBarItems` modifier.
                  
-                 It seems like this could be accomplished without needing to wrap the conditional views. */
+                // It seems like this could be accomplished without needing to wrap the conditional views. */
                 .navigationBarTitle("My Services", displayMode: .large)
                 .navigationBarItems(leading: EditButton(), trailing: addServiceButton)
                 .sheet(isPresented: $showingAddServices) {
                     AddServiceHostView(serviceToEdit: self.serviceToEdit)
-                        .onDisappear() {
-                            self.serviceToEdit = nil
-                    }
             }
         }
     }

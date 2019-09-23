@@ -7,13 +7,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ServiceRow: View {
+    var service: ServiceModel
     var name: String
     var url: String
     var image: UIImage
     var statusImage: UIImage
-    var isLoading: Bool // This seems like it could be eitehr state or binding... 
+    
+    @EnvironmentObject var network: NetworkService
+    @State private var isLoading: Bool = false
+    @State private var disposables = Set<AnyCancellable>()
     
     var body: some View {
         HStack {
@@ -40,9 +45,24 @@ struct ServiceRow: View {
                     .frame(width: 80, height: 35)
             }
         }
+        .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+            self.fetchServerStatus()
+        }
+        .onTapGesture {
+            self.fetchServerStatus()
+        }
         .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
         .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
+    }
+    
+    private func fetchServerStatus() {
+        self.isLoading = true
+        self.network.updateServerStatus(for: self.service)
+            .sink(receiveValue: { isLoading in
+                self.isLoading = isLoading
+            })
+        .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
 }
 
