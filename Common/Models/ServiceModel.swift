@@ -21,11 +21,6 @@ public class ServiceModel: NSManagedObject, Identifiable {
     @NSManaged var url: String
     @NSManaged var lastOnlineDate: Date
     
-    /* TODO: This seems like a smell... the loading state should probably only be part of the view. But since
-       in SwiftUI views are just functions of state, I'm unsure of where to put this
-     */
-//    @NSManaged var isLoading: Bool
-    
     /// Determine if the service was online in the last 5 minutes
     var wasOnlineRecently: Bool {
         return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5

@@ -397,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D04A2823352EE600833CC5 /* Views */,
+				B8D04A2E233553D700833CC5 /* UIKitPorts */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -416,7 +417,6 @@
 				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
-				B8D04A2E233553D700833CC5 /* UIKitPorts */,
 			);
 			path = Views;
 			sourceTree = "<group>";

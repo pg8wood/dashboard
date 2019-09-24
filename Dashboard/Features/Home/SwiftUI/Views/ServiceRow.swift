@@ -35,7 +35,6 @@ struct ServiceRow: View {
             Spacer()
             
             if isLoading {
-                // TODO my website is so fast that it doesn't look like the view even changes when pinging it. Need a minimum time to show the loading indicator. (Caddy server rocks!)
                 ActivityIndicatorView()
                     .frame(width: 80, height: 50)
             } else {
@@ -45,24 +44,28 @@ struct ServiceRow: View {
                     .frame(width: 80, height: 35)
             }
         }
+        .frame(height: 90)
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .onTapGesture {
+            // TODO this tap area could be better
+            self.fetchServerStatus()
+        }
         .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
             self.fetchServerStatus()
         }
-        .onTapGesture {
-            self.fetchServerStatus()
-        }
-        .frame(height: 90)
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
     }
     
-    private func fetchServerStatus() {
+    func fetchServerStatus() {
         self.isLoading = true
+        
         self.network.updateServerStatus(for: self.service)
             .sink(receiveValue: { isLoading in
-                self.isLoading = isLoading
+                withAnimation {
+                    self.isLoading = isLoading
+                }
+                
             })
-        .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+            .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
 }
 

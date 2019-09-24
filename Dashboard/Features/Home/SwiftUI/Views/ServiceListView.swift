@@ -47,7 +47,6 @@ struct ServiceListView: View {
             }
             .onMove(perform: moveService)
             .onDelete(perform: deleteService)
-            
         }
         .listStyle(GroupedListStyle())
     }
@@ -64,12 +63,14 @@ struct ServiceListView: View {
             }
                 // The conditional view above is wrapped in a VStack only to wrap it into a common ancenstor so that either conditional view may share the same modifiers.
                 // I'd rather use a custom view modifier, but no views seem to render if a custom ViewModifier has a `.navigationBarItems` modifier.
-                 
-                // It seems like this could be accomplished without needing to wrap the conditional views. */
+                // It seems like this could be accomplished without needing to wrap the conditional views.
                 .navigationBarTitle("My Services", displayMode: .large)
                 .navigationBarItems(leading: EditButton(), trailing: addServiceButton)
                 .sheet(isPresented: $showingAddServices) {
                     AddServiceHostView(serviceToEdit: self.serviceToEdit)
+                        .onDisappear() {
+                            self.serviceToEdit = nil
+                    }
             }
         }
     }

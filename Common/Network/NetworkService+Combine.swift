@@ -38,20 +38,23 @@ class NetworkService: ObservableObject {
 }
 
 extension NetworkService: NetworkFetchable {
+    
+    /// Gets the response code from a HEAD request. This is a tad slower than pinging the server, however since many servers block
+    /// ICMP requests, this should be more reliable.
     func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError> {
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "HEAD"
         
         return session.dataTaskPublisher(for: url)
-            .tryMap { data, response in
-                guard let response = response as? HTTPURLResponse else {
-                    throw NetworkError.noResponse
-                }
-
+        .tryMap { data, response in
+            guard let response = response as? HTTPURLResponse else {
+                throw NetworkError.noResponse
+            }
+            
             return response.statusCode
         }
         .catch { error in
