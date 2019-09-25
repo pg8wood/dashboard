@@ -31,6 +31,8 @@ struct ServiceRow: View {
             Spacer()
             
             Text(name)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 10)
             
             Spacer()
             
