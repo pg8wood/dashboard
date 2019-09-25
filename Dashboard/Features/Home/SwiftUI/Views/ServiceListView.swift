@@ -35,7 +35,7 @@ struct ServiceListView: View {
                 /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
                     @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
                 
-                ServiceRow(service: service, name: service.name, url: service.url, image: service.image, statusImage: service.statusImage)
+                ServiceRow(service: service, name: service.name, url: service.url, image: service.image, isOnline: service.wasOnlineRecently)
                     .contextMenu {
                         Button(action: {
                             self.serviceToEdit = service

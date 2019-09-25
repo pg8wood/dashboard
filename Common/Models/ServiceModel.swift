@@ -26,6 +26,7 @@ public class ServiceModel: NSManagedObject, Identifiable {
         return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5
     }
     
+    // TODO: remove this when removing the UIKit demonstration
     var statusImage: UIImage {
         return UIImage(named: wasOnlineRecently ? "check" : "server-error")!
     }

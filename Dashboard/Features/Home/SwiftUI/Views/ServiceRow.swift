@@ -14,11 +14,19 @@ struct ServiceRow: View {
     var name: String
     var url: String
     var image: UIImage
-    var statusImage: UIImage
+    var isOnline: Bool
     
     @EnvironmentObject var network: NetworkService
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
+    
+    var statusImage: Image {
+        if isOnline {
+            return Image("check")
+        } else {
+            return Image(systemName: "exclamationmark.circle.fill")
+        }
+    }
     
     var body: some View {
         HStack {
@@ -40,10 +48,11 @@ struct ServiceRow: View {
                 ActivityIndicatorView()
                     .frame(width: 80, height: 50)
             } else {
-                Image(uiImage: statusImage)
+                statusImage
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 35)
+                    .foregroundColor(.red)
             }
         }
         .frame(height: 90)
