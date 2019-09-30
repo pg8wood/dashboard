@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import WatchConnectivity
 
 protocol ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel)

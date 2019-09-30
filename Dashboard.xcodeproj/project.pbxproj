@@ -20,9 +20,6 @@
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
 		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
-		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
-		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
-		B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D242221DC94E0038BF81 /* Main.storyboard */; };
 		B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
 		B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D244221DC94E0038BF81 /* AddServiceViewController.swift */; };
 		B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */; };
@@ -47,7 +44,6 @@
 		B89079662251844000FFB807 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8B5A7DB233411B600224DFA /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5A7DA233411B600224DFA /* HomeTabView.swift */; };
-		B8B5A7DD233412F400224DFA /* HomeViewControllerRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
@@ -71,6 +67,8 @@
 		B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* ServiceListView.swift */; };
 		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
 		B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391622329B16500F62FF8 /* ServiceRow.swift */; };
+		B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */; };
+		B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,9 +164,6 @@
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Services.xcdatamodel; sourceTree = "<group>"; };
 		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
-		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
-		B881D242221DC94E0038BF81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		B881D244221DC94E0038BF81 /* AddServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
 		B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -194,7 +189,6 @@
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8B5A7DA233411B600224DFA /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerRepresentation.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewRepresentation.swift; sourceTree = "<group>"; };
@@ -216,6 +210,8 @@
 		B8F3915C2329746500F62FF8 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
 		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
 		B8F391622329B16500F62FF8 /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
+		B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionWrapper.swift; sourceTree = "<group>"; };
+		B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionDelegate.swift; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		F9EA98C8A5BD8343AEEFC858 /* Pods-Dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -339,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				B8AC722B232EC53900074652 /* SwiftUI */,
-				B8AC7229232EC50C00074652 /* UIKit */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -403,6 +398,7 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				B8F742622342747C00ACB3E4 /* Watch */,
 				B881D23D221DC94E0038BF81 /* Features */,
 				B87F22F2221E1344005BD677 /* Utilities */,
 				B80B316E22E0CB0A00180D4E /* Persistence */,
@@ -465,16 +461,6 @@
 			path = ServiceCollectionView;
 			sourceTree = "<group>";
 		};
-		B8AC7229232EC50C00074652 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				B881D242221DC94E0038BF81 /* Main.storyboard */,
-				B881D240221DC94E0038BF81 /* HomeViewController.swift */,
-				B881D241221DC94E0038BF81 /* EmptyTableView.xib */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		B8AC722A232EC52000074652 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,7 +502,6 @@
 		B8D04A2E233553D700833CC5 /* UIKitPorts */ = {
 			isa = PBXGroup;
 			children = (
-				B8B5A7DC233412F400224DFA /* HomeViewControllerRepresentation.swift */,
 				B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */,
 			);
 			path = UIKitPorts;
@@ -535,7 +520,6 @@
 		B8D04A4323356F8400833CC5 /* DashboardWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B8D04A68233572DE00833CC5 /* CopiedFromDashboard */,
 				B8D04A4423356F8400833CC5 /* ContentView.swift */,
 				B8D04A4623356F8400833CC5 /* HostingController.swift */,
 				B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */,
@@ -557,11 +541,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B8D04A68233572DE00833CC5 /* CopiedFromDashboard */ = {
+		B8F742622342747C00ACB3E4 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
+				B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */,
+				B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */,
 			);
-			path = CopiedFromDashboard;
+			path = Watch;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
@@ -767,11 +753,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */,
-				B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */,
 				B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */,
 				B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */,
 				B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */,
-				B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,15 +914,15 @@
 				B8B5A7DB233411B600224DFA /* HomeTabView.swift in Sources */,
 				B8273E23232C025D00C0109E /* AddServiceView.swift in Sources */,
 				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
-				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
 				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
-				B8B5A7DD233412F400224DFA /* HomeViewControllerRepresentation.swift in Sources */,
+				B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
+				B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
 				B8D04A302335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,

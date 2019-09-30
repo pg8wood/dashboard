@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let moc = PersistenceClient.persistentContainer.viewContext
+            let moc = PersistenceClient.persistentContainer.viewContext // todo do we still need this?
             let database = PersistenceClient()
             let network = NetworkService(database: database)
             
@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 .environment(\.managedObjectContext, moc)
                 .environmentObject(database)
                 .environmentObject(network)
+                .environmentObject(WatchHandler(moc: moc))
 
             self.window = window
             

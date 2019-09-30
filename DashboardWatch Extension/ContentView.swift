@@ -15,7 +15,8 @@ struct ContentView: View {
 //    @EnvironmentObject var database: PersistenceClient
     
 //    @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var services: FetchedResults<ServiceModel>
-    var services = ["Hello World!", "It's my first watch app"]
+     @EnvironmentObject var watchData: WatchData
+//    var services: [String] = ["Hello world!"]
     
     // State variables are owned & managed by this view
     @State private var showingAddServices = false
@@ -34,7 +35,7 @@ struct ContentView: View {
     var serviceList: some View {
         List {
 //            ForEach(services, id: \.index) { service in
-            ForEach(services, id: \.self) { service in
+            ForEach(watchData.services, id: \.self) { service in
                 Text(service)
 //                ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
                     .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
@@ -62,7 +63,7 @@ struct ContentView: View {
     var body: some View {
 //        NavigationView {
             VStack {
-                if services.isEmpty {
+                if watchData.services.isEmpty {
                     Text("No services found")
 //                    EmptyStateView()
                         .padding(.top, 20)
@@ -102,7 +103,7 @@ struct ContentView: View {
             return
         }
         
-        let service = services[deletionIndex]
+        let service = watchData.services[deletionIndex]
 //        database.delete(service)
     }
 }

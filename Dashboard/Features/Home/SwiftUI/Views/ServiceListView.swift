@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ServiceListView: View {
     @Environment(\.managedObjectContext) var moc
@@ -14,7 +15,7 @@ struct ServiceListView: View {
     @EnvironmentObject var database: PersistenceClient
     
     @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var services: FetchedResults<ServiceModel>
-    
+
     // State variables are owned & managed by this view
     @State private var showingAddServices = false
     @State private var serviceToEdit: ServiceModel?

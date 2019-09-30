@@ -80,7 +80,7 @@ extension PersistenceClient: ServiceDatabase {
     
     // MARK: - Core Data Saving support
     // Saves changes in the application's managed object context before the application terminates.
-    func saveContext () {
+    func saveContext() {
         let context = PersistenceClient.persistentContainer.viewContext
         if context.hasChanges {
             do {

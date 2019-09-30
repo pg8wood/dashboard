@@ -17,14 +17,6 @@ struct HomeTabView: View {
                         .imageScale(.large)
                     Text("SwiftUI")
             }
-            
-            UIKitHomeView()
-                .edgesIgnoringSafeArea(.all)
-                .tabItem {
-                    Image(systemName: "12.square")
-                        .imageScale(.large)
-                    Text("UIKit")
-            }
         }
         .edgesIgnoringSafeArea(.top)
     }
