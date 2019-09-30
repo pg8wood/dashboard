@@ -29,24 +29,28 @@ struct ServiceListView: View {
         }
     }
     
+    private func serviceRow(_ service: ServiceModel) -> some View {
+        ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
+            .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+                self.network.updateServerStatus(for: service)
+            }
+            .onTapGesture {
+                self.network.updateServerStatus(for: service)
+            }
+            .contextMenu {
+                Button(action: {
+                    self.serviceToEdit = service
+                    self.showingAddServices.toggle()
+                }) {
+                    Text("Edit Service")
+                }
+            }
+    }
+    
     var serviceList: some View {
         List {
             ForEach(services, id: \.index) { service in
-                ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
-                    .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
-                        self.network.updateServerStatus(for: service)
-                    }
-                    .onTapGesture {
-                        self.network.updateServerStatus(for: service)
-                    }
-                    .contextMenu {
-                        Button(action: {
-                            self.serviceToEdit = service
-                            self.showingAddServices.toggle()
-                        }) {
-                            Text("Edit Service")
-                        }
-                    }
+                self.serviceRow(service)
             }
             .onMove(perform: moveService)
             .onDelete(perform: deleteService)
