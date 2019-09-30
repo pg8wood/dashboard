@@ -10,8 +10,15 @@ import CoreData
 import UIKit
 import Combine
 
+protocol Service {
+    var index: Int64 { get set }
+    var name: String { get set }
+    var url: String { get set }
+    var lastOnlineDate: Date { get set }
+}
+
 @objc(ServiceModel)
-public class ServiceModel: NSManagedObject, Identifiable {
+public class ServiceModel: NSManagedObject, Service, Identifiable {
     static var entityName: String {
         return String(describing: self)
     }
@@ -77,9 +84,14 @@ extension ServiceModel: Encodable {
 }
 
 // Definitely a smell to duplicate the data here. However, turns out serializing Core Data models and decoding them on the watch is a bad idea too. TODO need to figure out best course action.
-struct SimpleServiceModel: Decodable {
+struct SimpleServiceModel: Decodable, Service {
     var index: Int64
     var name: String
     var url: String
     var lastOnlineDate: Date
+    
+    /// Determine if the service was online in the last 5 minutes
+    var wasOnlineRecently: Bool {
+        return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5
+    }
 }

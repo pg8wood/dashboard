@@ -29,6 +29,7 @@
 		B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */; };
+		B88D49632342A7B40058B0D3 /* WatchServiceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */; };
 		B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5572221B07FA007817A3 /* AppDelegate.swift */; };
 		B88D5588221B07FB007817A3 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5587221B07FB007817A3 /* DashboardTests.swift */; };
 		B88D5593221B07FB007817A3 /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5592221B07FB007817A3 /* DashboardUITests.swift */; };
@@ -175,6 +176,7 @@
 		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
 		B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExtensions.swift; sourceTree = "<group>"; };
 		B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddServiceView.swift; path = Dashboard/Features/AddService/AddServiceView.swift; sourceTree = SOURCE_ROOT; };
+		B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServiceRowView.swift; sourceTree = "<group>"; };
 		B88D556F221B07FA007817A3 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5572221B07FA007817A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88D5583221B07FB007817A3 /* DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -525,6 +527,7 @@
 				B8D04A5323356F8500833CC5 /* Info.plist */,
 				B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */,
 				B8D04A5023356F8500833CC5 /* Preview Content */,
+				B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */,
 			);
 			path = "DashboardWatch Extension";
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */,
 				B8D04A672335717E00833CC5 /* Persistence.swift in Sources */,
 				B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */,
+				B88D49632342A7B40058B0D3 /* WatchServiceRowView.swift in Sources */,
 				B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */,
 				B8D04A4D23356F8400833CC5 /* NotificationView.swift in Sources */,
 				B8D04A662335717E00833CC5 /* NetworkService+Combine.swift in Sources */,
