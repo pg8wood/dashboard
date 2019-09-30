@@ -11,7 +11,7 @@ import UIKit
 import Combine
 
 @objc(ServiceModel)
-public class ServiceModel: NSManagedObject {
+public class ServiceModel: NSManagedObject, Encodable {
     static var entityName: String {
         return String(describing: self)
     }
@@ -60,4 +60,30 @@ public class ServiceModel: NSManagedObject {
         super.didChangeValue(forKey: key)
         didChange.send()
     }
+    
+    // MARK: - Codable
+    
+    enum CodingKeys: String, CodingKey {
+        case index
+        case name
+        case url
+        case lastOnlineDate
+    }
+    
+    // MARK - Encodable
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(index, forKey: .index)
+        try container.encode(name, forKey: .name)
+        try container.encode(url, forKey: .url)
+        try container.encode(lastOnlineDate, forKey: .lastOnlineDate)
+    }
+}
+
+// Definitely a smell to duplicate the data here. However, turns out serializing Core Data models and decoding them on the watch is a bad idea too. TODO need to figure out best course action.
+struct SimpleServiceModel: Decodable {
+    var index: Int64
+    var name: String
+    var url: String
+    var lastOnlineDate: Date
 }

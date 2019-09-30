@@ -13,7 +13,7 @@ import SwiftUI
 
 // TODO move this
 class WatchData: ObservableObject {
-    @Published var services = ["Hello world!"]
+    @Published var services: [SimpleServiceModel] = []
 }
 
 class HostingController: WKHostingController<AnyView> {
@@ -48,12 +48,19 @@ extension HostingController: WCSessionDelegate {
         
         //      let message = message["message"] as! String
         //      print(message)
-        print("message received ON WATCH from iPhone")
+    print("message received ON WATCH from iPhone")
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            
-            self.watchData.services.append("we got a message!")
+            let decoder = JSONDecoder()
+    
+            do {
+                let services = try message.values.map { try decoder.decode(SimpleServiceModel.self, from: $0 as! Data) }
+                self.watchData.services = services
+            } catch {
+                print("error decoding service: \(error)")
+            }
+
         }
         
         replyHandler(["msg":"message received ON WATCH from iPhone"])

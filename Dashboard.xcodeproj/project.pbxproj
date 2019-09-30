@@ -26,6 +26,9 @@
 		B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
 		B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */; };
+		B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
+		B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
+		B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5572221B07FA007817A3 /* AppDelegate.swift */; };
 		B88D5588221B07FB007817A3 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5587221B07FB007817A3 /* DashboardTests.swift */; };
 		B88D5593221B07FB007817A3 /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5592221B07FB007817A3 /* DashboardUITests.swift */; };
@@ -171,6 +174,7 @@
 		B881D248221DC94E0038BF81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B881D24A221DC94F0038BF81 /* OldNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldNetworkService.swift; sourceTree = "<group>"; };
 		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
+		B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExtensions.swift; sourceTree = "<group>"; };
 		B88D556F221B07FA007817A3 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5572221B07FA007817A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88D5583221B07FB007817A3 /* DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +322,7 @@
 			children = (
 				B8546C7022DE58520017E2DA /* UIColorExtensions.swift */,
 				B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */,
+				B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -907,6 +912,7 @@
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
 				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
+				B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
@@ -955,6 +961,7 @@
 				B890796522517CEB00FFB807 /* Persistence.swift in Sources */,
 				B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */,
 				B890795C225170F900FFB807 /* ServiceModel.swift in Sources */,
+				B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */,
 				B89079552251582000FFB807 /* ServiceCollectionViewCell.swift in Sources */,
@@ -966,6 +973,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B8D04A632335717E00833CC5 /* ServiceModel.swift in Sources */,
 				B8D04A4723356F8400833CC5 /* HostingController.swift in Sources */,
 				B8D04A4523356F8400833CC5 /* ContentView.swift in Sources */,

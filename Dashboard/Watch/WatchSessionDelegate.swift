@@ -32,8 +32,16 @@ class WatchHandler: ObservableObject {
         // It's probaby better to exclusively look for inserts, updates, and deletes from within this notification, but this will suffice for innovation day.
         PersistenceClient.shared.getStoredServices { [weak self] result in
             guard let self = self else { return }
-            print("moc object contexts changed")
-            self.watchSession?.sendMessage(["message":"My Messege"], replyHandler: self.replyHandler, errorHandler: nil)
+            do {
+                let services = try result.get()
+                let encoder = JSONEncoder()
+                let serviceDict = try Dictionary(uniqueKeysWithValues: services.map { ($0.name, try encoder.encode($0)) })
+                
+                self.watchSession?.sendMessage(serviceDict, replyHandler: self.replyHandler, errorHandler: nil)
+            } catch {
+                print("Error getting services")
+                // TODO handle error
+            }
         }
     }
 }

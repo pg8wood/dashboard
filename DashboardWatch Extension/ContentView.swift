@@ -35,8 +35,8 @@ struct ContentView: View {
     var serviceList: some View {
         List {
 //            ForEach(services, id: \.index) { service in
-            ForEach(watchData.services, id: \.self) { service in
-                Text(service)
+            ForEach(watchData.services, id: \.index) { service in
+                Text(service.name)
 //                ServiceRow(name: service.name, url: service.url, image: service.image, statusImage: service.statusImage, isLoading: service.isLoading)
                     .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
 //                        self.network.updateServerStatus(for: service)
