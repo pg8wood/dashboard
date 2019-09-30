@@ -20,7 +20,7 @@ enum NetworkError: Error {
 
 protocol NetworkFetchable {
     func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError>
-    func updateServerStatus(for service: ServiceModel)
+    func updateServerStatus(for service: ServiceModel) -> PassthroughSubject<Bool, Never>
 }
 
 class NetworkService: ObservableObject {
@@ -37,20 +37,23 @@ class NetworkService: ObservableObject {
 }
 
 extension NetworkService: NetworkFetchable {
+    
+    /// Gets the response code from a HEAD request. This is a tad slower than pinging the server, however since many servers block
+    /// ICMP requests, this should be more reliable.
     func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError> {
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "HEAD"
         
         return session.dataTaskPublisher(for: url)
-            .tryMap { data, response in
-                guard let response = response as? HTTPURLResponse else {
-                    throw NetworkError.noResponse
-                }
-
+        .tryMap { data, response in
+            guard let response = response as? HTTPURLResponse else {
+                throw NetworkError.noResponse
+            }
+            
             return response.statusCode
         }
         .catch { error in
@@ -62,12 +65,18 @@ extension NetworkService: NetworkFetchable {
         .eraseToAnyPublisher()
     }
     
-    func updateServerStatus(for service: ServiceModel) {
-        service.isLoading = true
+    func updateServerStatus(for service: ServiceModel) -> PassthroughSubject<Bool, Never> {
+        let networkActivityPublisher = PassthroughSubject<Bool, Never>()
         
         _ = fetchServerStatusCode(for: service.url)
+            .handleEvents(receiveSubscription: { _ in
+                networkActivityPublisher.send(true)
+            }, receiveCompletion: { _ in
+                networkActivityPublisher.send(false)
+            }, receiveCancel: {
+                networkActivityPublisher.send(false)
+            })
             .sink(receiveCompletion: { completion in
-                service.isLoading = false
                 switch completion {
                 case .finished:
                     break
@@ -75,7 +84,6 @@ extension NetworkService: NetworkFetchable {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
                 }
             }, receiveValue: { responseCode in
-                service.isLoading = false
                 // TODO potential improvement: Show icons/descriptions for server-related errors outside of the success range
                 guard 200..<300 ~= responseCode else {
                     self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
@@ -85,5 +93,7 @@ extension NetworkService: NetworkFetchable {
                 self.database.updateLastOnlineDate(for: service, lastOnline: Date())
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+        
+        return networkActivityPublisher
     }
 }

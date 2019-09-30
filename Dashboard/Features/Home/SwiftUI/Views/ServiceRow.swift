@@ -7,13 +7,26 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ServiceRow: View {
+    var service: ServiceModel
     var name: String
     var url: String
     var image: UIImage
-    var statusImage: UIImage
-    var isLoading: Bool // This seems like it could be eitehr state or binding... 
+    var isOnline: Bool
+    
+    @EnvironmentObject var network: NetworkService
+    @State private var isLoading: Bool = false
+    @State private var disposables = Set<AnyCancellable>()
+    
+    var statusImage: Image {
+        if isOnline {
+            return Image("check")
+        } else {
+            return Image(systemName: "exclamationmark.circle.fill")
+        }
+    }
     
     var body: some View {
         HStack {
@@ -26,23 +39,44 @@ struct ServiceRow: View {
             Spacer()
             
             Text(name)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 10)
             
             Spacer()
             
             if isLoading {
-                // TODO my website is so fast that it doesn't look like the view even changes when pinging it. Need a minimum time to show the loading indicator. (Caddy server rocks!)
                 ActivityIndicatorView()
                     .frame(width: 80, height: 50)
             } else {
-                Image(uiImage: statusImage)
+                statusImage
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 35)
+                    .foregroundColor(.red)
             }
         }
         .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color(.secondarySystemGroupedBackground).cornerRadius(15))
+        .onTapGesture {
+            // TODO this tap area could be better
+            self.fetchServerStatus()
+        }
+        .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+            self.fetchServerStatus()
+        }
+    }
+    
+    func fetchServerStatus() {
+        self.isLoading = true
+        
+        self.network.updateServerStatus(for: self.service)
+            .sink(receiveValue: { isLoading in
+                withAnimation {
+                    self.isLoading = isLoading
+                }
+                
+            })
+            .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
 }
 

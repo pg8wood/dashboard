@@ -11,7 +11,7 @@ import UIKit
 import Combine
 
 @objc(ServiceModel)
-public class ServiceModel: NSManagedObject, Encodable {
+public class ServiceModel: NSManagedObject, Identifiable {
     static var entityName: String {
         return String(describing: self)
     }
@@ -21,16 +21,12 @@ public class ServiceModel: NSManagedObject, Encodable {
     @NSManaged var url: String
     @NSManaged var lastOnlineDate: Date
     
-    /* TODO: This seems like a smell... the loading state should probably only be part of the view. But since
-       in SwiftUI views are just functions of state, I'm unsure of where to put this
-     */
-    @NSManaged var isLoading: Bool
-    
     /// Determine if the service was online in the last 5 minutes
     var wasOnlineRecently: Bool {
         return Date().timeIntervalSince(lastOnlineDate) <= 60 * 5
     }
     
+    // TODO: remove this when removing the UIKit demonstration
     var statusImage: UIImage {
         return UIImage(named: wasOnlineRecently ? "check" : "server-error")!
     }
@@ -50,7 +46,6 @@ public class ServiceModel: NSManagedObject, Encodable {
         self.name = name
         self.url = url
         self.lastOnlineDate = lastOnlineDate
-        self.isLoading = false
     }
     
     // MARK: - Combine
@@ -70,7 +65,8 @@ public class ServiceModel: NSManagedObject, Encodable {
         case lastOnlineDate
     }
     
-    // MARK - Encodable
+}
+extension ServiceModel: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(index, forKey: .index)
