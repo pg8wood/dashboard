@@ -20,7 +20,7 @@ struct ServiceRow: View {
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
     
-    var statusImage: Image {
+    private var statusImage: Image {
         if isOnline {
             return Image("check")
         } else {
@@ -69,7 +69,7 @@ struct ServiceRow: View {
     func fetchServerStatus() {
         self.isLoading = true
         
-        self.network.updateServerStatus(for: self.service)
+        self.network.updateServerStatus(for: self.service as! ServiceModel)
             .sink(receiveValue: { isLoading in
                 withAnimation {
                     self.isLoading = isLoading

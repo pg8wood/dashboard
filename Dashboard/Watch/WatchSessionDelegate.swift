@@ -28,10 +28,11 @@ class WatchHandler: ObservableObject {
         print("the watch received the phone's message")
     }
     
+    // Note: It's probaby better to exclusively look for inserts, updates, and deletes from within this notification, but this will suffice for innovation day.
     @objc func managedObjectContextObjectsDidChange(notification: NSNotification) {
-        // It's probaby better to exclusively look for inserts, updates, and deletes from within this notification, but this will suffice for innovation day.
         PersistenceClient.shared.getStoredServices { [weak self] result in
             guard let self = self else { return }
+            
             do {
                 let services = try result.get()
                 let encoder = JSONEncoder()
@@ -46,11 +47,7 @@ class WatchHandler: ObservableObject {
     }
 }
 
-class WatchSessionDelegate: NSObject, WCSessionDelegate {
-    
-    
-    // MARK - WCSessionDelegate
-    
+class WatchSessionDelegate: NSObject, WCSessionDelegate {    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("watch session activation completed")
     }

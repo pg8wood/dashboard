@@ -32,7 +32,6 @@ struct ServiceListView: View {
     
     var serviceList: some View {
         List {
-
             ForEach(services) { service in
                 /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
                     @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
@@ -59,6 +58,8 @@ struct ServiceListView: View {
                 if services.isEmpty {
                     EmptyStateView()
                         .padding(.top, 20)
+                    
+                    Spacer()
                 } else {
                     serviceList
                 }

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let database = PersistenceClient()
             let network = NetworkService(database: database)
             
-            let homeTabView = HomeTabView()
+            let homeTabView = ServiceListView()
                 .environment(\.managedObjectContext, moc)
                 .environmentObject(database)
                 .environmentObject(network)

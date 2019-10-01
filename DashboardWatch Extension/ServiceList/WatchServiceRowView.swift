@@ -87,12 +87,12 @@ struct WatchServiceRow: View {
     }
 }
 
-#if DEBUG
-struct ServiceItem_Previews: PreviewProvider {
-    static var previews: some View {
-        let model = SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date())
-        
-        return WatchServiceRow(service: .constant(model))
-    }
-}
-#endif
+//#if DEBUG
+//struct ServiceItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let model = SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date())
+//        
+//        return WatchServiceRow(service: .constant(model))
+//    }
+//}
+//#endif
