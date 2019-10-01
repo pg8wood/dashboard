@@ -6,8 +6,11 @@ Big moves are happening in the [SwiftUI](https://github.com/pg8wood/dashboard/tr
 <br />
 
 <div align=center>
-	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/widget_screenshot.PNG" width=40% />
-	<img src="https://github.com/pg8wood/dashboard/blob/master/docs/app_screenshot.PNG" width=40% />
+	<img src="docs/widget_screenshot.PNG" width=40% />
+	<img src="docs/app_screenshot.PNG" width=40% />
+	<br />
+	<img src="docs/watch_empty_screenshot.PNG" width=40% />
+	<img src="docs/watch_screenshot.PNG" width=40% />
 </div>
 
 ## Features
