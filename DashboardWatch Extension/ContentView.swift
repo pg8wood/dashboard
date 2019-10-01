@@ -34,11 +34,9 @@ struct ContentView: View {
     
     var serviceList: some View {
         List {
-//            ForEach(services, id: \.index) { service in
-            ForEach(watchData.services, id: \SimpleServiceModel.index) { service in
-//                Text(service.name)
-                WatchServiceRow(service: service, name: service.name, url: service.url, isOnline: service.wasOnlineRecently)
-                    .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+            ForEach(watchData.services, id: \.index) { service in
+                WatchServiceRow(service: service)
+                    .onAppear {
 //                        self.network.updateServerStatus(for: service)
                     }
                     .onTapGesture {
@@ -61,11 +59,9 @@ struct ContentView: View {
     }
     
     var body: some View {
-//        NavigationView {
             VStack {
                 if watchData.services.isEmpty {
-                    Text("No services found")
-//                    EmptyStateView()
+                    EmptyStateView()
                         .padding(.top, 20)
                 } else {
                     serviceList
@@ -108,3 +104,18 @@ struct ContentView: View {
     }
 }
 
+#if DEBUG
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let data = WatchData()
+        data.services = [
+//            SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date()),
+//            SimpleServiceModel(index: 1, name: "offline server", url: "test", lastOnlineDate: .distantPast),
+//            SimpleServiceModel(index: 2, name: "service with a very very very long name", url: "test", lastOnlineDate: Date())
+        ]
+        
+        return ContentView()
+            .environmentObject(data)
+    }
+}
+#endif

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct EmptyStateView: View {
+    var message = "Add some services to get started"
+    
     var body: some View {
         VStack(alignment: .center) {
             Image(systemName: "moon.stars")
@@ -16,9 +18,10 @@ struct EmptyStateView: View {
                 .frame(width: 50, height: 50)
                 .scaledToFit()
             
-            Text("Add some services to get started")
+            Text(message)
                 .font(.callout)
                 .padding(.top, 20)
+                .lineLimit(3)
             
             Spacer()
         }
@@ -27,6 +30,6 @@ struct EmptyStateView: View {
 
 struct EmptyStateView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyStateView()
+        EmptyStateView(message: "Add some services on your iPhone to get started")
     }
 }

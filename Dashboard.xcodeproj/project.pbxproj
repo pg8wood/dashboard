@@ -14,6 +14,8 @@
 		B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */; };
 		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
+		B871809B2343A5A400219227 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871809A2343A5A400219227 /* UIImageViewExtensions.swift */; };
+		B871809C2343A93700219227 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
@@ -162,6 +164,7 @@
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPersistence.swift; sourceTree = "<group>"; };
 		B8546C7022DE58520017E2DA /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		B871809A2343A5A400219227 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
@@ -325,6 +328,7 @@
 				B8546C7022DE58520017E2DA /* UIColorExtensions.swift */,
 				B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */,
 				B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */,
+				B871809A2343A5A400219227 /* UIImageViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +443,7 @@
 		B890793E225157B500FFB807 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
 				B87F22FE221F853F005BD677 /* Extensions */,
 				B87F22F8221E61B7005BD677 /* Models */,
 				B881D249221DC94F0038BF81 /* Network */,
@@ -492,7 +497,6 @@
 				B8B5A7DA233411B600224DFA /* HomeTabView.swift */,
 				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
-				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D04A4423356F8400833CC5 /* ContentView.swift */,
+				B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */,
 				B8D04A4623356F8400833CC5 /* HostingController.swift */,
 				B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */,
 				B8D04A4A23356F8400833CC5 /* NotificationController.swift */,
@@ -527,7 +532,6 @@
 				B8D04A5323356F8500833CC5 /* Info.plist */,
 				B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */,
 				B8D04A5023356F8500833CC5 /* Preview Content */,
-				B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */,
 			);
 			path = "DashboardWatch Extension";
 			sourceTree = "<group>";
@@ -937,6 +941,7 @@
 				B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
+				B871809B2343A5A400219227 /* UIImageViewExtensions.swift in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
 				B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */,
@@ -990,6 +995,7 @@
 				B8D04A4523356F8400833CC5 /* ContentView.swift in Sources */,
 				B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */,
 				B8D04A672335717E00833CC5 /* Persistence.swift in Sources */,
+				B871809C2343A93700219227 /* EmptyStateView.swift in Sources */,
 				B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */,
 				B88D49632342A7B40058B0D3 /* WatchServiceRowView.swift in Sources */,
 				B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */,
