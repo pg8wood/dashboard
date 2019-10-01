@@ -21,13 +21,11 @@ struct EmptyStateView: View {
             Text(message)
                 .font(.callout)
                 .padding(.top, 20)
-                .lineLimit(3)
-            
-            Spacer()
         }
     }
 }
 
+// Note that the PreviewProvider will change devices according to the scheme chosen in Xcode
 struct EmptyStateView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyStateView(message: "Add some services on your iPhone to get started")

@@ -15,6 +15,7 @@ protocol Service {
     var name: String { get set }
     var url: String { get set }
     var lastOnlineDate: Date { get set }
+    var wasOnlineRecently: Bool { get }
 }
 
 @objc(ServiceModel)
