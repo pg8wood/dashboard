@@ -36,9 +36,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = WatchData()
         data.services = [
-//            SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date()),
-//            SimpleServiceModel(index: 1, name: "offline server", url: "test", lastOnlineDate: .distantPast),
-//            SimpleServiceModel(index: 2, name: "service with a very very very long name", url: "test", lastOnlineDate: Date())
+            SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date()),
+            SimpleServiceModel(index: 1, name: "offline server", url: "test", lastOnlineDate: .distantPast),
+            SimpleServiceModel(index: 2, name: "service with a very very very long name", url: "test", lastOnlineDate: Date())
         ]
         
         return ServiceListView()

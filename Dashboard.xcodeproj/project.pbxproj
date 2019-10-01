@@ -20,8 +20,6 @@
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
-		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
-		B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
 		B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D244221DC94E0038BF81 /* AddServiceViewController.swift */; };
 		B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */; };
 		B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
@@ -42,7 +40,6 @@
 		B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
 		B89079552251582000FFB807 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
 		B890795622515B0200FFB807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
-		B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795C225170F900FFB807 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
@@ -298,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
-				B8AC722C232EC5FF00074652 /* UIKit */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -481,6 +477,7 @@
 		B8907946225157D100FFB807 /* DashboardWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B8AC722C232EC5FF00074652 /* UIKit */,
 				B89079642251792800FFB807 /* DashboardWidget.entitlements */,
 				B8907947225157D100FFB807 /* TodayViewController.swift */,
 				B8907949225157D100FFB807 /* MainInterface.storyboard */,
@@ -769,7 +766,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */,
 				B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */,
 				B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */,
 				B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */,
@@ -920,7 +916,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
 				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
@@ -933,7 +928,6 @@
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
-				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
 				B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
