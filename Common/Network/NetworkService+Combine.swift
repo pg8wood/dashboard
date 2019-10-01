@@ -24,13 +24,13 @@ protocol NetworkFetchable {
 }
 
 class NetworkService: ObservableObject {
-    let database: PersistenceClient
+    let database: PersistenceClient?
     
     private let session: URLSession!
     
     private var disposables = Set<AnyCancellable>()
     
-    init(session: URLSession = .shared, database: PersistenceClient) {
+    init(session: URLSession = .shared, database: PersistenceClient?) {
         self.session = session
         self.database = database
     }
@@ -81,16 +81,16 @@ extension NetworkService: NetworkFetchable {
                 case .finished:
                     break
                 case .failure(_):
-                    self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
+                    self.database?.updateLastOnlineDate(for: service, lastOnline: .distantPast)
                 }
             }, receiveValue: { responseCode in
                 // TODO potential improvement: Show icons/descriptions for server-related errors outside of the success range
                 guard 200..<300 ~= responseCode else {
-                    self.database.updateLastOnlineDate(for: service, lastOnline: .distantPast)
+                    self.database?.updateLastOnlineDate(for: service, lastOnline: .distantPast)
                     return
                 }
                 
-                self.database.updateLastOnlineDate(for: service, lastOnline: Date())
+                self.database?.updateLastOnlineDate(for: service, lastOnline: Date())
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
         

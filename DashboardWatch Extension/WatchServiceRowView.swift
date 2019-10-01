@@ -9,37 +9,19 @@
 import SwiftUI
 import Combine
 
-// TODO: most of this is copied from the iOS version. Extract the commonalitites to make this more DRY
 struct WatchServiceRow: View {
-    var service: SimpleServiceModel
-//    var name: String
-//    var url: String
-////    var image: UIImage
-//    var isOnline: Bool
-    
-//    @EnvironmentObject var network: NetworkService
+    @EnvironmentObject var network: NetworkService
+    @Binding var service: SimpleServiceModel
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
     
     private var statusImage: some View {
-        let image = Image(systemName: service.wasOnlineRecently ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
-            .resizable()
+        Image(systemName: service.wasOnlineRecently ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
             .foregroundColor(service.wasOnlineRecently ? .green : .red)
-        
-        return image
-            .frame(width: 25, height: 25)
     }
     
     var body: some View {
         HStack {
-//            Image(uiImage: image)
-//                .resizable()
-//                .scaledToFill()
-//                .padding(10)
-//                .frame(width: 80, height: 50)
-            
-//            Spacer()
-            
             Text(service.name)
                 .lineLimit(3)
                 .multilineTextAlignment(.leading)
@@ -48,44 +30,69 @@ struct WatchServiceRow: View {
             Spacer()
             
             if isLoading {
-                Text("loading...")
-//                ActivityIndicatorView()
-                    .frame(width: 80, height: 50)
+                Image(systemName: "ellipsis")
+                    .frame(width: 25, height: 25)
             } else {
                 statusImage
                     .padding(.leading, 5)
+                    .frame(width: 25, height: 25)
+                    
             }
         }
         .padding(.horizontal, 5)
-//        .frame(height: 90)
-//        .frame(minWidth: 0, maxWidth: .infinity)
         .onTapGesture {
-            // TODO this tap area could be better
             self.fetchServerStatus()
         }
-        .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+        .onAppear {
             self.fetchServerStatus()
         }
     }
     
+    // Normally networking on watchOS is discouraged, but since this is such a simple request, I'm gonna ignore it.
+    // If the request gets ANY more complicated, I'll move to having the watch app request cached data from the iOS app.
     func fetchServerStatus() {
-//        self.isLoading = true
-//        
-//        self.network.updateServerStatus(for: self.service)
-//            .sink(receiveValue: { isLoading in
-//                withAnimation {
-//                    self.isLoading = isLoading
-//                }
-//                
-//            })
-//            .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+        self.network.fetchServerStatusCode(for: service.url)
+            .handleEvents(receiveSubscription: { _ in
+                self.isLoading = true
+            }, receiveCompletion: { _ in
+                withAnimation(.easeIn(duration: 0.5)) {
+                    self.isLoading = false
+                }
+            }, receiveCancel: {
+                withAnimation(.easeIn(duration: 0.5)) {
+                    self.isLoading = false
+                }
+            })
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self.service.lastOnlineDate = .distantPast
+                    }
+                }
+            }, receiveValue: { responseCode in
+                DispatchQueue.main.async {
+                    guard 200..<300 ~= responseCode else {
+                        
+                        self.service.lastOnlineDate = .distantPast
+                        return
+                    }
+                    
+                    self.service.lastOnlineDate = Date()
+                }
+            })
+            .store(in: &disposables)
     }
 }
 
 #if DEBUG
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        return WatchServiceRow(service: SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date()))
+        let model = SimpleServiceModel(index: 0, name: "test", url: "test", lastOnlineDate: Date())
+        
+        return WatchServiceRow(service: .constant(model))
     }
 }
 #endif

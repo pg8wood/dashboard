@@ -20,8 +20,11 @@ class HostingController: WKHostingController<AnyView> {
     private var watchData = WatchData()
     
     override var body: AnyView {
+        let network = NetworkService(database: nil)
+        
         return AnyView(ContentView()
-            .environmentObject(watchData))
+            .environmentObject(watchData)
+            .environmentObject(network))
     }
     
     var session: WCSession!

@@ -11,7 +11,7 @@ import SwiftUI
 // TODO: This class is copied from ServiceListView: Determine what code can be shared and create a common ancestor =) 
 struct ContentView: View {
 //    @Environment(\.managedObjectContext) var moc
-//    @EnvironmentObject var network: NetworkService
+    @EnvironmentObject var network: NetworkService
 //    @EnvironmentObject var database: PersistenceClient
     
 //    @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var services: FetchedResults<ServiceModel>
@@ -34,8 +34,9 @@ struct ContentView: View {
     
     var serviceList: some View {
         List {
-            ForEach(watchData.services, id: \.index) { service in
-                WatchServiceRow(service: service)
+//            ForEach(watchData.services, id: \.index) { service in
+            ForEach(0..<watchData.services.count) { index in
+                WatchServiceRow(service: self.$watchData.services[index])
                     .onAppear {
 //                        self.network.updateServerStatus(for: service)
                     }
