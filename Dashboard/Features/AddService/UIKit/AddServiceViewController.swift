@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import WatchConnectivity
 
 protocol ServiceDelegate {
     func onNewServiceCreated(newService: ServiceModel)
@@ -65,7 +66,6 @@ class AddServiceViewController: UIViewController {
     }
     
     private func addGestureRecognizers() {
-        // Note: even though these 2 gesture recognizers are synonymous, they must be unique
         logoImageContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(_:))))
     }
     
@@ -94,7 +94,7 @@ class AddServiceViewController: UIViewController {
         logoImageView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
-        NetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
+        OldNetworkService.fetchFavicon(for: StringUtils.convertString(toHttpsUrlString: url)).call { [weak self] result in
             do {
                 let favicon = try result.value()
                 self?.logoImageView.image = favicon
@@ -114,7 +114,6 @@ class AddServiceViewController: UIViewController {
     @IBAction func nameTextFieldEditingChanged(_ sender: UITextField) {
         updateDoneButton()
     }
-    
     
     @objc func editImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()

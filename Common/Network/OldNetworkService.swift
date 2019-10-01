@@ -2,6 +2,10 @@
 //  NetworkService.swift
 //  Dashboard
 //
+//  The old network service used by components written in UIKit. Currently exists for a
+//  branch-by-abstraction conversion to a network client written in Combine. May be kept
+//  around as a demonstration for what converting a UIKit app to SwiftUI can look like.
+//
 //  Created by Patrick Gatewood on 2/18/19.
 //  Copyright © 2019 Patrick Gatewood. All rights reserved.
 //
@@ -10,16 +14,19 @@ import Foundation
 import FavIcon
 import PinkyPromise
 
-public enum NetworkError: Error {
-    case InvalidUrl
-    case NoResponse
+@available(*, deprecated)
+public enum OldNetworkError: Error {
+    case invalidUrl
+    case noResponse
+    case error(description: String)
 }
 
-public class NetworkService {
+@available(*, deprecated)
+public class OldNetworkService {
     
     public static func fetchServerStatus(url: String) -> Promise<Int> {
         guard let url = URL(string: url) else {
-            return Promise(error: NetworkError.InvalidUrl)
+            return Promise(error: OldNetworkError.invalidUrl)
         }
      
         var request = URLRequest(url: url)
@@ -33,7 +40,7 @@ public class NetworkService {
                 }
                 
                 guard let response = response as? HTTPURLResponse else {
-                    fulfill(.failure(NetworkError.NoResponse))
+                    fulfill(.failure(OldNetworkError.noResponse))
                     return
                 }
                 

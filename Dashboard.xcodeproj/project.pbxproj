@@ -12,22 +12,24 @@
 		7AE7B570AC594BFF3111C4F5 /* Pods_DashboardWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5FDB7FE2E5772F63B2D9C1 /* Pods_DashboardWidget.framework */; };
 		87AFA35804B60E789A341B08 /* Pods_DashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D588AA67C08B52FC9C2C9F /* Pods_DashboardTests.framework */; };
 		B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */; };
+		B842CC6F2343E6D9004B9E5B /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842CC6E2343E6D9004B9E5B /* WatchData.swift */; };
 		B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
 		B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8546C7022DE58520017E2DA /* UIColorExtensions.swift */; };
+		B871809C2343A93700219227 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
 		B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F3221E135D005BD677 /* StringUtils.swift */; };
 		B87F22F7221E6160005BD677 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
-		B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
-		B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D240221DC94E0038BF81 /* HomeViewController.swift */; };
-		B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B881D241221DC94E0038BF81 /* EmptyTableView.xib */; };
-		B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D242221DC94E0038BF81 /* Main.storyboard */; };
-		B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
 		B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D244221DC94E0038BF81 /* AddServiceViewController.swift */; };
 		B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */; };
 		B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
-		B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* NetworkService.swift */; };
+		B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */; };
+		B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
+		B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
+		B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
+		B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */; };
+		B88D49632342A7B40058B0D3 /* WatchServiceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */; };
 		B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5572221B07FA007817A3 /* AppDelegate.swift */; };
 		B88D5588221B07FB007817A3 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5587221B07FB007817A3 /* DashboardTests.swift */; };
 		B88D5593221B07FB007817A3 /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D5592221B07FB007817A3 /* DashboardUITests.swift */; };
@@ -38,14 +40,37 @@
 		B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */; };
 		B89079552251582000FFB807 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */; };
 		B890795622515B0200FFB807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
-		B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */; };
 		B890795C225170F900FFB807 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
 		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
-		B89079662251844000FFB807 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* NetworkService.swift */; };
+		B89079662251844000FFB807 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
+		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
+		B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2C2335446600833CC5 /* EmptyStateView.swift */; };
+		B8D04A302335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */; };
+		B8D04A3723356F8100833CC5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A3523356F8100833CC5 /* Interface.storyboard */; };
+		B8D04A3923356F8400833CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A3823356F8400833CC5 /* Assets.xcassets */; };
+		B8D04A4023356F8400833CC5 /* DashboardWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B8D04A4523356F8400833CC5 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4423356F8400833CC5 /* ServiceListView.swift */; };
+		B8D04A4723356F8400833CC5 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4623356F8400833CC5 /* HostingController.swift */; };
+		B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */; };
+		B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4A23356F8400833CC5 /* NotificationController.swift */; };
+		B8D04A4D23356F8400833CC5 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D04A4C23356F8400833CC5 /* NotificationView.swift */; };
+		B8D04A4F23356F8500833CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A4E23356F8500833CC5 /* Assets.xcassets */; };
+		B8D04A5223356F8500833CC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */; };
+		B8D04A5723356F8500833CC5 /* DashboardWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B8D04A3323356F8100833CC5 /* DashboardWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B8D04A632335717E00833CC5 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F9221E61FA005BD677 /* ServiceModel.swift */; };
+		B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
+		B8D04A662335717E00833CC5 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
+		B8D04A672335717E00833CC5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
+		B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F39159232973FD00F62FF8 /* SceneDelegate.swift */; };
+		B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3915C2329746500F62FF8 /* ServiceListView.swift */; };
+		B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */; };
+		B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F391622329B16500F62FF8 /* ServiceRow.swift */; };
+		B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */; };
+		B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +95,20 @@
 			remoteGlobalIDString = B8907942225157D100FFB807;
 			remoteInfo = DashboardWidget;
 		};
+		B8D04A4123356F8400833CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B88D5567221B07FA007817A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D04A3E23356F8400833CC5;
+			remoteInfo = "DashboardWatch Extension";
+		};
+		B8D04A5523356F8500833CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B88D5567221B07FA007817A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D04A3223356F8100833CC5;
+			remoteInfo = DashboardWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +121,28 @@
 				B890794F225157D100FFB807 /* DashboardWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A5B23356F8500833CC5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B8D04A4023356F8400833CC5 /* DashboardWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A5F23356F8500833CC5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B8D04A5723356F8500833CC5 /* DashboardWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -98,22 +159,23 @@
 		758D308B9F3AD1EF565A0919 /* Pods_Dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B37E28D7542A5D188470B0 /* Pods-DashboardWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashboardWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DashboardWidget/Pods-DashboardWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPersistence.swift; sourceTree = "<group>"; };
+		B842CC6E2343E6D9004B9E5B /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
 		B8546C7022DE58520017E2DA /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B87F22F3221E135D005BD677 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		B87F22F6221E6160005BD677 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B87F22F9221E61FA005BD677 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		B87F22FC221F7F8E005BD677 /* Services.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Services.xcdatamodel; sourceTree = "<group>"; };
 		B881D23F221DC94E0038BF81 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
-		B881D240221DC94E0038BF81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B881D241221DC94E0038BF81 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
-		B881D242221DC94E0038BF81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B881D243221DC94E0038BF81 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		B881D244221DC94E0038BF81 /* AddServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
 		B881D246221DC94E0038BF81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B881D247221DC94E0038BF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B881D248221DC94E0038BF81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B881D24A221DC94F0038BF81 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B881D24A221DC94F0038BF81 /* OldNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldNetworkService.swift; sourceTree = "<group>"; };
 		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
+		B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExtensions.swift; sourceTree = "<group>"; };
+		B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddServiceView.swift; path = Dashboard/Features/AddService/AddServiceView.swift; sourceTree = SOURCE_ROOT; };
+		B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServiceRowView.swift; sourceTree = "<group>"; };
 		B88D556F221B07FA007817A3 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88D5572221B07FA007817A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88D5583221B07FB007817A3 /* DashboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DashboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,12 +192,42 @@
 		B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewController.swift; sourceTree = "<group>"; };
 		B89079632251791F00FFB807 /* Dashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dashboard.entitlements; sourceTree = "<group>"; };
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
+		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewRepresentation.swift; sourceTree = "<group>"; };
+		B8D04A3323356F8100833CC5 /* DashboardWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DashboardWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D04A3623356F8100833CC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B8D04A3823356F8400833CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8D04A3A23356F8400833CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DashboardWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D04A4423356F8400833CC5 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
+		B8D04A4623356F8400833CC5 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B8D04A4A23356F8400833CC5 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B8D04A4C23356F8400833CC5 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B8D04A4E23356F8500833CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B8D04A5323356F8500833CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B8F39159232973FD00F62FF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B8F3915C2329746500F62FF8 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
+		B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Combine.swift"; sourceTree = "<group>"; };
+		B8F391622329B16500F62FF8 /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
+		B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionWrapper.swift; sourceTree = "<group>"; };
+		B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionDelegate.swift; sourceTree = "<group>"; };
 		CC0462603E8312C81A575AE0 /* Pods-Dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		F9EA98C8A5BD8343AEEFC858 /* Pods-Dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dashboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dashboard/Pods-Dashboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		403265D105B3E3D94A246203 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B88D556C221B07FA007817A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +261,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8D04A3C23356F8400833CC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -192,6 +291,32 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		B842CC672343DA4B004B9E5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A2C2335446600833CC5 /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B842CC6C2343E5F5004B9E5B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A4A23356F8400833CC5 /* NotificationController.swift */,
+				B8D04A4C23356F8400833CC5 /* NotificationView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		B842CC6D2343E600004B9E5B /* ServiceList */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A4423356F8400833CC5 /* ServiceListView.swift */,
+				B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */,
+			);
+			path = ServiceList;
+			sourceTree = "<group>";
+		};
 		B87F22F2221E1344005BD677 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				B87F22F9221E61FA005BD677 /* ServiceModel.swift */,
+				B8AC722D232EC9DE00074652 /* MockServiceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +348,7 @@
 			children = (
 				B8546C7022DE58520017E2DA /* UIColorExtensions.swift */,
 				B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */,
+				B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				B881D23E221DC94E0038BF81 /* Home */,
+				B881D257221DCC630038BF81 /* AddService */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -237,10 +365,9 @@
 		B881D23E221DC94E0038BF81 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B881D242221DC94E0038BF81 /* Main.storyboard */,
-				B881D240221DC94E0038BF81 /* HomeViewController.swift */,
-				B881D241221DC94E0038BF81 /* EmptyTableView.xib */,
-				B881D257221DCC630038BF81 /* AddService */,
+				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
+				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
+				B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,7 +385,8 @@
 		B881D249221DC94F0038BF81 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B881D24A221DC94F0038BF81 /* NetworkService.swift */,
+				B881D24A221DC94F0038BF81 /* OldNetworkService.swift */,
+				B8F391602329798A00F62FF8 /* NetworkService+Combine.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -266,8 +394,8 @@
 		B881D257221DCC630038BF81 /* AddService */ = {
 			isa = PBXGroup;
 			children = (
-				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
-				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+				B8D04A6A2339152100833CC5 /* SwiftUI */,
+				B8D04A692339151700833CC5 /* UIKit */,
 			);
 			path = AddService;
 			sourceTree = "<group>";
@@ -278,6 +406,8 @@
 				B890793E225157B500FFB807 /* Common */,
 				B88D5571221B07FA007817A3 /* Dashboard */,
 				B8907946225157D100FFB807 /* DashboardWidget */,
+				B8D04A3423356F8100833CC5 /* DashboardWatch */,
+				B8D04A4323356F8400833CC5 /* DashboardWatch Extension */,
 				B88D5586221B07FB007817A3 /* DashboardTests */,
 				B88D5591221B07FB007817A3 /* DashboardUITests */,
 				B88D5570221B07FA007817A3 /* Products */,
@@ -293,6 +423,8 @@
 				B88D5583221B07FB007817A3 /* DashboardTests.xctest */,
 				B88D558E221B07FB007817A3 /* DashboardUITests.xctest */,
 				B8907943225157D100FFB807 /* DashboardWidget.appex */,
+				B8D04A3323356F8100833CC5 /* DashboardWatch.app */,
+				B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,12 +432,14 @@
 		B88D5571221B07FA007817A3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B89079632251791F00FFB807 /* Dashboard.entitlements */,
 				B881D23D221DC94E0038BF81 /* Features */,
 				B87F22F2221E1344005BD677 /* Utilities */,
 				B80B316E22E0CB0A00180D4E /* Persistence */,
+				B8F742622342747C00ACB3E4 /* Watch */,
 				B881D245221DC94E0038BF81 /* Supporting Files */,
+				B89079632251791F00FFB807 /* Dashboard.entitlements */,
 				B88D5572221B07FA007817A3 /* AppDelegate.swift */,
+				B8F39159232973FD00F62FF8 /* SceneDelegate.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -331,11 +465,11 @@
 		B890793E225157B500FFB807 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B842CC672343DA4B004B9E5B /* Views */,
 				B87F22FE221F853F005BD677 /* Extensions */,
 				B87F22F8221E61B7005BD677 /* Models */,
 				B881D249221DC94F0038BF81 /* Network */,
 				B87F22F5221E610B005BD677 /* Persistence */,
-				B89079672251869C00FFB807 /* ServiceCollectionView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -343,6 +477,7 @@
 		B8907946225157D100FFB807 /* DashboardWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B8AC722C232EC5FF00074652 /* UIKit */,
 				B89079642251792800FFB807 /* DashboardWidget.entitlements */,
 				B8907947225157D100FFB807 /* TodayViewController.swift */,
 				B8907949225157D100FFB807 /* MainInterface.storyboard */,
@@ -359,6 +494,74 @@
 				B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */,
 			);
 			path = ServiceCollectionView;
+			sourceTree = "<group>";
+		};
+		B8AC722C232EC5FF00074652 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B89079672251869C00FFB807 /* ServiceCollectionView */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8D04A3423356F8100833CC5 /* DashboardWatch */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A3523356F8100833CC5 /* Interface.storyboard */,
+				B8D04A3823356F8400833CC5 /* Assets.xcassets */,
+				B8D04A3A23356F8400833CC5 /* Info.plist */,
+			);
+			path = DashboardWatch;
+			sourceTree = "<group>";
+		};
+		B8D04A4323356F8400833CC5 /* DashboardWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A4623356F8400833CC5 /* HostingController.swift */,
+				B842CC6E2343E6D9004B9E5B /* WatchData.swift */,
+				B842CC6D2343E600004B9E5B /* ServiceList */,
+				B842CC6C2343E5F5004B9E5B /* Notifications */,
+				B8D04A4823356F8400833CC5 /* ExtensionDelegate.swift */,
+				B8D04A4E23356F8500833CC5 /* Assets.xcassets */,
+				B8D04A5323356F8500833CC5 /* Info.plist */,
+				B8D04A5423356F8500833CC5 /* PushNotificationPayload.apns */,
+				B8D04A5023356F8500833CC5 /* Preview Content */,
+			);
+			path = "DashboardWatch Extension";
+			sourceTree = "<group>";
+		};
+		B8D04A5023356F8500833CC5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B8D04A5123356F8500833CC5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B8D04A692339151700833CC5 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B881D244221DC94E0038BF81 /* AddServiceViewController.swift */,
+				B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B8D04A6A2339152100833CC5 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<unknown>";
+		};
+		B8F742622342747C00ACB3E4 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				B8F742602342679A00ACB3E4 /* WCSessionWrapper.swift */,
+				B8F742632342748F00ACB3E4 /* WatchSessionDelegate.swift */,
+			);
+			path = Watch;
 			sourceTree = "<group>";
 		};
 		F3A365F4BCF399996BF65A33 /* Pods */ = {
@@ -389,11 +592,13 @@
 				B88D556D221B07FA007817A3 /* Resources */,
 				D61A9CE1296A147FFDE43126 /* [CP] Embed Pods Frameworks */,
 				B8907953225157D100FFB807 /* Embed App Extensions */,
+				B8D04A5F23356F8500833CC5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B890794E225157D100FFB807 /* PBXTargetDependency */,
+				B8D04A5623356F8500833CC5 /* PBXTargetDependency */,
 			);
 			name = Dashboard;
 			productName = Dashboard;
@@ -456,13 +661,48 @@
 			productReference = B8907943225157D100FFB807 /* DashboardWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		B8D04A3223356F8100833CC5 /* DashboardWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8D04A5C23356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch" */;
+			buildPhases = (
+				B8D04A3123356F8100833CC5 /* Resources */,
+				B8D04A5B23356F8500833CC5 /* Embed App Extensions */,
+				403265D105B3E3D94A246203 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8D04A4223356F8400833CC5 /* PBXTargetDependency */,
+			);
+			name = DashboardWatch;
+			productName = DashboardWatch;
+			productReference = B8D04A3323356F8100833CC5 /* DashboardWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8D04A5823356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch Extension" */;
+			buildPhases = (
+				B8D04A3B23356F8400833CC5 /* Sources */,
+				B8D04A3C23356F8400833CC5 /* Frameworks */,
+				B8D04A3D23356F8400833CC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DashboardWatch Extension";
+			productName = "DashboardWatch Extension";
+			productReference = B8D04A3F23356F8400833CC5 /* DashboardWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B88D5567221B07FA007817A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Patrick Gatewood";
 				TargetAttributes = {
@@ -490,6 +730,12 @@
 							};
 						};
 					};
+					B8D04A3223356F8100833CC5 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					B8D04A3E23356F8400833CC5 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 				};
 			};
 			buildConfigurationList = B88D556A221B07FA007817A3 /* Build configuration list for PBXProject "Dashboard" */;
@@ -509,6 +755,8 @@
 				B88D5582221B07FB007817A3 /* DashboardTests */,
 				B88D558D221B07FB007817A3 /* DashboardUITests */,
 				B8907942225157D100FFB807 /* DashboardWidget */,
+				B8D04A3223356F8100833CC5 /* DashboardWatch */,
+				B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -518,12 +766,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B881D24B221DC94F0038BF81 /* ServiceCollectionViewCell.xib in Resources */,
-				B881D24D221DC94F0038BF81 /* EmptyTableView.xib in Resources */,
 				B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */,
 				B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */,
 				B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */,
-				B881D24E221DC94F0038BF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +792,24 @@
 			files = (
 				B890795622515B0200FFB807 /* Assets.xcassets in Resources */,
 				B890794B225157D100FFB807 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3123356F8100833CC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D04A3923356F8400833CC5 /* Assets.xcassets in Resources */,
+				B8D04A3723356F8100833CC5 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3D23356F8400833CC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D04A5223356F8500833CC5 /* Preview Assets.xcassets in Resources */,
+				B8D04A4F23356F8500833CC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,18 +916,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890795A22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
+				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
+				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
+				B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
+				B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
-				B881D24C221DC94F0038BF81 /* HomeViewController.swift in Sources */,
+				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
+				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
+				B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
-				B881D24F221DC94F0038BF81 /* ServiceCollectionViewCell.swift in Sources */,
+				B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */,
+				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
-				B881D254221DC94F0038BF81 /* NetworkService.swift in Sources */,
+				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
+				B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
+				B8D04A302335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,15 +961,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				B86693A922DFAB7E00EEFBE0 /* UIColorExtensions.swift in Sources */,
-				B89079662251844000FFB807 /* NetworkService.swift in Sources */,
+				B89079662251844000FFB807 /* OldNetworkService.swift in Sources */,
 				B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B890796522517CEB00FFB807 /* Persistence.swift in Sources */,
 				B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */,
 				B890795C225170F900FFB807 /* ServiceModel.swift in Sources */,
+				B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B890795B22516EA400FFB807 /* ServiceCollectionViewController.swift in Sources */,
 				B89079542251582000FFB807 /* ServiceCollectionViewCell.xib in Sources */,
 				B89079552251582000FFB807 /* ServiceCollectionViewCell.swift in Sources */,
 				B8907948225157D100FFB807 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D04A3B23356F8400833CC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
+				B8D04A632335717E00833CC5 /* ServiceModel.swift in Sources */,
+				B8D04A4723356F8400833CC5 /* HostingController.swift in Sources */,
+				B842CC6F2343E6D9004B9E5B /* WatchData.swift in Sources */,
+				B8D04A4523356F8400833CC5 /* ServiceListView.swift in Sources */,
+				B8D04A642335717E00833CC5 /* MockServiceModel.swift in Sources */,
+				B8D04A672335717E00833CC5 /* Persistence.swift in Sources */,
+				B871809C2343A93700219227 /* EmptyStateView.swift in Sources */,
+				B8D04A4B23356F8400833CC5 /* NotificationController.swift in Sources */,
+				B88D49632342A7B40058B0D3 /* WatchServiceRowView.swift in Sources */,
+				B8D04A4923356F8400833CC5 /* ExtensionDelegate.swift in Sources */,
+				B8D04A4D23356F8400833CC5 /* NotificationView.swift in Sources */,
+				B8D04A662335717E00833CC5 /* NetworkService+Combine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +1012,16 @@
 			target = B8907942225157D100FFB807 /* DashboardWidget */;
 			targetProxy = B890794D225157D100FFB807 /* PBXContainerItemProxy */;
 		};
+		B8D04A4223356F8400833CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D04A3E23356F8400833CC5 /* DashboardWatch Extension */;
+			targetProxy = B8D04A4123356F8400833CC5 /* PBXContainerItemProxy */;
+		};
+		B8D04A5623356F8500833CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D04A3223356F8100833CC5 /* DashboardWatch */;
+			targetProxy = B8D04A5523356F8500833CC5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -729,6 +1031,14 @@
 				B890794A225157D100FFB807 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		B8D04A3523356F8100833CC5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8D04A3623356F8100833CC5 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1028,6 +1338,94 @@
 			};
 			name = Release;
 		};
+		B8D04A5923356F8500833CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DashboardWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DashboardWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		B8D04A5A23356F8500833CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DashboardWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DashboardWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		B8D04A5D23356F8500833CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				IBSC_MODULE = DashboardWatch_Extension;
+				INFOPLIST_FILE = DashboardWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		B8D04A5E23356F8500833CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UMFPW78PV;
+				IBSC_MODULE = DashboardWatch_Extension;
+				INFOPLIST_FILE = DashboardWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowtreeapps.patrick.gatewood.dashboard.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1072,6 +1470,24 @@
 			buildConfigurations = (
 				B8907951225157D100FFB807 /* Debug */,
 				B8907952225157D100FFB807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8D04A5823356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8D04A5923356F8500833CC5 /* Debug */,
+				B8D04A5A23356F8500833CC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8D04A5C23356F8500833CC5 /* Build configuration list for PBXNativeTarget "DashboardWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8D04A5D23356F8500833CC5 /* Debug */,
+				B8D04A5E23356F8500833CC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

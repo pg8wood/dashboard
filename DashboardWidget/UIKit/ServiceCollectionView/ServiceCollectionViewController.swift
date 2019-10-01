@@ -68,7 +68,7 @@ class ServiceCollectionViewController: UIViewController {
         
         let serviceUrl = services[indexPath.row].url
         
-        NetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
+        OldNetworkService.fetchServerStatus(url: serviceUrl).call { [weak self] result in
             DispatchQueue.main.async {
                 self?.onServiceStatusResult(result, for: cell)
             }

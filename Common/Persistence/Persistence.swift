@@ -10,13 +10,14 @@ import CoreData
 import UIKit
 
 protocol Database {
-    func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void)
+    func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void) // TODO: only used in UIKit views: deprecate soon 
     func save(image: UIImage, named fileName: String)
     func renameFile(from oldFileName: String, to newFileName: String)
     func updateLastOnlineDate(for service: ServiceModel, lastOnline: Date)
+    func delete(_ service: ServiceModel)
 }
 
-class PersistenceClient {
+class PersistenceClient: NSObject, ObservableObject {
     
     static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.willowtreeapps.patrick.gatewood.dashboard")!
     
@@ -43,6 +44,7 @@ class PersistenceClient {
 }
 
 extension PersistenceClient: Database {
+
     func getStoredServices(_ completion: @escaping (_ result: Result<[ServiceModel], Error>) -> Void) {
         let managedContext = PersistenceClient.persistentContainer.viewContext
         let serviceFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ServiceModel.entityName)
@@ -96,5 +98,16 @@ extension PersistenceClient: Database {
     
     func updateLastOnlineDate(for service: ServiceModel, lastOnline: Date) {
         service.lastOnlineDate = lastOnline
+    }
+    
+    func delete(_ service: ServiceModel) {
+        let managedContext = PersistenceClient.persistentContainer.viewContext
+        managedContext.delete(service)
+        
+        do {
+            try managedContext.save()
+        } catch {
+            fatalError("Failed to delete service with error \(error)")
+        }
     }
 }
