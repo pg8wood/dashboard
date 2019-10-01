@@ -20,7 +20,7 @@ struct EmptyStateView: View {
             
             Text(message)
                 .font(.callout)
-                .padding(.top, 20)
+                .frame(height: 75)
         }
     }
 }
