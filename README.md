@@ -1,10 +1,6 @@
 # Dashboard iOS
 > Monitors the status of my web apps
 
-### News
-Big moves are happening in the [SwiftUI](https://github.com/pg8wood/dashboard/tree/feature/swiftui) branch! Other developement is paused while I'm exploring SwiftUI.
-<br />
-
 <div align=center>
 	<img src="docs/widget_screenshot.PNG" width=40% />
 	<img src="docs/app_screenshot.PNG" width=40% />
