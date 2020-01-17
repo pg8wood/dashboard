@@ -20,7 +20,7 @@ struct ServiceListView: View {
     // State variables are owned & managed by this view
     @State private var showingAddServices = false
     @State private var serviceToEdit: ServiceModel?
-    @State var editMode: EditMode = .inactive
+    @State private var editMode: EditMode = .inactive
         
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
@@ -39,24 +39,16 @@ struct ServiceListView: View {
                  @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
                 
                 ServiceRow(service: service, name: service.name, url: service.url, image: service.image, isOnline: service.wasOnlineRecently)
-                .simultaneousGesture(
-                    TapGesture()
-                        .onEnded { _ in
-                            print("editMode: \(self.editMode)")
-                            guard self.editMode == .active else {
-                                print("not editing")
-                                return
-                            }
-                            
-                            self.edit(service: service)
-                    }
-                )
-                .contextMenu {
-                    Button(action: {
-                        self.edit(service: service)
-                    }) {
-                        Text("Edit Service")
-                    }
+                    // Note that the environment modifier must go before these other modifiers, otherwise only the modifer will get the environment
+                    // object. The order matters!
+                    .environment(\.editMode, self.$editMode)
+                    .simultaneousGesture(self.serviceRowTappedGesture(service))
+                    .contextMenu {
+                        Button(action: {
+                            self.editService(service)
+                        }) {
+                            Text("Edit Service")
+                        }
                 }
             }
             .onMove(perform: moveService)
@@ -65,9 +57,16 @@ struct ServiceListView: View {
         .listStyle(GroupedListStyle())
     }
     
-    private func edit(service: ServiceModel) {
-        self.serviceToEdit = service
-        self.showingAddServices.toggle()
+    private func serviceRowTappedGesture(_ service: ServiceModel) -> some Gesture {
+        TapGesture()
+            .onEnded { _ in
+                guard self.editMode == .active else {
+                    print("not editing")
+                    return
+                }
+                
+                self.editService(service)
+        }
     }
     
     var body: some View {
@@ -97,6 +96,11 @@ struct ServiceListView: View {
                     }
             }
         }
+    }
+    
+    private func editService(_ service: ServiceModel) {
+        self.serviceToEdit = service
+        self.showingAddServices.toggle()
     }
     
     /// TODO: There's an interesting animation that happens during this transition: I believe it comes from the view moving the elements, and then the backing data changing, which then re-animates the move

@@ -17,8 +17,28 @@ struct ServiceRow: View {
     var isOnline: Bool
     
     @EnvironmentObject var network: NetworkService
+    @Environment(\.editMode) var editMode
+    
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
+    
+    // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
+    private var accessoryView: AnyView {
+        if isLoading {
+            return AnyView(
+                ActivityIndicatorView()
+                    .frame(width: 80, height: 50)
+            )
+        } else {
+            return AnyView(
+                statusImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 35)
+                    .foregroundColor(.red)
+            )
+        }
+    }
     
     private var statusImage: Image {
         if isOnline {
@@ -44,20 +64,15 @@ struct ServiceRow: View {
             
             Spacer()
             
-            if isLoading {
-                ActivityIndicatorView()
-                    .frame(width: 80, height: 50)
-            } else {
-                statusImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 35)
-                    .foregroundColor(.red)
+            if self.editMode?.wrappedValue == .inactive {
+                accessoryView
+                    .animation(.easeInOut)
             }
         }
         .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
         .onTapGesture {
+            guard self.editMode?.wrappedValue == .inactive else { return }
             self.fetchServerStatus()
         }
         .onAppear {
