@@ -23,7 +23,7 @@ struct ServiceRow: View {
     
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
-    @State private var serverResponse: Result<Int, NetworkError> = .failure(.noResponse)
+    @State private var serverResponse: Result<Int, URLError> = .failure(URLError(.unknown))
     
     // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
     private var accessoryView: AnyView {
@@ -46,10 +46,11 @@ struct ServiceRow: View {
                     
                     if $settings.showErrorCodes.wrappedValue == true {
                         Text(message)
-                            .lineLimit(2)
                             .font(.caption)
+                            .lineLimit(3)
                     }
                 }
+                .frame(maxWidth: 80) // TODO might be good to make this a constant in an "errorView" or "accessoryView" class
             )
         }
         
@@ -61,7 +62,20 @@ struct ServiceRow: View {
             
             return AnyView(accessoryImage(from: Image("check")))
         case .failure(let error):
-            return errorView(message: error.localizedDescription)
+            let errorMessage: String
+            
+            switch error.code {
+            case .badURL:
+                errorMessage = "Invalid URL"
+            case .cannotFindHost, .cannotConnectToHost:
+                errorMessage = "No response"
+            case .badServerResponse:
+                errorMessage = "Invalid response"
+            default:
+                errorMessage = error.localizedDescription
+            }
+            
+            return errorView(message: errorMessage)
         }
     }
     

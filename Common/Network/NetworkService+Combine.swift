@@ -12,25 +12,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-enum NetworkError: Error {
-    case invalidUrl
-    case noResponse
-    case error(description: String)
-    
-    var localizedDescription: String {
-        switch self {
-        case .invalidUrl:
-            return "Invalid URL"
-        case .noResponse:
-            return "No response"
-        case .error(_):
-            return "Unknown error"
-        }
-    }
-}
-
 protocol NetworkFetchable {
-    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError>
+    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, URLError>
     func updateServerStatus(for service: ServiceModel) -> PassthroughSubject<Bool, Never>
 }
 
@@ -51,9 +34,9 @@ extension NetworkService: NetworkFetchable {
     
     /// Gets the response code from a HEAD request. This is a tad slower than pinging the server, however since many servers block
     /// ICMP requests, this should be more reliable.
-    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, NetworkError> {
+    func fetchServerStatusCode(for url: String) -> AnyPublisher<Int, URLError> {
         guard let url = URL(string: url) else {
-            return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
         
         var request = URLRequest(url: url)
@@ -62,16 +45,13 @@ extension NetworkService: NetworkFetchable {
         return session.dataTaskPublisher(for: url)
         .tryMap { data, response in
             guard let response = response as? HTTPURLResponse else {
-                throw NetworkError.noResponse
+                throw URLError(.timedOut) // TODO: is this the right way to handle this case?
             }
             
             return response.statusCode
         }
-        .catch { error in
-            return Fail(error: NetworkError.error(description: error.localizedDescription)).eraseToAnyPublisher()
-        }
         .mapError { error in
-            NetworkError.error(description: error.localizedDescription)
+            error as? URLError ?? URLError(.unknown)
         }
         .eraseToAnyPublisher()
     }
