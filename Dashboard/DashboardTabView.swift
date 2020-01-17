@@ -17,7 +17,7 @@ struct DashboardTabView: View {
                     Text("Services")
             }
             
-            Text("Preferences")
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")

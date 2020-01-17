@@ -18,11 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let moc = PersistenceClient.persistentContainer.viewContext // todo do we still need this?
             let database = PersistenceClient()
             let network = NetworkService(database: database)
+            let settings = Settings()
             
             let dashboardTabView = DashboardTabView()
                 .environment(\.managedObjectContext, moc)
                 .environmentObject(database)
                 .environmentObject(network)
+            .environmentObject(settings)
                 .environmentObject(WatchHandler(moc: moc))
 
             self.window = window

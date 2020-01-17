@@ -16,8 +16,10 @@ struct ServiceRow: View {
     var image: UIImage
 //    var isOnline: Bool // TODO this can be removed from the CoreData object
     
-    @EnvironmentObject var network: NetworkService
     @Environment(\.editMode) var editMode
+    
+    @EnvironmentObject var network: NetworkService
+    @EnvironmentObject var settings: Settings
     
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
@@ -40,10 +42,12 @@ struct ServiceRow: View {
             return AnyView(accessoryImage(from: Image("check")))
         } else {
             return AnyView(
-                VStack(alignment: .center, spacing: 5) {
+                VStack(spacing: 5) {
                     accessoryImage(from: Image(systemName: "exclamationmark.circle.fill"))
                     
-                    Text("\(statusCode)")
+                    if $settings.showErrorCodes.wrappedValue == true {
+                        Text("\(statusCode)")
+                    }
                 }
             )
         }
@@ -93,24 +97,17 @@ struct ServiceRow: View {
         self.isLoading = true
         
         self.network.fetchServerStatusCode(for: service.url)
-        .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished:
-                break
-            case .failure(_):
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(_):
+                    self.isLoading = false
+                }
+            }, receiveValue: { statusCode in
+                self.statusCode = statusCode
                 self.isLoading = false
-            }
-        }, receiveValue: { statusCode in
-            self.statusCode = statusCode
-            self.isLoading = false
-        })
-        
-//        self.network.updateServerStatus(for: self.service)
-//            .sink(receiveValue: { isLoading in
-//                withAnimation {
-//                    self.isLoading = isLoading
-//                }
-//            })
+            })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
 }

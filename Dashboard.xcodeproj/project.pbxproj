@@ -46,6 +46,9 @@
 		B890795F2251718500FFB807 /* Services.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B87F22FB221F7F8D005BD677 /* Services.xcdatamodeld */; };
 		B890796522517CEB00FFB807 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F22F6221E6160005BD677 /* Persistence.swift */; };
 		B89079662251844000FFB807 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
+		B8AC2CB323D25B1E00558F8D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB223D25B1E00558F8D /* SettingsView.swift */; };
+		B8AC2CB523D2640C00558F8D /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB423D2640C00558F8D /* UserDefaultsPropertyWrapper.swift */; };
+		B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB823D264BF00558F8D /* Settings.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
@@ -194,6 +197,9 @@
 		B890795922516EA400FFB807 /* ServiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewController.swift; sourceTree = "<group>"; };
 		B89079632251791F00FFB807 /* Dashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dashboard.entitlements; sourceTree = "<group>"; };
 		B89079642251792800FFB807 /* DashboardWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashboardWidget.entitlements; sourceTree = "<group>"; };
+		B8AC2CB223D25B1E00558F8D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B8AC2CB423D2640C00558F8D /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
+		B8AC2CB823D264BF00558F8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -289,8 +295,18 @@
 			isa = PBXGroup;
 			children = (
 				B80B316F22E0CB2900180D4E /* DashboardPersistence.swift */,
+				B8AC2CB423D2640C00558F8D /* UserDefaultsPropertyWrapper.swift */,
+				B8AC2CB823D264BF00558F8D /* Settings.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		B83FB34423D25ABE009E2DDE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B8AC2CB223D25B1E00558F8D /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B842CC672343DA4B004B9E5B /* Views */ = {
@@ -358,20 +374,21 @@
 		B881D23D221DC94E0038BF81 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B881D23E221DC94E0038BF81 /* Home */,
+				B83FB34423D25ABE009E2DDE /* Settings */,
+				B881D23E221DC94E0038BF81 /* Services */,
 				B881D257221DCC630038BF81 /* AddService */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		B881D23E221DC94E0038BF81 /* Home */ = {
+		B881D23E221DC94E0038BF81 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B8F3915C2329746500F62FF8 /* ServiceListView.swift */,
 				B8F391622329B16500F62FF8 /* ServiceRow.swift */,
 				B8D04A2F2335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift */,
 			);
-			path = Home;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B881D245221DC94E0038BF81 /* Supporting Files */ = {
@@ -920,12 +937,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
+				B8AC2CB323D25B1E00558F8D /* SettingsView.swift in Sources */,
 				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B87157DF23D255F7005EDFFD /* DashboardTabView.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
 				B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
+				B8AC2CB523D2640C00558F8D /* UserDefaultsPropertyWrapper.swift in Sources */,
+				B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
 				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
