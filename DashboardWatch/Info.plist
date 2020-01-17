@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.willowtreeapps.patrick.gatewood.dashboard</string>
+	<string>com.patrickgatewood.dashboard-app</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

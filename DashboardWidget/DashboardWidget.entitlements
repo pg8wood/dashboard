@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.willowtreeapps.patrick.gatewood.dashboard</string>
+		<string>group.com.patrickgatewood.dashboard-app</string>
 	</array>
 </dict>
 </plist>

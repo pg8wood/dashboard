@@ -19,7 +19,7 @@ protocol Database {
 
 class PersistenceClient: NSObject, ObservableObject {
     
-    static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.willowtreeapps.patrick.gatewood.dashboard")!
+    static let documentsUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.patrickgatewood.dashboard-app")!
     
     let fileManager = FileManager.default
     
