@@ -38,7 +38,7 @@ struct ServiceListView: View {
                 /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
                  @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
                 
-                ServiceRow(service: service, name: service.name, url: service.url, image: service.image, isOnline: service.wasOnlineRecently)
+                ServiceRow(service: service, name: service.name, url: service.url, image: service.image)
                     // Note that the environment modifier must go before these other modifiers, otherwise only the modifer will get the environment
                     // object. The order matters!
                     .environment(\.editMode, self.$editMode)

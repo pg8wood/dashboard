@@ -14,13 +14,14 @@ struct ServiceRow: View {
     var name: String
     var url: String
     var image: UIImage
-    var isOnline: Bool
+//    var isOnline: Bool // TODO this can be removed from the CoreData object
     
     @EnvironmentObject var network: NetworkService
     @Environment(\.editMode) var editMode
     
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
+    @State private var statusCode = 400 // bad request; arbitrary initial staus code
     
     // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
     private var accessoryView: AnyView {
@@ -30,22 +31,30 @@ struct ServiceRow: View {
                     .frame(width: 80, height: 50)
             )
         } else {
+            return AnyView(statusView)
+        }
+    }
+    
+    private var statusView: AnyView {
+        if statusCode == 200 {
+            return AnyView(accessoryImage(from: Image("check")))
+        } else {
             return AnyView(
-                statusImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 35)
-                    .foregroundColor(.red)
+                VStack(alignment: .center, spacing: 5) {
+                    accessoryImage(from: Image(systemName: "exclamationmark.circle.fill"))
+                    
+                    Text("\(statusCode)")
+                }
             )
         }
     }
     
-    private var statusImage: Image {
-        if isOnline {
-            return Image("check")
-        } else {
-            return Image(systemName: "exclamationmark.circle.fill")
-        }
+    private func accessoryImage(from image: Image) -> some View {
+        image
+            .resizable()
+            .scaledToFit()
+            .frame(width: 80, height: 35)
+            .foregroundColor(.red)
     }
     
     var body: some View {
@@ -83,12 +92,25 @@ struct ServiceRow: View {
     func fetchServerStatus() {
         self.isLoading = true
         
-        self.network.updateServerStatus(for: self.service)
-            .sink(receiveValue: { isLoading in
-                withAnimation {
-                    self.isLoading = isLoading
-                }
-            })
+        self.network.fetchServerStatusCode(for: service.url)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(_):
+                self.isLoading = false
+            }
+        }, receiveValue: { statusCode in
+            self.statusCode = statusCode
+            self.isLoading = false
+        })
+        
+//        self.network.updateServerStatus(for: self.service)
+//            .sink(receiveValue: { isLoading in
+//                withAnimation {
+//                    self.isLoading = isLoading
+//                }
+//            })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
 }
