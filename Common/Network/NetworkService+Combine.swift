@@ -16,6 +16,17 @@ enum NetworkError: Error {
     case invalidUrl
     case noResponse
     case error(description: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .invalidUrl:
+            return "Invalid URL"
+        case .noResponse:
+            return "No response"
+        case .error(_):
+            return "Unknown error"
+        }
+    }
 }
 
 protocol NetworkFetchable {

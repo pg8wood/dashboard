@@ -61,7 +61,6 @@ struct ServiceListView: View {
         TapGesture()
             .onEnded { _ in
                 guard self.editMode == .active else {
-                    print("not editing")
                     return
                 }
                 

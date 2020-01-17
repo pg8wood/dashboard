@@ -23,7 +23,7 @@ struct ServiceRow: View {
     
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
-    @State private var statusCode = 400 // bad request; arbitrary initial staus code
+    @State private var serverResponse: Result<Int, NetworkError> = .failure(.noResponse)
     
     // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
     private var accessoryView: AnyView {
@@ -38,18 +38,30 @@ struct ServiceRow: View {
     }
     
     private var statusView: AnyView {
-        if statusCode == 200 {
-            return AnyView(accessoryImage(from: Image("check")))
-        } else {
+        
+        func errorView(message: String) -> AnyView {
             return AnyView(
-                VStack(spacing: 5) {
+                VStack(spacing: 10) {
                     accessoryImage(from: Image(systemName: "exclamationmark.circle.fill"))
                     
                     if $settings.showErrorCodes.wrappedValue == true {
-                        Text("\(statusCode)")
+                        Text(message)
+                            .lineLimit(2)
+                            .font(.caption)
                     }
                 }
             )
+        }
+        
+        switch serverResponse {
+        case .success(let statusCode):
+            guard statusCode == 200 else {
+                return errorView(message: "\(statusCode)")
+            }
+            
+            return AnyView(accessoryImage(from: Image("check")))
+        case .failure(let error):
+            return errorView(message: error.localizedDescription)
         }
     }
     
@@ -100,13 +112,13 @@ struct ServiceRow: View {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    break
-                case .failure(_):
+                    self.isLoading = false
+                case .failure(let error):
+                    self.serverResponse = .failure(error)
                     self.isLoading = false
                 }
             }, receiveValue: { statusCode in
-                self.statusCode = statusCode
-                self.isLoading = false
+                self.serverResponse = .success(statusCode)
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
