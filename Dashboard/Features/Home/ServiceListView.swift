@@ -11,6 +11,7 @@ import WatchConnectivity
 
 struct ServiceListView: View {
     @Environment(\.managedObjectContext) var moc
+    
     @EnvironmentObject var network: NetworkService
     @EnvironmentObject var database: PersistenceClient
     
@@ -19,6 +20,7 @@ struct ServiceListView: View {
     // State variables are owned & managed by this view
     @State private var showingAddServices = false
     @State private var serviceToEdit: ServiceModel?
+    @State var editMode: EditMode = .inactive
         
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
@@ -34,17 +36,28 @@ struct ServiceListView: View {
         List {
             ForEach(services) { service in
                 /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
-                    @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
+                 @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
                 
                 ServiceRow(service: service, name: service.name, url: service.url, image: service.image, isOnline: service.wasOnlineRecently)
-                    .contextMenu {
-                        Button(action: {
-                            self.serviceToEdit = service
-                            self.showingAddServices.toggle()
-                        }) {
-                            Text("Edit Service")
-                        }
+                .simultaneousGesture(
+                    TapGesture()
+                        .onEnded { _ in
+                            print("editMode: \(self.editMode)")
+                            guard self.editMode == .active else {
+                                print("not editing")
+                                return
+                            }
+                            
+                            self.edit(service: service)
                     }
+                )
+                .contextMenu {
+                    Button(action: {
+                        self.edit(service: service)
+                    }) {
+                        Text("Edit Service")
+                    }
+                }
             }
             .onMove(perform: moveService)
             .onDelete(perform: deleteService)
@@ -52,13 +65,17 @@ struct ServiceListView: View {
         .listStyle(GroupedListStyle())
     }
     
+    private func edit(service: ServiceModel) {
+        self.serviceToEdit = service
+        self.showingAddServices.toggle()
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
                 if services.isEmpty {
                     EmptyStateView()
-                        .padding(.top, 20)
-                    
+                        .padding(.top, 100)
                     Spacer()
                 } else {
                     serviceList
@@ -68,7 +85,11 @@ struct ServiceListView: View {
                 // I'd rather use a custom view modifier, but no views seem to render if a custom ViewModifier has a `.navigationBarItems` modifier.
                 // It seems like this could be accomplished without needing to wrap the conditional views.
                 .navigationBarTitle("My Services", displayMode: .large)
+                
+                // ⚠️ Note that for the editMode environment variable to work correctly with the EditButton, the environment modifier must come AFTER
+                // the navigationBarItems modifier!
                 .navigationBarItems(leading: EditButton(), trailing: addServiceButton)
+                .environment(\.editMode, $editMode)
                 .sheet(isPresented: $showingAddServices) {
                     AddServiceHostView(serviceToEdit: self.serviceToEdit)
                         .onDisappear() {

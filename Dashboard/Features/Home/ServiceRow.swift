@@ -58,10 +58,9 @@ struct ServiceRow: View {
         .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
         .onTapGesture {
-            // TODO this tap area could be better
             self.fetchServerStatus()
         }
-        .onAppear { // TODO this doesn't appear to be called when a new row is added 🤔
+        .onAppear {
             self.fetchServerStatus()
         }
     }
@@ -69,12 +68,11 @@ struct ServiceRow: View {
     func fetchServerStatus() {
         self.isLoading = true
         
-        self.network.updateServerStatus(for: self.service as! ServiceModel)
+        self.network.updateServerStatus(for: self.service)
             .sink(receiveValue: { isLoading in
                 withAnimation {
                     self.isLoading = isLoading
                 }
-                
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
     }
