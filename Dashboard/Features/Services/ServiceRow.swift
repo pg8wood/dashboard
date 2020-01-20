@@ -25,12 +25,14 @@ struct ServiceRow: View {
     @State private var disposables = Set<AnyCancellable>()
     @State private var serverResponse: Result<Int, URLError> = .failure(URLError(.unknown))
     
+    private let accessoryViewWidth: CGFloat = 80
+    
     // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
     private var accessoryView: AnyView {
         if isLoading {
             return AnyView(
                 ActivityIndicatorView()
-                    .frame(width: 80, height: 50)
+                    .frame(width: accessoryViewWidth, height: 50)
             )
         } else {
             return AnyView(statusView)
@@ -47,10 +49,11 @@ struct ServiceRow: View {
                     if $settings.showErrorCodes.wrappedValue == true {
                         Text(message)
                             .font(.caption)
-                            .lineLimit(3)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
                     }
                 }
-                .frame(maxWidth: 80) // TODO might be good to make this a constant in an "errorView" or "accessoryView" class
+                .frame(maxWidth: accessoryViewWidth)
             )
         }
         
@@ -62,20 +65,7 @@ struct ServiceRow: View {
             
             return AnyView(accessoryImage(from: Image("check")))
         case .failure(let error):
-            let errorMessage: String
-            
-            switch error.code {
-            case .badURL:
-                errorMessage = "Invalid URL"
-            case .cannotFindHost, .cannotConnectToHost:
-                errorMessage = "No response"
-            case .badServerResponse:
-                errorMessage = "Invalid response"
-            default:
-                errorMessage = error.localizedDescription
-            }
-            
-            return errorView(message: errorMessage)
+            return errorView(message: error.shortLocalizedDescription)
         }
     }
     
@@ -111,7 +101,6 @@ struct ServiceRow: View {
         .frame(height: 90)
         .frame(minWidth: 0, maxWidth: .infinity)
         .onTapGesture {
-            guard self.editMode?.wrappedValue == .inactive else { return }
             self.fetchServerStatus()
         }
         .onAppear {
@@ -120,21 +109,36 @@ struct ServiceRow: View {
     }
     
     func fetchServerStatus() {
+        guard self.editMode?.wrappedValue == .inactive else { return }
+        
         self.isLoading = true
+        let loadingStartDate = Date()
         
         self.network.fetchServerStatusCode(for: service.url)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    self.isLoading = false
+                    break
                 case .failure(let error):
                     self.serverResponse = .failure(error)
-                    self.isLoading = false
                 }
+                
+                self.finishLoading(startingDate: loadingStartDate)
             }, receiveValue: { statusCode in
                 self.serverResponse = .success(statusCode)
             })
             .store(in: &disposables) // whoops, if we don't retain this cancellable object the network data task will be cancelled
+    }
+    
+    private func finishLoading(startingDate: Date) {
+        let requestEndDate = Date()
+        let timeSpentLoading = Calendar.current.dateComponents([.second], from: startingDate, to: requestEndDate).second ?? 0
+        let minimumLoadingTime = 0.25
+        let secondsToContinueLoading = abs(minimumLoadingTime - Double(timeSpentLoading))
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + secondsToContinueLoading) {
+            self.isLoading = false
+        }
     }
 }
 

@@ -49,6 +49,7 @@
 		B8AC2CB323D25B1E00558F8D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB223D25B1E00558F8D /* SettingsView.swift */; };
 		B8AC2CB523D2640C00558F8D /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB423D2640C00558F8D /* UserDefaultsPropertyWrapper.swift */; };
 		B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB823D264BF00558F8D /* Settings.swift */; };
+		B8AC2CBB23D60DC400558F8D /* URLError+ShortMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
 		B8BEFE2E22E10D5A0074AB51 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */; };
@@ -200,6 +201,7 @@
 		B8AC2CB223D25B1E00558F8D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B8AC2CB423D2640C00558F8D /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
 		B8AC2CB823D264BF00558F8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+ShortMessages.swift"; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B8D04A2C2335446600833CC5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				B8546C7022DE58520017E2DA /* UIColorExtensions.swift */,
 				B8BEFE2C22E10BDD0074AB51 /* UIViewControllerExtensions.swift */,
 				B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */,
+				B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
+				B8AC2CBB23D60DC400558F8D /* URLError+ShortMessages.swift in Sources */,
 				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
 				B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */,
