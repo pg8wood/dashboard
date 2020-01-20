@@ -32,7 +32,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSV-MZ-3xz">
                         <rect key="frame" x="350" y="0.0" width="40" height="111"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server-error" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-pS-KJu">
                                 <rect key="frame" x="0.0" y="35.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FIt-pS-KJu" secondAttribute="height" multiplier="1:1" id="grK-kF-BP6"/>
@@ -80,7 +80,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="check" width="128" height="128"/>
         <image name="missing-image" width="128" height="128"/>
-        <image name="server-error" width="512" height="512"/>
     </resources>
 </document>
