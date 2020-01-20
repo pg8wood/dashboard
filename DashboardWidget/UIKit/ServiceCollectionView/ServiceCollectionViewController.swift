@@ -84,13 +84,17 @@ class ServiceCollectionViewController: UIViewController {
         cell.stopLoading()
         
         do {
-            let _ = try result.value()
+            let statusCode = try result.value()
+            
+            guard statusCode == 200 else {
+                cell.setStatusImage(.offline)
+                return
+            }
             
             database.updateLastOnlineDate(for: service, lastOnline: Date(timeIntervalSinceNow: 0))
-            
-            cell.statusImageView.image = UIImage(named: "check")
+            cell.setStatusImage(.online)
         } catch {
-            cell.statusImageView.image = UIImage(named: "server-error")
+            cell.setStatusImage(.offline)
         }
     }
 }
@@ -116,8 +120,7 @@ extension ServiceCollectionViewController: UICollectionViewDelegate {
         
         cell.logoImageView.image = service.image
         cell.nameLabel.text = service.name
-        cell.statusImageView.image = service.wasOnlineRecently ? UIImage(named: "check") : UIImage(named: "server-error")
-        cell.layer.cornerRadius = 20
+        cell.setStatusImage(service.wasOnlineRecently ? .online : .offline)
 
         return cell
     }

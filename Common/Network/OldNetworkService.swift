@@ -14,14 +14,12 @@ import Foundation
 import FavIcon
 import PinkyPromise
 
-@available(*, deprecated)
 public enum OldNetworkError: Error {
     case invalidUrl
     case noResponse
     case error(description: String)
 }
 
-@available(*, deprecated)
 public class OldNetworkService {
     
     public static func fetchServerStatus(url: String) -> Promise<Int> {

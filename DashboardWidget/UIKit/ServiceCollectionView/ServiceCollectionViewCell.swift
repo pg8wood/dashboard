@@ -19,6 +19,11 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var statusImageViewWidthConstraint: NSLayoutConstraint!
     
+    enum ServiceStaus {
+        case online
+        case offline
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
@@ -39,5 +44,16 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     func stopLoading() {
         loadingIndicator.stopAnimating()
+    }
+    
+    func setStatusImage(_ status: ServiceStaus) {
+        switch status {
+        case .online:
+            statusImageView.image = UIImage(named: "check")
+            statusImageView.tintColor = .clear
+        case .offline:
+            statusImageView.image = UIImage(systemName: "exclamationmark.circle")
+            statusImageView.tintColor = .systemRed
+        }
     }
 }
