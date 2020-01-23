@@ -14,13 +14,26 @@ struct ServiceListView: View {
     
     @EnvironmentObject var network: NetworkService
     @EnvironmentObject var database: PersistenceClient
+    @EnvironmentObject var settings: Settings
     
-    @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var services: FetchedResults<ServiceModel>
+    @FetchRequest(fetchRequest: PersistenceClient.allServicesFetchRequest()) var allServices: FetchedResults<ServiceModel>
 
     // State variables are owned & managed by this view
     @State private var showingAddServices = false
     @State private var serviceToEdit: ServiceModel?
     @State private var editMode: EditMode = .inactive
+    
+    private var onlineServices: [ServiceModel] {
+        allServices.filter {
+            $0.wasOnlineRecently
+        }
+    }
+    
+    private var offlineServices: [ServiceModel] {
+        allServices.filter {
+            !$0.wasOnlineRecently
+        }
+    }
         
     var addServiceButton: some View {
         Button(action: { self.showingAddServices.toggle() }) {
@@ -32,29 +45,52 @@ struct ServiceListView: View {
         }
     }
     
-    var serviceList: some View {
-        List {
-            ForEach(services) { service in
-                /* 🚨 If you don't pass each property individually, the view won't update. This feels wrong and could be a bug with
-                 @FetchRequest. See comments: https://www.andrewcbancroft.com/blog/ios-development/data-persistence/how-to-use-fetchrequest-swiftui/ */
-                
-                ServiceRow(service: service, name: service.name, url: service.url, image: service.image)
-                    // Note that the environment modifier must go before these other modifiers, otherwise only the modifer will get the environment
-                    // object. The order matters!
-                    .environment(\.editMode, self.$editMode)
-                    .simultaneousGesture(self.serviceRowTappedGesture(service))
-                    .contextMenu {
-                        Button(action: {
-                            self.editService(service)
-                        }) {
-                            Text("Edit Service")
+    private var serviceList: AnyView {
+        if settings.showFailuresFirst {
+            // TODO: either conditionally render the sections or add a nice empty state
+            return AnyView(
+                List {
+                    if !offlineServices.isEmpty {
+                        Section(header: Text("⚠️ Offline")) {
+                            serviceSection(offlineServices)
                         }
-                }
+                    }
+                    
+                    if !onlineServices.isEmpty {
+                        Section(header: Text("200 OK")) {
+                            serviceSection(onlineServices)
+                        }
+                    }
             }
-            .onMove(perform: moveService)
-            .onDelete(perform: deleteService)
+            .listStyle(GroupedListStyle())
+            )
+        } else {
+            return AnyView(
+                List {
+                    serviceSection(allServices.compactMap{$0})
+                }
+                .listStyle(GroupedListStyle())
+            )
         }
-        .listStyle(GroupedListStyle())
+    }
+    
+    private func serviceSection(_ fetchedServices: [ServiceModel]) -> some View {
+        ForEach(fetchedServices) { service in
+            ServiceRow(service: service)
+                /* Note that the environment modifier must go before these other modifiers,
+                 otherwise only the modifer will get the environment object. The order matters! */
+                .environment(\.editMode, self.$editMode)
+                .simultaneousGesture(self.serviceRowTappedGesture(service))
+                .contextMenu {
+                    Button(action: {
+                        self.editService(service)
+                    }) {
+                        Text("Edit Service")
+                    }
+            }
+        }
+        .onMove(perform: moveService)
+        .onDelete(perform: deleteService)
     }
     
     private func serviceRowTappedGesture(_ service: ServiceModel) -> some Gesture {
@@ -71,7 +107,7 @@ struct ServiceListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if services.isEmpty {
+                if allServices.isEmpty { // TODO need conditional rendering for showing offline first... might make sense to filter the "all" array
                     EmptyStateView()
                         .padding(.top, 100)
                     Spacer()
@@ -83,11 +119,8 @@ struct ServiceListView: View {
                 // I'd rather use a custom view modifier, but no views seem to render if a custom ViewModifier has a `.navigationBarItems` modifier.
                 // It seems like this could be accomplished without needing to wrap the conditional views.
                 .navigationBarTitle("My Services", displayMode: .large)
-                
-                // ⚠️ Note that for the editMode environment variable to work correctly with the EditButton, the environment modifier must come AFTER
-                // the navigationBarItems modifier!
                 .navigationBarItems(leading: EditButton(), trailing: addServiceButton)
-                .environment(\.editMode, $editMode)
+                .environment(\.editMode, $editMode) // ⚠️ Note that for the editMode environment variable to work correctly with the EditButton, the environment modifier must come AFTER the navigationBarItems modifier!
                 .sheet(isPresented: $showingAddServices) {
                     AddServiceHostView(serviceToEdit: self.serviceToEdit)
                         .onDisappear() {
@@ -104,23 +137,23 @@ struct ServiceListView: View {
     
     /// TODO: There's an interesting animation that happens during this transition: I believe it comes from the view moving the elements, and then the backing data changing, which then re-animates the move
     private func moveService(from source: IndexSet, to destination: Int) {
-        guard let sourceIndex = source.first else {
-            return // show error?
-        }
-        
-        // Destination is an offset rather than an index, so massage it into an index
-        let destinationIndex = sourceIndex > destination ? destination : destination - 1
-        
-        database.swap(service: services[sourceIndex], with: services[destinationIndex])
+//        guard let sourceIndex = source.first else {
+//            return // show error?
+//        }
+//
+//        // Destination is an offset rather than an index, so massage it into an index
+//        let destinationIndex = sourceIndex > destination ? destination : destination - 1
+//
+//        database.swap(service: services[sourceIndex], with: services[destinationIndex])
     }
     
     private func deleteService(at offsets: IndexSet) {
-        guard let deletionIndex = offsets.first else {
-            return
-        }
-        
-        let service = services[deletionIndex]
-        database.delete(service)
+//        guard let deletionIndex = offsets.first else {
+//            return
+//        }
+//
+//        let service = services[deletionIndex]
+//        database.delete(service)
     }
 }
 

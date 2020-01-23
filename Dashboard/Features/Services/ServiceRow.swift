@@ -10,12 +10,6 @@ import SwiftUI
 import Combine
 
 struct ServiceRow: View {
-    var service: ServiceModel
-    var name: String
-    var url: String
-    var image: UIImage
-//    var isOnline: Bool // TODO this can be removed from the CoreData object
-    
     @Environment(\.editMode) var editMode
     
     @EnvironmentObject var network: NetworkService
@@ -24,6 +18,8 @@ struct ServiceRow: View {
     @State private var isLoading: Bool = false
     @State private var disposables = Set<AnyCancellable>()
     @State private var serverResponse: Result<Int, URLError> = .failure(URLError(.unknown))
+    
+    @ObservedObject var service: ServiceModel
     
     private let accessoryViewWidth: CGFloat = 80
     
@@ -79,7 +75,7 @@ struct ServiceRow: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: image)
+            Image(uiImage: service.image)
                 .resizable()
                 .scaledToFill()
                 .padding(10)
@@ -87,7 +83,7 @@ struct ServiceRow: View {
             
             Spacer()
             
-            Text(name)
+            Text(service.name)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 10)
             
@@ -118,8 +114,11 @@ struct ServiceRow: View {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    break
+                    // TODO: have the persistence stack update this: the view should not be updating the persisted values.
+                    // Instead, we can probably add a type that has the last online date and the response code to the model.
+                    self.service.lastOnlineDate = Date()
                 case .failure(let error):
+                    self.service.lastOnlineDate = .distantPast
                     self.serverResponse = .failure(error)
                 }
                 
@@ -133,7 +132,7 @@ struct ServiceRow: View {
     private func finishLoading(startingDate: Date) {
         let requestEndDate = Date()
         let timeSpentLoading = Calendar.current.dateComponents([.second], from: startingDate, to: requestEndDate).second ?? 0
-        let minimumLoadingTime = 0.25
+        let minimumLoadingTime = 0.5 // seconds
         let secondsToContinueLoading = abs(minimumLoadingTime - Double(timeSpentLoading))
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + secondsToContinueLoading) {

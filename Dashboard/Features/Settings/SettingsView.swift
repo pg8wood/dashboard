@@ -15,18 +15,28 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Toggle(isOn: $settings.showErrorCodes) {
+                Section {
+                    Toggle(isOn: $settings.showErrorCodes) {
+                        Image(systemName: "1.magnifyingglass")
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .center)
+                            .padding(.trailing, 10)
+                        
+                        Text("Show error codes")
+                    }
                     
-                    Image(systemName: "1.magnifyingglass")
-                        .resizable()
-                        .frame(width: 20, height: 20, alignment: .center)
-                        .padding(.trailing, 10)
-                    
-                    Text("Show error codes")
+                    Toggle(isOn: $settings.showFailuresFirst) {
+                        Image(systemName: "exclamationmark.circle")
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .center)
+                            .padding(.trailing, 10)
+                        
+                        Text("Show offline services first")
+                    }
                 }
-                .navigationBarTitle("Settings")
             }
             .listStyle(GroupedListStyle())
+            .navigationBarTitle("Settings")
         }
     }
 }
@@ -34,5 +44,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+        .environmentObject(Settings())
     }
 }

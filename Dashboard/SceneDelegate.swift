@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 .environment(\.managedObjectContext, moc)
                 .environmentObject(database)
                 .environmentObject(network)
-            .environmentObject(settings)
+                .environmentObject(settings)
                 .environmentObject(WatchHandler(moc: moc))
 
             self.window = window

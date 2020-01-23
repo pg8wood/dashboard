@@ -13,8 +13,15 @@ final class Settings: ObservableObject {
     
     let objectWillChange = PassthroughSubject<Void, Never>()
     
-    @UserDefault("showErrorCodes", defaultValue: false)
+    @UserDefault("showErrorCodes", defaultValue: true)
     var showErrorCodes: Bool {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @UserDefault("showFailuresFirst", defaultValue: false)
+    var showFailuresFirst: Bool {
         willSet {
             objectWillChange.send()
         }
