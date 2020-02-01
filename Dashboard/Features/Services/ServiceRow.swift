@@ -16,6 +16,7 @@ struct ServiceRow: View {
     @EnvironmentObject var settings: Settings
     
     @State private var isLoading: Bool = false
+    @State private var hasAppeared = false
     @State private var disposables = Set<AnyCancellable>()
     @State private var serverResponse: Result<Int, URLError> = .failure(URLError(.unknown))
     
@@ -100,6 +101,11 @@ struct ServiceRow: View {
             self.fetchServerStatus()
         }
         .onAppear {
+            guard !self.hasAppeared else {
+                return
+            }
+            
+            self.hasAppeared = true
             self.fetchServerStatus()
         }
     }
