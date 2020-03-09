@@ -12,9 +12,11 @@ import UIKit
 @IBDesignable
 extension UIControl {
     
+    // TODO: Does this work properly for more than 1 instance of UIControl?
     private struct Storage {
         static var _gazeBeganDate: Date? = nil
         static var _gazeMovedDate: Date? = nil
+        static var _gazeMovedDelay: TimeInterval = 0.25
     }
     var gazeBeganDate: Date? {
         get {
@@ -28,6 +30,13 @@ extension UIControl {
             Storage._gazeMovedDate
         } set {
             Storage._gazeMovedDate = newValue
+        }
+    }
+    var gazeMovedDelay: TimeInterval {
+        get {
+            Storage._gazeMovedDelay
+        } set {
+            Storage._gazeMovedDelay = newValue
         }
     }
     
@@ -49,8 +58,7 @@ extension UIControl {
         if let gazeMovedDate = self.gazeMovedDate {
             let timeElapsed = Date().timeIntervalSince(gazeMovedDate)
             // TODO move this magic number to a more configurable location
-            let gazeMovedGovernorDuration: TimeInterval = 0.25
-            if timeElapsed >= gazeMovedGovernorDuration {
+            if timeElapsed >= gazeMovedDelay {
                 sendActions(for: .gazeMoveInside)
                 
                 self.gazeMovedDate = Date()
