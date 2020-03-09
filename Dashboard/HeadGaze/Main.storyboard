@@ -22,9 +22,9 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQq-Gr-kNC" userLabel="ContentViewController">
-                                <rect key="frame" x="16" y="8" width="343" height="651"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
-                                    <segue destination="Bfe-sy-qr3" kind="embed" identifier="ContentViewControllerSegue" id="uLk-YT-aNZ"/>
+                                    <segue destination="Krg-iX-Phl" kind="embed" identifier="ContentViewControllerSegue" id="80q-pI-0Ip"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -32,26 +32,28 @@
                         <constraints>
                             <constraint firstItem="h77-DW-Ra2" firstAttribute="leading" secondItem="QoN-fl-FyW" secondAttribute="leading" id="2vi-F0-7jD"/>
                             <constraint firstItem="h77-DW-Ra2" firstAttribute="top" secondItem="QoN-fl-FyW" secondAttribute="top" id="35q-ga-C7k"/>
-                            <constraint firstItem="AQq-Gr-kNC" firstAttribute="top" secondItem="QoN-fl-FyW" secondAttribute="topMargin" id="Pkw-eU-h0R"/>
-                            <constraint firstItem="AQq-Gr-kNC" firstAttribute="leading" secondItem="QoN-fl-FyW" secondAttribute="leadingMargin" id="aS7-NB-aKe"/>
+                            <constraint firstItem="AQq-Gr-kNC" firstAttribute="top" secondItem="QoN-fl-FyW" secondAttribute="top" id="Pkw-eU-h0R"/>
+                            <constraint firstItem="AQq-Gr-kNC" firstAttribute="leading" secondItem="QoN-fl-FyW" secondAttribute="leading" id="aS7-NB-aKe"/>
                             <constraint firstAttribute="bottom" secondItem="h77-DW-Ra2" secondAttribute="bottom" id="aiY-pn-mC3"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="AQq-Gr-kNC" secondAttribute="bottom" id="gjT-Qg-rfd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AQq-Gr-kNC" secondAttribute="trailing" id="oal-gs-OpX"/>
+                            <constraint firstAttribute="bottom" secondItem="AQq-Gr-kNC" secondAttribute="bottom" id="gjT-Qg-rfd"/>
+                            <constraint firstAttribute="trailing" secondItem="AQq-Gr-kNC" secondAttribute="trailing" id="oal-gs-OpX"/>
                             <constraint firstAttribute="trailing" secondItem="h77-DW-Ra2" secondAttribute="trailing" id="tKc-EE-VNA"/>
                         </constraints>
-                        <edgeInsets key="layoutMargins" top="32" left="32" bottom="32" right="32"/>
+                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                         <viewLayoutGuide key="safeArea" id="N6F-RO-WaJ"/>
-                        <variation key="heightClass=compact">
-                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OF-pV-I9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1668.1640625" y="-1443.3382137628109"/>
+        </scene>
+        <!--Dashboard Tab Hosting View Controller-->
+        <scene sceneID="1pJ-2s-7Be">
+            <objects>
+                <hostingController id="Krg-iX-Phl" customClass="DashboardTabHostingViewController" customModule="Dashboard" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yan-4G-p1b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-630" y="-1463"/>
         </scene>
         <!--Head Gaze View Controller-->
         <scene sceneID="RBx-lz-Ojp">
@@ -67,14 +69,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPb-7J-yob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-489" y="-2119"/>
-        </scene>
-        <!--AddServiceViewController-->
-        <scene sceneID="BZ7-bb-glg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddServiceViewController" id="Bfe-sy-qr3" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wPS-Vm-aUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-550" y="-1422"/>
         </scene>
     </scenes>
 </document>
