@@ -21,6 +21,30 @@ enum Mode {
 }
 
 class AddServiceViewController: UIViewController {
+    // MARK: - Gaze Testing
+    @IBOutlet weak var `switch`: UISwitch!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBAction func gazeTestButtonSelected(_ sender: Any) {
+        alertGazeWorked()
+    }
+    
+    @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
+//        alertGazeWorked()
+    }
+    
+    private func alertGazeWorked() {
+        let alertViewController = UIAlertController(title: "Gaze worked!", message: "🥳", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Nice", style: .default))
+        present(alertViewController, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
+    
+    
     @IBOutlet weak var serviceUrlTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var logoImageContainer: UIStackView!

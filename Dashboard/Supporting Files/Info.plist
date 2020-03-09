@@ -63,5 +63,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Dashboard uses ARKit head tracking to detect the user&apos;s face as seen in the device&apos;s TrueDepth front camera feed for the purpose of controlling an on-screen pointer, allowing users with limited mobility to interact with the app. Head orientation and position data is used expressly for controlling the on-screen pointer. That head tracking data is not stored or transmitted in any way. Dashboard needs permission to use the camera for this purpose.</string>
 </dict>
 </plist>

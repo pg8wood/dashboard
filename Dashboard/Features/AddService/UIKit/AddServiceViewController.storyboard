@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dyp-ae-97u">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,6 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CsI-sV-SYL">
                                                 <rect key="frame" x="0.0" y="0.0" width="225" height="17"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="url"/>
                                                 <connections>
@@ -33,7 +32,6 @@
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psI-iQ-z7E">
                                                 <rect key="frame" x="0.0" y="42" width="225" height="17"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                                 <connections>
@@ -66,10 +64,45 @@
                                     <constraint firstAttribute="height" constant="125" id="kkX-nv-qX5"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-eQ-CRi">
+                                <rect key="frame" x="0.0" y="211" width="375" height="146"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-eU-qc6">
+                                        <rect key="frame" x="131" y="0.0" width="113" height="30"/>
+                                        <state key="normal" title="Gazeable button"/>
+                                        <connections>
+                                            <action selector="gazeTestButtonSelected:" destination="dyp-ae-97u" eventType="primaryActionTriggered" id="PDP-fS-Ott"/>
+                                        </connections>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9p-pZ-QPK">
+                                        <rect key="frame" x="163" y="38" width="51" height="31"/>
+                                    </switch>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Lx-Bye">
+                                        <rect key="frame" x="-2" y="77" width="379" height="31"/>
+                                    </slider>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8mS-zy-fRb">
+                                        <rect key="frame" x="122" y="115" width="131" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="didSelectSegmentedControl:" destination="dyp-ae-97u" eventType="touchUpInside" id="LA6-59-gvW"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vzb-Lx-Bye" firstAttribute="leading" secondItem="DMo-eQ-CRi" secondAttribute="leadingMargin" id="aZR-gy-Zl3"/>
+                                    <constraint firstItem="vzb-Lx-Bye" firstAttribute="trailing" secondItem="DMo-eQ-CRi" secondAttribute="trailingMargin" id="mNv-CT-rcZ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="top" secondItem="l0M-Nt-Gu7" secondAttribute="top" constant="10" id="Bmn-kE-wIc"/>
+                            <constraint firstItem="DMo-eQ-CRi" firstAttribute="leading" secondItem="l0M-Nt-Gu7" secondAttribute="leading" id="Enq-VZ-dqD"/>
+                            <constraint firstItem="DMo-eQ-CRi" firstAttribute="top" secondItem="3At-aj-0Qz" secondAttribute="bottom" constant="32" id="MQM-3K-XOG"/>
+                            <constraint firstItem="l0M-Nt-Gu7" firstAttribute="trailing" secondItem="DMo-eQ-CRi" secondAttribute="trailing" id="teg-XW-uZ2"/>
                             <constraint firstAttribute="trailing" secondItem="3At-aj-0Qz" secondAttribute="trailing" constant="16" id="u18-pp-7vQ"/>
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="leading" secondItem="dmU-tZ-rNu" secondAttribute="leadingMargin" id="zPz-Hy-01a"/>
                         </constraints>
@@ -79,7 +112,9 @@
                         <outlet property="logoImageContainer" destination="UUs-ow-R4P" id="NW6-rz-a3C"/>
                         <outlet property="logoImageView" destination="8zx-5H-8yK" id="UTr-I8-ykq"/>
                         <outlet property="nameTextField" destination="psI-iQ-z7E" id="H3V-Lb-Njx"/>
+                        <outlet property="segmentedControl" destination="8mS-zy-fRb" id="jwl-5r-Czp"/>
                         <outlet property="serviceUrlTextField" destination="CsI-sV-SYL" id="koD-hd-2iU"/>
+                        <outlet property="switch" destination="S9p-pZ-QPK" id="yKE-HL-gnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msO-sV-e5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
