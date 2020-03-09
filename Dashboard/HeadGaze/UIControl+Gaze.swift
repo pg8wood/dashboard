@@ -51,7 +51,11 @@ extension UIControl {
             // TODO move this magic number to a more configurable location
             let gazeMovedGovernorDuration: TimeInterval = 0.25
             if timeElapsed >= gazeMovedGovernorDuration {
-                sendActions(for: .gazeMoveInside)
+                if actions(forTarget: self, forControlEvent: .gazeMoveInside) != nil {
+                    sendActions(for: .gazeMoveInside)
+                } else {
+                    sendActions(for: .touchUpInside)
+                }
                 self.gazeMovedDate = Date()
             }
         }
@@ -63,7 +67,13 @@ extension UIControl {
         let timeElapsed = Date().timeIntervalSince(beganDate)
         if timeElapsed >= gaze.selectionHoldDuration {
             isSelected = true
-            sendActions(for: .gazeEndInside)
+            
+            if actions(forTarget: self, forControlEvent: .gazeEndInside) != nil {
+                sendActions(for: .gazeEndInside)
+            } else {
+                sendActions(for: .touchUpInside)
+            }
+            
             gazeBeganDate = nil
             (self.window as? HeadGazeWindow)?.animateCursorSelection()
         }

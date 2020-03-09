@@ -26,6 +26,7 @@
 		B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881D247221DC94E0038BF81 /* Assets.xcassets */; };
 		B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */; };
+		B889FB6C2416DFFB007995A6 /* DashboardTabHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */; };
 		B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
@@ -51,7 +52,7 @@
 		B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CB823D264BF00558F8D /* Settings.swift */; };
 		B8AC2CBB23D60DC400558F8D /* URLError+ShortMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
-		B8B3C8B324156D45007C5386 /* UIButton+Gaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B224156D45007C5386 /* UIButton+Gaze.swift */; };
+		B8B3C8B324156D45007C5386 /* UIControl+Gaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */; };
 		B8B3C8D124156D4C007C5386 /* UIHeadGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B524156D4B007C5386 /* UIHeadGazeViewController.swift */; };
 		B8B3C8D224156D4C007C5386 /* HeadGazeTrackingInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B624156D4B007C5386 /* HeadGazeTrackingInterpolator.swift */; };
 		B8B3C8D324156D4C007C5386 /* HeadGazeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B724156D4B007C5386 /* HeadGazeWindow.swift */; };
@@ -213,6 +214,7 @@
 		B881D248221DC94E0038BF81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B881D24A221DC94F0038BF81 /* OldNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldNetworkService.swift; sourceTree = "<group>"; };
 		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
+		B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabHostingViewController.swift; sourceTree = "<group>"; };
 		B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExtensions.swift; sourceTree = "<group>"; };
 		B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddServiceView.swift; path = Dashboard/Features/AddService/AddServiceView.swift; sourceTree = SOURCE_ROOT; };
 		B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServiceRowView.swift; sourceTree = "<group>"; };
@@ -237,7 +239,7 @@
 		B8AC2CB823D264BF00558F8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+ShortMessages.swift"; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
-		B8B3C8B224156D45007C5386 /* UIButton+Gaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Gaze.swift"; sourceTree = "<group>"; };
+		B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Gaze.swift"; sourceTree = "<group>"; };
 		B8B3C8B524156D4B007C5386 /* UIHeadGazeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeViewController.swift; sourceTree = "<group>"; };
 		B8B3C8B624156D4B007C5386 /* HeadGazeTrackingInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeTrackingInterpolator.swift; sourceTree = "<group>"; };
 		B8B3C8B724156D4B007C5386 /* HeadGazeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeWindow.swift; sourceTree = "<group>"; };
@@ -600,7 +602,8 @@
 			isa = PBXGroup;
 			children = (
 				B8B3C8B424156D4B007C5386 /* HeadGazeLib */,
-				B8B3C8B224156D45007C5386 /* UIButton+Gaze.swift */,
+				B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */,
+				B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */,
 				B8B3C8EB24156D95007C5386 /* CursorView.swift */,
 				B8B3C8ED24156DA8007C5386 /* VectorUtils.swift */,
 				B8B3C8EF24156E97007C5386 /* AppDelegate+Gaze.swift */,
@@ -1080,6 +1083,7 @@
 				B8B3C8E924156D4C007C5386 /* Interpolation.swift in Sources */,
 				B8B3C8D324156D4C007C5386 /* HeadGazeWindow.swift in Sources */,
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
+				B889FB6C2416DFFB007995A6 /* DashboardTabHostingViewController.swift in Sources */,
 				B8AC2CB323D25B1E00558F8D /* SettingsView.swift in Sources */,
 				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
 				B8BC9740241576B900974390 /* TrackingContainerViewController.swift in Sources */,
@@ -1088,7 +1092,7 @@
 				B8B3C8EE24156DA9007C5386 /* VectorUtils.swift in Sources */,
 				B8B3C8D424156D4C007C5386 /* UIHeadGaze.swift in Sources */,
 				B87157DF23D255F7005EDFFD /* DashboardTabView.swift in Sources */,
-				B8B3C8B324156D45007C5386 /* UIButton+Gaze.swift in Sources */,
+				B8B3C8B324156D45007C5386 /* UIControl+Gaze.swift in Sources */,
 				B8B3C8E424156D4C007C5386 /* Pulse.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
 				B8B3C8D524156D4C007C5386 /* UIHeadGazeEvent.swift in Sources */,
