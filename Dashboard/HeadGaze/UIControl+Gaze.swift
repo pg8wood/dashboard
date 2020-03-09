@@ -51,11 +51,8 @@ extension UIControl {
             // TODO move this magic number to a more configurable location
             let gazeMovedGovernorDuration: TimeInterval = 0.25
             if timeElapsed >= gazeMovedGovernorDuration {
-                if actions(forTarget: self, forControlEvent: .gazeMoveInside) != nil {
-                    sendActions(for: .gazeMoveInside)
-                } else {
-                    sendActions(for: .touchUpInside)
-                }
+                sendActions(for: .gazeMoveInside)
+                
                 self.gazeMovedDate = Date()
             }
         }

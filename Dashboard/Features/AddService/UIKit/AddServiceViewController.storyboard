@@ -64,24 +64,31 @@
                                     <constraint firstAttribute="height" constant="125" id="kkX-nv-qX5"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-eQ-CRi">
-                                <rect key="frame" x="0.0" y="211" width="375" height="146"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-eQ-CRi">
+                                <rect key="frame" x="0.0" y="211" width="375" height="517"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-eU-qc6">
-                                        <rect key="frame" x="131" y="0.0" width="113" height="30"/>
+                                        <rect key="frame" x="131" y="0.0" width="113" height="106.33333333333333"/>
                                         <state key="normal" title="Gazeable button"/>
                                         <connections>
                                             <action selector="gazeTestButtonSelected:" destination="dyp-ae-97u" eventType="primaryActionTriggered" id="PDP-fS-Ott"/>
                                         </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9p-pZ-QPK">
-                                        <rect key="frame" x="163" y="38" width="51" height="31"/>
+                                        <rect key="frame" x="163" y="114.33333333333331" width="51" height="109.66666666666669"/>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Lx-Bye">
-                                        <rect key="frame" x="-2" y="77" width="379" height="31"/>
+                                        <rect key="frame" x="60.666666666666657" y="232" width="253.99999999999997" height="228"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="WR6-Sh-Nqi"/>
+                                        </constraints>
                                     </slider>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8mS-zy-fRb">
-                                        <rect key="frame" x="122" y="115" width="131" height="32"/>
+                                        <rect key="frame" x="62.666666666666657" y="467" width="249.99999999999997" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Udv-VA-8V9"/>
+                                            <constraint firstAttribute="width" constant="250" id="jrr-RJ-hb9"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
@@ -91,10 +98,6 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="vzb-Lx-Bye" firstAttribute="leading" secondItem="DMo-eQ-CRi" secondAttribute="leadingMargin" id="aZR-gy-Zl3"/>
-                                    <constraint firstItem="vzb-Lx-Bye" firstAttribute="trailing" secondItem="DMo-eQ-CRi" secondAttribute="trailingMargin" id="mNv-CT-rcZ"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -102,6 +105,7 @@
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="top" secondItem="l0M-Nt-Gu7" secondAttribute="top" constant="10" id="Bmn-kE-wIc"/>
                             <constraint firstItem="DMo-eQ-CRi" firstAttribute="leading" secondItem="l0M-Nt-Gu7" secondAttribute="leading" id="Enq-VZ-dqD"/>
                             <constraint firstItem="DMo-eQ-CRi" firstAttribute="top" secondItem="3At-aj-0Qz" secondAttribute="bottom" constant="32" id="MQM-3K-XOG"/>
+                            <constraint firstItem="l0M-Nt-Gu7" firstAttribute="bottom" secondItem="DMo-eQ-CRi" secondAttribute="bottom" constant="50" id="Zj1-8R-Ini"/>
                             <constraint firstItem="l0M-Nt-Gu7" firstAttribute="trailing" secondItem="DMo-eQ-CRi" secondAttribute="trailing" id="teg-XW-uZ2"/>
                             <constraint firstAttribute="trailing" secondItem="3At-aj-0Qz" secondAttribute="trailing" constant="16" id="u18-pp-7vQ"/>
                             <constraint firstItem="3At-aj-0Qz" firstAttribute="leading" secondItem="dmU-tZ-rNu" secondAttribute="leadingMargin" id="zPz-Hy-01a"/>
