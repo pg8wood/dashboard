@@ -68,30 +68,35 @@
                                 <rect key="frame" x="0.0" y="211" width="375" height="517"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-eU-qc6">
-                                        <rect key="frame" x="131" y="0.0" width="113" height="106.33333333333333"/>
+                                        <rect key="frame" x="131" y="0.0" width="113" height="84"/>
                                         <state key="normal" title="Gazeable button"/>
                                         <connections>
                                             <action selector="gazeTestButtonSelected:" destination="dyp-ae-97u" eventType="primaryActionTriggered" id="PDP-fS-Ott"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9p-pZ-QPK">
-                                        <rect key="frame" x="163" y="114.33333333333331" width="51" height="109.66666666666669"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16Z-aB-a1F">
+                                        <rect key="frame" x="163" y="92" width="51" height="86.333333333333314"/>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-iT-OQB">
+                                        <rect key="frame" x="163" y="186.33333333333331" width="51" height="86.666666666666686"/>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Lx-Bye">
-                                        <rect key="frame" x="60.666666666666657" y="232" width="253.99999999999997" height="228"/>
+                                        <rect key="frame" x="60.666666666666657" y="281" width="253.99999999999997" height="129"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="WR6-Sh-Nqi"/>
                                         </constraints>
                                     </slider>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8mS-zy-fRb">
-                                        <rect key="frame" x="62.666666666666657" y="467" width="249.99999999999997" height="51"/>
+                                        <rect key="frame" x="62.666666666666657" y="417" width="249.99999999999997" height="101"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Udv-VA-8V9"/>
+                                            <constraint firstAttribute="height" constant="100" id="Udv-VA-8V9"/>
                                             <constraint firstAttribute="width" constant="250" id="jrr-RJ-hb9"/>
                                         </constraints>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
+                                            <segment title=""/>
+                                            <segment title=""/>
                                         </segments>
                                         <connections>
                                             <action selector="didSelectSegmentedControl:" destination="dyp-ae-97u" eventType="touchUpInside" id="LA6-59-gvW"/>
@@ -118,7 +123,6 @@
                         <outlet property="nameTextField" destination="psI-iQ-z7E" id="H3V-Lb-Njx"/>
                         <outlet property="segmentedControl" destination="8mS-zy-fRb" id="jwl-5r-Czp"/>
                         <outlet property="serviceUrlTextField" destination="CsI-sV-SYL" id="koD-hd-2iU"/>
-                        <outlet property="switch" destination="S9p-pZ-QPK" id="yKE-HL-gnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msO-sV-e5x" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,10 +22,9 @@ enum Mode {
 
 class AddServiceViewController: UIViewController {
     // MARK: - Gaze Testing
-    @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBAction func gazeTestButtonSelected(_ sender: Any) {
-        alertGazeWorked()
+        print("button selected")
     }
     
     @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
