@@ -27,7 +27,9 @@ class AddServiceViewController: UIViewController {
         print("button selected")
     }
     @IBOutlet weak var topSlider: UISlider!
+    @IBOutlet weak var topSliderLabel: UILabel!
     @IBOutlet weak var middleSlider: UISlider!
+    @IBOutlet weak var middleSliderLabel: UILabel!
     
     @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
 //        alertGazeWorked()
@@ -41,8 +43,14 @@ class AddServiceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        topSlider.gazeMovedDelay = 1
         topSlider.gazeMovedFrequency = 1
         middleSlider.gazeMovedFrequency = 0.1
+        middleSlider.gazeMovedDelay = 0.5
+        
+        topSliderLabel.text = "delay: \(topSlider.gazeMovedDelay!) frequency: \(topSlider.gazeMovedFrequency!)"
+        
+        middleSliderLabel.text = "delay: \(middleSlider.gazeMovedDelay!) frequency: \(middleSlider.gazeMovedFrequency!)"
     }
     
     

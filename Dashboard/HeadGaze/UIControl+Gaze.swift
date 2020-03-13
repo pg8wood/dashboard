@@ -33,11 +33,12 @@ extension UIControl {
             Storage._lastGazeMovedDate = newValue
         }
     }
-    var gazeMovedDelay: TimeInterval {
+    var gazeMovedDelay: TimeInterval? {
         get {
-            Storage._gazeMovedDelay
-        } set {
-            Storage._gazeMovedDelay = newValue
+            return objc_getAssociatedObject(self, &Storage._gazeMovedDelay) as? TimeInterval
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &Storage._gazeMovedDelay, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     var gazeMovedFrequency: TimeInterval? {
@@ -72,7 +73,8 @@ extension UIControl {
         
         let timeSinceGazeBegan = now.timeIntervalSince(beganDate)
         
-        if timeSinceGazeBegan >= gazeMovedDelay,
+        if let gazeMovedDelay = gazeMovedDelay,
+            timeSinceGazeBegan >= gazeMovedDelay,
             let lastGazeMovedDate = lastGazeMovedDate,
             let gazeMovedFrequency = gazeMovedFrequency,
             now.timeIntervalSince(lastGazeMovedDate) >= gazeMovedFrequency {
