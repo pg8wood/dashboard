@@ -27,6 +27,32 @@
 		B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881D24A221DC94F0038BF81 /* OldNetworkService.swift */; };
 		B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */; };
 		B889FB6C2416DFFB007995A6 /* DashboardTabHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */; };
+		B889FBF8241AF967007995A6 /* UIHeadGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBDC241AF967007995A6 /* UIHeadGazeViewController.swift */; };
+		B889FBF9241AF967007995A6 /* HeadGazeTrackingInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBDD241AF967007995A6 /* HeadGazeTrackingInterpolator.swift */; };
+		B889FBFA241AF967007995A6 /* HeadGazeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBDE241AF967007995A6 /* HeadGazeWindow.swift */; };
+		B889FBFB241AF967007995A6 /* UIHeadGaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBDF241AF967007995A6 /* UIHeadGaze.swift */; };
+		B889FBFC241AF967007995A6 /* UIHeadGazeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE0241AF967007995A6 /* UIHeadGazeEvent.swift */; };
+		B889FBFD241AF967007995A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE1241AF967007995A6 /* Extensions.swift */; };
+		B889FBFE241AF967007995A6 /* UIVirtualCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE2241AF967007995A6 /* UIVirtualCursorView.swift */; };
+		B889FBFF241AF967007995A6 /* GazeLib.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B889FBE3241AF967007995A6 /* GazeLib.scnassets */; };
+		B889FC00241AF967007995A6 /* UIHeadGazeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE4241AF967007995A6 /* UIHeadGazeRecognizer.swift */; };
+		B889FC01241AF967007995A6 /* InterpolableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE6241AF967007995A6 /* InterpolableValues.swift */; };
+		B889FC02241AF967007995A6 /* TunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE8241AF967007995A6 /* TunningView.swift */; };
+		B889FC03241AF967007995A6 /* PIDControlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBE9241AF967007995A6 /* PIDControlConstants.swift */; };
+		B889FC04241AF967007995A6 /* TrackingDebugOverlayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B889FBEA241AF967007995A6 /* TrackingDebugOverlayViewController.storyboard */; };
+		B889FC05241AF967007995A6 /* SingleControlDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBEB241AF967007995A6 /* SingleControlDisplayable.swift */; };
+		B889FC06241AF967007995A6 /* SingleControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBEC241AF967007995A6 /* SingleControlView.swift */; };
+		B889FC07241AF967007995A6 /* FormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBED241AF967007995A6 /* FormatterExtensions.swift */; };
+		B889FC08241AF967007995A6 /* TunningWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBEE241AF967007995A6 /* TunningWindow.swift */; };
+		B889FC09241AF967007995A6 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBEF241AF967007995A6 /* Queue.swift */; };
+		B889FC0A241AF967007995A6 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF0241AF967007995A6 /* ControlsView.swift */; };
+		B889FC0B241AF967007995A6 /* Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF1241AF967007995A6 /* Pulse.swift */; };
+		B889FC0C241AF967007995A6 /* TrackingDebugOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF2241AF967007995A6 /* TrackingDebugOverlayViewController.swift */; };
+		B889FC0D241AF967007995A6 /* TunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF3241AF967007995A6 /* TunningViewController.swift */; };
+		B889FC0E241AF967007995A6 /* PulseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF4241AF967007995A6 /* PulseExtension.swift */; };
+		B889FC0F241AF967007995A6 /* PIDInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF5241AF967007995A6 /* PIDInterpolator.swift */; };
+		B889FC10241AF967007995A6 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF6241AF967007995A6 /* Interpolation.swift */; };
+		B889FC11241AF967007995A6 /* LowPassInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B889FBF7241AF967007995A6 /* LowPassInterpolator.swift */; };
 		B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D494F23429AFA0058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
 		B88D495023429B110058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */; };
@@ -53,32 +79,6 @@
 		B8AC2CBB23D60DC400558F8D /* URLError+ShortMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */; };
 		B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC722D232EC9DE00074652 /* MockServiceModel.swift */; };
 		B8B3C8B324156D45007C5386 /* UIControl+Gaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */; };
-		B8B3C8D124156D4C007C5386 /* UIHeadGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B524156D4B007C5386 /* UIHeadGazeViewController.swift */; };
-		B8B3C8D224156D4C007C5386 /* HeadGazeTrackingInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B624156D4B007C5386 /* HeadGazeTrackingInterpolator.swift */; };
-		B8B3C8D324156D4C007C5386 /* HeadGazeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B724156D4B007C5386 /* HeadGazeWindow.swift */; };
-		B8B3C8D424156D4C007C5386 /* UIHeadGaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B824156D4B007C5386 /* UIHeadGaze.swift */; };
-		B8B3C8D524156D4C007C5386 /* UIHeadGazeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8B924156D4B007C5386 /* UIHeadGazeEvent.swift */; };
-		B8B3C8D624156D4C007C5386 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8BA24156D4B007C5386 /* Extensions.swift */; };
-		B8B3C8D724156D4C007C5386 /* UIVirtualCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8BB24156D4B007C5386 /* UIVirtualCursorView.swift */; };
-		B8B3C8D824156D4C007C5386 /* GazeLib.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B3C8BC24156D4B007C5386 /* GazeLib.scnassets */; };
-		B8B3C8D924156D4C007C5386 /* UIHeadGazeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8BD24156D4B007C5386 /* UIHeadGazeRecognizer.swift */; };
-		B8B3C8DA24156D4C007C5386 /* InterpolableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8BF24156D4B007C5386 /* InterpolableValues.swift */; };
-		B8B3C8DB24156D4C007C5386 /* TunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C124156D4B007C5386 /* TunningView.swift */; };
-		B8B3C8DC24156D4C007C5386 /* PIDControlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C224156D4B007C5386 /* PIDControlConstants.swift */; };
-		B8B3C8DD24156D4C007C5386 /* TrackingDebugOverlayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B3C8C324156D4B007C5386 /* TrackingDebugOverlayViewController.storyboard */; };
-		B8B3C8DE24156D4C007C5386 /* SingleControlDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C424156D4B007C5386 /* SingleControlDisplayable.swift */; };
-		B8B3C8DF24156D4C007C5386 /* SingleControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C524156D4B007C5386 /* SingleControlView.swift */; };
-		B8B3C8E024156D4C007C5386 /* FormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C624156D4B007C5386 /* FormatterExtensions.swift */; };
-		B8B3C8E124156D4C007C5386 /* TunningWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C724156D4B007C5386 /* TunningWindow.swift */; };
-		B8B3C8E224156D4C007C5386 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C824156D4B007C5386 /* Queue.swift */; };
-		B8B3C8E324156D4C007C5386 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8C924156D4B007C5386 /* ControlsView.swift */; };
-		B8B3C8E424156D4C007C5386 /* Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CA24156D4B007C5386 /* Pulse.swift */; };
-		B8B3C8E524156D4C007C5386 /* TrackingDebugOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CB24156D4B007C5386 /* TrackingDebugOverlayViewController.swift */; };
-		B8B3C8E624156D4C007C5386 /* TunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CC24156D4B007C5386 /* TunningViewController.swift */; };
-		B8B3C8E724156D4C007C5386 /* PulseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CD24156D4B007C5386 /* PulseExtension.swift */; };
-		B8B3C8E824156D4C007C5386 /* PIDInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CE24156D4B007C5386 /* PIDInterpolator.swift */; };
-		B8B3C8E924156D4C007C5386 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8CF24156D4B007C5386 /* Interpolation.swift */; };
-		B8B3C8EA24156D4C007C5386 /* LowPassInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8D024156D4B007C5386 /* LowPassInterpolator.swift */; };
 		B8B3C8EC24156D95007C5386 /* CursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8EB24156D95007C5386 /* CursorView.swift */; };
 		B8B3C8EE24156DA9007C5386 /* VectorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8ED24156DA8007C5386 /* VectorUtils.swift */; };
 		B8B3C8F024156E97007C5386 /* AppDelegate+Gaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B3C8EF24156E97007C5386 /* AppDelegate+Gaze.swift */; };
@@ -215,6 +215,32 @@
 		B881D24A221DC94F0038BF81 /* OldNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldNetworkService.swift; sourceTree = "<group>"; };
 		B881D258221DCCAA0038BF81 /* AddServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddServiceViewController.storyboard; sourceTree = "<group>"; };
 		B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabHostingViewController.swift; sourceTree = "<group>"; };
+		B889FBDC241AF967007995A6 /* UIHeadGazeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeViewController.swift; sourceTree = "<group>"; };
+		B889FBDD241AF967007995A6 /* HeadGazeTrackingInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeTrackingInterpolator.swift; sourceTree = "<group>"; };
+		B889FBDE241AF967007995A6 /* HeadGazeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeWindow.swift; sourceTree = "<group>"; };
+		B889FBDF241AF967007995A6 /* UIHeadGaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGaze.swift; sourceTree = "<group>"; };
+		B889FBE0241AF967007995A6 /* UIHeadGazeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeEvent.swift; sourceTree = "<group>"; };
+		B889FBE1241AF967007995A6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B889FBE2241AF967007995A6 /* UIVirtualCursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVirtualCursorView.swift; sourceTree = "<group>"; };
+		B889FBE3241AF967007995A6 /* GazeLib.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GazeLib.scnassets; sourceTree = "<group>"; };
+		B889FBE4241AF967007995A6 /* UIHeadGazeRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeRecognizer.swift; sourceTree = "<group>"; };
+		B889FBE6241AF967007995A6 /* InterpolableValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolableValues.swift; sourceTree = "<group>"; };
+		B889FBE8241AF967007995A6 /* TunningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningView.swift; sourceTree = "<group>"; };
+		B889FBE9241AF967007995A6 /* PIDControlConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDControlConstants.swift; sourceTree = "<group>"; };
+		B889FBEA241AF967007995A6 /* TrackingDebugOverlayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TrackingDebugOverlayViewController.storyboard; sourceTree = "<group>"; };
+		B889FBEB241AF967007995A6 /* SingleControlDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleControlDisplayable.swift; sourceTree = "<group>"; };
+		B889FBEC241AF967007995A6 /* SingleControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleControlView.swift; sourceTree = "<group>"; };
+		B889FBED241AF967007995A6 /* FormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterExtensions.swift; sourceTree = "<group>"; };
+		B889FBEE241AF967007995A6 /* TunningWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningWindow.swift; sourceTree = "<group>"; };
+		B889FBEF241AF967007995A6 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		B889FBF0241AF967007995A6 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		B889FBF1241AF967007995A6 /* Pulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulse.swift; sourceTree = "<group>"; };
+		B889FBF2241AF967007995A6 /* TrackingDebugOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDebugOverlayViewController.swift; sourceTree = "<group>"; };
+		B889FBF3241AF967007995A6 /* TunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningViewController.swift; sourceTree = "<group>"; };
+		B889FBF4241AF967007995A6 /* PulseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseExtension.swift; sourceTree = "<group>"; };
+		B889FBF5241AF967007995A6 /* PIDInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDInterpolator.swift; sourceTree = "<group>"; };
+		B889FBF6241AF967007995A6 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		B889FBF7241AF967007995A6 /* LowPassInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassInterpolator.swift; sourceTree = "<group>"; };
 		B88D494D234299200058B0D3 /* CodingUserInfoKeyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExtensions.swift; sourceTree = "<group>"; };
 		B88D495A2342A3BA0058B0D3 /* AddServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddServiceView.swift; path = Dashboard/Features/AddService/AddServiceView.swift; sourceTree = SOURCE_ROOT; };
 		B88D49622342A7B40058B0D3 /* WatchServiceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServiceRowView.swift; sourceTree = "<group>"; };
@@ -240,32 +266,6 @@
 		B8AC2CBA23D60DC400558F8D /* URLError+ShortMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+ShortMessages.swift"; sourceTree = "<group>"; };
 		B8AC722D232EC9DE00074652 /* MockServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceModel.swift; sourceTree = "<group>"; };
 		B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Gaze.swift"; sourceTree = "<group>"; };
-		B8B3C8B524156D4B007C5386 /* UIHeadGazeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeViewController.swift; sourceTree = "<group>"; };
-		B8B3C8B624156D4B007C5386 /* HeadGazeTrackingInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeTrackingInterpolator.swift; sourceTree = "<group>"; };
-		B8B3C8B724156D4B007C5386 /* HeadGazeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadGazeWindow.swift; sourceTree = "<group>"; };
-		B8B3C8B824156D4B007C5386 /* UIHeadGaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGaze.swift; sourceTree = "<group>"; };
-		B8B3C8B924156D4B007C5386 /* UIHeadGazeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeEvent.swift; sourceTree = "<group>"; };
-		B8B3C8BA24156D4B007C5386 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B8B3C8BB24156D4B007C5386 /* UIVirtualCursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVirtualCursorView.swift; sourceTree = "<group>"; };
-		B8B3C8BC24156D4B007C5386 /* GazeLib.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GazeLib.scnassets; sourceTree = "<group>"; };
-		B8B3C8BD24156D4B007C5386 /* UIHeadGazeRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHeadGazeRecognizer.swift; sourceTree = "<group>"; };
-		B8B3C8BF24156D4B007C5386 /* InterpolableValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolableValues.swift; sourceTree = "<group>"; };
-		B8B3C8C124156D4B007C5386 /* TunningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningView.swift; sourceTree = "<group>"; };
-		B8B3C8C224156D4B007C5386 /* PIDControlConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDControlConstants.swift; sourceTree = "<group>"; };
-		B8B3C8C324156D4B007C5386 /* TrackingDebugOverlayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TrackingDebugOverlayViewController.storyboard; sourceTree = "<group>"; };
-		B8B3C8C424156D4B007C5386 /* SingleControlDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleControlDisplayable.swift; sourceTree = "<group>"; };
-		B8B3C8C524156D4B007C5386 /* SingleControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleControlView.swift; sourceTree = "<group>"; };
-		B8B3C8C624156D4B007C5386 /* FormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterExtensions.swift; sourceTree = "<group>"; };
-		B8B3C8C724156D4B007C5386 /* TunningWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningWindow.swift; sourceTree = "<group>"; };
-		B8B3C8C824156D4B007C5386 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		B8B3C8C924156D4B007C5386 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
-		B8B3C8CA24156D4B007C5386 /* Pulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulse.swift; sourceTree = "<group>"; };
-		B8B3C8CB24156D4B007C5386 /* TrackingDebugOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDebugOverlayViewController.swift; sourceTree = "<group>"; };
-		B8B3C8CC24156D4B007C5386 /* TunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunningViewController.swift; sourceTree = "<group>"; };
-		B8B3C8CD24156D4B007C5386 /* PulseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseExtension.swift; sourceTree = "<group>"; };
-		B8B3C8CE24156D4B007C5386 /* PIDInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDInterpolator.swift; sourceTree = "<group>"; };
-		B8B3C8CF24156D4B007C5386 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
-		B8B3C8D024156D4B007C5386 /* LowPassInterpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassInterpolator.swift; sourceTree = "<group>"; };
 		B8B3C8EB24156D95007C5386 /* CursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursorView.swift; sourceTree = "<group>"; };
 		B8B3C8ED24156DA8007C5386 /* VectorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorUtils.swift; sourceTree = "<group>"; };
 		B8B3C8EF24156E97007C5386 /* AppDelegate+Gaze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Gaze.swift"; sourceTree = "<group>"; };
@@ -492,6 +492,55 @@
 			path = AddService;
 			sourceTree = "<group>";
 		};
+		B889FBDB241AF967007995A6 /* HeadGazeLib */ = {
+			isa = PBXGroup;
+			children = (
+				B889FBDC241AF967007995A6 /* UIHeadGazeViewController.swift */,
+				B889FBDD241AF967007995A6 /* HeadGazeTrackingInterpolator.swift */,
+				B889FBDE241AF967007995A6 /* HeadGazeWindow.swift */,
+				B889FBDF241AF967007995A6 /* UIHeadGaze.swift */,
+				B889FBE0241AF967007995A6 /* UIHeadGazeEvent.swift */,
+				B889FBE1241AF967007995A6 /* Extensions.swift */,
+				B889FBE2241AF967007995A6 /* UIVirtualCursorView.swift */,
+				B889FBE3241AF967007995A6 /* GazeLib.scnassets */,
+				B889FBE4241AF967007995A6 /* UIHeadGazeRecognizer.swift */,
+				B889FBE5241AF967007995A6 /* Interpolation */,
+			);
+			path = HeadGazeLib;
+			sourceTree = "<group>";
+		};
+		B889FBE5241AF967007995A6 /* Interpolation */ = {
+			isa = PBXGroup;
+			children = (
+				B889FBE6241AF967007995A6 /* InterpolableValues.swift */,
+				B889FBE7241AF967007995A6 /* PulseController */,
+				B889FBF5241AF967007995A6 /* PIDInterpolator.swift */,
+				B889FBF6241AF967007995A6 /* Interpolation.swift */,
+				B889FBF7241AF967007995A6 /* LowPassInterpolator.swift */,
+			);
+			path = Interpolation;
+			sourceTree = "<group>";
+		};
+		B889FBE7241AF967007995A6 /* PulseController */ = {
+			isa = PBXGroup;
+			children = (
+				B889FBE8241AF967007995A6 /* TunningView.swift */,
+				B889FBE9241AF967007995A6 /* PIDControlConstants.swift */,
+				B889FBEA241AF967007995A6 /* TrackingDebugOverlayViewController.storyboard */,
+				B889FBEB241AF967007995A6 /* SingleControlDisplayable.swift */,
+				B889FBEC241AF967007995A6 /* SingleControlView.swift */,
+				B889FBED241AF967007995A6 /* FormatterExtensions.swift */,
+				B889FBEE241AF967007995A6 /* TunningWindow.swift */,
+				B889FBEF241AF967007995A6 /* Queue.swift */,
+				B889FBF0241AF967007995A6 /* ControlsView.swift */,
+				B889FBF1241AF967007995A6 /* Pulse.swift */,
+				B889FBF2241AF967007995A6 /* TrackingDebugOverlayViewController.swift */,
+				B889FBF3241AF967007995A6 /* TunningViewController.swift */,
+				B889FBF4241AF967007995A6 /* PulseExtension.swift */,
+			);
+			path = PulseController;
+			sourceTree = "<group>";
+		};
 		B88D5566221B07FA007817A3 = {
 			isa = PBXGroup;
 			children = (
@@ -601,7 +650,7 @@
 		B8B3C8B124156D36007C5386 /* HeadGaze */ = {
 			isa = PBXGroup;
 			children = (
-				B8B3C8B424156D4B007C5386 /* HeadGazeLib */,
+				B889FBDB241AF967007995A6 /* HeadGazeLib */,
 				B8B3C8B224156D45007C5386 /* UIControl+Gaze.swift */,
 				B889FB6B2416DFFB007995A6 /* DashboardTabHostingViewController.swift */,
 				B8B3C8EB24156D95007C5386 /* CursorView.swift */,
@@ -613,55 +662,6 @@
 				B8BC974324157AD900974390 /* AppConfig.swift */,
 			);
 			path = HeadGaze;
-			sourceTree = "<group>";
-		};
-		B8B3C8B424156D4B007C5386 /* HeadGazeLib */ = {
-			isa = PBXGroup;
-			children = (
-				B8B3C8B524156D4B007C5386 /* UIHeadGazeViewController.swift */,
-				B8B3C8B624156D4B007C5386 /* HeadGazeTrackingInterpolator.swift */,
-				B8B3C8B724156D4B007C5386 /* HeadGazeWindow.swift */,
-				B8B3C8B824156D4B007C5386 /* UIHeadGaze.swift */,
-				B8B3C8B924156D4B007C5386 /* UIHeadGazeEvent.swift */,
-				B8B3C8BA24156D4B007C5386 /* Extensions.swift */,
-				B8B3C8BB24156D4B007C5386 /* UIVirtualCursorView.swift */,
-				B8B3C8BC24156D4B007C5386 /* GazeLib.scnassets */,
-				B8B3C8BD24156D4B007C5386 /* UIHeadGazeRecognizer.swift */,
-				B8B3C8BE24156D4B007C5386 /* Interpolation */,
-			);
-			path = HeadGazeLib;
-			sourceTree = "<group>";
-		};
-		B8B3C8BE24156D4B007C5386 /* Interpolation */ = {
-			isa = PBXGroup;
-			children = (
-				B8B3C8BF24156D4B007C5386 /* InterpolableValues.swift */,
-				B8B3C8C024156D4B007C5386 /* PulseController */,
-				B8B3C8CE24156D4B007C5386 /* PIDInterpolator.swift */,
-				B8B3C8CF24156D4B007C5386 /* Interpolation.swift */,
-				B8B3C8D024156D4B007C5386 /* LowPassInterpolator.swift */,
-			);
-			path = Interpolation;
-			sourceTree = "<group>";
-		};
-		B8B3C8C024156D4B007C5386 /* PulseController */ = {
-			isa = PBXGroup;
-			children = (
-				B8B3C8C124156D4B007C5386 /* TunningView.swift */,
-				B8B3C8C224156D4B007C5386 /* PIDControlConstants.swift */,
-				B8B3C8C324156D4B007C5386 /* TrackingDebugOverlayViewController.storyboard */,
-				B8B3C8C424156D4B007C5386 /* SingleControlDisplayable.swift */,
-				B8B3C8C524156D4B007C5386 /* SingleControlView.swift */,
-				B8B3C8C624156D4B007C5386 /* FormatterExtensions.swift */,
-				B8B3C8C724156D4B007C5386 /* TunningWindow.swift */,
-				B8B3C8C824156D4B007C5386 /* Queue.swift */,
-				B8B3C8C924156D4B007C5386 /* ControlsView.swift */,
-				B8B3C8CA24156D4B007C5386 /* Pulse.swift */,
-				B8B3C8CB24156D4B007C5386 /* TrackingDebugOverlayViewController.swift */,
-				B8B3C8CC24156D4B007C5386 /* TunningViewController.swift */,
-				B8B3C8CD24156D4B007C5386 /* PulseExtension.swift */,
-			);
-			path = PulseController;
 			sourceTree = "<group>";
 		};
 		B8D04A3423356F8100833CC5 /* DashboardWatch */ = {
@@ -926,10 +926,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B3C8DD24156D4C007C5386 /* TrackingDebugOverlayViewController.storyboard in Resources */,
-				B8B3C8D824156D4C007C5386 /* GazeLib.scnassets in Resources */,
 				B881D259221DCCAA0038BF81 /* AddServiceViewController.storyboard in Resources */,
+				B889FC04241AF967007995A6 /* TrackingDebugOverlayViewController.storyboard in Resources */,
 				B8BC97422415775C00974390 /* Main.storyboard in Resources */,
+				B889FBFF241AF967007995A6 /* GazeLib.scnassets in Resources */,
 				B8B3C8F224156FBF007C5386 /* WarningView.xib in Resources */,
 				B881D251221DC94F0038BF81 /* LaunchScreen.storyboard in Resources */,
 				B881D252221DC94F0038BF81 /* Assets.xcassets in Resources */,
@@ -1080,63 +1080,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B3C8E924156D4C007C5386 /* Interpolation.swift in Sources */,
-				B8B3C8D324156D4C007C5386 /* HeadGazeWindow.swift in Sources */,
+				B889FC07241AF967007995A6 /* FormatterExtensions.swift in Sources */,
+				B889FC06241AF967007995A6 /* SingleControlView.swift in Sources */,
 				B8F3915A232973FD00F62FF8 /* SceneDelegate.swift in Sources */,
 				B889FB6C2416DFFB007995A6 /* DashboardTabHostingViewController.swift in Sources */,
 				B8AC2CB323D25B1E00558F8D /* SettingsView.swift in Sources */,
 				B8D04A2D2335446600833CC5 /* EmptyStateView.swift in Sources */,
+				B889FC10241AF967007995A6 /* Interpolation.swift in Sources */,
 				B8BC9740241576B900974390 /* TrackingContainerViewController.swift in Sources */,
-				B8B3C8D124156D4C007C5386 /* UIHeadGazeViewController.swift in Sources */,
-				B8B3C8DB24156D4C007C5386 /* TunningView.swift in Sources */,
+				B889FBFB241AF967007995A6 /* UIHeadGaze.swift in Sources */,
 				B8B3C8EE24156DA9007C5386 /* VectorUtils.swift in Sources */,
-				B8B3C8D424156D4C007C5386 /* UIHeadGaze.swift in Sources */,
 				B87157DF23D255F7005EDFFD /* DashboardTabView.swift in Sources */,
+				B889FC0C241AF967007995A6 /* TrackingDebugOverlayViewController.swift in Sources */,
 				B8B3C8B324156D45007C5386 /* UIControl+Gaze.swift in Sources */,
-				B8B3C8E424156D4C007C5386 /* Pulse.swift in Sources */,
 				B87F22F4221E135D005BD677 /* StringUtils.swift in Sources */,
-				B8B3C8D524156D4C007C5386 /* UIHeadGazeEvent.swift in Sources */,
-				B8B3C8E124156D4C007C5386 /* TunningWindow.swift in Sources */,
 				B88D494E234299200058B0D3 /* CodingUserInfoKeyExtensions.swift in Sources */,
 				B8BC974424157AD900974390 /* AppConfig.swift in Sources */,
+				B889FBF9241AF967007995A6 /* HeadGazeTrackingInterpolator.swift in Sources */,
+				B889FC0D241AF967007995A6 /* TunningViewController.swift in Sources */,
 				B8F3915D2329746500F62FF8 /* ServiceListView.swift in Sources */,
 				B8546C7122DE58520017E2DA /* UIColorExtensions.swift in Sources */,
 				B8AC2CB523D2640C00558F8D /* UserDefaultsPropertyWrapper.swift in Sources */,
 				B8AC2CB923D264BF00558F8D /* Settings.swift in Sources */,
-				B8B3C8E524156D4C007C5386 /* TrackingDebugOverlayViewController.swift in Sources */,
 				B8BEFE2D22E10BDD0074AB51 /* UIViewControllerExtensions.swift in Sources */,
-				B8B3C8E624156D4C007C5386 /* TunningViewController.swift in Sources */,
-				B8B3C8E724156D4C007C5386 /* PulseExtension.swift in Sources */,
-				B8B3C8D724156D4C007C5386 /* UIVirtualCursorView.swift in Sources */,
+				B889FBFE241AF967007995A6 /* UIVirtualCursorView.swift in Sources */,
+				B889FC0F241AF967007995A6 /* PIDInterpolator.swift in Sources */,
+				B889FC03241AF967007995A6 /* PIDControlConstants.swift in Sources */,
 				B8F391632329B16500F62FF8 /* ServiceRow.swift in Sources */,
-				B8B3C8D224156D4C007C5386 /* HeadGazeTrackingInterpolator.swift in Sources */,
 				B8AC2CBB23D60DC400558F8D /* URLError+ShortMessages.swift in Sources */,
-				B8B3C8DE24156D4C007C5386 /* SingleControlDisplayable.swift in Sources */,
 				B8AC722E232EC9DE00074652 /* MockServiceModel.swift in Sources */,
 				B881D250221DC94F0038BF81 /* AddServiceViewController.swift in Sources */,
-				B8B3C8DF24156D4C007C5386 /* SingleControlView.swift in Sources */,
-				B8B3C8D924156D4C007C5386 /* UIHeadGazeRecognizer.swift in Sources */,
+				B889FC00241AF967007995A6 /* UIHeadGazeRecognizer.swift in Sources */,
 				B8B3C8EC24156D95007C5386 /* CursorView.swift in Sources */,
-				B8B3C8EA24156D4C007C5386 /* LowPassInterpolator.swift in Sources */,
-				B8B3C8E224156D4C007C5386 /* Queue.swift in Sources */,
+				B889FBFC241AF967007995A6 /* UIHeadGazeEvent.swift in Sources */,
 				B88D495B2342A4070058B0D3 /* AddServiceView.swift in Sources */,
 				B87F22F7221E6160005BD677 /* Persistence.swift in Sources */,
+				B889FC0E241AF967007995A6 /* PulseExtension.swift in Sources */,
+				B889FBFA241AF967007995A6 /* HeadGazeWindow.swift in Sources */,
 				B8F742612342679A00ACB3E4 /* WCSessionWrapper.swift in Sources */,
-				B8B3C8DC24156D4C007C5386 /* PIDControlConstants.swift in Sources */,
-				B8B3C8E324156D4C007C5386 /* ControlsView.swift in Sources */,
+				B889FC0B241AF967007995A6 /* Pulse.swift in Sources */,
 				B8F391612329798A00F62FF8 /* NetworkService+Combine.swift in Sources */,
 				B87F22FD221F7F8E005BD677 /* Services.xcdatamodeld in Sources */,
+				B889FC11241AF967007995A6 /* LowPassInterpolator.swift in Sources */,
 				B881D254221DC94F0038BF81 /* OldNetworkService.swift in Sources */,
+				B889FC09241AF967007995A6 /* Queue.swift in Sources */,
 				B80B317022E0CB2900180D4E /* DashboardPersistence.swift in Sources */,
 				B8F742642342748F00ACB3E4 /* WatchSessionDelegate.swift in Sources */,
+				B889FC05241AF967007995A6 /* SingleControlDisplayable.swift in Sources */,
+				B889FC02241AF967007995A6 /* TunningView.swift in Sources */,
 				B88D5573221B07FA007817A3 /* AppDelegate.swift in Sources */,
-				B8B3C8DA24156D4C007C5386 /* InterpolableValues.swift in Sources */,
+				B889FC08241AF967007995A6 /* TunningWindow.swift in Sources */,
+				B889FBFD241AF967007995A6 /* Extensions.swift in Sources */,
 				B8D04A302335546D00833CC5 /* UIActivityIndicatorViewRepresentation.swift in Sources */,
-				B8B3C8D624156D4C007C5386 /* Extensions.swift in Sources */,
-				B8B3C8E824156D4C007C5386 /* PIDInterpolator.swift in Sources */,
+				B889FC01241AF967007995A6 /* InterpolableValues.swift in Sources */,
 				B8B3C8F024156E97007C5386 /* AppDelegate+Gaze.swift in Sources */,
-				B8B3C8E024156D4C007C5386 /* FormatterExtensions.swift in Sources */,
 				B87F22FA221E61FA005BD677 /* ServiceModel.swift in Sources */,
+				B889FC0A241AF967007995A6 /* ControlsView.swift in Sources */,
+				B889FBF8241AF967007995A6 /* UIHeadGazeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
