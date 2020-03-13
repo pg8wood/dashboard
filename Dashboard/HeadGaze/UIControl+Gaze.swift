@@ -9,34 +9,17 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 extension UIControl {
     
     // TODO: Does this work properly for more than 1 instance of UIControl?
     private struct Storage {
         static var _gazeBeganDate: Date? = nil
-        static var _gazeMovedDate: Date? = nil
-        static var _gazeMovedDelay: TimeInterval = 0.25
     }
     var gazeBeganDate: Date? {
         get {
             Storage._gazeBeganDate
         } set {
             Storage._gazeBeganDate = newValue
-        }
-    }
-    var gazeMovedDate: Date? {
-        get {
-            Storage._gazeMovedDate
-        } set {
-            Storage._gazeMovedDate = newValue
-        }
-    }
-    var gazeMovedDelay: TimeInterval {
-        get {
-            Storage._gazeMovedDelay
-        } set {
-            Storage._gazeMovedDelay = newValue
         }
     }
     
@@ -49,21 +32,21 @@ extension UIControl {
         
         isHighlighted = true
         gazeBeganDate = Date()
-        gazeMovedDate = Date()
+//        gazeMovedDate = Date()
     }
     
     override func gazeMoved(_ gaze: UIHeadGaze, with event: UIHeadGazeEvent?) {
         super.gazeMoved(gaze, with: event)
         
-        if let gazeMovedDate = self.gazeMovedDate {
-            let timeElapsed = Date().timeIntervalSince(gazeMovedDate)
-            // TODO move this magic number to a more configurable location
-            if timeElapsed >= gazeMovedDelay {
-                sendActions(for: .gazeMoveInside)
-                
-                self.gazeMovedDate = Date()
-            }
-        }
+//        if let gazeMovedDate = self.gazeMovedDate {
+//            let timeElapsed = Date().timeIntervalSince(gazeMovedDate)
+//            // TODO move this magic number to a more configurable location
+//            if timeElapsed >= gazeMovedDelay {
+//                sendActions(for: .gazeMoveInside)
+//
+//                self.gazeMovedDate = Date()
+//            }
+//        }
         
         guard let beganDate = gazeBeganDate else {
             return
@@ -72,16 +55,15 @@ extension UIControl {
         let timeElapsed = Date().timeIntervalSince(beganDate)
         if timeElapsed >= gaze.selectionHoldDuration {
             isSelected = true
-            
-            if actions(forTarget: self, forControlEvent: .gazeEndInside) != nil {
-                sendActions(for: .gazeEndInside)
-            } else {
-                sendActions(for: .touchUpInside)
-            }
-            
             gazeBeganDate = nil
             (self.window as? HeadGazeWindow)?.animateCursorSelection()
+            didSelectFromGaze()
         }
+    }
+    
+    /// Simulates a touch event.  UIControl subclasses should override this function for custom behavior.
+    @objc func didSelectFromGaze() {
+        sendActions(for: .touchUpInside)
     }
     
     override func gazeEnded(_ gaze: UIHeadGaze, with event: UIHeadGazeEvent?) {
@@ -100,30 +82,20 @@ extension UIControl {
     }
 }
 
-extension UIControl.Event {
-    // TODO: what the heck rawValue should we have here
-    static var gazeEndInside: UIControl.Event = .primaryActionTriggered
-    static var gazeMoveInside: UIControl.Event = .init(rawValue: 78234)
+extension UIButton {
+    @objc override func didSelectFromGaze() {
+        sendActions(for: .touchUpInside)
+    }
 }
 
 extension UISwitch {
-    override open func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
-        addTarget(self, action: #selector(didSelectFromGaze(_:)), for: .gazeEndInside)
-    }
-    
-    @objc func didSelectFromGaze(_ sender: UISwitch) {
+    @objc override func didSelectFromGaze() {
         setOn(!isOn, animated: true)
     }
 }
 
 extension UISegmentedControl {
-    override open func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
-        addTarget(self, action: #selector(didSelectFromGaze(_:)), for: .gazeEndInside)
-    }
-    
-    @objc func didSelectFromGaze(_ sender: UISegmentedControl) {
+    @objc override func didSelectFromGaze() {
         guard selectedSegmentIndex != numberOfSegments - 1 else {
             selectedSegmentIndex = 0
             return
@@ -134,19 +106,13 @@ extension UISegmentedControl {
 }
 
 extension UISlider {
-    override open func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
-        addTarget(self, action: #selector(didSelectFromGaze(_:)), for: .gazeMoveInside)
-    }
-    
-    @objc func didSelectFromGaze(_ sender: UISlider) {
+    @objc override func didSelectFromGaze() {
         guard value != maximumValue else {
             setValue(0, animated: true)
             return
         }
-        
+
         setValue(value + 1, animated: true)
     }
-    
 }
 

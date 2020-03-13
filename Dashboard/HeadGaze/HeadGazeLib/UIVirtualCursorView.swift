@@ -68,7 +68,7 @@ class UIVirtualCursorView: UIView {
 
     private func updateForCurrentGazeActivityStatus() {
         let isNowActive = UIApplication.shared.isGazeTrackingActive
-        cursorView.tintColor =  UIColor.orange.withAlphaComponent(isNowActive ? 1 : 0.5)
+        cursorView.tintColor = UIColor.orange.withAlphaComponent(isNowActive ? 1 : 0.5)
         debugCursorView.tintColor = isNowActive ? UIColor.red.withAlphaComponent(0.6) : UIColor.red.withAlphaComponent(0.1)
     }
 
