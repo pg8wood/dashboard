@@ -11,15 +11,41 @@ import UIKit
 
 extension UIControl {
     
-    // TODO: Does this work properly for more than 1 instance of UIControl?
     private struct Storage {
+        // TODO: use associated objects for gaze began and gaze moved dates to allow for different values
+        // for different instances
         static var _gazeBeganDate: Date? = nil
+        static var _lastGazeMovedDate: Date? = nil
+        static var _gazeMovedDelay: TimeInterval = 1
+        static var _gazeMovedFrequency: TimeInterval = 0.5
     }
-    var gazeBeganDate: Date? {
+    private var gazeBeganDate: Date? {
         get {
             Storage._gazeBeganDate
         } set {
             Storage._gazeBeganDate = newValue
+        }
+    }
+    private var lastGazeMovedDate: Date? {
+        get {
+            Storage._lastGazeMovedDate
+        } set {
+            Storage._lastGazeMovedDate = newValue
+        }
+    }
+    var gazeMovedDelay: TimeInterval {
+        get {
+            Storage._gazeMovedDelay
+        } set {
+            Storage._gazeMovedDelay = newValue
+        }
+    }
+    var gazeMovedFrequency: TimeInterval? {
+        get {
+            return objc_getAssociatedObject(self, &Storage._gazeMovedFrequency) as? TimeInterval
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &Storage._gazeMovedFrequency, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -32,34 +58,37 @@ extension UIControl {
         
         isHighlighted = true
         gazeBeganDate = Date()
-//        gazeMovedDate = Date()
+        lastGazeMovedDate = gazeBeganDate
     }
     
     override func gazeMoved(_ gaze: UIHeadGaze, with event: UIHeadGazeEvent?) {
         super.gazeMoved(gaze, with: event)
         
-//        if let gazeMovedDate = self.gazeMovedDate {
-//            let timeElapsed = Date().timeIntervalSince(gazeMovedDate)
-//            // TODO move this magic number to a more configurable location
-//            if timeElapsed >= gazeMovedDelay {
-//                sendActions(for: .gazeMoveInside)
-//
-//                self.gazeMovedDate = Date()
-//            }
-//        }
-        
         guard let beganDate = gazeBeganDate else {
             return
         }
 
-        let timeElapsed = Date().timeIntervalSince(beganDate)
-        if timeElapsed >= gaze.selectionHoldDuration {
+        let now = Date()
+        
+        let timeSinceGazeBegan = now.timeIntervalSince(beganDate)
+        
+        if timeSinceGazeBegan >= gazeMovedDelay,
+            let lastGazeMovedDate = lastGazeMovedDate,
+            let gazeMovedFrequency = gazeMovedFrequency,
+            now.timeIntervalSince(lastGazeMovedDate) >= gazeMovedFrequency {
+            gazeMovedInside()
+            self.lastGazeMovedDate = now
+        }
+        
+        if timeSinceGazeBegan >= gaze.selectionHoldDuration, !isSelected {
             isSelected = true
-            gazeBeganDate = nil
             (self.window as? HeadGazeWindow)?.animateCursorSelection()
             didSelectFromGaze()
         }
     }
+    
+    /// No-op.  UIControl subclasses should override this function for custom behavior.
+    @objc func gazeMovedInside() { }
     
     /// Simulates a touch event.  UIControl subclasses should override this function for custom behavior.
     @objc func didSelectFromGaze() {
@@ -68,14 +97,17 @@ extension UIControl {
     
     override func gazeEnded(_ gaze: UIHeadGaze, with event: UIHeadGazeEvent?) {
         super.gazeEnded(gaze, with: event)
+        print("gaze ended")
         
         gazeBeganDate = nil
+        lastGazeMovedDate = nil
         isSelected = false
         isHighlighted = false
     }
     
     override func gazeCancelled(_ gaze: UIHeadGaze, with event: UIHeadGazeEvent?) {
         super.gazeCancelled(gaze, with: event)
+        print("gaze cancelled")
         isHighlighted = false
         isSelected = false
         gazeBeganDate = .distantFuture
@@ -106,7 +138,7 @@ extension UISegmentedControl {
 }
 
 extension UISlider {
-    @objc override func didSelectFromGaze() {
+    @objc override func gazeMovedInside() {
         guard value != maximumValue else {
             setValue(0, animated: true)
             return
@@ -115,4 +147,3 @@ extension UISlider {
         setValue(value + 1, animated: true)
     }
 }
-

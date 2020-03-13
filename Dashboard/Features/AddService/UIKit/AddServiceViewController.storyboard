@@ -64,30 +64,30 @@
                                     <constraint firstAttribute="height" constant="125" id="kkX-nv-qX5"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-eQ-CRi">
-                                <rect key="frame" x="0.0" y="211" width="375" height="517"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DMo-eQ-CRi">
+                                <rect key="frame" x="0.0" y="211" width="375" height="235"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-eU-qc6">
-                                        <rect key="frame" x="131" y="0.0" width="113" height="84"/>
+                                        <rect key="frame" x="131" y="0.0" width="113" height="31"/>
                                         <state key="normal" title="Gazeable button"/>
                                         <connections>
                                             <action selector="gazeTestButtonSelected:" destination="dyp-ae-97u" eventType="primaryActionTriggered" id="PDP-fS-Ott"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16Z-aB-a1F">
-                                        <rect key="frame" x="163" y="92" width="51" height="86.333333333333314"/>
-                                    </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-iT-OQB">
-                                        <rect key="frame" x="163" y="186.33333333333331" width="51" height="86.666666666666686"/>
-                                    </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Lx-Bye">
-                                        <rect key="frame" x="60.666666666666657" y="281" width="253.99999999999997" height="129"/>
+                                        <rect key="frame" x="60.666666666666657" y="51" width="253.99999999999997" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="WR6-Sh-Nqi"/>
                                         </constraints>
                                     </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="t1k-8y-evZ">
+                                        <rect key="frame" x="126.66666666666666" y="102" width="122" height="32"/>
+                                    </slider>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-iT-OQB">
+                                        <rect key="frame" x="163" y="153" width="51" height="31"/>
+                                    </switch>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8mS-zy-fRb">
-                                        <rect key="frame" x="62.666666666666657" y="417" width="249.99999999999997" height="101"/>
+                                        <rect key="frame" x="62.666666666666657" y="204" width="249.99999999999997" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Udv-VA-8V9"/>
                                             <constraint firstAttribute="width" constant="250" id="jrr-RJ-hb9"/>
@@ -103,6 +103,9 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="t1k-8y-evZ" firstAttribute="width" secondItem="vzb-Lx-Bye" secondAttribute="width" multiplier="0.472" id="4Gk-YT-mW7"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -120,9 +123,11 @@
                     <connections>
                         <outlet property="logoImageContainer" destination="UUs-ow-R4P" id="NW6-rz-a3C"/>
                         <outlet property="logoImageView" destination="8zx-5H-8yK" id="UTr-I8-ykq"/>
+                        <outlet property="middleSlider" destination="t1k-8y-evZ" id="64I-VE-tAF"/>
                         <outlet property="nameTextField" destination="psI-iQ-z7E" id="H3V-Lb-Njx"/>
                         <outlet property="segmentedControl" destination="8mS-zy-fRb" id="jwl-5r-Czp"/>
                         <outlet property="serviceUrlTextField" destination="CsI-sV-SYL" id="koD-hd-2iU"/>
+                        <outlet property="topSlider" destination="vzb-Lx-Bye" id="nt2-9l-KCI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msO-sV-e5x" userLabel="First Responder" sceneMemberID="firstResponder"/>

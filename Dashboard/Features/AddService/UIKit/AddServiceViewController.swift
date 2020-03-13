@@ -26,6 +26,8 @@ class AddServiceViewController: UIViewController {
     @IBAction func gazeTestButtonSelected(_ sender: Any) {
         print("button selected")
     }
+    @IBOutlet weak var topSlider: UISlider!
+    @IBOutlet weak var middleSlider: UISlider!
     
     @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
 //        alertGazeWorked()
@@ -39,7 +41,8 @@ class AddServiceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        topSlider.gazeMovedFrequency = 1
+        middleSlider.gazeMovedFrequency = 0.1
     }
     
     
