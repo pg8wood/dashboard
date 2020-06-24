@@ -19,10 +19,17 @@ struct ServiceRow: View {
     @State private var hasAppeared = false
     @State private var disposables = Set<AnyCancellable>()
     @State private var serverResponse: Result<Int, URLError> = .failure(URLError(.unknown))
+    @State private var lastResponseTime: TimeInterval?
     
     @ObservedObject var service: ServiceModel
     
     private let accessoryViewWidth: CGFloat = 80
+    
+    private var responseLabelText: String {
+        guard let responseTime = lastResponseTime else { return "" }
+        
+        return "\(Int(responseTime * 1000)) ms"
+    }
     
     // AnyView type-erasure: https://www.hackingwithswift.com/quick-start/swiftui/how-to-return-different-view-types
     private var accessoryView: AnyView {
@@ -38,10 +45,10 @@ struct ServiceRow: View {
     
     private var statusView: AnyView {
         
-        func errorView(message: String) -> AnyView {
+        func statusMessageView(image: Image, message: String) -> AnyView {
             return AnyView(
                 VStack(spacing: 10) {
-                    accessoryImage(from: Image(systemName: "exclamationmark.circle.fill"))
+                    accessoryImage(from: image)
                     
                     if $settings.showErrorCodes.wrappedValue == true {
                         Text(message)
@@ -57,12 +64,12 @@ struct ServiceRow: View {
         switch serverResponse {
         case .success(let statusCode):
             guard statusCode == 200 else {
-                return errorView(message: "\(statusCode)")
+                return statusMessageView(image: Image(systemName: "exclamationmark.circle.fill"), message: "\(statusCode)")
             }
             
-            return AnyView(accessoryImage(from: Image("check")))
+            return statusMessageView(image: Image("check"), message: self.responseLabelText)
         case .failure(let error):
-            return errorView(message: error.shortLocalizedDescription)
+            return statusMessageView(image: Image(systemName: "exclamationmark.circle.fill"), message: error.shortLocalizedDescription)
         }
     }
     
@@ -136,10 +143,11 @@ struct ServiceRow: View {
     }
     
     private func finishLoading(startingDate: Date) {
-        let requestEndDate = Date()
-        let timeSpentLoading = Calendar.current.dateComponents([.second], from: startingDate, to: requestEndDate).second ?? 0
-        let minimumLoadingTime = 0.5 // seconds
-        let secondsToContinueLoading = abs(minimumLoadingTime - Double(timeSpentLoading))
+        let timeSpentLoading = Date().timeIntervalSince(startingDate)
+        let minimumLoadingTime: TimeInterval = 0.5
+        let secondsToContinueLoading = abs(minimumLoadingTime - timeSpentLoading)
+        self.lastResponseTime = timeSpentLoading
+        print("starting date: \(startingDate), time spent loading: \(timeSpentLoading)")
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + secondsToContinueLoading) {
             self.isLoading = false
@@ -154,3 +162,5 @@ struct ServiceRow: View {
 //    }
 //}
 //#endif
+
+
