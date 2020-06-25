@@ -76,7 +76,7 @@ struct ServiceListView: View {
     
     private func serviceSection(_ fetchedServices: [ServiceModel]) -> some View {
         ForEach(fetchedServices) { service in
-            ServiceRow(service: service)
+            ServiceRow(name: service.name, image: service.image, url: service.url)
                 /* Note that the environment modifier must go before these other modifiers,
                  otherwise only the modifer will get the environment object. The order matters! */
                 .environment(\.editMode, self.$editMode)
