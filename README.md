@@ -1,4 +1,8 @@
 # Dashboard iOS
+
+| This project served as a great into to the old pre-iOS 14 Today widgets and SwiftUI 1.0. It no longer serves as a good example of a SwiftUI project, but all the UIKit stuff should still be solid. The project is no longer maintained. |
+| --- |
+
 > Monitors the status of my web apps
 
 <div align=center>
